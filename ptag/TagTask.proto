@@ -3,5 +3,6 @@ syntax = "proto3";
 message TagTask {
     string taskId = 1;
     string path = 2;
-    string timestamp = 3;
+    string pattern = 3;
+    string timestamp = 4;
 };
