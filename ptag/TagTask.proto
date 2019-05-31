@@ -2,7 +2,7 @@ syntax = "proto3";
 
 message TagTask {
     string taskId = 1;
-    string path = 2;
+    string data = 2;
     string pattern = 3;
     string timestamp = 4;
     string clientId = 5;
