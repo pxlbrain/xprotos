@@ -5,4 +5,5 @@ message TagTask {
     string path = 2;
     string pattern = 3;
     string timestamp = 4;
+    string clientId = 5;
 };
