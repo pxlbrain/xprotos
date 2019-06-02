@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+message TagTask {
+    string startedAt = 1;
+    string name = 2;
+    int64 receivedUnits = 3;
+    int64 processedUnits = 4;
+    int64 errorUnits = 5;
+};
