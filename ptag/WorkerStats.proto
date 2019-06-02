@@ -6,4 +6,7 @@ message WorkerStats {
     int64 receivedUnits = 3;
     int64 processedUnits = 4;
     int64 errorUnits = 5;
+
+    int64 processingHistoryLimit = 6;
+    repeated float processingTimeHistory = 7;
 };
