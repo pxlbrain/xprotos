@@ -2,11 +2,12 @@ syntax = "proto3";
 
 message WorkerStats {
     string startedAt = 1;
-    string name = 2;
-    int64 receivedUnits = 3;
-    int64 processedUnits = 4;
-    int64 errorUnits = 5;
+    string timestamp = 2;
+    string name = 3;
+    int64 receivedUnits = 4;
+    int64 processedUnits = 5;
+    int64 errorUnits = 6;
 
-    int64 processingHistoryLimit = 6;
-    repeated float processingTimeHistory = 7;
+    int64 processingHistoryLimit = 7;
+    repeated float processingTimeHistory = 8;
 };
