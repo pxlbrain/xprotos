@@ -1,0 +1,11 @@
+syntax = "proto3";
+package ptag;
+
+import "VFSObject.proto";
+
+service VFSService {
+    rpc GetTags(VFSRequest) returns (VFResponseStructure) {};
+    rpc DeleteTags(VFSRequest) returns (VFResponseStructure) {};
+    rpc CreateTags(VFSRequest) returns (VFResponseStructure) {};
+};
+

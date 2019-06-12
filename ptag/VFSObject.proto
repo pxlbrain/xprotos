@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+ import "google/protobuf/struct.proto";
+
+
+message VFSObject {
+    string _id = 1;
+    map<string, google.protobuf.Any> data = 2;
+};
+
+message VFSObjects {
+    repeated VFSObject objects = 1;
+};
+
+message VFSTagType {
+    string tag = 1;
+    string type = 2;
+};
+
+message VFSTagTypes {
+    repeated VFSTagType definitions = 1;
+};
+
+message VFSTag  {
+    google.protobuf.Struct fields = 1;
+};
+
+message VFSTags {
+    repeated VFSTag data = 1;
+};
+
+message VFSError {
+    string msg = 1;
+};
+
+message VFResponseStructure {
+    oneof data {
+        VFSObjects vfsObjects = 1;
+        VFSObject vfsObject =2;
+        VFSTags tags = 3;
+        VFSTag tag = 4;
+        VFSError error = 5;
+        string message = 6;
+    }
+    int64 count = 7;
+    string next = 8;
+};
+
+message VFSRequestFilter {
+    string filter = 2;
+    int64 limit = 3;
+    bool includeCount = 4;
+    string next = 5;
+};
+
+message VFSRequest {
+    string client = 1;
+    oneof data {
+        string message = 2;
+        VFSTagTypes tags = 3;
+
+    };
+    VFSRequestFilter filter = 4;
+};
