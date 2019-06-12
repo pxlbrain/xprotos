@@ -1,12 +1,11 @@
 syntax = "proto3";
 
-import "google/protobuf/any.proto";
- import "google/protobuf/struct.proto";
+// import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
 
 
 message VFSObject {
-    string _id = 1;
-    map<string, google.protobuf.Any> data = 2;
+    google.protobuf.Struct data = 1;
 };
 
 message VFSObjects {
@@ -49,7 +48,7 @@ message VFResponseStructure {
 
 message VFSRequestFilter {
     string filter = 2;
-    int64 limit = 3;
+    int32 limit = 3;
     bool includeCount = 4;
     string next = 5;
 };
