@@ -17,6 +17,11 @@ message VFSTagType {
     string type = 2;
 };
 
+message VFSTagValue {
+    map<string, string> map = 1;
+};
+
+
 message VFSTagTypes {
     repeated VFSTagType definitions = 1;
 };
@@ -55,10 +60,10 @@ message VFSRequestFilter {
 
 message VFSRequest {
     string client = 1;
+    string message = 2;
     oneof data {
-        string message = 2;
         VFSTagTypes tags = 3;
-
+        VFSTagValue tagValue = 4;
     };
-    VFSRequestFilter filter = 4;
+    VFSRequestFilter filter = 5;
 };
