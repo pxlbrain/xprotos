@@ -1,4 +1,5 @@
 syntax = "proto3";
+package ptag;
 
 message TagTask {
     string taskId = 1;

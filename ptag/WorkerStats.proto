@@ -1,4 +1,5 @@
 syntax = "proto3";
+package ptag;
 
 message WorkerStats {
     string startedAt = 1;
