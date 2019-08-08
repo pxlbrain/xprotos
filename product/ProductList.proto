@@ -5,6 +5,7 @@ option java_package = "ai.pixlbrain.backend";
 package ai.pixlbrain.backend;
 
 import "product/Product.proto";
+import "inventory/Void.proto";
 
 service ProductListService {
   rpc CreateProductList (ProductList) returns (ProductList) {
@@ -22,7 +23,6 @@ service ProductListService {
 message ProductList {
   string id = 1;
   string name = 2;
-  repeated string productIds = 3;
   bool active = 4;
   string created = 5;
   string updated = 6;

@@ -4,13 +4,10 @@ option java_package = "ai.pixlbrain.backend";
 
 package ai.pixlbrain.backend;
 
-import "product/Product.proto";
+import "inventory/Location.proto";
+import "inventory/Void.proto";
 
 service LocationProductService {
   rpc AddLocation (LocationId) returns (Void) {
   }
-}
-
-message LocationId {
-  string id = 1;
 }
