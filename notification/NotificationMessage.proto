@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend;
+
+import "notification/NotificationCommon.proto";
+import "inventory/Void.proto";
+
+service NotificationMessageProto {
+  rpc CreateNotificationMessage (NotificationMessageRequest) returns (NotificationMessage) {
+  }
+  rpc DeleteNotificationMessage (MessageId) returns (Void) {
+  }
+}
