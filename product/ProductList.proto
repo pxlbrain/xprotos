@@ -1,0 +1,33 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+package ai.pixlbrain.backend;
+
+import "product/Product.proto";
+
+service ProductListService {
+  rpc CreateProductList (ProductList) returns (ProductList) {
+  }
+  rpc UpdateProductList (ProductList) returns (ProductList) {
+  }
+  rpc DeleteProductList (ProductListId) returns (Void) {
+  }
+  rpc GetProductList (ProductListId) returns (ProductList) {
+  }
+  rpc GetAllProductLists (Void) returns (ProductLists) {
+  }
+}
+
+message ProductList {
+  string id = 1;
+  string name = 2;
+  repeated string productIds = 3;
+  bool active = 4;
+  string created = 5;
+  string updated = 6;
+}
+
+message ProductLists {
+  repeated ProductList productList = 1;
+}

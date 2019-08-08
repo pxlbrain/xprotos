@@ -1,0 +1,98 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+package ai.pixlbrain.backend;
+
+import "google/protobuf/wrappers.proto";
+import "inventory/Void.proto";
+
+service ProductService {
+  rpc CreateProduct (Product) returns (Product) {
+  }
+  rpc UpdateProduct (Product) returns (Product) {
+  }
+  rpc DeleteProduct (ProductId) returns (Void) {
+  }
+  rpc GetProduct (ProductId) returns (Product) {
+  }
+  rpc GetAllProducts (Void) returns (Products) {
+  }
+  rpc GetProductsFromList (ProductListId) returns (Products) {
+  }
+  rpc AddProductsToList (ProductsAndProductList) returns (Void) {
+  }
+  rpc RemoveProductsFromList (ProductsAndProductList) returns (Void) {
+  }
+  rpc GetProductsInRange (DateRange) returns (Products) {
+  }
+  rpc GetProductsByStatus (Status) returns (Products) {
+  }
+  rpc GetProductsByCategory (Category) returns (Products) {
+  }
+}
+
+message Product {
+  string id = 1;
+  string name = 2;
+  string dateTo = 3;
+  string dateFrom = 4;
+  bool status = 5;
+  string created = 6;
+  string updated = 7;
+  string ean = 8;
+  string category = 9;
+}
+
+message Products {
+  repeated Product products = 1;
+}
+
+message ProductId {
+  string id = 1;
+}
+
+message ProductsAndProductList {
+  repeated string productId = 1;
+  string productListId = 2;
+}
+
+message ProductListId {
+  string id = 1;
+}
+
+message DateRange {
+  string dateFrom = 1;
+  string dateTo = 2;
+}
+
+message Status {
+  bool status = 1;
+}
+
+message Category {
+  string name = 1;
+}
+
+message GRPCGetRequest {
+  repeated GRPCFilter filter = 1;
+  GRPCPaging paging = 2;
+  GRPCSorting sorting = 3;
+}
+
+message GRPCFilter {
+  string field = 1;
+  google.protobuf.StringValue stringValue = 2;
+  google.protobuf.Int32Value intValue = 3;
+  google.protobuf.BoolValue boolValue = 4;
+}
+
+message GRPCPaging {
+  int32 page = 1;
+  int32 size = 2;
+}
+
+message GRPCSorting {
+ string field = 1;
+ string order = 2;
+}
