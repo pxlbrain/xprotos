@@ -1,0 +1,39 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+import "model/Training.proto";
+import "inventory/Void.proto";
+
+package ai.pixlbrain.backend;
+
+service JobService {
+  rpc CreateJobs (ProductIds) returns (StoreListId) {
+  }
+  rpc UpdateJobStatus (StatusRequest) returns (Void) {}
+  rpc GetByStoreListId (StoreListId) returns (JobResponses) {}
+}
+
+message StoreListId {
+ string id = 1;
+}
+
+
+message StatusRequest {
+  string id = 1;
+  string status = 2;
+}
+
+message ProductIds {
+  repeated string ids = 1;
+}
+
+message JobResponse {
+  string id = 1;
+  string productId = 2;
+  string status = 3;
+}
+
+message JobResponses {
+ repeated JobResponse jobResponse = 1;
+}

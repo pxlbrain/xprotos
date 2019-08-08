@@ -1,5 +1,5 @@
 syntax = "proto3";
-package ptag;
+package ai.pixlbrain.backend;
 
 message TagTask {
     string taskId = 1;
