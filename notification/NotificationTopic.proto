@@ -10,6 +10,8 @@ service NotificationTopicProto {
   }
   rpc DeleteNotificationTopic (TopicId) returns (Void) {
   }
+  rpc FindNotificationTopic (TopicId) returns (NotificationTopic) {
+  }
   rpc FindAllNotificationTopics (Void) returns (NotificationTopics) {
   }
 }
