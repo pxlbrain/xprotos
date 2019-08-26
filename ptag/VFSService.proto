@@ -1,7 +1,7 @@
 syntax = "proto3";
 package ai.pixlbrain.backend;
 
-import "ptag/VFSObject.proto";
+import "VFSObject.proto";
 
 service VFSTagService {
     rpc GetTags(VFSRequest) returns (VFResponseStructure) {};
@@ -15,4 +15,5 @@ service VFSFileService {
     rpc GetFiles(VFSRequest) returns (VFResponseStructure) {};
     rpc DeleteFiles(VFSRequest) returns (VFResponseStructure) {};
     rpc UpdateFile(VFSRequest) returns (VFResponseStructure) {};
+    rpc AutoComplete(VFSRequest) returns (AutoCompleteStructure){};
 };

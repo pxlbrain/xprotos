@@ -9,6 +9,14 @@ message VFSObject {
     google.protobuf.Struct data = 1;
 };
 
+message ACTagValue {
+    string tagValue = 1;
+};
+
+message ACTagValues {
+    repeated ACTagValue objects = 1;
+};
+
 message VFSObjects {
     repeated VFSObject objects = 1;
 };
@@ -67,4 +75,15 @@ message VFSRequest {
         VFSTagValue tagValue = 4;
     };
     VFSRequestFilter filter = 5;
+};
+
+message AutoCompleteStructure{
+    oneof data {
+        ACTagValue tag = 1;
+        ACTagValues tags = 2;
+        VFSError error = 3;
+        string message = 4;
+    };
+    int64 count = 5;
+    string next = 6;
 };
