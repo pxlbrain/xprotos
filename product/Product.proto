@@ -30,6 +30,8 @@ service ProductService {
   }
   rpc GetProductsByCategory (Category) returns (Products) {
   }
+  rpc GetProducts (GRPCGetRequest) returns (Products) {
+  }
 }
 
 message Product {
@@ -75,16 +77,14 @@ message Category {
 }
 
 message GRPCGetRequest {
-  repeated GRPCFilter filter = 1;
-  GRPCPaging paging = 2;
-  GRPCSorting sorting = 3;
+  repeated string locationIds = 1;
+  repeated GRPCFilter filter = 2;
+  GRPCPaging paging = 3;
 }
 
 message GRPCFilter {
   string field = 1;
-  google.protobuf.StringValue stringValue = 2;
-  google.protobuf.Int32Value intValue = 3;
-  google.protobuf.BoolValue boolValue = 4;
+  string value = 2;
 }
 
 message GRPCPaging {
@@ -96,3 +96,4 @@ message GRPCSorting {
  string field = 1;
  string order = 2;
 }
+
