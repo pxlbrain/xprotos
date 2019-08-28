@@ -34,14 +34,14 @@ service ProductService {
 
 message Product {
   string id = 1;
-  string name = 2;
-  string dateTo = 3;
-  string dateFrom = 4;
-  bool status = 5;
-  string created = 6;
-  string updated = 7;
-  string ean = 8;
-  string category = 9;
+  string created = 2;
+  string updated = 3;
+  string productId = 4;
+  string name = 5;
+  string category = 6;
+  string subCategory = 7;
+  string status = 8;
+  string ean = 9;
 }
 
 message Products {
