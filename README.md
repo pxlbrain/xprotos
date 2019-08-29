@@ -1,2 +1,2 @@
-# xprotos ()
+# xprotos
 Protocol Buffers
