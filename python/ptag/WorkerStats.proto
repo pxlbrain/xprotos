@@ -1,0 +1,14 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+message WorkerStats {
+    string startedAt = 1;
+    string timestamp = 2;
+    string name = 3;
+    int64 receivedUnits = 4;
+    int64 processedUnits = 5;
+    int64 errorUnits = 6;
+
+    int64 processingHistoryLimit = 7;
+    repeated float processingTimeHistory = 8;
+};

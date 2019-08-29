@@ -1,0 +1,21 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+import "model/Training.proto";
+import "inventory/Void.proto";
+
+package ai.pixlbrain.backend;
+
+service CVATService{
+  rpc Register(Void) returns (Void) {}
+  rpc Login (Void) returns (Void) {}
+  rpc GetCsrf(Void) returns (Void) {}
+  rpc GetTasks(Void) returns (Void) {}
+  rpc GetJob (Void) returns (Void) {}
+  rpc AssignJobToUser(Void) returns (Void) {}
+  rpc CreateTask (Void) returns (Void) {}
+  rpc SendLinks(Void) returns (Void) {}
+  rpc GetDownloadStatus (Void) returns (Void) {}
+  rpc GetUserInfo(Void) returns (Void) {}
+}
