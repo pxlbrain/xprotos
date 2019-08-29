@@ -69,7 +69,7 @@ message DateRange {
 }
 
 message Status {
-  bool status = 1;
+  string status = 1;
 }
 
 message Category {
