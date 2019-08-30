@@ -8,9 +8,9 @@ import "google/protobuf/wrappers.proto";
 import "inventory/Void.proto";
 
 service ProductService {
-  rpc CreateProduct (Product) returns (Product) {
+  rpc CreateProduct (GRPCProductRequest) returns (Product) {
   }
-  rpc UpdateProduct (Product) returns (Product) {
+  rpc UpdateProduct (GRPCProductRequest) returns (Product) {
   }
   rpc DeleteProduct (ProductId) returns (Void) {
   }
@@ -30,8 +30,20 @@ service ProductService {
   }
   rpc GetProductsByCategory (Category) returns (Products) {
   }
-  rpc GetProducts (GRPCGetRequest) returns (Products) {
+  rpc GetProducts (GRPCGetRequest) returns (GRPCProductResposne) {
   }
+}
+
+message GRPCProductRequest {
+  string locationId = 1;
+  Product product = 2;
+}
+
+message GRPCProductResposne {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated Product products = 4;
 }
 
 message Product {
@@ -93,7 +105,7 @@ message GRPCPaging {
 }
 
 message GRPCSorting {
- string field = 1;
- string order = 2;
+  string field = 1;
+  string order = 2;
 }
 
