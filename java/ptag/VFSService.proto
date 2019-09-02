@@ -17,3 +17,11 @@ service VFSFileService {
     rpc UpdateFile(VFSRequest) returns (VFResponseStructure) {};
     rpc AutoComplete(VFSRequest) returns (AutoCompleteStructure){};
 };
+
+
+service VFSFilterService {
+    rpc SaveFilter(VFSRequest) returns (VFResponseStructure) {};
+    rpc GetFilter(VFSRequest) returns (VFResponseStructure)  {};
+    rpc DeleteFilter(VFSRequest) returns (VFResponseStructure) {};
+    rpc UpdateFilter(VFSRequest) returns (VFResponseStructure) {};
+};
