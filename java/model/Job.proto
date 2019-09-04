@@ -2,7 +2,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 
-import "model/Training.proto";
 import "inventory/Void.proto";
 
 package ai.pixlbrain.backend;
@@ -15,7 +14,7 @@ service JobService {
 }
 
 message StoreListId {
- string id = 1;
+  string id = 1;
 }
 
 
@@ -35,5 +34,5 @@ message JobResponse {
 }
 
 message JobResponses {
- repeated JobResponse jobResponse = 1;
+  repeated JobResponse jobResponse = 1;
 }

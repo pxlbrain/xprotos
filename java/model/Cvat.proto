@@ -2,7 +2,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 
-import "model/Training.proto";
 import "inventory/Void.proto";
 
 package ai.pixlbrain.backend;
