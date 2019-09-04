@@ -1,7 +1,7 @@
 syntax  = "protot3";
 package ai.pixlbrain.backend;
 
-import "job/jobObject.proto";
+import "job/JobObject.proto";
 
 service JobService {
   rpc GetJobs(JobSearchRequest) returns (Jobs) {};

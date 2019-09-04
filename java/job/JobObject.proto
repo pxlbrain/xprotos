@@ -30,6 +30,6 @@ message ClientId {
 }
 
 message JobSearchRequest {
-  repeated GRPCFilter filter = 2;
-  GRPCPaging paging = 3;
+  repeated GRPCFilter filter = 1;
+  GRPCPaging paging = 2;
 }
