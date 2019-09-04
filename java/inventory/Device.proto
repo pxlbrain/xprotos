@@ -5,7 +5,6 @@ option java_package = "ai.pixlbrain.backend";
 package ai.pixlbrain.backend;
 
 import "inventory/Location.proto";
-import "inventory/Company.proto";
 import "inventory/Void.proto";
 
 service DeviceService {

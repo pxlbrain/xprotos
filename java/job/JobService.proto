@@ -1,9 +1,10 @@
-syntax  = "protot3";
+syntax  = "proto3";
 package ai.pixlbrain.backend;
 
 import "job/JobObject.proto";
+import "inventory/Void.proto";
 
-service JobService {
+service BackendJobService {
   rpc GetJobs(JobSearchRequest) returns (Jobs) {};
   rpc GetJobById(JobId) returns (Job) {};
   rpc GetJobByClient(ClientId) returns (Job) {};
