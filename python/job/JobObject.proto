@@ -1,0 +1,35 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "inventory/Void.proto";
+import "product/Product.proto";
+
+message JobId {
+  string id = 1;
+}
+
+message Jobs {
+  repeated Job jobs = 1;
+}
+
+message Job {
+  string id = 1;
+  string created =2;
+  string updated=3;
+  string startDate=4;
+  string endDate=5;
+  string assignedTo=6;
+  string filter=7;
+  string status=8;
+  string type=9;
+  string client=10;
+}
+
+message ClientId {
+  string id =1;
+}
+
+message JobSearchRequest {
+  repeated GRPCFilter filter = 1;
+  GRPCPaging paging = 2;
+}
