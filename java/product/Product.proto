@@ -32,6 +32,12 @@ service ProductService {
   }
   rpc GetProducts (GRPCGetRequest) returns (GRPCProductResposne) {
   }
+  rpc AddSideDishes (SideDishIds) returns (Void) {
+  }
+  rpc AddPlateItems (PlateItemIds) returns (Void) {
+  }
+  rpc AddMistakenProducts (MistakenProductIds) returns (Void) {
+  }
 }
 
 message GRPCProductRequest {
@@ -107,5 +113,20 @@ message GRPCPaging {
 message GRPCSorting {
   string field = 1;
   string order = 2;
+}
+
+message SideDishIds {
+  string productId = 1;
+  repeated string ids = 2;
+}
+
+message MistakenProductIds {
+  string productId = 1;
+  repeated string ids = 2;
+}
+
+message PlateItemIds {
+  string productId = 1;
+  repeated string ids = 2;
 }
 
