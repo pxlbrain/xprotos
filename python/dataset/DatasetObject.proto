@@ -1,0 +1,66 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+enum DatasetType {
+    DETECTOR = 0;
+    CLASSIFIER = 1;
+    MLC = 2;
+};
+
+message Error {
+    string message = 1;
+};
+
+message NewVersion {
+    string message = 1;
+    DatasetType datasetType = 2;
+    string version = 3;
+};
+
+message GetVersion {
+    string version = 1;
+    string message = 2;
+    string path = 3;
+    string createdAt = 4;
+    DatasetType datasetType = 5;
+};
+
+
+message Files {
+    repeated string path = 1;
+};
+
+message PTagFile {
+    string path = 1;
+    string productId = 2;
+    string name = 3;
+};
+
+message PTagFiles {
+    repeated PTagFile ptagFile = 1;
+};
+
+
+message CreateDataset {
+    string version = 1;
+
+    oneof data {
+        Files csvPaths = 2;
+        PTagFiles ptagFiles = 3;
+    };
+};
+
+message DatasetRequest {
+    oneof request {
+        NewVersion newVersion = 1;
+        GetVersion getVersion = 2;
+        CreateDataset createDataset = 3;
+    };
+};
+
+message DatasetResponse {
+    oneof response {
+        NewVersion newVersion = 1;
+        GetVersion getVersion = 2;
+    };
+};

@@ -1,0 +1,13 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "DatasetObject.proto";
+
+service VersionService {
+    rpc NewVersion(DatasetRequest) returns (DatasetResponse) {};
+    rpc GetVersion(DatasetRequest) returns (DatasetResponse) {};
+};
+
+service DatasetService {
+    rpc CreateDataset(DatasetRequest) returns (DatasetResponse) {};
+};
