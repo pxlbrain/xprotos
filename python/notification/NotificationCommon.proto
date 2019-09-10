@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend;
+
+message MessageIds {
+  repeated string messageId = 1;
+}
+
+message NotificationSubscriber {
+  string id = 1;
+  string created = 2;
+  string modified = 3;
+  string userId = 4;
+  bool isSubscribed = 5;
+  NotificationTopic topic = 6;
+}
+
+message NotificationMessage {
+  string id = 1;
+  string created = 2;
+  string modified = 3;
+  string message = 4;
+  NotificationTopic topic = 5;
+}
+
+message TopicId {
+  string id = 1;
+}
+
+message NotificationTopics {
+  repeated NotificationTopic topics = 1;
+}
+
+message NotificationTopic {
+  string id = 1;
+  string created = 2;
+  string modified = 3;
+  string name = 4;
+  string description = 5;
+}
+
+message NotificationTopicRequest {
+  string name = 1;
+  string description = 2;
+}
+
+message MessageId {
+  string id = 1;
+}
+
+message UserId {
+  string userId = 1;
+}
+
+message NotificationMessages {
+  repeated NotificationMessage messages = 1;
+}
+
+message UnsubscribeMessageRequest {
+  string userId = 1;
+  string topicId = 2;
+}
+
+
+message NotificationMessageRequest {
+  string topicId = 1;
+  string message = 2;
+  string userId = 3;
+}
+
+message OrganizationId {
+  string organizationId = 1;
+}
+
+message NotificationOrganization {
+  string id = 1;
+  string created = 2;
+  string modified = 3;
+  string organizationId = 4;
+  NotificationTopic topic = 5;
+}
+
+message NotificationOrganizationRequest {
+  string topicId = 1;
+  string organizationId = 2;
+}
+
+message NotificationSubscriberRequest {
+  string userId = 1;
+  string topicId = 2;
+}
+
+message NotificationSubscriberMessageRequest {
+  string notificationMessageId = 1;
+  string notificationSubscriberId = 2;
+}
+
+message NotificationSubscriberMessage {
+  string id = 1;
+  string created = 2;
+  string modified = 3;
+  bool isRead = 4;
+  NotificationSubscriber notificationSubscriber = 5;
+  NotificationMessage notificationMessage = 6;
+}

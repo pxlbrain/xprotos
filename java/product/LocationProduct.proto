@@ -1,0 +1,13 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+package ai.pixlbrain.backend;
+
+import "inventory/InventoryObject.proto";
+import "inventory/Void.proto";
+
+service LocationProductService {
+  rpc AddLocation (LocationId) returns (Void) {
+  }
+}

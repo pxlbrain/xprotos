@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend;
+import "inventory/Void.proto";
+
+service TransactionService {
+  rpc CreateTransaction (Transaction) returns (Transaction) {}
+  rpc DeleteTransaction (TransactionId) returns (Void) {}
+  rpc GetTransaction (TransactionId) returns (Transaction) {}
+  rpc GetAllTransactions (TransactionRequest) returns (Transactions) {}
+}
+
+message Transaction {
+  string id = 1;
+  string transactionStatus = 2;
+  string transactionStartTime = 3;
+  string transactionEndTime = 4;
+  string totalPrice = 5;
+  string trayziId = 6;
+  string globalUid = 7;
+  string paymentType = 8;
+  string paymentId = 9;
+  string paymentStatus = 10;
+  string location_id = 11;
+}
+
+message QueryParam {
+  string fieldName = 1;
+  string operator = 2;
+  string value = 3;
+}
+
+message TransactionRequest {
+  repeated QueryParam QueryParams = 1;
+  int32 pageNumber = 2;
+  int32 numberOfItemsPerPage = 3;
+}
+
+message Transactions {
+  repeated Transaction transactions = 1;
+}
+
+message TransactionId {
+  string id = 1;
+}
+

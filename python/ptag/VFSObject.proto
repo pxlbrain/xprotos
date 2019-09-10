@@ -73,8 +73,9 @@ message VFSRequest {
     oneof data {
         VFSTagTypes tags = 3;
         VFSTagValue tagValue = 4;
+        string payload = 5;
     };
-    VFSRequestFilter filter = 5;
+    VFSRequestFilter filter = 6;
 };
 
 message AutoCompleteStructure{

@@ -1,0 +1,90 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+// import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+
+message VFSObject {
+    google.protobuf.Struct data = 1;
+};
+
+message ACTagValue {
+    string tagValue = 1;
+};
+
+message ACTagValues {
+    repeated ACTagValue objects = 1;
+};
+
+message VFSObjects {
+    repeated VFSObject objects = 1;
+};
+
+message VFSTagType {
+    string tag = 1;
+    string type = 2;
+};
+
+message VFSTagValue {
+    map<string, string> map = 1;
+};
+
+
+message VFSTagTypes {
+    repeated VFSTagType definitions = 1;
+};
+
+message VFSTag  {
+    google.protobuf.Struct fields = 1;
+};
+
+message VFSTags {
+    repeated VFSTag data = 1;
+};
+
+message VFSError {
+    string msg = 1;
+};
+
+message VFResponseStructure {
+    oneof data {
+        VFSObjects vfsObjects = 1;
+        VFSObject vfsObject =2;
+        VFSTags tags = 3;
+        VFSTag tag = 4;
+        VFSError error = 5;
+        string message = 6;
+    }
+    int64 count = 7;
+    string next = 8;
+};
+
+message VFSRequestFilter {
+    string filter = 2;
+    int32 limit = 3;
+    bool includeCount = 4;
+    string next = 5;
+};
+
+message VFSRequest {
+    string client = 1;
+    string message = 2;
+    oneof data {
+        VFSTagTypes tags = 3;
+        VFSTagValue tagValue = 4;
+        string payload = 5;
+    };
+    VFSRequestFilter filter = 6;
+};
+
+message AutoCompleteStructure{
+    oneof data {
+        ACTagValue tag = 1;
+        ACTagValues tags = 2;
+        VFSError error = 3;
+        string message = 4;
+    };
+    int64 count = 5;
+    string next = 6;
+};

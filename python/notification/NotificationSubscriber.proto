@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend;
+
+import "notification/NotificationCommon.proto";
+import "inventory/Void.proto";
+
+service NotificationSubscriberProto {
+  rpc UnsubscribeTopic (UnsubscribeMessageRequest) returns (Void) {
+  }
+  rpc CreateNotificationSubscriber (NotificationSubscriberRequest) returns (NotificationSubscriber) {
+  }
+  rpc GetNotificationSubscriber (NotificationSubscriberRequest) returns (NotificationSubscriber) {
+  }
+}
