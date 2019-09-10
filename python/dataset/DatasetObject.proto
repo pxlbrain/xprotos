@@ -43,10 +43,10 @@ message PTagFiles {
 
 message CreateDataset {
     string version = 1;
-
+    repeated string labels = 2;
     oneof data {
-        Files csvPaths = 2;
-        PTagFiles ptagFiles = 3;
+        Files csvPaths = 3;
+        PTagFiles ptagFiles = 4;
     };
 };
 
