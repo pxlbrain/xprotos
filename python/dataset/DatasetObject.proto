@@ -25,6 +25,10 @@ message GetVersion {
     DatasetType datasetType = 5;
 };
 
+message DatasetSplit {
+    int32 train = 1;
+    int32 test = 2;
+};
 
 message Files {
     repeated string path = 1;
@@ -44,9 +48,10 @@ message PTagFiles {
 message CreateDataset {
     string version = 1;
     repeated string labels = 2;
+    DatasetSplit split = 3;
     oneof data {
-        Files csvPaths = 3;
-        PTagFiles ptagFiles = 4;
+        Files csvPaths = 4;
+        PTagFiles ptagFiles = 5;
     };
 };
 
