@@ -10,4 +10,5 @@ service VersionService {
 
 service DatasetService {
     rpc CreateDataset(DatasetRequest) returns (DatasetResponse) {};
+    rpc ListenDatasetStatus(DatasetRequest) returns (stream DatasetResponse) {};
 };

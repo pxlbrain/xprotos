@@ -55,11 +55,27 @@ message CreateDataset {
     };
 };
 
+
+message Job {
+    string id = 1;
+    string status = 2;
+    string type = 3;
+    string meta = 4;
+};
+
+message DatasetStatus {
+    string version = 1;
+    string status = 2;
+    string type = 3;
+    Job job = 4;
+};
+
 message DatasetRequest {
     oneof request {
         NewVersion newVersion = 1;
         GetVersion getVersion = 2;
         CreateDataset createDataset = 3;
+        DatasetStatus datasetStatus = 4;
     };
 };
 
@@ -67,5 +83,6 @@ message DatasetResponse {
     oneof response {
         NewVersion newVersion = 1;
         GetVersion getVersion = 2;
+        DatasetStatus datasetStatus = 3;
     };
 };
