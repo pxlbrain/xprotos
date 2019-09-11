@@ -60,14 +60,21 @@ message Job {
     string id = 1;
     string status = 2;
     string type = 3;
-    string meta = 4;
+};
+
+message JobMeta {
+    string request = 1;
+    string status = 2;
+    string type = 3;
+    int32 numberOfFiles = 4;
+    repeated Job jobs = 5;
 };
 
 message DatasetStatus {
     string version = 1;
-    string status = 2;
+    string path = 2;
     string type = 3;
-    Job job = 4;
+    repeated JobMeta meta = 4;
 };
 
 message DatasetRequest {
