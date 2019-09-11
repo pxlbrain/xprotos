@@ -4,17 +4,21 @@ package ai.pixlbrain.backend;
 option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 
+import "product/Product.proto";
+
 message Device {
   string id = 1;
   string description = 2;
   string productionDate = 3;
   string locationId = 4;
-  string created = 5;
-  string updated = 6;
-  string deviceId = 7;
-  string status = 8;
-  string cameraLink = 9;
-  string scoId = 10;
+  string locationName = 5;
+  string created = 6;
+  string updated = 7;
+  string deviceId = 8;
+  string status = 9;
+  string cameraLink = 10;
+  string scoId = 11;
+  string scoName = 12;
 }
 
 message DeviceId {
@@ -29,10 +33,9 @@ message Company {
   string id = 1;
   string name = 2;
   string address = 3;
-  repeated Location locations = 4;
-  repeated Region regions = 5;
-  string created = 6;
-  string updated = 7;
+  repeated Region regions = 4;
+  string created = 5;
+  string updated = 6;
 }
 
 message Companies {
@@ -47,8 +50,8 @@ message Location {
   string id = 1;
   string name = 2;
   string address = 3;
-  string companyId = 4;
-  string regionId = 5;
+  string regionId = 4;
+  string regionName = 5;
   repeated Device devices = 6;
   repeated SCO SCOs = 7;
   string created = 8;
@@ -58,7 +61,7 @@ message Location {
 message Region {
   string id = 1;
   string name = 2;
-  int64 companyId = 3;
+  string companyId = 3;
   repeated Location locations= 4;
   string created = 5;
   string updated = 6;
@@ -69,7 +72,7 @@ message Regions {
 }
 
 message RegionId {
-  int32 id = 1;
+  string id = 1;
 }
 
 message Locations {
@@ -81,7 +84,7 @@ message LocationId {
 }
 
 message SCO {
-  int64 id = 1;
+  string id = 1;
   string created = 2;
   string updated = 3;
   string name = 4;
@@ -89,4 +92,25 @@ message SCO {
 
 message SCOs {
   repeated SCO scos = 1;
+}
+
+message GRPCGetLocationRequest {
+  string companyId = 1;
+  repeated GRPCFilter filter = 2;
+  GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
+}
+
+message GRPCGetLocationResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated Location locations = 4;
+}
+
+message GRPCGetDeviceResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated Device devices = 4;
 }
