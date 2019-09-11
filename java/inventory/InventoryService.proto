@@ -14,7 +14,6 @@ service CompanyService {
   rpc DeleteCompany (CompanyId) returns (Void) {};
   rpc GetCompany (CompanyId) returns (Company) {};
   rpc GetAllCompanies (Void) returns (Companies) {};
-  rpc GetChildCompanies (CompanyId) returns (Companies) {};
 };
 
 service DeviceService {
@@ -24,7 +23,7 @@ service DeviceService {
   rpc GetDevice (DeviceId) returns (Device) {};
   rpc GetAllDevices (Void) returns (Devices) {};
   rpc GetDevicesByLocationId (LocationId) returns (Devices) {}
-  rpc GetDevicesByCompanyId (CompanyId) returns (Devices) {}
+  rpc GetDevicesByCompanyId (GRPCGetLocationRequest) returns (GRPCGetDeviceResponse) {}
 }
 
 service LocationService {
@@ -34,7 +33,9 @@ service LocationService {
   rpc DeleteLocation (LocationId) returns (Void) {};
   rpc GetLocation (LocationId) returns (Location) {};
   rpc GetAllLocations (Void) returns (Locations) {};
+  rpc GetLocationsByCompany (GRPCGetLocationRequest) returns (GRPCGetLocationResponse) {};
   rpc GetLocationsByCompanyId (CompanyId) returns (Locations) {};
-  rpc GetLocationsByRegionId (CompanyId) returns (Regions) {};
+  rpc GetLocationsByRegionId (RegionId) returns (Locations) {};
+  rpc GetScosByLocationId (LocationId) returns (SCOs) {};
 }
 
