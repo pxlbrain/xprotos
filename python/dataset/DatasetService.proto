@@ -8,7 +8,11 @@ service VersionService {
     rpc GetVersion(DatasetRequest) returns (DatasetResponse) {};
 };
 
-service DatasetService {
+service DatasetDetectorService {
     rpc CreateDataset(DatasetRequest) returns (DatasetResponse) {};
     rpc ListenDatasetStatus(DatasetRequest) returns (stream DatasetResponse) {};
+};
+
+service DatasetClassifierService {
+    rpc CreateDataset(DatasetRequest) returns (stream DatasetResponse) {};
 };
