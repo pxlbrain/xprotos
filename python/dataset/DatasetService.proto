@@ -14,5 +14,7 @@ service DatasetDetectorService {
 };
 
 service DatasetClassifierService {
-    rpc CreateDataset(DatasetRequest) returns (stream DatasetResponse) {};
+    rpc CreateDataset(stream DatasetRequest) returns (stream DatasetResponse) {};
+    rpc ListenDatasetStatus(DatasetRequest) returns (stream DatasetResponse) {};
+    rpc GenerateRequest(DatasetRequest) returns (DatasetResponse) {};
 };
