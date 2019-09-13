@@ -1,0 +1,10 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "ModelObject.proto";
+
+service ModelService {
+    rpc NewVersion(ModelRequest) returns (ModelResponse);
+    rpc GetVersion(ModelRequest) returns (ModelResponse);
+    rpc AssignDataset(ModelRequest) returns (ModelResponse);
+};
