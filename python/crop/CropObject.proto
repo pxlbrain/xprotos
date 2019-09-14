@@ -1,0 +1,47 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+message Error {
+    string message = 1;
+};
+
+message CropJob {
+    string path = 1;
+    string status = 2;
+};
+
+message CropJobMeta {
+    string id = 1;
+    string request = 2;
+    string status = 3;
+
+};
+
+message CropJobResponse {
+    CropJobMeta jobMeta = 1;
+    repeated CropJob job = 2;
+};
+
+message CropObjects {
+    repeated string csvPaths = 1;
+    string remoteCropOutput = 2;
+};
+
+message CropObjectId {
+    string request = 1;
+};
+
+message CropRequest {
+    oneof request {
+        CropObjects cropObjects = 1;
+        CropObjectId cropObjectId = 2;
+    };
+};
+
+message CropResponse {
+    oneof response {
+        CropObjectId cropObjectId = 1;
+        Error error = 2;
+        CropJobResponse cropJobResponse = 3;
+    };
+};
