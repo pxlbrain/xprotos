@@ -10,6 +10,7 @@ service VersionService {
 
 service DatasetCommonService {
     rpc ListenDatasetStatus(DatasetRequest) returns (stream DatasetResponse) {};
+    rpc ListenDatasetStatusByRequest(DatasetRequest) returns (stream DatasetResponse) {};
 };
 
 service DatasetDetectorService {

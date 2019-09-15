@@ -7,6 +7,10 @@ enum DatasetType {
     MLC = 2;
 };
 
+message DatasetObjectId {
+    string request = 1;
+};
+
 message Error {
     string message = 1;
 };
@@ -70,14 +74,16 @@ message Job {
     string id = 1;
     string status = 2;
     string type = 3;
+    string csv = 4;
 };
 
 message JobMeta {
     string request = 1;
     string status = 2;
     string type = 3;
-    int32 numberOfFiles = 4;
-    repeated Job jobs = 5;
+    string version = 4;
+    int32 numberOfFiles = 5;
+    repeated Job jobs = 6;
 };
 
 message DatasetStatus {
@@ -85,6 +91,7 @@ message DatasetStatus {
     string path = 2;
     string type = 3;
     repeated JobMeta meta = 4;
+    DatasetObjectId datasetObjectId = 5;
 };
 
 message DatasetRequest {
@@ -93,6 +100,7 @@ message DatasetRequest {
         GetVersion getVersion = 2;
         CreateDataset createDataset = 3;
         DatasetStatus datasetStatus = 4;
+        DatasetObjectId datasetObjectId = 5;
     };
 };
 
@@ -102,5 +110,7 @@ message DatasetResponse {
         GetVersion getVersion = 2;
         DatasetStatus datasetStatus = 3;
         BlockMeta blockMeta = 4;
+        DatasetObjectId datasetObjectId = 5;
+        JobMeta jobMeta = 6;
     };
 };
