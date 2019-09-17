@@ -38,6 +38,13 @@ service ProductService {
   }
   rpc AddMistakenProducts (MistakenProductIds) returns (Void) {
   }
+  rpc UploadProducts (BytesWrapper) returns (Void) {
+  }
+}
+
+message BytesWrapper {
+  string locationId = 1;
+  bytes byteArray = 2;
 }
 
 message GRPCProductRequest {
