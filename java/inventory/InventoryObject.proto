@@ -14,11 +14,10 @@ message Device {
   string locationName = 5;
   string created = 6;
   string updated = 7;
-  string deviceId = 8;
-  string status = 9;
-  string cameraLink = 10;
-  string scoId = 11;
-  string scoName = 12;
+  string status = 8;
+  string cameraLink = 9;
+  string scoId = 10;
+  string scoName = 11;
 }
 
 message DeviceId {
@@ -73,6 +72,10 @@ message Regions {
 
 message RegionId {
   string id = 1;
+}
+
+message RegionIds {
+  repeated RegionId regionIds = 1;
 }
 
 message Locations {
