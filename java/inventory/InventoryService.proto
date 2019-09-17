@@ -35,7 +35,7 @@ service LocationService {
   rpc GetAllLocations (Void) returns (Locations) {};
   rpc GetLocationsByCompany (GRPCGetLocationRequest) returns (GRPCGetLocationResponse) {};
   rpc GetLocationsByCompanyId (CompanyId) returns (Locations) {};
-  rpc GetLocationsByRegionId (RegionId) returns (Locations) {};
+  rpc GetLocationsByRegionIds (RegionIds) returns (Locations) {};
   rpc GetScosByLocationId (LocationId) returns (SCOs) {};
 }
 
