@@ -69,6 +69,8 @@ message Product {
   string subCategory = 7;
   string status = 8;
   string ean = 9;
+  bool mlc = 10;
+  bool classifier = 11;
 }
 
 message Products {
