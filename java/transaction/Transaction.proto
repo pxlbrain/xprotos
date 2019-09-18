@@ -2,12 +2,21 @@ syntax = "proto3";
 
 package ai.pixlbrain.backend;
 import "inventory/Void.proto";
+import "product/Product.proto";
 
 service TransactionService {
   rpc CreateTransaction (Transaction) returns (Transaction) {}
+  rpc CreateTransactions (Transactions) returns (Transactions) {}
   rpc DeleteTransaction (TransactionId) returns (Void) {}
   rpc GetTransaction (TransactionId) returns (Transaction) {}
-  rpc GetAllTransactions (TransactionRequest) returns (Transactions) {}
+  rpc GetAllTransactions (TransactionRequest) returns (GRPCGetTransactionResponse) {}
+}
+
+message GRPCGetTransactionResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated Transaction transactions = 4;
 }
 
 message Transaction {
@@ -16,12 +25,26 @@ message Transaction {
   string transactionStartTime = 3;
   string transactionEndTime = 4;
   string totalPrice = 5;
-  string trayziId = 6;
+  string unitId = 6;
   string globalUid = 7;
   string paymentType = 8;
   string paymentId = 9;
   string paymentStatus = 10;
   string location_id = 11;
+  repeated TransactionItem transactionItems=12;
+}
+
+message TransactionItem {
+  string units = 2;
+  string productName = 3;
+  string itemSource = 4;
+  string productPrice = 5;
+  bool weightBased = 6;
+  string weightBase = 7;
+  string weightGrams = 8;
+  bool invalid = 9;
+  string transactionId = 10;
+  string productId = 11;
 }
 
 message QueryParam {
@@ -31,13 +54,18 @@ message QueryParam {
 }
 
 message TransactionRequest {
-  repeated QueryParam QueryParams = 1;
-  int32 pageNumber = 2;
-  int32 numberOfItemsPerPage = 3;
+  string locationId = 1;
+  repeated GRPCFilter filter = 2;
+  GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
 }
 
 message Transactions {
   repeated Transaction transactions = 1;
+}
+
+message TransactionItems {
+  repeated TransactionItem transactionItems = 1;
 }
 
 message TransactionId {
