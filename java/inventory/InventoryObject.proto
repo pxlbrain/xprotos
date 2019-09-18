@@ -76,6 +76,10 @@ message RegionId {
   string id = 1;
 }
 
+message RegionIds {
+  repeated RegionId regionIds = 1;
+}
+
 message Locations {
   repeated Location locations = 1;
 }
