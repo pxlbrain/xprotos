@@ -14,7 +14,6 @@ message Device {
   string locationName = 5;
   string created = 6;
   string updated = 7;
-  string deviceId = 8;
   string status = 9;
   string cameraLink = 10;
   string scoId = 11;
