@@ -1,0 +1,9 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "crop/CropObject.proto";
+
+service CropService {
+    rpc CreateCropObjects(CropRequest) returns (CropResponse) {};
+    rpc ListenCropStatus(CropRequest) returns (stream CropResponse) {};
+};

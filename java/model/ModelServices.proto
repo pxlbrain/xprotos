@@ -1,9 +1,8 @@
 syntax  = "proto3";
 package ai.pixlbrain.backend;
 
-import "model/ModelObject.proto";
+import "model/ModelObjects.proto";
 import "inventory/Void.proto";
-import "notification/NotificationCommon.proto";
 
 
 service JobService {
