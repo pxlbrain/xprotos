@@ -1,0 +1,48 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+enum ModelType {
+    MODEL_DETECTOR = 0;
+    MODEL_CLASSIFIER = 1;
+    MODEL_MLC = 2;
+};
+
+message ModelError {
+    string message = 1;
+};
+
+message ModelNewVersion {
+    string message = 1;
+    ModelType modelType = 2;
+};
+
+message ModelGetVersion {
+    string version = 1;
+    string path = 2;
+    string modelType = 3;
+    repeated string dataset = 4;
+};
+
+message ModelAssignVersion {
+    string version = 1;
+    string datasetVersion = 2;
+};
+
+
+message ModelRequest {
+    oneof request {
+        ModelNewVersion newVersion = 1;
+        ModelGetVersion getVersion = 2;
+        ModelAssignVersion modelAssignVersion = 3;
+    };
+};
+
+
+message ModelResponse {
+    oneof response {
+        ModelError error = 1;
+        ModelNewVersion newVersion = 2;
+        ModelGetVersion getVersion = 3;
+        ModelAssignVersion modelAssignVersion = 4;
+    };
+};

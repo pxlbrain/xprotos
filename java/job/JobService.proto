@@ -6,9 +6,9 @@ import "inventory/Void.proto";
 
 service BackendJobService {
   rpc GetJobs(JobSearchRequest) returns (Jobs) {};
-  rpc GetJobById(JobId) returns (Job) {};
-  rpc GetJobByClient(ClientId) returns (Job) {};
-  rpc CreateJob(Job) returns (Job) {};
-  rpc UpdateJob(Job) returns (Job) {};
+  rpc GetJobById(JobId) returns (Job1) {};
+  rpc GetJobByClient(ClientId) returns (Job1) {};
+  rpc CreateJob(Job1) returns (Job1) {};
+  rpc UpdateJob(Job1) returns (Job1) {};
   rpc DeleteJob(JobId) returns (Void) {};
 }

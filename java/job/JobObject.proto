@@ -8,10 +8,10 @@ message JobId {
 }
 
 message Jobs {
-  repeated Job jobs = 1;
+  repeated Job1 jobs = 1;
 }
 
-message Job {
+message Job1 {
   string id = 1;
   string created = 2;
   string updated = 3;

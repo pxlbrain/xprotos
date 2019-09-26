@@ -1,0 +1,200 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "product/Product.proto";
+
+message GRPCJobs {
+  repeated GRPCJob jobs = 1;
+}
+
+message GRPCJob {
+  string id = 1;
+  string created = 2;
+  string updated = 3;
+  string filter = 4;
+  string client = 5;
+  GRPCJobStatus jobStatus = 6;
+  string type = 7;
+  string assignedTo = 8;
+  string startDate = 9;
+  string endDate = 10;
+}
+
+message GRPCGetJobsRequest {
+  string locationId = 1;
+  repeated GRPCFilter filter = 2;
+  GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
+}
+
+message GRPCGetJobsResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated GRPCJob jobs = 4;
+}
+
+message GRPCJobStatus {
+  string id = 1;
+  string created = 2;
+  string updated = 3;
+  string step = 4;
+  string message = 5;
+  string startDate = 6;
+  string endDate = 7;
+}
+
+message TrainingRequest {
+}
+
+message GRPCStatusRequest {
+  string id = 1;
+  string status = 2;
+}
+
+message PtagDetectorRequest {
+  string status = 1;
+  repeated string paths = 2;
+}
+
+message GRPCRegisterRequest {
+  string username =1;
+  string firstName = 2;
+  string lastName = 3;
+  string email = 4;
+  string password =5;
+}
+
+message GRPCLoginRequest {
+  string username =1;
+  string password = 2;
+  string email = 3;
+  string taskId = 4;
+}
+
+message AssigneeJobRequest {
+  string user = 1;
+  string jobId = 2;
+  string username = 3;
+}
+
+message GRPCCreateTaskRequest {
+  string name = 1;
+  repeated GRPCLabel labels = 2;
+  string imageQuality = 3;
+  bool zOrder = 4;
+  string rootId = 5;
+  string onStatusChange =6;
+  string username = 7;
+}
+
+message GRPCLabel {
+  string name = 1;
+  repeated string attributes = 2;
+}
+
+message GRPCLinksRequest {
+  string taskId= 1;
+  repeated string links = 2;
+  string username = 3;
+}
+
+message TaskId {
+  string id =1;
+  string userId=2;
+  string username = 3;
+}
+
+message UserEmail {
+  string email=1;
+  string username=2;
+}
+
+message DownloadDumpRequest {
+  string taskId = 1;
+  string annotationId=2;
+}
+
+
+message GRPCGetTaskResponse {
+  string count = 1;
+  string next = 2;
+  string previous = 3;
+  repeated GRPCTaskResponse results = 4;
+
+}
+
+message GRPCTaskResponse {
+  string id = 1;
+  string url = 2;
+  string name = 3;
+  string size = 4;
+  string mode = 5;
+  string owner = 6;
+  string assignee = 7;
+  string bugTracker = 8;
+  string createdDate = 9;
+  string updatedDate = 10;
+  string overlap = 11;
+  string segmentSize = 12;
+  string zOrder = 13;
+  string status = 14;
+  repeated GRPCLabel labels = 15;
+  repeated string segments = 16;
+  string imageQuality = 17;
+  string startFrame = 18;
+  string stopFrame = 19;
+  string frameFilter = 20;
+  string rootId = 21;
+  string onStatusChange = 22;
+
+}
+
+message AssigneeJobResponse {
+  string id = 1;
+  string url = 2;
+  string assignee = 3;
+  string status = 4;
+  string startFrame = 5;
+  string stopFrame = 6;
+  string taskId = 7;
+}
+
+message GRPCLinksResponse {
+  repeated string clientFiles = 1;
+  repeated string serverFiles = 2;
+  repeated string remoteFiles = 3;
+}
+
+message GRPCDownloadStatusResponse {
+  string state = 1;
+  string message = 2;
+}
+
+message GRPCUserInfoResponse {
+  string id = 1;
+  string username = 2;
+  string firstName = 3;
+  string lastName = 4;
+  string email = 5;
+  bool isActive = 6;
+  bool isSuperuser = 7;
+  bool isStaff = 8;
+}
+
+message FieldString {
+  string field =1;
+}
+
+message JobId {
+  string id =1;
+}
+
+message ScheduleDumpRequest {
+  string username = 1;
+  string taskId = 2;
+  string action = 3;
+  string remotePath = 4;
+}
+
+
