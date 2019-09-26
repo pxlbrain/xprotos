@@ -1,0 +1,23 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "dataset/DatasetObject.proto";
+
+service VersionService {
+    rpc NewVersion(DatasetRequest) returns (DatasetResponse) {};
+    rpc GetVersion(DatasetRequest) returns (DatasetResponse) {};
+};
+
+service DatasetCommonService {
+    rpc ListenDatasetStatus(DatasetRequest) returns (stream DatasetResponse) {};
+    rpc ListenDatasetStatusByRequest(DatasetRequest) returns (stream DatasetResponse) {};
+};
+
+service DatasetDetectorService {
+    rpc CreateDataset(DatasetRequest) returns (DatasetResponse) {};
+};
+
+service DatasetClassifierService {
+    rpc CreateDataset(stream DatasetRequest) returns (stream DatasetResponse) {};
+    rpc GenerateRequest(DatasetRequest) returns (DatasetResponse) {};
+};

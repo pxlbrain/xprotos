@@ -1,0 +1,116 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+enum DatasetType {
+    DETECTOR = 0;
+    CLASSIFIER = 1;
+    MLC = 2;
+};
+
+message DatasetObjectId {
+    string request = 1;
+};
+
+message Error {
+    string message = 1;
+};
+
+message NewVersion {
+    string message = 1;
+    DatasetType datasetType = 2;
+    string version = 3;
+};
+
+message GetVersion {
+    string version = 1;
+    string message = 2;
+    string path = 3;
+    string createdAt = 4;
+    DatasetType datasetType = 5;
+};
+
+message DatasetSplit {
+    int32 train = 1;
+    int32 test = 2;
+};
+
+message Files {
+    repeated string path = 1;
+};
+
+message PTagFile {
+    string path = 1;
+    string productId = 2;
+    string name = 3;
+};
+
+message PTagFiles {
+    repeated PTagFile ptagFile = 1;
+};
+
+message BlockFiles {
+    PTagFiles ptagFiles = 1;
+    string request = 2;
+    bool isFinal = 3;
+};
+
+message BlockMeta {
+    string request = 1;
+    string version = 2;
+};
+
+message CreateDataset {
+    string version = 1;
+    repeated string labels = 2;
+    DatasetSplit split = 3;
+
+    oneof data {
+        Files csvPaths = 4;
+        BlockFiles blockFiles = 5;
+    };
+};
+
+message Job {
+    string id = 1;
+    string status = 2;
+    string type = 3;
+    string csv = 4;
+};
+
+message JobMeta {
+    string request = 1;
+    string status = 2;
+    string type = 3;
+    string version = 4;
+    int32 numberOfFiles = 5;
+    repeated Job jobs = 6;
+};
+
+message DatasetStatus {
+    string version = 1;
+    string path = 2;
+    string type = 3;
+    repeated JobMeta meta = 4;
+    DatasetObjectId datasetObjectId = 5;
+};
+
+message DatasetRequest {
+    oneof request {
+        NewVersion newVersion = 1;
+        GetVersion getVersion = 2;
+        CreateDataset createDataset = 3;
+        DatasetStatus datasetStatus = 4;
+        DatasetObjectId datasetObjectId = 5;
+    };
+};
+
+message DatasetResponse {
+    oneof response {
+        NewVersion newVersion = 1;
+        GetVersion getVersion = 2;
+        DatasetStatus datasetStatus = 3;
+        BlockMeta blockMeta = 4;
+        DatasetObjectId datasetObjectId = 5;
+        JobMeta jobMeta = 6;
+    };
+};
