@@ -30,6 +30,12 @@ service CVATService {
   rpc ScheduleDump(ScheduleDumpRequest) returns (Void) {}
 }
 
+service CallbackService {
+  rpc dumpCallback(GRPCScheduleResponse) returns (Void) {}
+  rpc taskCallback(GRPCCreateTaskResponse) returns (Void) {}
+  rpc postCallback(GRPCPostDataResponse) returns (Void) {}
+}
+
 service TrainingService {
   rpc StartTraining (TrainingRequest) returns (Void) {}
 }
