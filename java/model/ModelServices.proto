@@ -1,9 +1,8 @@
 syntax  = "proto3";
 package ai.pixlbrain.backend;
 
-import "model/ModelObject.proto";
+import "model/ModelObjects.proto";
 import "inventory/Void.proto";
-import "notification/NotificationCommon.proto";
 
 
 service JobService {
@@ -29,6 +28,12 @@ service CVATService {
   rpc GetUserInfoById(TaskId) returns (GRPCUserInfoResponse) {}
   rpc GetUserInfoByEmail(UserEmail) returns (GRPCUserInfoResponse) {}
   rpc ScheduleDump(ScheduleDumpRequest) returns (Void) {}
+}
+
+service CallbackService {
+  rpc dumpCallback(GRPCScheduleResponse) returns (Void) {}
+  rpc taskCallback(GRPCCreateTaskResponse) returns (Void) {}
+  rpc postCallback(GRPCPostDataResponse) returns (Void) {}
 }
 
 service TrainingService {
