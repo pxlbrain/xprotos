@@ -71,6 +71,12 @@ message Product {
   string ean = 9;
   bool mlc = 10;
   bool classifier = 11;
+  int32 width = 12;
+  int32 height = 13;
+  string scheduleFrom = 14;
+  string scheduleTo = 15;
+  string capturingTime = 16;
+  string terminalId = 17;
 }
 
 message Products {
