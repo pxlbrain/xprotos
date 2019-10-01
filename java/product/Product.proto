@@ -77,6 +77,7 @@ message Product {
   string scheduleTo = 15;
   string capturingTime = 16;
   string terminalId = 17;
+  string displayName = 18;
 }
 
 message Products {
