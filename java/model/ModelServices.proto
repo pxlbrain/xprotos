@@ -1,4 +1,4 @@
-syntax  = "proto3";
+syntax = "proto3";
 package ai.pixlbrain.backend;
 
 import "model/ModelObjects.proto";
@@ -6,37 +6,50 @@ import "inventory/Void.proto";
 
 
 service JobService {
-  rpc GetJobs(GRPCGetJobsRequest) returns (GRPCGetJobsResponse) {};
-  rpc GetJobById(JobId) returns (GRPCJob) {};
-  rpc CreateJob(GRPCJob) returns (GRPCJob) {};
-  rpc UpdateJob(GRPCJob) returns (GRPCJob) {};
-  rpc DeleteJob(JobId) returns (Void) {};
-  rpc UpdateJobStatus (GRPCStatusRequest) returns (Void) {}
-  rpc CompletePtagForDetector (PtagDetectorRequest) returns (Void) {}
+  rpc GetJobs (GRPCGetJobsRequest) returns (GRPCGetJobsResponse) {
+  };
+  rpc UpdateJob (GRPCJob) returns (GRPCJob) {
+  };
 }
 
 service CVATService {
-  rpc Register(GRPCRegisterRequest) returns (Void) {}
-  rpc Login(GRPCLoginRequest) returns (FieldString) {}
-  rpc GetCsrf(Void) returns (FieldString) {}
-  rpc GetTasks(FieldString) returns (GRPCGetTaskResponse) {}
-  rpc GetJob (FieldString) returns (GRPCGetTaskResponse) {}
-  rpc AssignJobToUser(AssigneeJobRequest) returns (AssigneeJobResponse) {}
-  rpc CreateTask (GRPCCreateTaskRequest) returns (GRPCTaskResponse) {}
-  rpc SendLinks(GRPCLinksRequest) returns (GRPCLinksResponse) {}
-  rpc GetDownloadStatus (TaskId) returns (GRPCDownloadStatusResponse) {}
-  rpc GetUserInfoById(TaskId) returns (GRPCUserInfoResponse) {}
-  rpc GetUserInfoByEmail(UserEmail) returns (GRPCUserInfoResponse) {}
-  rpc ScheduleDump(ScheduleDumpRequest) returns (Void) {}
+  rpc Register (GRPCRegisterRequest) returns (Void) {
+  }
+  rpc GetCsrf (Void) returns (FieldString) {
+  }
+  rpc GetTasks (FieldString) returns (GRPCGetTaskResponse) {
+  }
+  rpc GetJob (FieldString) returns (GRPCGetTaskResponse) {
+  }
+  rpc AssignJobToUser (GRPCAssigneeJobRequest) returns (AssigneeJobResponse) {
+  }
+  rpc PrepareCvatTask (GRPCCreateTaskRequest) returns (GRPCTaskResponse) {
+  }
+  rpc GetDownloadStatus (TaskId) returns (GRPCDownloadStatusResponse) {
+  }
+  rpc GetUserInfoById (TaskId) returns (GRPCUserInfoResponse) {
+  }
+  rpc GetUserInfoByEmail (UserEmail) returns (GRPCUserInfoResponse) {
+  }
 }
 
 service CallbackService {
-  rpc dumpCallback(GRPCScheduleResponse) returns (Void) {}
-  rpc taskCallback(GRPCCreateTaskResponse) returns (Void) {}
-  rpc postCallback(GRPCPostDataResponse) returns (Void) {}
+  rpc dumpCallback (GRPCScheduleResponse) returns (Void) {
+  }
+  rpc taskCallback (GRPCCreateTaskResponse) returns (Void) {
+  }
+  rpc postCallback (GRPCPostDataResponse) returns (Void) {
+  }
 }
 
 service TrainingService {
-  rpc StartTraining (TrainingRequest) returns (Void) {}
+  rpc StartTraining (TrainingRequest) returns (Void) {
+  }
+}
+
+service DatasetService {
+  rpc CreateDataset (GRPCJobs) returns (Void) {
+
+  }
 }
 

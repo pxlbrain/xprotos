@@ -12,19 +12,27 @@ message GRPCJob {
   string created = 2;
   string updated = 3;
   string filter = 4;
-  string client = 5;
-  GRPCJobStatus jobStatus = 6;
-  string type = 7;
-  string assignedTo = 8;
-  string startDate = 9;
-  string endDate = 10;
+  string filterType = 5;
+  string client = 6;
+  GRPCJobStep jobStep = 7;
+  string type = 8;
+  string assignedTo = 9;
+  string startDate = 10;
+  string endDate = 11;
+  string jobSequence = 12;
+  string cvatTaskId = 13;
+  string cvatJobId = 14;
+  string cvatCsvPath = 15;
+  string jobStatus = 16;
+  string locationId = 17;
 }
 
 message GRPCGetJobsRequest {
-  string locationId = 1;
-  repeated GRPCFilter filter = 2;
-  GRPCPaging paging = 3;
-  GRPCSorting sorting = 4;
+  string company = 1;
+  string locationId = 2;
+  string status = 3;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
 }
 
 message GRPCGetJobsResponse {
@@ -34,7 +42,7 @@ message GRPCGetJobsResponse {
   repeated GRPCJob jobs = 4;
 }
 
-message GRPCJobStatus {
+message GRPCJobStep {
   string id = 1;
   string created = 2;
   string updated = 3;
@@ -45,11 +53,6 @@ message GRPCJobStatus {
 }
 
 message TrainingRequest {
-}
-
-message GRPCStatusRequest {
-  string id = 1;
-  string status = 2;
 }
 
 message PtagDetectorRequest {
@@ -65,49 +68,23 @@ message GRPCRegisterRequest {
   string password =5;
 }
 
-message GRPCLoginRequest {
-  string username =1;
-  string password = 2;
-  string email = 3;
-  string taskId = 4;
-}
-
-message AssigneeJobRequest {
-  string user = 1;
-  string jobId = 2;
-  string username = 3;
-}
 
 message GRPCCreateTaskRequest {
-  string name = 1;
-  repeated GRPCLabel labels = 2;
-  string imageQuality = 3;
-  bool zOrder = 4;
-  string rootId = 5;
-  string onStatusChange =6;
-  string username = 7;
+  string jobId =1;
+  repeated string links =2;
 }
 
 message GRPCLabel {
   string name = 1;
   repeated string attributes = 2;
 }
-
-message GRPCLinksRequest {
-  string taskId= 1;
-  repeated string links = 2;
-  string username = 3;
-}
-
 message TaskId {
   string id =1;
   string userId=2;
-  string username = 3;
 }
 
 message UserEmail {
   string email=1;
-  string username=2;
 }
 
 message DownloadDumpRequest {
@@ -140,7 +117,7 @@ message GRPCTaskResponse {
   string zOrder = 13;
   string status = 14;
   repeated GRPCLabel labels = 15;
-  repeated string segments = 16;
+  repeated GRPCSegment segments = 16;
   string imageQuality = 17;
   string startFrame = 18;
   string stopFrame = 19;
@@ -160,12 +137,6 @@ message AssigneeJobResponse {
   string taskId = 7;
 }
 
-message GRPCLinksResponse {
-  repeated string clientFiles = 1;
-  repeated string serverFiles = 2;
-  repeated string remoteFiles = 3;
-}
-
 message GRPCDownloadStatusResponse {
   string state = 1;
   string message = 2;
@@ -183,18 +154,20 @@ message GRPCUserInfoResponse {
 }
 
 message FieldString {
-  string field =1;
+  string field = 1;
 }
 
-message JobId {
-  string id =1;
+message GRPCSegment {
+  string startFrame = 1;
+  string stopFrame = 2;
+  repeated GRPCCvatJob jobs = 3;
 }
 
-message ScheduleDumpRequest {
-  string username = 1;
-  string taskId = 2;
-  string action = 3;
-  string remotePath = 4;
+message GRPCCvatJob {
+  string id = 1;
+  string assignee = 2;
+  string status = 3;
+  string url = 4;
 }
 
 message GRPCScheduleResponse {
@@ -202,11 +175,6 @@ message GRPCScheduleResponse {
   string remotePath = 2;
   int32 taskId = 3;
   repeated int32 jobs = 4;
-}
-
-message GRPCPostDataResponse {
-  int32 taskId = 1;
-  repeated int32 jobs = 2;
 }
 
 message GRPCCreateTaskResponse {
@@ -219,3 +187,13 @@ message GRPCCreateTaskResponse {
   int32 taskId = 7;
 }
 
+message GRPCPostDataResponse {
+  int32 taskId = 1;
+  repeated int32 jobs = 2;
+}
+
+message GRPCAssigneeJobRequest {
+  string email = 1;
+  string jobId = 2;
+  string cvatJobId = 3;
+}
