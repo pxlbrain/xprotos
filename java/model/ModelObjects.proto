@@ -197,4 +197,25 @@ message ScheduleDumpRequest {
   string remotePath = 4;
 }
 
+message GRPCScheduleResponse {
+  string status = 1;
+  string remotePath = 2;
+  int32 taskId = 3;
+  repeated int32 jobs = 4;
+}
+
+message GRPCPostDataResponse {
+  int32 taskId = 1;
+  repeated int32 jobs = 2;
+}
+
+message GRPCCreateTaskResponse {
+  string url = 1;
+  int32 id = 2;
+  string assignee = 3;
+  string status = 4;
+  int32 startFrame = 5;
+  int32 stopFrame = 6;
+  int32 taskId = 7;
+}
 
