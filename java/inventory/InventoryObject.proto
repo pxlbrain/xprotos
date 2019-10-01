@@ -125,3 +125,9 @@ message DeviceConfig {
   string id = 1;
   string jsonConfig = 2;
 }
+
+message LearningModeRequest {
+  string id = 1;
+  bool mode = 2;
+  bool isInitial = 3;
+}
