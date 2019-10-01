@@ -25,6 +25,7 @@ service DeviceService {
   rpc GetDevicesByLocationId (LocationId) returns (Devices) {}
   rpc GetDevicesByCompanyId (GRPCGetLocationRequest) returns (GRPCGetDeviceResponse) {}
   rpc UpdateDeviceConfig (DeviceConfig) returns (Void) {}
+  rpc UpdateLearningMode (LearningModeRequest) returns (Void) {}
 }
 
 service LocationService {
