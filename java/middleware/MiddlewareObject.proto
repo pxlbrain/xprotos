@@ -8,3 +8,8 @@ message ConfigWrapper {
   string address = 1;
   string jsonConfig = 2;
 }
+
+message LearningMode {
+  string address = 1;
+  bool mode = 2;
+}

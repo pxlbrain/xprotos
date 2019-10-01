@@ -3,7 +3,7 @@ package ai.pixlbrain.backend;
 
 import "product/Product.proto";
 
-message JobId {
+message JobId1 {
   string id = 1;
 }
 
