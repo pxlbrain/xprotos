@@ -19,6 +19,8 @@ message Device {
   string scoId = 11;
   string scoName = 12;
   string jsonConfig = 13;
+  bool learningMode = 14;
+  string mac = 15;
 }
 
 message DeviceId {
