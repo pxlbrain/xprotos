@@ -40,6 +40,8 @@ service CallbackService {
   }
   rpc postCallback (GRPCPostDataResponse) returns (Void) {
   }
+  rpc clusterCallback (GRPCClusterResponse) returns (Void) {
+  }
 }
 
 service TrainingService {
