@@ -19,6 +19,8 @@ message Device {
   string scoId = 11;
   string scoName = 12;
   string jsonConfig = 13;
+  bool learningMode = 14;
+  string mac = 15;
 }
 
 message DeviceId {
@@ -122,4 +124,10 @@ message GRPCGetDeviceResponse {
 message DeviceConfig {
   string id = 1;
   string jsonConfig = 2;
+}
+
+message LearningModeRequest {
+  string id = 1;
+  bool mode = 2;
+  bool isInitial = 3;
 }

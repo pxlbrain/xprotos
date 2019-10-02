@@ -9,4 +9,5 @@ import "middleware/MiddlewareObject.proto";
 
 service MiddlewareService {
   rpc PushConfig(ConfigWrapper) returns (Void) {};
+  rpc ChangeLearningMode(LearningMode) returns (Void) {};
 }
