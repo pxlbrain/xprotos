@@ -10,6 +10,8 @@ service JobService {
   };
   rpc UpdateJob (GRPCJob) returns (GRPCJob) {
   };
+  rpc CreateProductJobs(ProductJobs) returns (Void) {
+  };
 }
 
 service CVATService {
