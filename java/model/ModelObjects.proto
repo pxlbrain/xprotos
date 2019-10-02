@@ -199,11 +199,9 @@ message GRPCAssigneeJobRequest {
 }
 
 message ProductJob {
-  string client = 1;
-  string location = 2;
-  string productId = 3;
-  bool classifier = 4;
-  bool mlc = 5;
+  string productId = 1;
+  bool classifier = 2;
+  bool mlc = 3;
 }
 
 message ModelId {
@@ -212,7 +210,9 @@ message ModelId {
 
 message ProductJobs {
  repeated ProductJob jobs = 1;
- string name = 2;
+ string client = 2;
+ string location = 3;
+ string name = 4;
 }
 
 message GRPCClusterResponse {
