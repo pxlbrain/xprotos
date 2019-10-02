@@ -59,5 +59,7 @@ service DatasetService {
 service JModelService {
   rpc CreateModel (GRPCJobs) returns (Void) {
   }
+  rpc GetModelsByLocationAndType(ModelRequestWrapper) returns (JModelResponses) {
+  }
 }
 

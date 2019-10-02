@@ -218,3 +218,23 @@ message ProductJobs {
 message GRPCClusterResponse {
   repeated string folderNames= 1;
 }
+
+message ModelRequestWrapper{
+  string client = 1;
+  string locationId = 2;
+  string type = 3;
+}
+
+message JModelResponse {
+ string id = 1;
+ string type = 2;
+ bool classifier = 3;
+ bool mlc = 4;
+ double performance = 5;
+ string step = 6;
+ string status = 7;
+}
+
+message JModelResponses {
+ repeated JModelResponse responses = 1;
+}
