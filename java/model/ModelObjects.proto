@@ -210,3 +210,7 @@ message ProductJobs {
  repeated ProductJob jobs = 1;
  string name = 2;
 }
+
+message GRPCClusterResponse {
+  repeated string folderNames= 1;
+}
