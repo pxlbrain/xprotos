@@ -198,7 +198,19 @@ message GRPCAssigneeJobRequest {
   string cvatJobId = 3;
 }
 
+message ProductJob {
+  string client = 1;
+  string location = 2;
+  string productId = 3;
+  bool classifier = 4;
+  bool mlc = 5;
+}
+
+message ProductJobs {
+ repeated ProductJob jobs = 1;
+ string name = 2;
+}
+
 message GRPCClusterResponse {
   repeated string folderNames= 1;
 }
-
