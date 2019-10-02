@@ -197,3 +197,8 @@ message GRPCAssigneeJobRequest {
   string jobId = 2;
   string cvatJobId = 3;
 }
+
+message GRPCClusterResponse {
+  repeated string folderNames= 1;
+}
+
