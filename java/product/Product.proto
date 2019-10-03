@@ -40,6 +40,8 @@ service ProductService {
   }
   rpc UploadProducts (BytesWrapper) returns (Void) {
   }
+  rpc Train(TrainProductsRequest) returns (Void) {
+  }
 }
 
 message BytesWrapper {
@@ -144,5 +146,12 @@ message MistakenProductIds {
 message PlateItemIds {
   string productId = 1;
   repeated string ids = 2;
+}
+
+message TrainProductsRequest {
+  repeated string productIds = 1;
+  string client = 2;
+  string locationId = 3;
+  string name = 4;
 }
 
