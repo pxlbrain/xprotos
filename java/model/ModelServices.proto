@@ -10,7 +10,7 @@ service JobService {
   };
   rpc UpdateJob (GRPCJob) returns (GRPCJob) {
   };
-  rpc CreateProductJobs(ProductJobs) returns (Void) {
+  rpc CreateProductJobs(ProductJobs) returns (ModelId) {
   };
 }
 
@@ -58,6 +58,8 @@ service DatasetService {
 
 service JModelService {
   rpc CreateModel (GRPCJobs) returns (Void) {
+  }
+  rpc GetModelsByLocationAndType(ModelRequestWrapper) returns (JModelResponses) {
   }
 }
 

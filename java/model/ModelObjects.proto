@@ -199,16 +199,20 @@ message GRPCAssigneeJobRequest {
 }
 
 message ProductJob {
-  string client = 1;
-  string location = 2;
-  string productId = 3;
-  bool classifier = 4;
-  bool mlc = 5;
+  string productId = 1;
+  bool classifier = 2;
+  bool mlc = 3;
+}
+
+message ModelId {
+ string id = 1;
 }
 
 message ProductJobs {
  repeated ProductJob jobs = 1;
- string name = 2;
+ string client = 2;
+ string location = 3;
+ string name = 4;
 }
 
 message GRPCClusterResponse {
@@ -216,4 +220,24 @@ message GRPCClusterResponse {
   repeated string hand=  2;
   repeated string tray = 3;
   repeated string plate = 4;
+}
+
+message ModelRequestWrapper{
+  string client = 1;
+  string locationId = 2;
+  string type = 3;
+}
+
+message JModelResponse {
+ string id = 1;
+ string type = 2;
+ bool classifier = 3;
+ bool mlc = 4;
+ double performance = 5;
+ string step = 6;
+ string status = 7;
+}
+
+message JModelResponses {
+ repeated JModelResponse responses = 1;
 }
