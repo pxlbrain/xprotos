@@ -212,5 +212,8 @@ message ProductJobs {
 }
 
 message GRPCClusterResponse {
-  repeated string folderNames= 1;
+  repeated string instance = 1;
+  repeated string hand=  2;
+  repeated string tray = 3;
+  repeated string plate = 4;
 }
