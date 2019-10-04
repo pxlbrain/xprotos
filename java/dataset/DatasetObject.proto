@@ -44,14 +44,31 @@ message PTagFile {
     string name = 3;
 };
 
+message PathTreeStruct {
+    string productId = 2;
+    string name = 3;
+};
+
+message PTagTreeFile {
+    string path = 1;
+    repeated PathTreeStruct tree = 2;
+};
+
+message PTagTreeFiles {
+    repeated PTagTreeFile ptagFile = 1;
+};
+
 message PTagFiles {
     repeated PTagFile ptagFile = 1;
 };
 
 message BlockFiles {
-    PTagFiles ptagFiles = 1;
-    string request = 2;
-    bool isFinal = 3;
+    oneof data {
+        PTagFiles ptagFiles = 1;
+        PTagTreeFiles ptagTreeFiles = 2;
+    };
+    string request = 3;
+    bool isFinal = 4;
 };
 
 message BlockMeta {
@@ -112,5 +129,6 @@ message DatasetResponse {
         BlockMeta blockMeta = 4;
         DatasetObjectId datasetObjectId = 5;
         JobMeta jobMeta = 6;
+        Error error = 7;
     };
 };
