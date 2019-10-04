@@ -12,6 +12,8 @@ service JobService {
   };
   rpc CreateProductJobs(ProductJobs) returns (ModelId) {
   };
+  rpc UpdateJobStep(GRPCJob) returns (GRPCJob) {
+  };
 }
 
 service CVATService {
