@@ -38,6 +38,15 @@ service ProductService {
   }
   rpc AddMistakenProducts (MistakenProductIds) returns (Void) {
   }
+  rpc UploadProducts (BytesWrapper) returns (Void) {
+  }
+  rpc Train(TrainProductsRequest) returns (Void) {
+  }
+}
+
+message BytesWrapper {
+  string locationId = 1;
+  bytes byteArray = 2;
 }
 
 message GRPCProductRequest {
@@ -62,6 +71,15 @@ message Product {
   string subCategory = 7;
   string status = 8;
   string ean = 9;
+  bool mlc = 10;
+  bool classifier = 11;
+  int32 width = 12;
+  int32 height = 13;
+  string scheduleFrom = 14;
+  string scheduleTo = 15;
+  string capturingTime = 16;
+  string terminalId = 17;
+  string displayName = 18;
 }
 
 message Products {
@@ -128,5 +146,12 @@ message MistakenProductIds {
 message PlateItemIds {
   string productId = 1;
   repeated string ids = 2;
+}
+
+message TrainProductsRequest {
+  repeated string productIds = 1;
+  string client = 2;
+  string locationId = 3;
+  string name = 4;
 }
 

@@ -1,0 +1,9 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+message TransactionTask {
+    string taskId = 1;
+    string data = 2;
+    string timestamp = 3;
+    string clientId = 4;
+};

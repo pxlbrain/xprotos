@@ -1,0 +1,234 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "product/Product.proto";
+
+message GRPCJobs {
+  repeated GRPCJob jobs = 1;
+}
+
+message GRPCJob {
+  string id = 1;
+  string created = 2;
+  string updated = 3;
+  string filter = 4;
+  string filterType = 5;
+  string client = 6;
+  string jobStep = 7;
+  string type = 8;
+  string assignedTo = 9;
+  string startDate = 10;
+  string endDate = 11;
+  string jobSequence = 12;
+  string cvatTaskId = 13;
+  string cvatJobId = 14;
+  string cvatCsvPath = 15;
+  string jobStatus = 16;
+  string locationId = 17;
+}
+
+message GRPCGetJobsRequest {
+  string company = 1;
+  string locationId = 2;
+  string status = 3;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
+}
+
+message GRPCGetJobsResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated GRPCJob jobs = 4;
+}
+
+message TrainingRequest {
+}
+
+message PtagDetectorRequest {
+  string status = 1;
+  repeated string paths = 2;
+}
+
+message GRPCRegisterRequest {
+  string username =1;
+  string firstName = 2;
+  string lastName = 3;
+  string email = 4;
+  string password =5;
+}
+
+
+message GRPCCreateTaskRequest {
+  string jobId =1;
+  repeated string links =2;
+}
+
+message GRPCLabel {
+  string name = 1;
+  repeated string attributes = 2;
+}
+message TaskId {
+  string id =1;
+  string userId=2;
+}
+
+message UserEmail {
+  string email=1;
+}
+
+message DownloadDumpRequest {
+  string taskId = 1;
+  string annotationId=2;
+}
+
+
+message GRPCGetTaskResponse {
+  string count = 1;
+  string next = 2;
+  string previous = 3;
+  repeated GRPCTaskResponse results = 4;
+
+}
+
+message GRPCTaskResponse {
+  string id = 1;
+  string url = 2;
+  string name = 3;
+  string size = 4;
+  string mode = 5;
+  string owner = 6;
+  string assignee = 7;
+  string bugTracker = 8;
+  string createdDate = 9;
+  string updatedDate = 10;
+  string overlap = 11;
+  string segmentSize = 12;
+  string zOrder = 13;
+  string status = 14;
+  repeated GRPCLabel labels = 15;
+  repeated GRPCSegment segments = 16;
+  string imageQuality = 17;
+  string startFrame = 18;
+  string stopFrame = 19;
+  string frameFilter = 20;
+  string rootId = 21;
+  string onStatusChange = 22;
+
+}
+
+message AssigneeJobResponse {
+  string id = 1;
+  string url = 2;
+  string assignee = 3;
+  string status = 4;
+  string startFrame = 5;
+  string stopFrame = 6;
+  string taskId = 7;
+}
+
+message GRPCDownloadStatusResponse {
+  string state = 1;
+  string message = 2;
+}
+
+message GRPCUserInfoResponse {
+  string id = 1;
+  string username = 2;
+  string firstName = 3;
+  string lastName = 4;
+  string email = 5;
+  bool isActive = 6;
+  bool isSuperuser = 7;
+  bool isStaff = 8;
+}
+
+message FieldString {
+  string field = 1;
+}
+
+message GRPCSegment {
+  string startFrame = 1;
+  string stopFrame = 2;
+  repeated GRPCCvatJob jobs = 3;
+}
+
+message GRPCCvatJob {
+  string id = 1;
+  string assignee = 2;
+  string status = 3;
+  string url = 4;
+}
+
+message GRPCScheduleResponse {
+  string status = 1;
+  string remotePath = 2;
+  int32 taskId = 3;
+  repeated int32 jobs = 4;
+}
+
+message GRPCCreateTaskResponse {
+  string url = 1;
+  int32 id = 2;
+  string assignee = 3;
+  string status = 4;
+  int32 startFrame = 5;
+  int32 stopFrame = 6;
+  int32 taskId = 7;
+}
+
+message GRPCPostDataResponse {
+  int32 taskId = 1;
+  repeated int32 jobs = 2;
+}
+
+message GRPCAssigneeJobRequest {
+  string email = 1;
+  string jobId = 2;
+  string cvatJobId = 3;
+}
+
+message ProductJob {
+  string productId = 1;
+  bool classifier = 2;
+  bool mlc = 3;
+  repeated string children = 4;
+}
+
+message ModelId {
+ string id = 1;
+}
+
+message ProductJobs {
+ repeated ProductJob jobs = 1;
+ string client = 2;
+ string location = 3;
+ string name = 4;
+}
+
+message GRPCClusterResponse {
+  repeated string instance = 1;
+  repeated string hand=  2;
+  repeated string tray = 3;
+  repeated string plate = 4;
+}
+
+message ModelRequestWrapper{
+  string client = 1;
+  string locationId = 2;
+  string type = 3;
+}
+
+message JModelResponse {
+ string id = 1;
+ string type = 2;
+ bool classifier = 3;
+ bool mlc = 4;
+ double performance = 5;
+ string step = 6;
+ string status = 7;
+}
+
+message JModelResponses {
+ repeated JModelResponse responses = 1;
+}

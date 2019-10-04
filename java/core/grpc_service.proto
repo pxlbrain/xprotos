@@ -1,0 +1,8 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "core/grpc_messages.proto";
+
+service ConfigService {
+    rpc CommandExchange(Init) returns (stream Command) {}
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+message ConfigWrapper {
+  string address = 1;
+  string jsonConfig = 2;
+}
+
+message LearningMode {
+  string address = 1;
+  bool mode = 2;
+}

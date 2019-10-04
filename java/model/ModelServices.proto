@@ -1,0 +1,67 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "model/ModelObjects.proto";
+import "inventory/Void.proto";
+
+
+service JobService {
+  rpc GetJobs (GRPCGetJobsRequest) returns (GRPCGetJobsResponse) {
+  };
+  rpc UpdateJob (GRPCJob) returns (GRPCJob) {
+  };
+  rpc CreateProductJobs(ProductJobs) returns (ModelId) {
+  };
+  rpc UpdateJobStep(GRPCJob) returns (GRPCJob) {
+  };
+}
+
+service CVATService {
+  rpc Register (GRPCRegisterRequest) returns (Void) {
+  }
+  rpc GetCsrf (Void) returns (FieldString) {
+  }
+  rpc GetTasks (FieldString) returns (GRPCGetTaskResponse) {
+  }
+  rpc GetJob (FieldString) returns (GRPCGetTaskResponse) {
+  }
+  rpc AssignJobToUser (GRPCAssigneeJobRequest) returns (AssigneeJobResponse) {
+  }
+  rpc PrepareCvatTask (GRPCCreateTaskRequest) returns (GRPCTaskResponse) {
+  }
+  rpc GetDownloadStatus (TaskId) returns (GRPCDownloadStatusResponse) {
+  }
+  rpc GetUserInfoById (TaskId) returns (GRPCUserInfoResponse) {
+  }
+  rpc GetUserInfoByEmail (UserEmail) returns (GRPCUserInfoResponse) {
+  }
+}
+
+service CallbackService {
+  rpc dumpCallback (GRPCScheduleResponse) returns (Void) {
+  }
+  rpc taskCallback (GRPCCreateTaskResponse) returns (Void) {
+  }
+  rpc postCallback (GRPCPostDataResponse) returns (Void) {
+  }
+  rpc clusterCallback (GRPCClusterResponse) returns (Void) {
+  }
+}
+
+service TrainingService {
+  rpc StartTraining (TrainingRequest) returns (Void) {
+  }
+}
+
+service DatasetService {
+  rpc CreateDataset (GRPCJobs) returns (Void) {
+  }
+}
+
+service JModelService {
+  rpc CreateModel (GRPCJobs) returns (Void) {
+  }
+  rpc GetModelsByLocationAndType(ModelRequestWrapper) returns (JModelResponses) {
+  }
+}
+

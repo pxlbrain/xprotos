@@ -14,11 +14,13 @@ message Device {
   string locationName = 5;
   string created = 6;
   string updated = 7;
-  string deviceId = 8;
   string status = 9;
   string cameraLink = 10;
   string scoId = 11;
   string scoName = 12;
+  string jsonConfig = 13;
+  bool learningMode = 14;
+  string mac = 15;
 }
 
 message DeviceId {
@@ -75,6 +77,10 @@ message RegionId {
   string id = 1;
 }
 
+message RegionIds {
+  repeated RegionId regionIds = 1;
+}
+
 message Locations {
   repeated Location locations = 1;
 }
@@ -113,4 +119,15 @@ message GRPCGetDeviceResponse {
   int32 size = 2;
   int32 count = 3;
   repeated Device devices = 4;
+}
+
+message DeviceConfig {
+  string id = 1;
+  string jsonConfig = 2;
+}
+
+message LearningModeRequest {
+  string id = 1;
+  bool mode = 2;
+  bool isInitial = 3;
 }

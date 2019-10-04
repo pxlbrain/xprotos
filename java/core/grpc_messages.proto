@@ -1,0 +1,19 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+enum CommandType {
+    UNSPECIFIED = 0;
+    GET_CONFIG = 1;
+    SET_CONFIG = 2;
+    GET_PRODUCT_LIST = 3;
+    SET_PRODUCT_LIST = 4;
+    SWITCH_MODE = 5;
+}
+message Init {
+    string id = 1;
+    bool learning = 2;
+}
+message Command {
+    CommandType command_type = 1;
+    string payload = 2;
+}
