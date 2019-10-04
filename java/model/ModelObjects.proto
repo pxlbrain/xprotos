@@ -14,7 +14,7 @@ message GRPCJob {
   string filter = 4;
   string filterType = 5;
   string client = 6;
-  GRPCJobStep jobStep = 7;
+  string jobStep = 7;
   string type = 8;
   string assignedTo = 9;
   string startDate = 10;
@@ -40,16 +40,6 @@ message GRPCGetJobsResponse {
   int32 size = 2;
   int32 count = 3;
   repeated GRPCJob jobs = 4;
-}
-
-message GRPCJobStep {
-  string id = 1;
-  string created = 2;
-  string updated = 3;
-  string step = 4;
-  string message = 5;
-  string startDate = 6;
-  string endDate = 7;
 }
 
 message TrainingRequest {
