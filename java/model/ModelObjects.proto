@@ -45,8 +45,8 @@ message GRPCGetJobsResponse {
 message TrainingRequest {
 }
 
-message PtagDetectorRequest {
-  string status = 1;
+message PtagClassifierRequest {
+  string jobId = 1;
   repeated string paths = 2;
 }
 
