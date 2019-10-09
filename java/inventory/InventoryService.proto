@@ -14,6 +14,7 @@ service CompanyService {
   rpc DeleteCompany (CompanyId) returns (Void) {};
   rpc GetCompany (CompanyId) returns (Company) {};
   rpc GetAllCompanies (Void) returns (Companies) {};
+  rpc GetCompaniesAndLocations (Void) returns (CompaniesAndLocations) {};
 };
 
 service DeviceService {
