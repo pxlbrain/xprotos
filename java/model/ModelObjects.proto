@@ -221,21 +221,22 @@ message ModelRequestWrapper{
 }
 
 message JModelResponse {
- string id = 1;
- string created = 2;
- string modified = 3;
- string name = 4;
- double performance = 5;
- string step = 6;
- string status = 7;
- string locationId = 8;
- string client = 9;
- string request = 10;
- string datasetVersion = 11;
- string type = 12;
- bool classifier = 13;
- bool mlc = 14;
- bool detector = 15;
+  string id = 1;
+  string created = 2;
+  string modified = 3;
+  string name = 4;
+  double performance = 5;
+  string step = 6;
+  string status = 7;
+  string locationId = 8;
+  string client = 9;
+  string request = 10;
+  string datasetVersion = 11;
+  string modelVersion = 12;
+  string type = 13;
+  bool classifier = 14;
+  bool mlc = 15;
+  bool detector = 16;
 }
 
 message JModelRequest {
@@ -250,10 +251,11 @@ message JModelRequest {
   string client = 9;
   string request = 10;
   string datasetVersion = 11;
-  string type = 12;
-  bool classifier = 13;
-  bool mlc = 14;
-  bool detector = 15;
+  string modelVersion = 12;
+  string type = 13;
+  bool classifier = 14;
+  bool mlc = 15;
+  bool detector = 16;
 }
 
 message JModelResponses {
