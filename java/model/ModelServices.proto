@@ -65,5 +65,6 @@ service JModelService {
   }
   rpc GetModelsByLocationAndType(ModelRequestWrapper) returns (JModelResponses) {
   }
+  rpc DelpoyModel(JModelRequest) returns (Void)
 }
 
