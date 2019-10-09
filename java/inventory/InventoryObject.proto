@@ -131,3 +131,14 @@ message LearningModeRequest {
   bool mode = 2;
   bool isInitial = 3;
 }
+
+message CompaniesAndLocations {
+  repeated CompanyAndLocations companyAndLocations = 1;
+}
+
+message CompanyAndLocations {
+  string company = 1;
+  repeated string locations = 2;
+}
+
+
