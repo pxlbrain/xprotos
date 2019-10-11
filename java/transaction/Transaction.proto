@@ -5,9 +5,6 @@ import "inventory/Void.proto";
 import "product/Product.proto";
 
 service TransactionService {
-  rpc CreateTransaction (Transaction) returns (Transaction) {}
-  rpc CreateTransactions (Transactions) returns (Transactions) {}
-  rpc DeleteTransaction (TransactionId) returns (Void) {}
   rpc GetTransaction (TransactionId) returns (Transaction) {}
   rpc GetAllTransactions (TransactionRequest) returns (GRPCGetTransactionResponse) {}
 }
@@ -21,30 +18,30 @@ message GRPCGetTransactionResponse {
 
 message Transaction {
   string id = 1;
-  string transactionStatus = 2;
-  string transactionStartTime = 3;
-  string transactionEndTime = 4;
-  string totalPrice = 5;
-  string unitId = 6;
-  string globalUid = 7;
-  string paymentType = 8;
-  string paymentId = 9;
-  string paymentStatus = 10;
-  string location_id = 11;
-  repeated TransactionItem transactionItems=12;
+  string client = 2;
+  string locationId = 3;
+  string time = 4;
+  string trayId = 5;
+  string transactionStatus = 6;
+  repeated string frames = 7;
+  TrayStatus trayStatus = 8;
+  string filter = 9;
+}
+
+message TrayStatus {
+  string status = 1;
+  string rescanned = 2;
+  repeated TransactionItem items = 3;
 }
 
 message TransactionItem {
-  string units = 2;
+  string quantity = 1;
+  string productId =2;
   string productName = 3;
-  string itemSource = 4;
-  string productPrice = 5;
-  bool weightBased = 6;
-  string weightBase = 7;
-  string weightGrams = 8;
-  bool invalid = 9;
-  string transactionId = 10;
-  string productId = 11;
+  string category = 4;
+  string subCategory = 5;
+  string width = 7;
+  string height = 8;
 }
 
 message QueryParam {
