@@ -25,6 +25,7 @@ message Transaction {
   string transactionStatus = 6;
   repeated string frames = 7;
   TrayStatus trayStatus = 8;
+  string filter = 9;
 }
 
 message TrayStatus {
