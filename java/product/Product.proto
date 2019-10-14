@@ -1,8 +1,9 @@
 syntax = "proto3";
-option java_multiple_files = true;
-option java_package = "ai.pixlbrain.backend";
 
 package ai.pixlbrain.backend;
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
 
 import "google/protobuf/wrappers.proto";
 import "inventory/Void.proto";
@@ -41,6 +42,8 @@ service ProductService {
   rpc UploadProducts (BytesWrapper) returns (Void) {
   }
   rpc Train(TrainProductsRequest) returns (Void) {
+  }
+  rpc SendProductList(LocationAndDeviceId) returns (Void) {
   }
 }
 
@@ -157,5 +160,10 @@ message TrainProductsRequest {
   string client = 2;
   string locationId = 3;
   string name = 4;
+}
+
+message LocationAndDeviceId {
+  string locationId = 1;
+  string deviceId = 2;
 }
 
