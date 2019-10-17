@@ -208,6 +208,12 @@ message ProductJobs {
 }
 
 message GRPCClusterResponse {
+  GRPCCluster cluster = 1;
+  string client = 2;
+  string location =3;
+}
+
+message GRPCCluster {
   repeated string instance = 1;
   repeated string hand=  2;
   repeated string tray = 3;
