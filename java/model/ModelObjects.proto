@@ -31,8 +31,9 @@ message GRPCGetJobsRequest {
   string company = 1;
   string locationId = 2;
   string status = 3;
-  GRPCPaging paging = 4;
-  GRPCSorting sorting = 5;
+  string type = 4;
+  GRPCPaging paging = 5;
+  GRPCSorting sorting = 6;
 }
 
 message GRPCGetJobsResponse {
