@@ -10,9 +10,9 @@ service JobService {
   };
   rpc UpdateJob (GRPCJob) returns (GRPCJob) {
   };
-  rpc CreateProductJobs(ProductJobs) returns (ModelId) {
+  rpc CreateProductJobs (ProductJobs) returns (ModelId) {
   };
-  rpc UpdateJobStep(GRPCJob) returns (GRPCJob) {
+  rpc UpdateJobStep (GRPCJob) returns (GRPCJob) {
   };
 }
 
@@ -46,11 +46,10 @@ service CallbackService {
   }
   rpc clusterCallback (GRPCClusterResponse) returns (Void) {
   }
-}
+  rpc TrainingDoneCallback (GRPCTrainingResponse) returns (Void) {
 
-service TrainingService {
-  rpc startTraining (TrainingRequest) returns (Void) {
   }
+
 }
 
 service DatasetService {
@@ -65,8 +64,9 @@ service DatasetService {
 service JModelService {
   rpc CreateModel (GRPCJobs) returns (Void) {
   }
-  rpc GetModelsByLocationAndType(ModelRequestWrapper) returns (JModelResponses) {
+  rpc GetModelsByLocationAndType (ModelRequestWrapper) returns (JModelResponses) {
   }
-  rpc StartTraining(JModelRequest) returns (Void) {}
+  rpc StartTraining (JModelRequest) returns (Void) {
+  }
 }
 

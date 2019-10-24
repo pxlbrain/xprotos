@@ -43,9 +43,6 @@ message GRPCGetJobsResponse {
   repeated GRPCJob jobs = 4;
 }
 
-message TrainingRequest {
-}
-
 message PtagClassifierRequest {
   string jobId = 1;
   repeated string paths = 2;
@@ -198,14 +195,14 @@ message ProductJob {
 }
 
 message ModelId {
- string id = 1;
+  string id = 1;
 }
 
 message ProductJobs {
- repeated ProductJob jobs = 1;
- string client = 2;
- string location = 3;
- string name = 4;
+  repeated ProductJob jobs = 1;
+  string client = 2;
+  string location = 3;
+  string name = 4;
 }
 
 message GRPCClusterResponse {
@@ -266,5 +263,11 @@ message JModelRequest {
 }
 
 message JModelResponses {
- repeated JModelResponse responses = 1;
+  repeated JModelResponse responses = 1;
+}
+
+message GRPCTrainingResponse {
+  string id = 1;
+  string status = 2;
+
 }
