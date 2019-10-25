@@ -7,12 +7,12 @@ option java_package = "ai.pixlbrain.backend";
 import "core/grpc_messages.proto";
 
 message ConfigWrapper {
-  string address = 1;
+  string id = 1;
   string jsonConfig = 2;
-  CommandType type = 3;
+  MessageType type = 3;
 }
 
 message LearningMode {
-  string address = 1;
+  string id = 1;
   bool mode = 2;
 }
