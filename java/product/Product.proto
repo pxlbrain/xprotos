@@ -45,6 +45,8 @@ service ProductService {
   }
   rpc SendProductList(LocationAndDeviceId) returns (Void) {
   }
+  rpc GetProductsByProductId (ProductId) returns (Products) {
+  }
 }
 
 message BytesWrapper {
