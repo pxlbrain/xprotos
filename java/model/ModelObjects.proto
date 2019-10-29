@@ -25,6 +25,8 @@ message GRPCJob {
   string cvatCsvPath = 15;
   string jobStatus = 16;
   string locationId = 17;
+  string productId = 18;
+  string productName = 19;
 }
 
 message GRPCGetJobsRequest {
@@ -241,6 +243,7 @@ message JModelResponse {
   bool classifier = 14;
   bool mlc = 15;
   bool detector = 16;
+  repeated GRPCJob jobs = 17;
 }
 
 message JModelRequest {
