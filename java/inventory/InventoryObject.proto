@@ -141,4 +141,9 @@ message CompanyAndLocations {
   repeated string locations = 2;
 }
 
+message DeployModelRequest {
+  string modelId = 1;
+  repeated string deviceIds = 2;
+}
+
 
