@@ -68,5 +68,7 @@ service JModelService {
   }
   rpc StartTraining (JModelRequest) returns (Void) {
   }
+  rpc GetModelVersion (ModelId) returns (ModelVersion) {
+  }
 }
 
