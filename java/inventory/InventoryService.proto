@@ -23,7 +23,7 @@ service DeviceService {
   rpc DeleteDevice (DeviceId) returns (Void) {};
   rpc GetDevice (DeviceId) returns (Device) {};
   rpc GetAllDevices (Void) returns (Devices) {};
-  rpc GetDevicesByLocationId (LocationId) returns (Devices) {}
+  rpc GetDevicesByLocationId (GRPCGetLocationRequest) returns (GRPCGetDeviceResponse) {}
   rpc GetDevicesByCompanyId (GRPCGetLocationRequest) returns (GRPCGetDeviceResponse) {}
   rpc UpdateDeviceConfig (DeviceConfig) returns (Void) {}
   rpc UpdateLearningMode (LearningModeRequest) returns (Void) {}
