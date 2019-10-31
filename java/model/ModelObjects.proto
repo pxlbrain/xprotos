@@ -200,6 +200,11 @@ message ModelId {
   string id = 1;
 }
 
+message ModelVersion {
+  string version = 1;
+  string type = 2;
+}
+
 message ProductJobs {
   repeated ProductJob jobs = 1;
   string client = 2;
@@ -272,5 +277,4 @@ message JModelResponses {
 message GRPCTrainingResponse {
   string id = 1;
   string status = 2;
-
 }
