@@ -5,7 +5,7 @@ message ModelMetrics {
     string modelId = 1;
     string modelType = 2;
     float globalAccuracy = 3;
-    map<string, double> specificAttributes = 4;
+    map<string, string> specificAttributes = 4;
     map<string, GrpcClassAccuracy> perClassAccuracy = 5;
 };
 

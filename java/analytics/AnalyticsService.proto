@@ -3,12 +3,12 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 
-import "analytics/AnalyticsObject.proto";;
-import "inventory/Void.proto";;
+import "analytics/AnalyticsObject.proto";
+import "inventory/Void.proto";
 import "model/ModelObjects.proto";
 
 package ai.pixlbrain.backend;
 
 service AnalyticsService {
-  rpc GetMetricsForModel (ModelId) returns (ModelMetrics) {};
+  rpc GetMetricsForModel (ModelId) returns (ModelMetrics) {}
 };
