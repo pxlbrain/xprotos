@@ -216,6 +216,7 @@ message GRPCClusterResponse {
   GRPCCluster cluster = 1;
   string client = 2;
   string location =3;
+  string date = 4;
 }
 
 message GRPCCluster {
