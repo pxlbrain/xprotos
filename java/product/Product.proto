@@ -47,6 +47,12 @@ service ProductService {
   }
   rpc GetProductsByProductId (ProductId) returns (Products) {
   }
+  rpc UploadListToS3(Id) returns (Void) {
+  }
+}
+
+message Id {
+  string id = 1;
 }
 
 message BytesWrapper {
