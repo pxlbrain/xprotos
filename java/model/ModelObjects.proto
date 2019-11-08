@@ -279,3 +279,19 @@ message GRPCTrainingResponse {
   string id = 1;
   string status = 2;
 }
+
+message ModelVersionRequest {
+  string modelType = 1;
+  string message = 2;
+}
+
+message DatasetVersionRequest {
+  string datasetType = 1;
+  string message = 2;
+}
+
+message AssignVersionRequest {
+  string modelVersion = 1;
+  string datasetVersion =2;
+}
+
