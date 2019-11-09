@@ -59,6 +59,8 @@ service DatasetService {
   }
   rpc CreateDatasetForMlc (PtagClassifierRequest) returns (Void) {
   }
+  rpc CreateDatasetVersion (DatasetVersionRequest) returns (Void) {
+  }
 }
 
 service JModelService {
@@ -69,6 +71,10 @@ service JModelService {
   rpc StartTraining (JModelRequest) returns (Void) {
   }
   rpc GetModelVersion (ModelId) returns (ModelVersion) {
+  }
+  rpc CreateModelVersion (ModelVersionRequest) returns (Void) {
+  }
+  rpc AssignDatasetVersion (AssignVersionRequest) returns (Void) {
   }
 }
 
