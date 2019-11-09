@@ -91,9 +91,9 @@ message Product {
   string capturingTime = 16;
   string terminalId = 17;
   string displayName = 18;
-  repeated string sideDishes = 19;
-  repeated string plateItems = 20;
-  repeated string mistakenProducts = 21;
+  repeated NameId sideDishes = 19;
+  repeated NameId plateItems = 20;
+  repeated NameId mistakenProducts = 21;
   string obid = 22;
 }
 
@@ -150,17 +150,17 @@ message GRPCSorting {
 
 message SideDishIds {
   string productId = 1;
-  repeated string ids = 2;
+  repeated NameId nameIds = 2;
 }
 
 message MistakenProductIds {
   string productId = 1;
-  repeated string ids = 2;
+  repeated NameId nameIds = 2;
 }
 
 message PlateItemIds {
   string productId = 1;
-  repeated string ids = 2;
+  repeated NameId nameIds = 2;
 }
 
 message TrainProductsRequest {
@@ -173,5 +173,10 @@ message TrainProductsRequest {
 message LocationAndDeviceId {
   string locationId = 1;
   string deviceId = 2;
+}
+
+message NameId {
+  string id = 1;
+  string name = 2;
 }
 
