@@ -38,6 +38,7 @@ message Company {
   repeated Region regions = 4;
   string created = 5;
   string updated = 6;
+  string displayName = 7;
 }
 
 message Companies {
@@ -58,6 +59,7 @@ message Location {
   repeated SCO SCOs = 7;
   string created = 8;
   string updated = 9;
+  string displayName = 10;
 }
 
 message Region {
