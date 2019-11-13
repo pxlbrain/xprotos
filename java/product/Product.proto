@@ -41,13 +41,13 @@ service ProductService {
   }
   rpc UploadProducts (BytesWrapper) returns (Void) {
   }
-  rpc Train(TrainProductsRequest) returns (Void) {
+  rpc Train (TrainProductsRequest) returns (Void) {
   }
-  rpc SendProductList(LocationAndDeviceId) returns (Void) {
+  rpc SendProductList (LocationAndDeviceId) returns (Void) {
   }
   rpc GetProductsByProductId (ProductId) returns (Products) {
   }
-  rpc UploadListToS3(Id) returns (Void) {
+  rpc UploadListToS3 (Id) returns (Void) {
   }
 }
 
@@ -131,6 +131,7 @@ message GRPCGetRequest {
   repeated string locationIds = 1;
   repeated GRPCFilter filter = 2;
   GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
 }
 
 message GRPCFilter {
