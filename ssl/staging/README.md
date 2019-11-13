@@ -1,3 +1,6 @@
-**SSL for staging environment**
-  - dns: api.pixlops.cloud
-  - ip: 34.212.141.197
+**SSL for:**
+ - 54.171.5.77
+ - api-staging.pixlops.com
+ - 52.50.125.221
+ - api.pixlops.com 
+ - api.checklens.ai
