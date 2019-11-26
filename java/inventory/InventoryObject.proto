@@ -21,6 +21,7 @@ message Device {
   string jsonConfig = 13;
   bool learningMode = 14;
   string mac = 15;
+  string name = 16;
 }
 
 message DeviceId {
@@ -66,7 +67,7 @@ message Region {
   string id = 1;
   string name = 2;
   string companyId = 3;
-  repeated Location locations= 4;
+  repeated Location locations = 4;
   string created = 5;
   string updated = 6;
 }
