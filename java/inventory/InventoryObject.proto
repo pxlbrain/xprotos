@@ -155,4 +155,9 @@ message DeployModelRequest {
   string type = 4;
 }
 
+message ScheduleRequest {
+  string deviceId = 1;
+  string from = 2;
+  string to = 3;
+}
 
