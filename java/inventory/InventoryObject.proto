@@ -40,6 +40,7 @@ message Company {
   string created = 5;
   string updated = 6;
   string displayName = 7;
+  repeated Location locations = 8;
 }
 
 message Companies {
@@ -61,6 +62,8 @@ message Location {
   string created = 8;
   string updated = 9;
   string displayName = 10;
+  string companyId = 11;
+  string companyName = 12;
 }
 
 message Region {
