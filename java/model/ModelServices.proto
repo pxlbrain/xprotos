@@ -16,6 +16,8 @@ service JobService {
   };
   rpc GetProductsForJobs (ModelId) returns (FieldString) {
   };
+  rpc CreateJobsWithFilter (PtagFilter) returns (Void) {
+  };
 }
 
 service CVATService {

@@ -51,17 +51,17 @@ message PtagClassifierRequest {
 }
 
 message GRPCRegisterRequest {
-  string username =1;
+  string username = 1;
   string firstName = 2;
   string lastName = 3;
   string email = 4;
-  string password =5;
+  string password = 5;
 }
 
 
 message GRPCCreateTaskRequest {
-  string jobId =1;
-  repeated string links =2;
+  string jobId = 1;
+  repeated string links = 2;
 }
 
 message GRPCLabel {
@@ -69,17 +69,17 @@ message GRPCLabel {
   repeated string attributes = 2;
 }
 message TaskId {
-  string id =1;
-  string userId=2;
+  string id = 1;
+  string userId = 2;
 }
 
 message UserEmail {
-  string email=1;
+  string email = 1;
 }
 
 message DownloadDumpRequest {
   string taskId = 1;
-  string annotationId=2;
+  string annotationId = 2;
 }
 
 
@@ -215,18 +215,18 @@ message ProductJobs {
 message GRPCClusterResponse {
   GRPCCluster cluster = 1;
   string client = 2;
-  string location =3;
+  string location = 3;
   string date = 4;
 }
 
 message GRPCCluster {
   repeated string instance = 1;
-  repeated string hand=  2;
+  repeated string hand = 2;
   repeated string tray = 3;
   repeated string plate = 4;
 }
 
-message ModelRequestWrapper{
+message ModelRequestWrapper {
   string client = 1;
   string locationId = 2;
   string type = 3;
@@ -292,6 +292,13 @@ message DatasetVersionRequest {
 
 message AssignVersionRequest {
   string modelVersion = 1;
-  string datasetVersion =2;
+  string datasetVersion = 2;
+}
+
+message PtagFilter {
+  string client = 1;
+  string location = 2;
+  string dateFrom = 3;
+  string dateTo = 4;
 }
 
