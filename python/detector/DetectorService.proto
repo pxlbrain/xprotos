@@ -1,0 +1,10 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "DetectorObject.proto";
+
+
+service DetectorService {
+    rpc SinglePredict(DetectorRequest) returns (DetectorResponse) {};
+    rpc BatchPredict(DetectorRequest) returns (DetectorResponse) {};
+};

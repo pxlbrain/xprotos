@@ -1,0 +1,53 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+
+message SingleImage {
+    bytes image = 1;
+    string name = 2;
+};
+
+message BatchImages {
+    repeated SingleImage singleImages = 1;
+};
+
+message Point {
+    float x = 1;
+    float y = 2;
+};
+
+message BoundBox {
+    Point p1 = 1;
+    Point p2 = 2;
+};
+
+message SingleImageResponse {
+    repeated BoundBox bboxes = 1;
+    repeated float scores = 2;
+    repeated string labels = 3;
+    float scale = 4;
+};
+
+message BatchImageResponse {
+    repeated SingleImageResponse results = 1;
+};
+
+message DetectorError {
+    string message = 1;
+    string phase = 2;
+};
+
+message DetectorRequest {
+    oneof request {
+        SingleImage singleImage = 1;
+        BatchImages batchImages = 2;
+    };
+};
+
+message DetectorResponse {
+    oneof response {
+        SingleImageResponse singleImageResponse = 1;
+        BatchImageResponse batchImageResponse = 2;
+        DetectorError detectorError = 3;
+    };
+};
