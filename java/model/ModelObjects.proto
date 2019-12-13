@@ -302,3 +302,8 @@ message PtagFilter {
   string dateTo = 4;
 }
 
+message CompanyAndLocation {
+  string company = 1;
+  string location = 2;
+}
+

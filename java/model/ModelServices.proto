@@ -81,4 +81,7 @@ service JModelService {
   rpc AssignDatasetVersion (AssignVersionRequest) returns (Void) {
   }
 }
-
+service ClusterService {
+  rpc startClustering (CompanyAndLocation) returns (Void) {
+  }
+}
