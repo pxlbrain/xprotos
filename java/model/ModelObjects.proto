@@ -300,6 +300,7 @@ message PtagFilter {
   string location = 2;
   string dateFrom = 3;
   string dateTo = 4;
+  string fileType = 5;
 }
 
 message CompanyAndLocation {
