@@ -49,6 +49,8 @@ service ProductService {
   }
   rpc UploadListToS3 (Id) returns (Void) {
   }
+  rpc UploadProductPicture (PictureBytes) returns (Void) {
+  }
 }
 
 message Id {
@@ -181,3 +183,7 @@ message NameId {
   string name = 2;
 }
 
+message PictureBytes {
+  string productId = 1;
+  string bytes = 2;
+}
