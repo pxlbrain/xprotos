@@ -301,6 +301,7 @@ message PtagFilter {
   string dateFrom = 3;
   string dateTo = 4;
   string fileType = 5;
+  bool forceCreate = 6;
 }
 
 message CompanyAndLocation {
