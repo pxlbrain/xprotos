@@ -21,6 +21,8 @@ service CompanyService {
   };
   rpc GetCompaniesAndLocations (Void) returns (CompaniesAndLocations) {
   };
+  rpc DeleteRegion (RegionId) returns (Void) {
+  };
 };
 
 service DeviceService {
