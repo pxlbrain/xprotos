@@ -24,6 +24,7 @@ message Device {
   string name = 16;
 }
 
+
 message DeviceId {
   string id = 1;
 }
