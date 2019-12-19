@@ -309,3 +309,7 @@ message CompanyAndLocation {
   string location = 2;
 }
 
+message JobIds {
+  repeated string ids = 1;
+}
+

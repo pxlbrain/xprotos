@@ -18,6 +18,8 @@ service JobService {
   };
   rpc CreateJobsWithFilter (PtagFilter) returns (Void) {
   };
+  rpc DeleteJobs (JobIds) returns (Void) {
+  };
 }
 
 service CVATService {
