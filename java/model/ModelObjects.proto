@@ -307,6 +307,7 @@ message PtagFilter {
 message CompanyAndLocation {
   string company = 1;
   string location = 2;
+  string data = 3;
 }
 
 message JobIds {
