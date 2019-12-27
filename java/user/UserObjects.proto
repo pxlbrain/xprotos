@@ -1,0 +1,130 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+import "product/Product.proto";
+
+message GRPCUserResponse {
+  repeated GRPCUser users = 1;
+  int32 count = 3;
+  string page = 4;
+  int32 size = 5;
+}
+
+message GRPCUser {
+  string id = 1;
+  string created = 2;
+  string updated = 3;
+  string username = 4;
+  string firstName = 5;
+  string lastName = 6;
+  string email = 7;
+  repeated GRPCRole roles = 8;
+  repeated GRPCScope scopes = 9;
+}
+
+message GRPCScope {
+  string resource = 1;
+  string resourceId = 2;
+}
+
+message GRPCGetUsersRequest {
+  string companyId = 1;
+  repeated GRPCFilter filter = 2;
+  GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
+}
+
+message GRPCCustomUserType {
+  string id = 1;
+  string username = 2;
+  repeated GRPCCustomAttributeType attributes = 3;
+  string userCreateDate = 4;
+  string userLastModifiedDate = 5;
+  bool enabled = 6;
+  string userStatus = 7;
+  string firstName = 8;
+  string lastName = 9;
+}
+
+message GRPCCustomAttributeType {
+  string name = 1;
+  string value = 2;
+}
+
+message GRPCLoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message GRPCAuthResponse {
+  string challengeName = 1;
+  string session = 2;
+  repeated GRPCChallengeParameters challengeParameters = 3;
+  GRPCAuthenticationResult authenticationResult = 4;
+  repeated GRPCRole roles = 6;
+
+}
+
+message GRPCChallengeParameters {
+  string key = 1;
+  string value = 2;
+}
+
+message GRPCAuthenticationResult {
+  string accessToken = 1;
+  int32 expiresIn = 2;
+  string tokenType = 3;
+  string refreshToken = 4;
+  string idToken = 5;
+}
+
+message StringField {
+  string field = 1;
+}
+
+message GRPCPasswordRequest {
+  string username = 1;
+  string password = 2;
+  string confirmationCode = 3;
+  string oldPassword = 4;
+  string email = 5;
+  GRPCRole role = 6;
+  string session = 7;
+  string accessToken = 8;
+}
+
+message GRPCPasswordResponse {
+  string destination = 1;
+  string deliveryMedium = 2;
+  string message = 3;
+  string username = 4;
+}
+
+message GRPCRefreshTokenRequest {
+  string username = 1;
+  string refreshToken = 2;
+}
+
+message GRPCAuthorizationRequest {
+  string username = 1;
+  string role = 2;
+  string method = 3;
+}
+
+
+message GRPCRole {
+  string id = 1;
+  string name = 2;
+  string created = 3;
+}
+
+message GRPCRoles {
+  repeated GRPCRole roles =1 ;
+}
+
+message IsAuthorized {
+  bool isAuthorized = 1;
+}
