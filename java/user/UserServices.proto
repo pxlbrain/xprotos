@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+import "user/UserObjects.proto";
+import "inventory/Void.proto";
+
+package ai.pixlbrain.backend;
+
+service UserService {
+  rpc GetUsers (GRPCGetUsersRequest) returns (GRPCUserResponse) {
+  };
+  rpc SignUp (GRPCUser) returns (GRPCCustomUserType) {
+  };
+  rpc SignIn (GRPCLoginRequest) returns (GRPCAuthResponse) {
+  };
+  rpc ChangeGroup (GRPCUser) returns (GRPCUser) {
+  };
+  rpc UpdateUser (GRPCUser) returns (GRPCUser) {
+  };
+  rpc DeleteUser (StringField) returns (Void) {
+  };
+  rpc SignOut (StringField) returns (Void) {
+  };
+  rpc GetAuthorizedUser (StringField) returns (Void) {
+  };
+  rpc ChangePassword (GRPCPasswordRequest) returns (Void) {
+  };
+  rpc ResetPassword (StringField) returns (GRPCPasswordResponse) {
+  };
+  rpc ConfirmPassword (GRPCPasswordRequest) returns (GRPCPasswordResponse) {
+  };
+  rpc ChangeInitialPassword (GRPCPasswordRequest) returns (GRPCAuthResponse) {
+  };
+  rpc GetAccessToken (GRPCRefreshTokenRequest) returns (GRPCAuthResponse) {
+  };
+  rpc CheckAuthorization (GRPCAuthorizationRequest) returns (IsAuthorized) {
+  };
+}
+
+service RoleService {
+  rpc GetRoles (Void) returns (GRPCRoles);
+}

@@ -279,6 +279,8 @@ message JModelResponses {
 message GRPCTrainingResponse {
   string id = 1;
   string status = 2;
+  string step = 3;
+  string reason = 4;
 }
 
 message ModelVersionRequest {
