@@ -41,7 +41,7 @@ service ProductService {
   }
   rpc UploadProducts (BytesWrapper) returns (Void) {
   }
-  rpc Train (TrainProductsRequest) returns (Void) {
+  rpc AddToProductList (ProductsRequest) returns (Void) {
   }
   rpc SendProductList (LocationAndDeviceId) returns (Void) {
   }
@@ -166,11 +166,12 @@ message PlateItemIds {
   repeated NameId nameIds = 2;
 }
 
-message TrainProductsRequest {
+message ProductsRequest {
   repeated string productIds = 1;
   string client = 2;
   string locationId = 3;
   string name = 4;
+  bool isNewList = 5;
 }
 
 message LocationAndDeviceId {

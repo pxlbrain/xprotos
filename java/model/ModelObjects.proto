@@ -210,6 +210,7 @@ message ProductJobs {
   string client = 2;
   string location = 3;
   string name = 4;
+  string productListId = 5;
 }
 
 message GRPCClusterResponse {
@@ -304,6 +305,7 @@ message PtagFilter {
   string dateTo = 4;
   string fileType = 5;
   bool forceCreate = 6;
+  string device = 7;
 }
 
 message CompanyAndLocation {
@@ -315,4 +317,3 @@ message CompanyAndLocation {
 message JobIds {
   repeated string ids = 1;
 }
-
