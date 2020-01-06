@@ -305,6 +305,7 @@ message PtagFilter {
   string dateTo = 4;
   string fileType = 5;
   bool forceCreate = 6;
+  string device = 7;
 }
 
 message CompanyAndLocation {
@@ -316,4 +317,3 @@ message CompanyAndLocation {
 message JobIds {
   repeated string ids = 1;
 }
-
