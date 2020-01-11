@@ -53,7 +53,6 @@ service CallbackService {
   rpc clusterCallback (GRPCClusterResponse) returns (Void) {
   }
   rpc TrainingDoneCallback (GRPCTrainingResponse) returns (Void) {
-
   }
 
 }
@@ -66,6 +65,8 @@ service DatasetService {
   rpc CreateDatasetForMlc (PtagClassifierRequest) returns (Void) {
   }
   rpc CreateDatasetVersion (DatasetVersionRequest) returns (Void) {
+  }
+  rpc PreparingDataset (ModelId) returns (Void) {
   }
 }
 
@@ -81,6 +82,8 @@ service JModelService {
   rpc CreateModelVersion (ModelVersionRequest) returns (Void) {
   }
   rpc AssignDatasetVersion (AssignVersionRequest) returns (Void) {
+  }
+  rpc StopTraining (JModelRequest) returns (Void) {
   }
 }
 service ClusterService {
