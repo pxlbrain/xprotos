@@ -23,6 +23,8 @@ service CompanyService {
   };
   rpc DeleteRegion (RegionId) returns (Void) {
   };
+  rpc GetRegionByCompany(CompanyId) returns (Regions) {
+  };
 };
 
 service DeviceService {

@@ -27,6 +27,7 @@ message GRPCJob {
   string locationId = 17;
   string productId = 18;
   string productName = 19;
+  string deviceId = 20;
 }
 
 message GRPCGetJobsRequest {
@@ -251,6 +252,8 @@ message JModelResponse {
   bool mlc = 15;
   bool detector = 16;
   repeated GRPCJob jobs = 17;
+  string errorStep = 18;
+  string errorReason = 19;
 }
 
 message JModelRequest {
@@ -291,6 +294,7 @@ message ModelVersionRequest {
 message DatasetVersionRequest {
   string datasetType = 1;
   string message = 2;
+  string id =3;
 }
 
 message AssignVersionRequest {
