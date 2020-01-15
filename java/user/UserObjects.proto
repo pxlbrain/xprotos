@@ -30,6 +30,7 @@ message GRPCScope {
   string resource = 2;
   string resourceId = 3;
   string resourceName = 4;
+  string isRemoved = 5;
 }
 
 message GRPCGetUsersRequest {
