@@ -1,0 +1,17 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+
+message VideoPTAGFilter {
+    string filter = 1;
+};
+
+message VideoExtractRequest {
+    oneof request {
+        VideoPTAGFilter ptagFilter = 1;
+    };
+};
+
+message VideoExtractResponse {
+    string message = 1;
+};
