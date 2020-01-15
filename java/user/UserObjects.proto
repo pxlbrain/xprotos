@@ -26,8 +26,10 @@ message GRPCUser {
 }
 
 message GRPCScope {
-  string resource = 1;
-  string resourceId = 2;
+  string id = 1;
+  string resource = 2;
+  string resourceId = 3;
+  string resourceName = 4;
 }
 
 message GRPCGetUsersRequest {
@@ -65,7 +67,18 @@ message GRPCAuthResponse {
   repeated GRPCChallengeParameters challengeParameters = 3;
   GRPCAuthenticationResult authenticationResult = 4;
   repeated GRPCRole roles = 6;
+  repeated GRPCScopes scopes = 7;
+}
 
+message GRPCScopes {
+  string resource = 1;
+  repeated GRPCResources resources = 2;
+}
+
+message GRPCResources {
+  string id = 1;
+  string resourceId = 2;
+  string resourceName = 3;
 }
 
 message GRPCChallengeParameters {
@@ -113,7 +126,6 @@ message GRPCAuthorizationRequest {
   string role = 2;
   string method = 3;
 }
-
 
 message GRPCRole {
   string id = 1;
