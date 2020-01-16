@@ -110,9 +110,8 @@ message ProductId {
 }
 
 message ProductClientLocationRequest {
-  string client = 1;
-  string location = 2;
-  string productId = 3;
+  string location = 1;
+  string productId = 2;
 }
 
 message ProductsAndProductList {
