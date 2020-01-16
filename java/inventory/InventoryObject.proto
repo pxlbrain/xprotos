@@ -162,3 +162,11 @@ message ScheduleRequest {
   string to = 3;
 }
 
+message CompanyIds {
+  repeated string ids = 1;
+}
+
+message RegionIds {
+  repeated string ids = 1;
+}
+
