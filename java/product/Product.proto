@@ -51,6 +51,8 @@ service ProductService {
   }
   rpc UploadProductPicture (PictureBytes) returns (Void) {
   }
+  rpc GetProductsByClientAndLocation (ProductClientLocationRequest) returns (Products) {
+  }
 }
 
 message Id {
@@ -105,6 +107,12 @@ message Products {
 
 message ProductId {
   string id = 1;
+}
+
+message ProductClientLocationRequest {
+  string client = 1;
+  string location = 2;
+  string productId = 3;
 }
 
 message ProductsAndProductList {
