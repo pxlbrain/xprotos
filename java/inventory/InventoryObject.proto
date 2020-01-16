@@ -166,7 +166,4 @@ message CompanyIds {
   repeated string ids = 1;
 }
 
-message RegionIds {
-  repeated string ids = 1;
-}
 
