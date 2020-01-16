@@ -24,8 +24,9 @@ message Transaction {
   string trayId = 5;
   string transactionStatus = 6;
   repeated Frame frames = 7;
-  repeated TrayStatus trayStatus = 8;
+  repeated TrayStatus trayStatusList = 8;
   string filter = 9;
+  string deviceId = 10;
 }
 
 message Frame {
