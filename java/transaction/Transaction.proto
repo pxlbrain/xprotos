@@ -31,7 +31,11 @@ message Transaction {
 
 message Frame {
   string path = 1;
-  repeated Bbs bbs = 2;
+  repeated Bbses bbses = 2;
+}
+
+message Bbses {
+  repeated Bbs bbs = 1;
 }
 
 message Bbs {
