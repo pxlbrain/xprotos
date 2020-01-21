@@ -23,9 +23,26 @@ message Transaction {
   string time = 4;
   string trayId = 5;
   string transactionStatus = 6;
-  repeated string frames = 7;
-  TrayStatus trayStatus = 8;
+  repeated Frame frames = 7;
+  repeated TrayStatus trayStatusList = 8;
   string filter = 9;
+  string deviceId = 10;
+}
+
+message Frame {
+  string path = 1;
+  repeated Bbses bbses = 2;
+}
+
+message Bbses {
+  repeated Bbs bbs = 1;
+}
+
+message Bbs {
+  double x1 = 1;
+  double x2 = 2;
+  double y1 = 3;
+  double y2 = 4;
 }
 
 message TrayStatus {
