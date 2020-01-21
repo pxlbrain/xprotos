@@ -1,0 +1,8 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "CropDetObject.proto";
+
+service CropDetService {
+    rpc CreateCropObjects(CropDetRequest) returns (CropDetResponse) {};
+};

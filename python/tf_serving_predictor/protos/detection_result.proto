@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package inference_runner.inference;
+option cc_enable_arenas = true;
+
+import "rectangle.proto";
+
+message DetectionResult {
+
+    enum Category {
+        UNKNOWN = 0;
+        TRAY = 1;
+        INSTANCE = 2;
+        PLATE = 3;
+        HAND = 4;
+    }
+
+    repeated Category label = 1;
+    repeated float score = 2;
+    repeated Rect bounding_box = 3;
+    uint32 num_detections = 4;
+    repeated bool valid = 5;
+    string location = 6;
+    string raw_result = 7;
+    repeated string x1 = 8;
+    repeated string x2 = 9;
+    repeated string y1 = 10;
+    repeated string y2 = 11;
+}

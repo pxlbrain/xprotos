@@ -1,0 +1,26 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+
+message BatchImagePath {
+    repeated string remoteImagePaths = 1;
+    string client = 2;
+    string location = 3;
+};
+
+message MessageUnit {
+    string message = 1;
+    string requestId = 2;
+};
+
+message CropDetRequest {
+    oneof request {
+        BatchImagePath batchImagePath = 1;
+    };
+};
+
+message CropDetResponse {
+    oneof response {
+        MessageUnit messageUnit = 2;
+    };
+};
