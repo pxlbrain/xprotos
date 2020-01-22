@@ -146,6 +146,7 @@ message GRPCGetRequest {
 message GRPCFilter {
   string field = 1;
   string value = 2;
+  string operator = 3;
 }
 
 message GRPCPaging {
