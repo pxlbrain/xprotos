@@ -166,4 +166,8 @@ message CompanyIds {
   repeated string ids = 1;
 }
 
+message LocationName {
+  string name = 1;
+}
+
 
