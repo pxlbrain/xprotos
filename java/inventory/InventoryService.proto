@@ -75,5 +75,7 @@ service LocationService {
   };
   rpc GetScosByLocationId (LocationId) returns (SCOs) {
   };
+  rpc GetLocationByName (LocationName) returns (Location) {
+  };
 }
 
