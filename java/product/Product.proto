@@ -1,8 +1,9 @@
 syntax = "proto3";
-option java_multiple_files = true;
-option java_package = "ai.pixlbrain.backend";
 
 package ai.pixlbrain.backend;
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
 
 import "google/protobuf/wrappers.proto";
 import "inventory/Void.proto";
@@ -40,6 +41,27 @@ service ProductService {
   }
   rpc UploadProducts (BytesWrapper) returns (Void) {
   }
+  rpc AddToProductList (ProductsRequest) returns (Void) {
+  }
+  rpc SendProductList (LocationAndDeviceId) returns (Void) {
+  }
+  rpc GetProductsByProductId (ProductId) returns (Products) {
+  }
+  rpc UploadListToS3 (UploadId) returns (Void) {
+  }
+  rpc UploadProductPicture (PictureBytes) returns (Void) {
+  }
+  rpc GetProductsByClientAndLocation (ProductClientLocationRequest) returns (Products) {
+  }
+}
+
+message UploadId {
+  string id = 1;
+  bool isNew = 2;
+}
+
+message Id {
+  string id = 1;
 }
 
 message BytesWrapper {
@@ -78,6 +100,10 @@ message Product {
   string capturingTime = 16;
   string terminalId = 17;
   string displayName = 18;
+  repeated NameId sideDishes = 19;
+  repeated NameId plateItems = 20;
+  repeated NameId mistakenProducts = 21;
+  string obid = 22;
 }
 
 message Products {
@@ -86,6 +112,11 @@ message Products {
 
 message ProductId {
   string id = 1;
+}
+
+message ProductClientLocationRequest {
+  string location = 1;
+  string productId = 2;
 }
 
 message ProductsAndProductList {
@@ -114,11 +145,13 @@ message GRPCGetRequest {
   repeated string locationIds = 1;
   repeated GRPCFilter filter = 2;
   GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
 }
 
 message GRPCFilter {
   string field = 1;
   string value = 2;
+  string operator = 3;
 }
 
 message GRPCPaging {
@@ -133,16 +166,38 @@ message GRPCSorting {
 
 message SideDishIds {
   string productId = 1;
-  repeated string ids = 2;
+  repeated NameId nameIds = 2;
 }
 
 message MistakenProductIds {
   string productId = 1;
-  repeated string ids = 2;
+  repeated NameId nameIds = 2;
 }
 
 message PlateItemIds {
   string productId = 1;
-  repeated string ids = 2;
+  repeated NameId nameIds = 2;
 }
 
+message ProductsRequest {
+  repeated string productIds = 1;
+  string client = 2;
+  string locationId = 3;
+  string name = 4;
+  bool isNewList = 5;
+}
+
+message LocationAndDeviceId {
+  string locationId = 1;
+  string deviceId = 2;
+}
+
+message NameId {
+  string id = 1;
+  string name = 2;
+}
+
+message PictureBytes {
+  string productId = 1;
+  string bytes = 2;
+}

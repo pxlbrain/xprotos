@@ -9,35 +9,73 @@ import "inventory/InventoryObject.proto";
 package ai.pixlbrain.backend;
 
 service CompanyService {
-  rpc CreateCompany (Company) returns (Company) {};
-  rpc UpdateCompany (Company) returns (Company) {};
-  rpc DeleteCompany (CompanyId) returns (Void) {};
-  rpc GetCompany (CompanyId) returns (Company) {};
-  rpc GetAllCompanies (Void) returns (Companies) {};
+  rpc CreateCompany (Company) returns (Company) {
+  };
+  rpc UpdateCompany (Company) returns (Company) {
+  };
+  rpc DeleteCompany (CompanyId) returns (Void) {
+  };
+  rpc GetCompany (CompanyId) returns (Company) {
+  };
+  rpc GetAllCompanies (Void) returns (Companies) {
+  };
+  rpc GetCompaniesAndLocations (Void) returns (CompaniesAndLocations) {
+  };
+  rpc DeleteRegion (RegionId) returns (Void) {
+  };
+  rpc GetRegionByCompany(CompanyId) returns (Regions) {
+  };
+  rpc GetRegionsByCompanies(CompanyIds) returns (Regions) {
+  };
 };
 
 service DeviceService {
-  rpc CreateDevice (Device) returns (Device) {};
-  rpc UpdateDevice (Device) returns (Device) {};
-  rpc DeleteDevice (DeviceId) returns (Void) {};
-  rpc GetDevice (DeviceId) returns (Device) {};
-  rpc GetAllDevices (Void) returns (Devices) {};
-  rpc GetDevicesByLocationId (LocationId) returns (Devices) {}
-  rpc GetDevicesByCompanyId (GRPCGetLocationRequest) returns (GRPCGetDeviceResponse) {}
-  rpc UpdateDeviceConfig (DeviceConfig) returns (Void) {}
-  rpc UpdateLearningMode (LearningModeRequest) returns (Void) {}
+  rpc CreateDevice (Device) returns (Device) {
+  };
+  rpc UpdateDevice (Device) returns (Device) {
+  };
+  rpc DeleteDevice (DeviceId) returns (Void) {
+  };
+  rpc GetDevice (DeviceId) returns (Device) {
+  };
+  rpc GetAllDevices (Void) returns (Devices) {
+  };
+  rpc GetDevicesByLocationId (GRPCGetLocationRequest) returns (GRPCGetDeviceResponse) {
+  }
+  rpc GetDevicesByCompanyId (GRPCGetLocationRequest) returns (GRPCGetDeviceResponse) {
+  }
+  rpc UpdateDeviceConfig (DeviceConfig) returns (Void) {
+  }
+  rpc UpdateLearningMode (LearningModeRequest) returns (Void) {
+  }
+  rpc DeployModel (DeployModelRequest) returns (Void) {
+  }
+  rpc ScheduleCapturing (ScheduleRequest) returns (Void) {
+  }
 }
 
 service LocationService {
-  rpc CreateLocations(Locations) returns (Locations) {};
-  rpc CreateLocation (Location) returns (Location) {};
-  rpc UpdateLocation (Location) returns (Location) {};
-  rpc DeleteLocation (LocationId) returns (Void) {};
-  rpc GetLocation (LocationId) returns (Location) {};
-  rpc GetAllLocations (Void) returns (Locations) {};
-  rpc GetLocationsByCompany (GRPCGetLocationRequest) returns (GRPCGetLocationResponse) {};
-  rpc GetLocationsByCompanyId (CompanyId) returns (Locations) {};
-  rpc GetLocationsByRegionIds (RegionIds) returns (Locations) {};
-  rpc GetScosByLocationId (LocationId) returns (SCOs) {};
+  rpc CreateLocations (Locations) returns (Locations) {
+  };
+  rpc CreateLocation (Location) returns (Location) {
+  };
+  rpc UpdateLocation (Location) returns (Location) {
+  };
+  rpc DeleteLocation (LocationId) returns (Void) {
+  };
+  rpc GetLocation (LocationId) returns (Location) {
+  };
+  rpc GetAllLocations (Void) returns (Locations) {
+  };
+  rpc GetLocationsByCompany (GRPCGetLocationRequest) returns (GRPCGetLocationResponse) {
+  };
+  rpc GetLocationsByCompanyId (CompanyId) returns (Locations) {
+  };
+  rpc GetLocationsByRegionIds (RegionIds) returns (Locations) {
+  };
+  rpc GetScosByLocationId (LocationId) returns (SCOs) {
+  };
+  rpc GetLocationByName (LocationName) returns (Location) {
+  };
 }
 

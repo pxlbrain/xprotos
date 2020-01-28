@@ -10,7 +10,15 @@ service JobService {
   };
   rpc UpdateJob (GRPCJob) returns (GRPCJob) {
   };
-  rpc CreateProductJobs(ProductJobs) returns (Void) {
+  rpc CreateProductJobs (ProductJobs) returns (ModelId) {
+  };
+  rpc UpdateJobStep (GRPCJob) returns (GRPCJob) {
+  };
+  rpc GetProductsForJobs (ModelId) returns (FieldString) {
+  };
+  rpc CreateJobsWithFilter (PtagFilter) returns (Void) {
+  };
+  rpc DeleteJobs (JobIds) returns (Void) {
   };
 }
 
@@ -44,20 +52,41 @@ service CallbackService {
   }
   rpc clusterCallback (GRPCClusterResponse) returns (Void) {
   }
-}
-
-service TrainingService {
-  rpc StartTraining (TrainingRequest) returns (Void) {
+  rpc TrainingDoneCallback (GRPCTrainingResponse) returns (Void) {
   }
+
 }
 
 service DatasetService {
   rpc CreateDataset (GRPCJobs) returns (Void) {
+  }
+  rpc CreateDatasetForClassifier (PtagClassifierRequest) returns (Void) {
+  }
+  rpc CreateDatasetForMlc (PtagClassifierRequest) returns (Void) {
+  }
+  rpc CreateDatasetVersion (DatasetVersionRequest) returns (Void) {
+  }
+  rpc PreparingDataset (ModelId) returns (Void) {
   }
 }
 
 service JModelService {
   rpc CreateModel (GRPCJobs) returns (Void) {
   }
+  rpc GetModelsByLocationAndType (ModelRequestWrapper) returns (JModelResponses) {
+  }
+  rpc StartTraining (JModelRequest) returns (Void) {
+  }
+  rpc GetModelVersion (ModelId) returns (ModelVersion) {
+  }
+  rpc CreateModelVersion (ModelVersionRequest) returns (Void) {
+  }
+  rpc AssignDatasetVersion (AssignVersionRequest) returns (Void) {
+  }
+  rpc StopTraining (JModelRequest) returns (Void) {
+  }
 }
-
+service ClusterService {
+  rpc startClustering (CompanyAndLocation) returns (Void) {
+  }
+}

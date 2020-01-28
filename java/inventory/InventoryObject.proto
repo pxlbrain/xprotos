@@ -21,7 +21,9 @@ message Device {
   string jsonConfig = 13;
   bool learningMode = 14;
   string mac = 15;
+  string name = 16;
 }
+
 
 message DeviceId {
   string id = 1;
@@ -38,6 +40,8 @@ message Company {
   repeated Region regions = 4;
   string created = 5;
   string updated = 6;
+  string displayName = 7;
+  repeated Location locations = 8;
 }
 
 message Companies {
@@ -58,13 +62,16 @@ message Location {
   repeated SCO SCOs = 7;
   string created = 8;
   string updated = 9;
+  string displayName = 10;
+  string companyId = 11;
+  string companyName = 12;
 }
 
 message Region {
   string id = 1;
   string name = 2;
   string companyId = 3;
-  repeated Location locations= 4;
+  repeated Location locations = 4;
   string created = 5;
   string updated = 6;
 }
@@ -102,9 +109,10 @@ message SCOs {
 
 message GRPCGetLocationRequest {
   string companyId = 1;
-  repeated GRPCFilter filter = 2;
-  GRPCPaging paging = 3;
-  GRPCSorting sorting = 4;
+  string locationId = 2;
+  repeated GRPCFilter filter = 3;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
 }
 
 message GRPCGetLocationResponse {
@@ -131,3 +139,35 @@ message LearningModeRequest {
   bool mode = 2;
   bool isInitial = 3;
 }
+
+message CompaniesAndLocations {
+  repeated CompanyAndLocations companyAndLocations = 1;
+}
+
+message CompanyAndLocations {
+  string company = 1;
+  repeated string locations = 2;
+}
+
+message DeployModelRequest {
+  string modelId = 1;
+  repeated string deviceIds = 2;
+  string modelVersion = 3;
+  string type = 4;
+}
+
+message ScheduleRequest {
+  string deviceId = 1;
+  string from = 2;
+  string to = 3;
+}
+
+message CompanyIds {
+  repeated string ids = 1;
+}
+
+message LocationName {
+  string name = 1;
+}
+
+

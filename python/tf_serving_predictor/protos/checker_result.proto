@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package inference_runner.inference;
+option cc_enable_arenas = true;
+
+message CheckerResult {
+  repeated string label = 1;
+  repeated float score = 2;
+  string type = 3;
+  string raw_result = 4;
+}

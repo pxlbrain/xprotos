@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package inference_runner.inference;
+option cc_enable_arenas = true;
+
+message Rect {
+  float x1 = 1;
+  float y1 = 2;
+  float x2 = 3;
+  float y2 = 4;
+  float x_norm = 5;
+  float y_norm = 6;
+}

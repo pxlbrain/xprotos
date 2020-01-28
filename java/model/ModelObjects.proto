@@ -14,7 +14,7 @@ message GRPCJob {
   string filter = 4;
   string filterType = 5;
   string client = 6;
-  GRPCJobStep jobStep = 7;
+  string jobStep = 7;
   string type = 8;
   string assignedTo = 9;
   string startDate = 10;
@@ -25,14 +25,18 @@ message GRPCJob {
   string cvatCsvPath = 15;
   string jobStatus = 16;
   string locationId = 17;
+  string productId = 18;
+  string productName = 19;
+  string deviceId = 20;
 }
 
 message GRPCGetJobsRequest {
   string company = 1;
   string locationId = 2;
   string status = 3;
-  GRPCPaging paging = 4;
-  GRPCSorting sorting = 5;
+  string type = 4;
+  GRPCPaging paging = 5;
+  GRPCSorting sorting = 6;
 }
 
 message GRPCGetJobsResponse {
@@ -42,36 +46,23 @@ message GRPCGetJobsResponse {
   repeated GRPCJob jobs = 4;
 }
 
-message GRPCJobStep {
-  string id = 1;
-  string created = 2;
-  string updated = 3;
-  string step = 4;
-  string message = 5;
-  string startDate = 6;
-  string endDate = 7;
-}
-
-message TrainingRequest {
-}
-
-message PtagDetectorRequest {
-  string status = 1;
+message PtagClassifierRequest {
+  string jobId = 1;
   repeated string paths = 2;
 }
 
 message GRPCRegisterRequest {
-  string username =1;
+  string username = 1;
   string firstName = 2;
   string lastName = 3;
   string email = 4;
-  string password =5;
+  string password = 5;
 }
 
 
 message GRPCCreateTaskRequest {
-  string jobId =1;
-  repeated string links =2;
+  string jobId = 1;
+  repeated string links = 2;
 }
 
 message GRPCLabel {
@@ -79,17 +70,17 @@ message GRPCLabel {
   repeated string attributes = 2;
 }
 message TaskId {
-  string id =1;
-  string userId=2;
+  string id = 1;
+  string userId = 2;
 }
 
 message UserEmail {
-  string email=1;
+  string email = 1;
 }
 
 message DownloadDumpRequest {
   string taskId = 1;
-  string annotationId=2;
+  string annotationId = 2;
 }
 
 
@@ -199,21 +190,134 @@ message GRPCAssigneeJobRequest {
 }
 
 message ProductJob {
-  string client = 1;
-  string location = 2;
-  string productId = 3;
-  bool classifier = 4;
-  bool mlc = 5;
+  string productId = 1;
+  bool classifier = 2;
+  bool mlc = 3;
+  repeated ProductJob children = 4;
+  string productName = 5;
+}
+
+message ModelId {
+  string id = 1;
+}
+
+message ModelVersion {
+  string version = 1;
+  string type = 2;
 }
 
 message ProductJobs {
- repeated ProductJob jobs = 1;
- string name = 2;
+  repeated ProductJob jobs = 1;
+  string client = 2;
+  string location = 3;
+  string name = 4;
+  string productListId = 5;
 }
 
 message GRPCClusterResponse {
+  GRPCCluster cluster = 1;
+  string client = 2;
+  string location = 3;
+  string date = 4;
+}
+
+message GRPCCluster {
   repeated string instance = 1;
-  repeated string hand=  2;
+  repeated string hand = 2;
   repeated string tray = 3;
   repeated string plate = 4;
+}
+
+message ModelRequestWrapper {
+  string client = 1;
+  string locationId = 2;
+  string type = 3;
+}
+
+message JModelResponse {
+  string id = 1;
+  string created = 2;
+  string modified = 3;
+  string name = 4;
+  double performance = 5;
+  string step = 6;
+  string status = 7;
+  string locationId = 8;
+  string client = 9;
+  string request = 10;
+  string datasetVersion = 11;
+  string modelVersion = 12;
+  string type = 13;
+  bool classifier = 14;
+  bool mlc = 15;
+  bool detector = 16;
+  repeated GRPCJob jobs = 17;
+  string errorStep = 18;
+  string errorReason = 19;
+}
+
+message JModelRequest {
+  string id = 1;
+  string created = 2;
+  string modified = 3;
+  string name = 4;
+  double performance = 5;
+  string step = 6;
+  string status = 7;
+  string locationId = 8;
+  string client = 9;
+  string request = 10;
+  string datasetVersion = 11;
+  string modelVersion = 12;
+  string type = 13;
+  bool classifier = 14;
+  bool mlc = 15;
+  bool detector = 16;
+}
+
+message JModelResponses {
+  repeated JModelResponse responses = 1;
+}
+
+message GRPCTrainingResponse {
+  string id = 1;
+  string status = 2;
+  string step = 3;
+  string reason = 4;
+}
+
+message ModelVersionRequest {
+  string modelType = 1;
+  string message = 2;
+}
+
+message DatasetVersionRequest {
+  string datasetType = 1;
+  string message = 2;
+  string id =3;
+}
+
+message AssignVersionRequest {
+  string modelVersion = 1;
+  string datasetVersion = 2;
+}
+
+message PtagFilter {
+  string client = 1;
+  string location = 2;
+  string dateFrom = 3;
+  string dateTo = 4;
+  string fileType = 5;
+  bool forceCreate = 6;
+  string device = 7;
+}
+
+message CompanyAndLocation {
+  string company = 1;
+  string location = 2;
+  string data = 3;
+}
+
+message JobIds {
+  repeated string ids = 1;
 }
