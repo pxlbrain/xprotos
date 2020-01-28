@@ -13,6 +13,7 @@ service VFSTagService {
 
 service VFSFileService {
     rpc GetFiles(VFSRequest) returns (VFResponseStructure) {};
+    rpc GetFilesByPages(VFSRequest) returns (VFResponseStructure) {};
     rpc DeleteFiles(VFSRequest) returns (VFResponseStructure) {};
     rpc UpdateFile(VFSRequest) returns (VFResponseStructure) {};
     rpc AutoComplete(VFSRequest) returns (AutoCompleteStructure){};
