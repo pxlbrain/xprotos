@@ -47,12 +47,17 @@ service ProductService {
   }
   rpc GetProductsByProductId (ProductId) returns (Products) {
   }
-  rpc UploadListToS3 (Id) returns (Void) {
+  rpc UploadListToS3 (UploadId) returns (Void) {
   }
   rpc UploadProductPicture (PictureBytes) returns (Void) {
   }
   rpc GetProductsByClientAndLocation (ProductClientLocationRequest) returns (Products) {
   }
+}
+
+message UploadId {
+  string id = 1;
+  bool isNew = 2;
 }
 
 message Id {
