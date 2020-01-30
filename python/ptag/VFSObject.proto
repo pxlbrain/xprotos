@@ -34,6 +34,7 @@ message VFSObjects {
     repeated VFSObject objects = 1;
 };
 
+
 message VFSTagType {
     string tag = 1;
     string type = 2;
@@ -80,6 +81,18 @@ message VFSRequestFilter {
     string next = 5;
     int32 page = 6;
     SortObjects sort = 7;
+    VFSFieldFilters fieldFilter = 8;
+};
+
+
+message VFSFieldFilter {
+    string field = 1;
+    bool show = 2;
+};
+
+
+message VFSFieldFilters {
+    repeated VFSFieldFilter filters = 1;
 };
 
 message VFSRequest {
