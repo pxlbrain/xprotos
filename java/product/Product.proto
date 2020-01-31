@@ -53,6 +53,20 @@ service ProductService {
   }
   rpc GetProductsByClientAndLocation (ProductClientLocationRequest) returns (Products) {
   }
+  rpc DeleteProductPlateItem(DeletePlateItemRequest) returns (Void) {
+  }
+  rpc DeleteProductSideDish(DeleteSideDishRequest) returns (Void) {
+  }
+}
+
+message DeleteSideDishRequest {
+  string productId = 1;
+  string sideDishId =2;
+}
+
+message DeletePlateItemRequest {
+  string productId = 1;
+  string plateItemId =2;
 }
 
 message UploadId {
