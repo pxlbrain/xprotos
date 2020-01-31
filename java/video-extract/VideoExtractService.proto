@@ -1,0 +1,11 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "video-extract/VideoExtractObject.proto";
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+service VideoExtractService {
+    rpc ExtractVideo(VideoExtractRequest) returns (VideoExtractResponse) {};
+};
