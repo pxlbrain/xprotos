@@ -315,7 +315,8 @@ message PtagFilter {
 message CompanyAndLocation {
   string company = 1;
   string location = 2;
-  string data = 3;
+  string date = 3;
+  string clusterType = 4;
 }
 
 message JobIds {
