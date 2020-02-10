@@ -312,11 +312,19 @@ message PtagFilter {
   string device = 7;
 }
 
-message CompanyAndLocation {
+message ClusterFilter {
   string company = 1;
   string location = 2;
   string date = 3;
   string clusterType = 4;
+  repeated string deviceIds = 5;
+  repeated string labels = 6;
+  string maxNumOfClustersCrops = 7;
+  string maxNumberOfClustersFullFrames = 8;
+  string clusterMaxFiles = 9;
+  string clusterBatchSize = 10;
+  string fileType = 11;
+
 }
 
 message JobIds {
