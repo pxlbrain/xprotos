@@ -87,6 +87,6 @@ service JModelService {
   }
 }
 service ClusterService {
-  rpc startClustering (CompanyAndLocation) returns (Void) {
+  rpc startClustering (ClusterFilter) returns (Void) {
   }
 }
