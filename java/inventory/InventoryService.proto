@@ -52,6 +52,8 @@ service DeviceService {
   }
   rpc ScheduleCapturing (ScheduleRequest) returns (Void) {
   }
+  rpc GetDevicesByLocation(LocationId) returns (Devices) {
+  }
 }
 
 service LocationService {
