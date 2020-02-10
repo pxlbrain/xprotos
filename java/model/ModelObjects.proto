@@ -324,6 +324,7 @@ message ClusterFilter {
   string clusterMaxFiles = 9;
   string clusterBatchSize = 10;
   string fileType = 11;
+  string numberAroundCluster = 12;
 
 }
 
