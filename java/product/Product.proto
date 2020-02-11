@@ -192,8 +192,6 @@ message ProductsRequest {
   repeated string productIds = 1;
   string client = 2;
   string locationId = 3;
-  string name = 4;
-  bool isNewList = 5;
 }
 
 message LocationAndDeviceId {
