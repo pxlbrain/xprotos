@@ -26,6 +26,7 @@ message ProductList {
   bool active = 4;
   string created = 5;
   string updated = 6;
+  string location = 7;
 }
 
 message ProductLists {
