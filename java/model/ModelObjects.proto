@@ -28,6 +28,7 @@ message GRPCJob {
   string productId = 18;
   string productName = 19;
   string deviceId = 20;
+  string imageCounter = 21;
 }
 
 message GRPCGetJobsRequest {
