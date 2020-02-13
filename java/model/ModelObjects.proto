@@ -50,6 +50,7 @@ message GRPCGetJobsResponse {
 message PtagClassifierRequest {
   string jobId = 1;
   repeated string paths = 2;
+  string imageCounter = 3;
 }
 
 message GRPCRegisterRequest {
@@ -64,6 +65,7 @@ message GRPCRegisterRequest {
 message GRPCCreateTaskRequest {
   string jobId = 1;
   repeated string links = 2;
+  string imageCounter = 3;
 }
 
 message GRPCLabel {
