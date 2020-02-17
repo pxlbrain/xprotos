@@ -16,8 +16,19 @@ service ProductListService {
   }
   rpc GetProductList (ProductListId) returns (ProductList) {
   }
-  rpc GetAllProductLists (Void) returns (ProductLists) {
+  rpc GetAllProductLists (GRPCGetRequest) returns (GRPCProductListResponse) {
   }
+  rpc CloneProductList (ProductListId) returns (Void) {
+  }
+  rpc ActivateProductList (ProductListId) returns (ProductLists) {
+  }
+  rpc DeleteProductsFromProductList (ProductsProductListRequest) returns (ProductLists) {
+  }
+}
+
+message ProductsProductListRequest {
+  string productListId = 1;
+  repeated string productIds = 2;
 }
 
 message ProductList {
@@ -31,4 +42,11 @@ message ProductList {
 
 message ProductLists {
   repeated ProductList productList = 1;
+}
+
+message GRPCProductListResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated ProductList productList = 4;
 }
