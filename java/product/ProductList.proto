@@ -20,7 +20,7 @@ service ProductListService {
   }
   rpc CloneProductList (ProductListId) returns (Void) {
   }
-  rpc ActivateProductList (ProductListId) returns (ProductLists) {
+  rpc ActivateProductList (ProductListId) returns (Void) {
   }
 }
 
@@ -36,6 +36,7 @@ message ProductList {
   string created = 5;
   string updated = 6;
   string location = 7;
+  string client = 8;
 }
 
 message ProductLists {
