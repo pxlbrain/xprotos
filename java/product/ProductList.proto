@@ -22,8 +22,6 @@ service ProductListService {
   }
   rpc ActivateProductList (ProductListId) returns (ProductLists) {
   }
-  rpc DeleteProductsFromProductList (ProductsProductListRequest) returns (ProductLists) {
-  }
 }
 
 message ProductsProductListRequest {
