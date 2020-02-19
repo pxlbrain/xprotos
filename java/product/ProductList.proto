@@ -16,12 +16,19 @@ service ProductListService {
   }
   rpc GetProductList (ProductListId) returns (ProductList) {
   }
-  rpc GetAllProductLists (GRPCGetRequest) returns (GRPCProductListResponse) {
+  rpc GetAllProductLists (GRPCProductListGetRequest) returns (GRPCProductListResponse) {
   }
   rpc CloneProductList (ProductListId) returns (Void) {
   }
   rpc ActivateProductList (ProductListId) returns (Void) {
   }
+}
+
+message GRPCProductListGetRequest {
+  string locationId = 1;
+  repeated GRPCFilter filter = 2;
+  GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
 }
 
 message ProductsProductListRequest {
@@ -37,6 +44,8 @@ message ProductList {
   string updated = 6;
   string location = 7;
   string client = 8;
+  repeated Product products = 9;
+  repeated string productIds = 10;
 }
 
 message ProductLists {
