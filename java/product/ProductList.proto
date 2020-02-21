@@ -18,22 +18,22 @@ service ProductListService {
   }
   rpc GetAllProductLists (GRPCProductListGetRequest) returns (GRPCProductListResponse) {
   }
+  rpc GetAllProductsFromList (GRPCProductListGetRequest) returns (GRPCProductResposne) {
+  }
   rpc CloneProductList (ProductListId) returns (Void) {
   }
   rpc ActivateProductList (ProductListId) returns (Void) {
+  }
+  rpc DeleteProductsFromList (ProductsAndProductList) returns (ProductList) {
   }
 }
 
 message GRPCProductListGetRequest {
   string locationId = 1;
-  repeated GRPCFilter filter = 2;
-  GRPCPaging paging = 3;
-  GRPCSorting sorting = 4;
-}
-
-message ProductsProductListRequest {
-  string productListId = 1;
-  repeated string productIds = 2;
+  string productListId = 2;
+  repeated GRPCFilter filter = 3;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
 }
 
 message ProductList {
