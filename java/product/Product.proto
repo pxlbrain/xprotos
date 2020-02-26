@@ -117,7 +117,7 @@ message Product {
   repeated NameId plateItems = 20;
   repeated NameId mistakenProducts = 21;
   repeated ProductImageResponse productImages = 22;
-  string obid = 22;
+  string obid = 23;
 }
 
 message Products {
