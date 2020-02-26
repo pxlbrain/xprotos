@@ -26,6 +26,8 @@ service ProductListService {
   }
   rpc DeleteProductsFromList (ProductsAndProductList) returns (ProductList) {
   }
+  rpc GetInactiveProductsFromList (ProductListId) returns (Products) {
+  }
 }
 
 message GRPCProductListGetRequest {
