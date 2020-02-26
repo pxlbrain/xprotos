@@ -44,8 +44,9 @@ message ProductList {
   string updated = 6;
   string location = 7;
   string client = 8;
-  repeated Product products = 9;
-  repeated string productIds = 10;
+  bool modified = 9;
+  repeated Product products = 10;
+  repeated string productIds = 11;
 }
 
 message ProductLists {
