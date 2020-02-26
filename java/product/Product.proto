@@ -59,6 +59,8 @@ service ProductService {
   }
   rpc DeactivateProducts(ProductsRequest) returns (Void) {
   }
+  rpc UploadProductImages(ProductImages) returns (Void) {
+  }
 }
 
 message DeleteProductItemRequest {
@@ -114,6 +116,7 @@ message Product {
   repeated NameId sideDishes = 19;
   repeated NameId plateItems = 20;
   repeated NameId mistakenProducts = 21;
+  repeated ProductImageResponse productImages = 22;
   string obid = 22;
 }
 
@@ -209,4 +212,25 @@ message NameId {
 message PictureBytes {
   string productId = 1;
   string bytes = 2;
+}
+
+message ProductImages {
+  string client = 1;
+  string location = 2;
+  string productId = 3;
+  repeated ProductImage productImages = 4;
+}
+
+message ProductImage {
+    string image = 1;
+    string imageName = 2;
+    string imageType = 3;
+    bool isMain = 4;
+}
+
+message ProductImageResponse {
+    string id = 1;
+    string path = 2;
+    string imageName = 3;
+    bool isMain = 4;
 }
