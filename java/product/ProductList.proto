@@ -10,7 +10,7 @@ import "inventory/Void.proto";
 service ProductListService {
   rpc CreateProductList (ProductList) returns (ProductList) {
   }
-  rpc UpdateProductList (ProductList) returns (ProductList) {
+  rpc UpdateProductList (UpdateList) returns (ProductList) {
   }
   rpc DeleteProductList (ProductListId) returns (Void) {
   }
@@ -27,6 +27,8 @@ service ProductListService {
   rpc DeleteProductsFromList (ProductsAndProductList) returns (ProductList) {
   }
   rpc GetInactiveProductsFromList (ProductListId) returns (Products) {
+  }
+  rpc GetActiveProductsFromList (ProductListId) returns (Products) {
   }
 }
 
@@ -49,6 +51,13 @@ message ProductList {
   bool modified = 9;
   repeated Product products = 10;
   repeated string productIds = 11;
+}
+
+message UpdateList {
+  string id = 1;
+  bool active = 2;
+  repeated string productIdsToDeactivate = 3;
+  repeated string productIdsToActivate = 4;
 }
 
 message ProductLists {

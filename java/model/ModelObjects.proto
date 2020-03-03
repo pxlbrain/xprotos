@@ -198,6 +198,7 @@ message ProductJob {
   bool mlc = 3;
   repeated ProductJob children = 4;
   string productName = 5;
+  string productStatus = 6;
 }
 
 message ModelId {
