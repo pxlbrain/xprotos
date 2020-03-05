@@ -61,6 +61,8 @@ service ProductService {
   }
   rpc UploadProductImages(ProductImages) returns (Void) {
   }
+  rpc DeleteProductImages(DeleteProductImagesRequest) returns (Void){
+  }
 }
 
 message DeleteProductItemRequest {
@@ -233,4 +235,11 @@ message ProductImageResponse {
     string path = 2;
     string imageName = 3;
     bool isMain = 4;
+}
+
+message DeleteProductImagesRequest {
+  string client = 1;
+  string location = 2;
+  string productId = 3;
+  repeated string imageIds = 4;
 }
