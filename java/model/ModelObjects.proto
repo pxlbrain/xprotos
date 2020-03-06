@@ -216,6 +216,7 @@ message ProductJobs {
   string location = 3;
   string name = 4;
   string productListId = 5;
+  bool active = 6;
 }
 
 message GRPCClusterResponse {
