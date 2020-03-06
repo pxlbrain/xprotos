@@ -65,6 +65,8 @@ service ProductService {
   }
   rpc GetProductsByLocationId(Id) returns (Products) {
   }
+  rpc UpdateProductImage(UpdateImageRequest) returns (Void) {
+  }
 }
 
 message DeleteProductItemRequest {
@@ -244,4 +246,9 @@ message DeleteProductImagesRequest {
   string location = 2;
   string productId = 3;
   repeated string imageIds = 4;
+}
+
+message UpdateImageRequest {
+  string id = 1;
+  bool isMain = 2;
 }
