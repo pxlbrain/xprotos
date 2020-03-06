@@ -15,7 +15,7 @@ service ProductService {
   }
   rpc DeleteProduct (ProductId) returns (Void) {
   }
-  rpc GetProduct (ProductId) returns (Product) {
+  rpc GetProduct (ProductClientLocationRequest) returns (Product) {
   }
   rpc GetAllProducts (Void) returns (Products) {
   }
