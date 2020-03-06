@@ -63,6 +63,8 @@ service ProductService {
   }
   rpc DeleteProductImages(DeleteProductImagesRequest) returns (Void){
   }
+  rpc GetProductsByLocationId(Id) returns (Products) {
+  }
 }
 
 message DeleteProductItemRequest {
