@@ -5,6 +5,20 @@ package ai.pixlbrain.backend;
 import "google/protobuf/struct.proto";
 
 
+enum SortDirection {
+    ASC = 0;
+    DESC = 1;
+};
+
+message SortObject {
+    string fieldName = 1;
+    SortDirection direction = 2;
+};
+
+message SortObjects {
+    repeated SortObject sortObject = 1;
+};
+
 message VFSObject {
     google.protobuf.Struct data = 1;
 };
@@ -20,6 +34,7 @@ message ACTagValues {
 message VFSObjects {
     repeated VFSObject objects = 1;
 };
+
 
 message VFSTagType {
     string tag = 1;
@@ -65,6 +80,20 @@ message VFSRequestFilter {
     int32 limit = 3;
     bool includeCount = 4;
     string next = 5;
+    int32 page = 6;
+    SortObjects sort = 7;
+    VFSFieldFilters fieldFilter = 8;
+};
+
+
+message VFSFieldFilter {
+    string field = 1;
+    bool show = 2;
+};
+
+
+message VFSFieldFilters {
+    repeated VFSFieldFilter filters = 1;
 };
 
 message VFSRequest {
