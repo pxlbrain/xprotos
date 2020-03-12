@@ -24,41 +24,44 @@ message Transaction {
   string trayId = 5;
   string transactionStatus = 6;
   repeated Frame frames = 7;
-  repeated TrayStatus trayStatusList = 8;
-  string filter = 9;
-  string deviceId = 10;
+  string filter = 8;
+  string deviceId = 9;
+  string status = 10;
+  string rescanned = 11;
 }
 
 message Frame {
   string path = 1;
-  repeated Bbses bbses = 2;
+  repeated Item items = 2;
 }
 
-message Bbses {
-  repeated Bbs bbs = 1;
+message Item {
+  string id = 1;
+  string productId = 2;
+  string name = 3;
+  string category = 4;
+  repeated Bbs bbs = 5;
 }
 
 message Bbs {
+  string id = 1;
+  string name = 2;
+  string category = 3;
+  Coordinate coordinates = 4;
+  repeated PlateItem plateItems = 5;
+}
+
+message Coordinate {
   double x1 = 1;
   double x2 = 2;
   double y1 = 3;
   double y2 = 4;
 }
 
-message TrayStatus {
-  string status = 1;
-  string rescanned = 2;
-  repeated TransactionItem items = 3;
-}
-
-message TransactionItem {
-  string quantity = 1;
-  string productId =2;
-  string productName = 3;
-  string category = 4;
-  string subCategory = 5;
-  string width = 7;
-  string height = 8;
+message PlateItem {
+  string id = 1;
+  string name = 2;
+  string category = 3;
 }
 
 message QueryParam {
@@ -72,14 +75,6 @@ message TransactionRequest {
   repeated GRPCFilter filter = 2;
   GRPCPaging paging = 3;
   GRPCSorting sorting = 4;
-}
-
-message Transactions {
-  repeated Transaction transactions = 1;
-}
-
-message TransactionItems {
-  repeated TransactionItem transactionItems = 1;
 }
 
 message TransactionId {
