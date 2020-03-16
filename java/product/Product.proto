@@ -67,6 +67,8 @@ service ProductService {
   }
   rpc UpdateProductImage(UpdateImageRequest) returns (Void) {
   }
+  rpc GetProductCategories(Void) returns (ProductCategories) {
+  }
 }
 
 message DeleteProductItemRequest {
@@ -251,4 +253,8 @@ message DeleteProductImagesRequest {
 message UpdateImageRequest {
   string id = 1;
   bool isMain = 2;
+}
+
+message ProductCategories {
+  repeated string category = 1;
 }
