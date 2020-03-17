@@ -54,6 +54,8 @@ service DeviceService {
   }
   rpc GetDevicesByLocation(LocationId) returns (Devices) {
   }
+  rpc GetDeviceTypes(Void) returns (DeviceType) {
+  }
 }
 
 service LocationService {
