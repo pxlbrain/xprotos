@@ -22,6 +22,7 @@ message Device {
   bool learningMode = 14;
   string mac = 15;
   string name = 16;
+  string deviceType = 17;
 }
 
 
@@ -170,4 +171,7 @@ message LocationName {
   string name = 1;
 }
 
+message DeviceType {
+  repeated string types = 1;
+}
 
