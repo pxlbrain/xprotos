@@ -237,6 +237,7 @@ message ModelRequestWrapper {
   string client = 1;
   string locationId = 2;
   string type = 3;
+  GRPCSorting sorting = 4;
 }
 
 message JModelResponse {
