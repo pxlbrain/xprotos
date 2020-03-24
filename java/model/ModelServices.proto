@@ -20,6 +20,8 @@ service JobService {
   };
   rpc DeleteJobs (JobIds) returns (Void) {
   };
+  rpc CreateJob (GRPCJob) returns (GRPCJob) {
+  };
 }
 
 service CVATService {
@@ -84,6 +86,8 @@ service JModelService {
   rpc AssignDatasetVersion (AssignVersionRequest) returns (Void) {
   }
   rpc StopTraining (JModelRequest) returns (Void) {
+  }
+  rpc GetModelById (ModelId) returns (JModelResponse) {
   }
 }
 service ClusterService {
