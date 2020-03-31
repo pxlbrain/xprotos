@@ -339,3 +339,125 @@ message ClusterFilter {
 message JobIds {
   repeated string ids = 1;
 }
+
+message GRPCMlcHyperParams {
+  string backBone=1;
+  string batchSize=2;
+  string initLr=3;
+  string epochs=4;
+  string warmUpEpochs=5;
+  string postEpochs=6;
+  GRPCEarlyStopping earlyStopping=7;
+  GRPCReduceLrOnPlateau reduceLrOnPlateau=8;
+  GRPCCyclicLr cyclicLr=9;
+  string mlcLimitsCpu=10;
+  string mlcLimitsMemory=11;
+  string mlcLimitsGpu=12;
+  string mlcRequestsCpu=13;
+  string mlcRequestsMemory=14;
+  string mlcRequestsGpu=15;
+  string mlcImage=16;
+  string dataArgumentation=17;
+  string mlcDataSplitRatio=18;
+  string mlcDeviceIds=19;
+}
+
+message GRPCCyclicLr {
+  string epochsPerCycle=1;
+  string epochsPerDecay=2;
+  string lrDecayFactor=3;
+}
+
+message GRPCEarlyStopping {
+  string patience = 1;
+}
+
+message GRPCReduceLrOnPlateau {
+  string factor=1;
+  string patience=2;
+  string epochs=3;
+  string threshold=4;
+}
+
+message GRPCClassifierHyperParams {
+  string stage=1;
+  string parallel=2;
+  string deviceIds=3;
+  string optimizer=4;
+  string dropoutLastLiner=5;
+  string loss=6;
+  string weightDecay=7;
+  string dropFactor=8;
+  string dropEps=9;
+  string estopPatience=10;
+  string estopThresh=11;
+  string dropPatience=12;
+  string dropThresh=13;
+  string frozenTrainingEpochs=14;
+  string mainTrainingEpochs=15;
+  string postTrainingEpochs=16;
+  string freezeLr=17;
+  string mainLr=18;
+  string postLr=19;
+  string frozenWeightDecay=20;
+  string batchSiz=21;
+  string classifierLimitsCpu=22;
+  string classifierLimitsMemory=23;
+  string classifierLimitsGpu=24;
+  string classifierRequestsCpu=25;
+  string classifierRequestsMemory=26;
+  string classifierRequestsGpu=27;
+  string classifierImage=28;
+  string pretrainedModelName=29;
+  string classifierdataSplitRatio=30;
+}
+
+message GRPCDetectorHyperParams {
+  string useValidation = 1;
+  string backBone = 2;
+  string batchSize = 3;
+  string gpuId = 4;
+  string multiGpu = 5;
+  string epoches = 6;
+  string steps = 7;
+  string learningRate = 8;
+  string snapshotsPath = 9;
+  string tensorboardDir = 10;
+  string imageMinSide = 11;
+  string imageMaxSide = 12;
+  string workers = 13;
+  string maxQueueSize = 14;
+  string randomTransform = 15;
+  string snapshot = 16;
+  string detectorImage = 17;
+  string pretrainedModelURL = 18;
+  string cudaVisibleDevices = 19;
+  string detectorLimitsCpu = 20;
+  string detectorLimitsMemory = 21;
+  string detectorLimitsGpu = 22;
+  string detectorRequestsCpu = 23;
+  string detectorRequestsMemory = 24;
+  string detectorRequestsGpu = 25;
+
+}
+
+message GRPCModelConfiguration {
+  string id = 1;
+  string name = 2;
+  string type= 3;
+  bool main =4 ;
+  GRPCDetectorHyperParams detectorHyperParams = 5;
+  GRPCClassifierHyperParams classifierHyperParams =6;
+  GRPCMlcHyperParams mlcHyperParams= 7;
+  string created = 8;
+  string updated = 9;
+}
+
+message GRPCModelConfigurations {
+  repeated GRPCModelConfiguration configurations = 1;
+}
+
+message AssignConfigInput {
+  string modelId = 1;
+  string configurationId = 2;
+}
