@@ -90,6 +90,20 @@ service JModelService {
   rpc GetModelById (ModelId) returns (JModelResponse) {
   }
 }
+
+service ConfigurationService {
+  rpc SaveConfigurations (GRPCModelConfiguration) returns (GRPCModelConfiguration) {
+  }
+  rpc GetConfigurationsByType (FieldString) returns (GRPCModelConfigurations) {
+  }
+  rpc GetConfigurationsByModelId (FieldString) returns (GRPCModelConfiguration) {
+  }
+  rpc DeleteConfigurations (FieldString) returns (Void) {
+  }
+  rpc AssignConfigurations (AssignConfigInput) returns (Void) {
+  }
+}
+
 service ClusterService {
   rpc startClustering (ClusterFilter) returns (Void) {
   }
