@@ -14,6 +14,8 @@ enum MessageType {
     RESPONSE_MONITOR_INFO = 7;
     STREAM_CONTROL = 8;
     FRAME_STREAM = 9;
+    SET_MODE = 10;
+    START_CAPTURING = 11;
 }
 
 message Message {

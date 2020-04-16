@@ -5,9 +5,12 @@ option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 
 import "inventory/Void.proto";
+import "inventory/InventoryObject.proto";
 import "middleware/MiddlewareObject.proto";
 
 service MiddlewareService {
   rpc PushConfig(ConfigWrapper) returns (Void) {};
   rpc ChangeLearningMode(LearningMode) returns (Void) {};
+  rpc CheckIsDeviceConnected(DeviceId) returns (DeviceId) {};
+  rpc ChangeDeviceMode(DeviceMode) returns (Void) {};
 }

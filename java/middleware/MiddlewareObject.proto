@@ -16,3 +16,8 @@ message LearningMode {
   string id = 1;
   bool mode = 2;
 }
+
+message DeviceMode {
+  string id = 1;
+  string mode = 2;
+}
