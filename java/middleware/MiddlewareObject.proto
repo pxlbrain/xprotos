@@ -21,3 +21,9 @@ message DeviceMode {
   string id = 1;
   string mode = 2;
 }
+
+message ScanningRequest {
+  string id = 1;
+  string productId = 2;
+  int32 seconds = 3;
+}

@@ -13,4 +13,6 @@ service MiddlewareService {
   rpc ChangeLearningMode(LearningMode) returns (Void) {};
   rpc CheckIsDeviceConnected(DeviceId) returns (DeviceId) {};
   rpc ChangeDeviceMode(DeviceMode) returns (Void) {};
+  rpc StartScanning(ScanningRequest) returns (Void) {};
+
 }
