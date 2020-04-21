@@ -56,6 +56,27 @@ service DeviceService {
   }
   rpc GetDeviceTypes(Void) returns (DeviceType) {
   }
+  rpc GetDeviceStatuses(DeviceId) returns (DeviceStatuses) {
+  }
+  rpc GetDeviceStatus(DeviceId) returns (DeviceStatus) {
+  }
+  rpc GetDeviceAlerts(DeviceId) returns (DeviceAlerts) {
+  }
+  rpc GetDeviceHardware(DeviceId) returns (DeviceHardware) {
+  }
+  rpc GetDeviceModels(DeviceId) returns (DeviceModels) {
+  }
+  rpc GetDeviceModelsByType(GRPCGetDeviceModelsRequest) returns (GRPCDeviceModelResponse) {
+  }
+  rpc GetDeviceServices(DeviceId) returns (DeviceServices) {
+  }
+  rpc CreateDeviceStatus(DeviceStatus) returns (DeviceStatus) {
+  }
+  rpc CreateDeviceAlert(DeviceAlert) returns (DeviceAlert) {
+  }
+  rpc CreateDeviceHardware(DeviceHardware) returns (DeviceHardware) {
+  }
+
 }
 
 service LocationService {

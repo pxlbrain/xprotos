@@ -23,6 +23,9 @@ message Device {
   string mac = 15;
   string name = 16;
   string deviceType = 17;
+  string mode = 18;
+  string uptime = 19;
+  string capacity = 20;
 }
 
 
@@ -173,5 +176,73 @@ message LocationName {
 
 message DeviceType {
   repeated string types = 1;
+}
+
+message DeviceStatuses {
+  repeated DeviceStatus statuses = 1;
+}
+
+message DeviceAlerts {
+   repeated DeviceAlert alerts = 1;
+}
+
+message DeviceServices {
+   repeated Service services = 1;
+}
+
+message DeviceModels {
+   repeated DeviceModel models = 1;
+}
+
+message DeviceHardware {
+   string storage = 1;
+   string ram = 2;
+   string cpu = 3;
+   string bandwidth = 4;
+   string download = 5;
+   string upload = 6;
+   string deviceId = 7;
+}
+
+message DeviceStatus {
+   string status = 1;
+   string description = 2;
+   string serviceName = 3;
+   string deviceId = 4;
+}
+
+message DeviceAlert {
+   string description = 1;
+   string type = 2;
+   string time = 3;
+   string deviceId = 4;
+}
+
+message Service {
+   string id = 1;
+   string name = 2;
+}
+
+message DeviceModel {
+   string id = 1;
+   string version = 2;
+   string type = 3;
+   string activated = 4;
+   string size = 5;
+   bool active = 6;
+}
+
+message GRPCGetDeviceModelsRequest {
+   string deviceId = 1;
+   string type = 2;
+   GRPCPaging paging = 3;
+   GRPCSorting sorting = 4;
+}
+
+message GRPCDeviceModelResponse {
+   int32 page = 1;
+   int32 size = 2;
+   int32 count = 3;
+   repeated DeviceModel deviceModels = 4;
 }
 
