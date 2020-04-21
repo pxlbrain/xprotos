@@ -1,0 +1,8 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+message LogTask {
+    string clientId = 1;
+    string path = 2;
+    string timestamp = 3;
+};
