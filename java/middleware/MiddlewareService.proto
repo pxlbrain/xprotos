@@ -9,10 +9,18 @@ import "inventory/InventoryObject.proto";
 import "middleware/MiddlewareObject.proto";
 
 service MiddlewareService {
-  rpc PushConfig(ConfigWrapper) returns (Void) {};
-  rpc ChangeLearningMode(LearningMode) returns (Void) {};
-  rpc CheckIsDeviceConnected(DeviceId) returns (DeviceId) {};
-  rpc ChangeDeviceMode(DeviceMode) returns (Void) {};
-  rpc StartScanning(ScanningRequest) returns (Void) {};
-
+  rpc PushConfig (ConfigWrapper) returns (Void) {
+  };
+  rpc ChangeLearningMode (LearningMode) returns (Void) {
+  };
+  rpc CheckIsDeviceConnected (DeviceId) returns (DeviceId) {
+  };
+  rpc ChangeDeviceMode (DeviceMode) returns (Void) {
+  };
+  rpc StartScanning (ScanningRequest) returns (Void) {
+  };
+  rpc StartStreaming (ConfigWrapper) returns (stream StreamingResponse) {
+  };
+  rpc StopStreaming (ConfigWrapper) returns (Void) {
+  };
 }
