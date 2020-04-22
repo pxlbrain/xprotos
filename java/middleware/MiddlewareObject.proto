@@ -27,3 +27,7 @@ message ScanningRequest {
   string productId = 2;
   int32 seconds = 3;
 }
+
+message StreamingResponse {
+  string raw = 1;
+}
