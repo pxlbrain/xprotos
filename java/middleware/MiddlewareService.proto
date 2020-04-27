@@ -19,7 +19,7 @@ service MiddlewareService {
   };
   rpc StartScanning (ScanningRequest) returns (Void) {
   };
-  rpc StartStreaming (ConfigWrapper) returns (stream StreamingResponse) {
+  rpc StartStreaming (ConfigWrapper) returns (Void) {
   };
   rpc StopStreaming (ConfigWrapper) returns (Void) {
   };
