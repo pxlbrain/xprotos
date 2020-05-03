@@ -195,13 +195,16 @@ message DeviceModels {
 }
 
 message DeviceHardware {
-   string storage = 1;
-   string ram = 2;
-   string cpu = 3;
-   string bandwidth = 4;
-   string download = 5;
-   string upload = 6;
-   string deviceId = 7;
+   string cpu = 1;
+   string bandwidth = 2;
+   string download = 3;
+   string upload = 4;
+   string deviceId = 5;
+   string memoryUsed = 6;
+   string memoryAvailable = 7;
+   string memoryTotal = 8;
+   string diskUsage = 9;
+   string diskTotal = 10;
 }
 
 message DeviceStatus {
@@ -221,15 +224,16 @@ message DeviceAlert {
 message Service {
    string id = 1;
    string name = 2;
+   string version = 3;
+   string size = 4;
+   string activated = 5;
 }
 
 message DeviceModel {
    string id = 1;
    string version = 2;
    string type = 3;
-   string activated = 4;
-   string size = 5;
-   bool active = 6;
+   string source = 4;
 }
 
 message GRPCGetDeviceModelsRequest {
@@ -244,5 +248,36 @@ message GRPCDeviceModelResponse {
    int32 size = 2;
    int32 count = 3;
    repeated DeviceModel deviceModels = 4;
+}
+
+message DeviceConfiguration {
+    string id = 1;
+    string created = 2;
+    string updated = 3;
+    string username = 4;
+    GRPCDeviceConfiguration configuration = 5;
+}
+
+message GRPCDeviceConfiguration {
+    string running = 1;
+    string mode = 2;
+    string bucket = 3;
+    string client = 4;
+    string location = 5;
+    string device = 6;
+    string width = 7;
+    string height = 8;
+    string messageType = 9;
+    string filter = 10;
+    string filterTimeout = 11;
+    string fps = 12;
+    string startTime = 13;
+    string endTime = 14;
+}
+
+message DeviceProductList {
+    string deviceId = 1;
+    string version = 2;
+    string source = 3;
 }
 
