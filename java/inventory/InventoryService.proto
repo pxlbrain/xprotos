@@ -76,7 +76,12 @@ service DeviceService {
   }
   rpc CreateDeviceHardware(DeviceHardware) returns (DeviceHardware) {
   }
-
+  rpc GetDeviceConfiguration(DeviceId) returns (DeviceConfiguration) {
+  }
+  rpc AssignProductListToDevice(DeviceProductList) returns (Void) {
+  }
+  rpc AddServicesOnDevice(DeviceServices) returns (Void){
+  }
 }
 
 service LocationService {
