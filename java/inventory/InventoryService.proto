@@ -82,6 +82,10 @@ service DeviceService {
   }
   rpc AddServicesOnDevice(DeviceServices) returns (Void){
   }
+  rpc ChangeDeviceConfiguration(DeviceConfiguration) returns (Void) {
+  }
+  rpc GetDeviceProductList(DeviceId) returns (DeviceProductList) {
+  }
 }
 
 service LocationService {
