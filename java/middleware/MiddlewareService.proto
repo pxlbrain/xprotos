@@ -23,4 +23,6 @@ service MiddlewareService {
   };
   rpc StopStreaming (ConfigWrapper) returns (Void) {
   };
+  rpc GetDeviceInfo (DeviceId) returns (stream StreamingResponse) {
+  }
 }
