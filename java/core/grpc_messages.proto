@@ -16,6 +16,7 @@ enum MessageType {
     FRAME_STREAM = 9;
     SET_MODE = 10;
     START_CAPTURING = 11;
+    HW_INFO = 12;
 }
 
 message Message {
