@@ -72,20 +72,25 @@ service DeviceService {
   }
   rpc CreateDeviceStatus(DeviceStatus) returns (DeviceStatus) {
   }
-  rpc CreateDeviceAlert(DeviceAlert) returns (DeviceAlert) {
-  }
-  rpc CreateDeviceHardware(DeviceHardware) returns (DeviceHardware) {
-  }
   rpc GetDeviceConfiguration(DeviceId) returns (DeviceConfiguration) {
   }
   rpc AssignProductListToDevice(DeviceProductList) returns (Void) {
   }
-  rpc AddServicesOnDevice(DeviceServices) returns (Void){
+  rpc AddServiceOnDevice(ServiceDevice) returns (Void) {
   }
   rpc ChangeDeviceConfiguration(DeviceConfiguration) returns (Void) {
   }
   rpc GetDeviceProductList(DeviceId) returns (DeviceProductList) {
   }
+  rpc GetDeviceConfigurations(DeviceId) returns (DeviceConfigurations) {
+  }
+  rpc UpdateServiceOnDevice(ServiceDevice) returns (Void) {
+  }
+  rpc AddModelOnDevice(DeviceModel) returns (Void) {
+  }
+  rpc GetDeviceProductListHistory(DeviceId) returns (DeviceProductLists) {
+  }
+
 }
 
 service LocationService {

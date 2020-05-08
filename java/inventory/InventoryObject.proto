@@ -7,247 +7,248 @@ option java_package = "ai.pixlbrain.backend";
 import "product/Product.proto";
 
 message Device {
-  string id = 1;
-  string description = 2;
-  string productionDate = 3;
-  string locationId = 4;
-  string locationName = 5;
-  string created = 6;
-  string updated = 7;
-  string status = 9;
-  string cameraLink = 10;
-  string scoId = 11;
-  string scoName = 12;
-  string jsonConfig = 13;
-  bool learningMode = 14;
-  string mac = 15;
-  string name = 16;
-  string deviceType = 17;
-  string mode = 18;
-  string uptime = 19;
-  string capacity = 20;
+    string id = 1;
+    string description = 2;
+    string productionDate = 3;
+    string locationId = 4;
+    string locationName = 5;
+    string created = 6;
+    string updated = 7;
+    string status = 9;
+    string cameraLink = 10;
+    string scoId = 11;
+    string scoName = 12;
+    string jsonConfig = 13;
+    bool learningMode = 14;
+    string mac = 15;
+    string name = 16;
+    string deviceType = 17;
+    string mode = 18;
+    string uptime = 19;
+    string capacity = 20;
 }
 
 
 message DeviceId {
-  string id = 1;
+    string id = 1;
 }
 
 message Devices {
-  repeated Device device = 1;
+    repeated Device device = 1;
 }
 
 message Company {
-  string id = 1;
-  string name = 2;
-  string address = 3;
-  repeated Region regions = 4;
-  string created = 5;
-  string updated = 6;
-  string displayName = 7;
-  repeated Location locations = 8;
+    string id = 1;
+    string name = 2;
+    string address = 3;
+    repeated Region regions = 4;
+    string created = 5;
+    string updated = 6;
+    string displayName = 7;
+    repeated Location locations = 8;
 }
 
 message Companies {
-  repeated Company companies = 1;
+    repeated Company companies = 1;
 }
 
 message CompanyId {
-  string id = 1;
+    string id = 1;
 }
 
 message Location {
-  string id = 1;
-  string name = 2;
-  string address = 3;
-  string regionId = 4;
-  string regionName = 5;
-  repeated Device devices = 6;
-  repeated SCO SCOs = 7;
-  string created = 8;
-  string updated = 9;
-  string displayName = 10;
-  string companyId = 11;
-  string companyName = 12;
+    string id = 1;
+    string name = 2;
+    string address = 3;
+    string regionId = 4;
+    string regionName = 5;
+    repeated Device devices = 6;
+    repeated SCO SCOs = 7;
+    string created = 8;
+    string updated = 9;
+    string displayName = 10;
+    string companyId = 11;
+    string companyName = 12;
 }
 
 message Region {
-  string id = 1;
-  string name = 2;
-  string companyId = 3;
-  repeated Location locations = 4;
-  string created = 5;
-  string updated = 6;
+    string id = 1;
+    string name = 2;
+    string companyId = 3;
+    repeated Location locations = 4;
+    string created = 5;
+    string updated = 6;
 }
 
 message Regions {
-  repeated Region regions = 1;
+    repeated Region regions = 1;
 }
 
 message RegionId {
-  string id = 1;
+    string id = 1;
 }
 
 message RegionIds {
-  repeated RegionId regionIds = 1;
+    repeated RegionId regionIds = 1;
 }
 
 message Locations {
-  repeated Location locations = 1;
+    repeated Location locations = 1;
 }
 
 message LocationId {
-  string id = 1;
+    string id = 1;
 }
 
 message SCO {
-  string id = 1;
-  string created = 2;
-  string updated = 3;
-  string name = 4;
+    string id = 1;
+    string created = 2;
+    string updated = 3;
+    string name = 4;
 }
 
 message SCOs {
-  repeated SCO scos = 1;
+    repeated SCO scos = 1;
 }
 
 message GRPCGetLocationRequest {
-  string companyId = 1;
-  string locationId = 2;
-  repeated GRPCFilter filter = 3;
-  GRPCPaging paging = 4;
-  GRPCSorting sorting = 5;
+    string companyId = 1;
+    string locationId = 2;
+    repeated GRPCFilter filter = 3;
+    GRPCPaging paging = 4;
+    GRPCSorting sorting = 5;
 }
 
 message GRPCGetLocationResponse {
-  int32 page = 1;
-  int32 size = 2;
-  int32 count = 3;
-  repeated Location locations = 4;
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated Location locations = 4;
 }
 
 message GRPCGetDeviceResponse {
-  int32 page = 1;
-  int32 size = 2;
-  int32 count = 3;
-  repeated Device devices = 4;
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated Device devices = 4;
 }
 
 message DeviceConfig {
-  string id = 1;
-  string jsonConfig = 2;
+    string id = 1;
+    string jsonConfig = 2;
 }
 
 message LearningModeRequest {
-  string id = 1;
-  bool mode = 2;
-  bool isInitial = 3;
+    string id = 1;
+    bool mode = 2;
+    bool isInitial = 3;
 }
 
 message CompaniesAndLocations {
-  repeated CompanyAndLocations companyAndLocations = 1;
+    repeated CompanyAndLocations companyAndLocations = 1;
 }
 
 message CompanyAndLocations {
-  string company = 1;
-  repeated string locations = 2;
+    string company = 1;
+    repeated string locations = 2;
 }
 
 message DeployModelRequest {
-  string modelId = 1;
-  repeated string deviceIds = 2;
-  string modelVersion = 3;
-  string type = 4;
+    string modelId = 1;
+    repeated string deviceIds = 2;
+    string modelVersion = 3;
+    string type = 4;
 }
 
 message ScheduleRequest {
-  string deviceId = 1;
-  string from = 2;
-  string to = 3;
+    string deviceId = 1;
+    string from = 2;
+    string to = 3;
 }
 
 message CompanyIds {
-  repeated string ids = 1;
+    repeated string ids = 1;
 }
 
 message LocationName {
-  string name = 1;
+    string name = 1;
 }
 
 message DeviceType {
-  repeated string types = 1;
+    repeated string types = 1;
 }
 
 message DeviceStatuses {
-  repeated DeviceStatus statuses = 1;
+    repeated DeviceStatus statuses = 1;
 }
 
 message DeviceAlerts {
-   repeated DeviceAlert alerts = 1;
+    repeated DeviceAlert alerts = 1;
 }
 
 message DeviceServices {
-   repeated Service services = 1;
+    repeated ServiceDevice services = 1;
 }
 
 message DeviceModels {
-   repeated DeviceModel models = 1;
+    repeated DeviceModel models = 1;
 }
 
 message DeviceHardware {
-   string cpu = 1;
-   string bandwidth = 2;
-   string download = 3;
-   string upload = 4;
-   string deviceId = 5;
-   string memoryUsed = 6;
-   string memoryAvailable = 7;
-   string memoryTotal = 8;
-   string diskUsage = 9;
-   string diskTotal = 10;
+    string cpu = 1;
+    string bandwidth = 2;
+    string download = 3;
+    string upload = 4;
+    string deviceId = 5;
+    string memoryUsed = 6;
+    string memoryAvailable = 7;
+    string memoryTotal = 8;
+    string diskUsage = 9;
+    string diskTotal = 10;
 }
 
 message DeviceStatus {
-   string status = 1;
-   string description = 2;
-   string serviceName = 3;
-   string deviceId = 4;
+    string status = 1;
+    string description = 2;
+    string serviceName = 3;
+    string deviceId = 4;
 }
 
 message DeviceAlert {
-   string description = 1;
-   string type = 2;
-   string time = 3;
-   string deviceId = 4;
+    string description = 1;
+    string type = 2;
+    string time = 3;
+    string deviceId = 4;
 }
 
-message Service {
-   string id = 1;
-   string name = 2;
-   string version = 3;
-   string size = 4;
-   string activated = 5;
+message ServiceDevice {
+    string id = 1;
+    string name = 2;
+    string version = 3;
+    string size = 4;
+    string activated = 5;
 }
 
 message DeviceModel {
-   string id = 1;
-   string version = 2;
-   string type = 3;
-   string source = 4;
+    string id = 1;
+    string version = 2;
+    string type = 3;
+    string source = 4;
+    bool active = 5;
 }
 
 message GRPCGetDeviceModelsRequest {
-   string deviceId = 1;
-   string type = 2;
-   GRPCPaging paging = 3;
-   GRPCSorting sorting = 4;
+    string deviceId = 1;
+    string type = 2;
+    GRPCPaging paging = 3;
+    GRPCSorting sorting = 4;
 }
 
 message GRPCDeviceModelResponse {
-   int32 page = 1;
-   int32 size = 2;
-   int32 count = 3;
-   repeated DeviceModel deviceModels = 4;
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceModel deviceModels = 4;
 }
 
 message DeviceConfiguration {
@@ -255,7 +256,8 @@ message DeviceConfiguration {
     string created = 2;
     string updated = 3;
     string username = 4;
-    GRPCDeviceConfiguration configuration = 5;
+    bool active = 5;
+    GRPCDeviceConfiguration configuration = 6;
 }
 
 message GRPCDeviceConfiguration {
@@ -279,5 +281,16 @@ message DeviceProductList {
     string deviceId = 1;
     string version = 2;
     string source = 3;
+    string id = 4;
+    string created = 5;
+    string updated = 6;
+    bool active = 7;
 }
 
+message DeviceConfigurations {
+    repeated DeviceConfiguration configurations = 1;
+}
+
+message DeviceProductLists {
+    repeated DeviceProductList list = 1;
+}
