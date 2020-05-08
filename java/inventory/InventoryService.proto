@@ -72,6 +72,10 @@ service DeviceService {
   }
   rpc CreateDeviceStatus(DeviceStatus) returns (DeviceStatus) {
   }
+  rpc CreateDeviceAlert(DeviceAlert) returns (DeviceAlert) {
+  }
+  rpc CreateDeviceHardware(DeviceHardware) returns (DeviceHardware) {
+  }
   rpc GetDeviceConfiguration(DeviceId) returns (DeviceConfiguration) {
   }
   rpc AssignProductListToDevice(DeviceProductList) returns (Void) {
