@@ -1,0 +1,23 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+message MessageUnit {
+    string message = 1;
+    string requestId = 2;
+};
+
+message ImagePaths {
+    repeated string imagePaths = 1;
+};
+
+message PredictorResponse {
+    MessageUnit message = 1;
+};
+
+message PredictorRequest {
+    ImagePaths imagePaths = 1;
+    string client = 2;
+    string location = 3;
+    string modelType = 4;
+    double threshold = 5;
+};
