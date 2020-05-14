@@ -92,7 +92,7 @@ service DeviceService {
   }
   rpc AddModelOnDevice(DeviceModel) returns (Void) {
   }
-  rpc GetDeviceProductListHistory(DeviceId) returns (DeviceProductLists) {
+  rpc GetDeviceProductLists(DeviceId) returns (DeviceProductLists) {
   }
 
 }

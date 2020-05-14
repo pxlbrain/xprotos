@@ -227,6 +227,8 @@ message ServiceDevice {
     string version = 3;
     string size = 4;
     string activated = 5;
+    string config = 6;
+    string deviceId = 7;
 }
 
 message DeviceModel {
@@ -235,6 +237,10 @@ message DeviceModel {
     string type = 3;
     string source = 4;
     bool active = 5;
+    string activated = 6;
+    string modelId = 7;
+    string size = 8;
+    string deviceId = 9;
 }
 
 message GRPCGetDeviceModelsRequest {
