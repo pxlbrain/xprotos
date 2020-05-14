@@ -4,12 +4,9 @@ package ai.pixlbrain.backend;
 option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 
-import "core/grpc_messages.proto";
-
 message ConfigWrapper {
   string id = 1;
   string jsonConfig = 2;
-  MessageType type = 3;
 }
 
 message LearningMode {
@@ -28,6 +25,7 @@ message ScanningRequest {
   int32 seconds = 3;
 }
 
-message StreamingResponse {
-  string raw = 1;
+message DeviceResponse {
+  string response = 1;
 }
+
