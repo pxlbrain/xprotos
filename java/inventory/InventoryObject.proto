@@ -262,8 +262,9 @@ message DeviceConfiguration {
     string created = 2;
     string updated = 3;
     string username = 4;
-    bool active = 5;
-    GRPCDeviceConfiguration configuration = 6;
+    string deviceId = 5;
+    bool active = 6;
+    GRPCDeviceConfiguration configuration = 7;
 }
 
 message GRPCDeviceConfiguration {
