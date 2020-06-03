@@ -242,6 +242,11 @@ message ModelRequestWrapper {
   GRPCSorting sorting = 4;
 }
 
+message ModelRequest {
+  string client = 1;
+  string locationId = 2;
+}
+
 message JModelResponse {
   string id = 1;
   string created = 2;
