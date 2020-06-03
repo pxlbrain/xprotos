@@ -89,7 +89,7 @@ service JModelService {
   }
   rpc GetModelById (ModelId) returns (JModelResponse) {
   }
-  rpc GetModelsByLocation (ModelRequest) returns (JModelResponses) {
+  rpc GetModelsByLocation (GetAllModelsRequest) returns (JModelResponses) {
   }
 }
 
