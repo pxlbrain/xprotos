@@ -94,6 +94,8 @@ service DeviceService {
   }
   rpc GetDeviceProductLists(DeviceId) returns (DeviceProductLists) {
   }
+  rpc UpdateInitialDeviceConfigurations (DeviceConfig) returns (Void) {
+  }
 
 }
 
