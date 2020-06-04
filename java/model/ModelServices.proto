@@ -91,6 +91,8 @@ service JModelService {
   }
   rpc GetModelsByLocation (GetAllModelsRequest) returns (JModelResponses) {
   }
+  rpc DeployModel (ModelId) returns (Void) {
+  }
 }
 
 service ConfigurationService {
