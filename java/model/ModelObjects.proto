@@ -466,3 +466,16 @@ message AssignConfigInput {
   string modelId = 1;
   string configurationId = 2;
 }
+
+message ModelImages {
+  string client = 1;
+  string location = 2;
+  string modelId = 3;
+  repeated ModelImage modelImages = 4;
+}
+
+message ModelImage {
+  string image = 1;
+  string imageType = 2;
+  string imageName = 3;
+}
