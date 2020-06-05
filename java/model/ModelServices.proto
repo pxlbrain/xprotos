@@ -93,6 +93,8 @@ service JModelService {
   }
   rpc DeployModel (ModelId) returns (Void) {
   }
+  rpc UploadModelImages (ModelImages) returns (Void) {
+  }
 }
 
 service ConfigurationService {
