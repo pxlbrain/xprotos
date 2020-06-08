@@ -479,3 +479,13 @@ message ModelImage {
   string imageType = 2;
   string imageName = 3;
 }
+
+message ModelImagesResponse {
+  repeated ModelImageResponse modelImages = 1;
+}
+
+message ModelImageResponse {
+  string id = 1;
+  string created = 2;
+  string path = 3;
+}

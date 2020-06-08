@@ -95,6 +95,8 @@ service JModelService {
   }
   rpc UploadModelImages (ModelImages) returns (Void) {
   }
+  rpc GetModelImages (ModelId) returns (ModelImagesResponse) {
+  }
 }
 
 service ConfigurationService {
