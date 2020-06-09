@@ -265,23 +265,27 @@ message DeviceConfiguration {
     string deviceId = 5;
     bool active = 6;
     GRPCDeviceConfiguration configuration = 7;
+    GRPCDeviceModeConfig modeConfiguration = 8;
 }
 
 message GRPCDeviceConfiguration {
-    string running = 1;
-    string mode = 2;
-    string bucket = 3;
-    string client = 4;
-    string location = 5;
-    string device = 6;
-    string width = 7;
-    string height = 8;
-    string messageType = 9;
-    string filter = 10;
-    string filterTimeout = 11;
-    string fps = 12;
-    string startTime = 13;
-    string endTime = 14;
+    string mode = 1;
+    string bucket = 2;
+    string client = 3;
+    string location = 4;
+    string device = 5;
+    string startTime = 6;
+    string endTime = 7;
+    repeated string resolution = 8;
+}
+
+message GRPCDeviceModeConfig {
+    string classificationThreshold = 1;
+    string detectionThreshold = 2;
+    string fps = 3;
+    string motionFilter = 4;
+    string motionTimeout = 5;
+    string uploadFormat = 6;
 }
 
 message DeviceProductList {
