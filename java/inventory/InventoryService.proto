@@ -122,5 +122,7 @@ service LocationService {
   };
   rpc GetLocationByName (LocationName) returns (Location) {
   };
+  rpc UploadLocationLayout (LocationLayout) returns (Void) {
+  };
 }
 
