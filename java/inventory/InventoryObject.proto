@@ -69,6 +69,7 @@ message Location {
     string displayName = 10;
     string companyId = 11;
     string companyName = 12;
+    string layout = 13;
 }
 
 message Region {
@@ -304,4 +305,9 @@ message DeviceConfigurations {
 
 message DeviceProductLists {
     repeated DeviceProductList list = 1;
+}
+
+message LocationLayout {
+    string id = 1;
+    string image = 2;
 }
