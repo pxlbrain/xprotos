@@ -467,25 +467,39 @@ message AssignConfigInput {
   string configurationId = 2;
 }
 
-message ModelImages {
+message TrainingImages {
   string client = 1;
   string location = 2;
-  string modelId = 3;
-  repeated ModelImage modelImages = 4;
+  string trainingId = 3;
+  repeated TrainingImage trainingImages = 4;
 }
 
-message ModelImage {
+message TrainingImage {
   string image = 1;
   string imageType = 2;
   string imageName = 3;
 }
 
-message ModelImagesResponse {
-  repeated ModelImageResponse modelImages = 1;
+message TrainingImagesResponse {
+  repeated TrainingImageResponse modelImages = 1;
 }
 
-message ModelImageResponse {
+message TrainingImageResponse {
+  string path = 1;
+}
+
+message DeployModelRequest {
+  string modelId = 1;
+  string username = 2;
+}
+
+message TrainingModelResponse {
   string id = 1;
-  string created = 2;
-  string path = 3;
+  string name = 2;
+  string username = 3;
+  repeated TrainingImageResponse images = 4;
+}
+
+message TrainingId {
+  string id = 1;
 }

@@ -91,11 +91,11 @@ service JModelService {
   }
   rpc GetModelsByLocation (GetAllModelsRequest) returns (JModelResponses) {
   }
-  rpc DeployModel (ModelId) returns (Void) {
+  rpc DeployModel (DeployModelRequest) returns (TrainingModelResponse) {
   }
-  rpc UploadModelImages (ModelImages) returns (Void) {
+  rpc UploadTrainingImages (TrainingImages) returns (Void) {
   }
-  rpc GetModelImages (ModelId) returns (ModelImagesResponse) {
+  rpc GetTrainingImages (TrainingId) returns (TrainingImagesResponse) {
   }
 }
 
