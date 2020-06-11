@@ -97,6 +97,7 @@ service JModelService {
   }
   rpc GetTrainingImages (TrainingId) returns (TrainingImagesResponse) {
   }
+  rpc GetModelTrainings (ModelId) returns (TrainingsModelResponse)
 }
 
 service ConfigurationService {
