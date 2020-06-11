@@ -488,7 +488,7 @@ message TrainingImageResponse {
   string path = 1;
 }
 
-message DeployModelRequest {
+message CreatePodRequest {
   string modelId = 1;
   string username = 2;
 }

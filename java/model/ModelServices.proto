@@ -91,7 +91,7 @@ service JModelService {
   }
   rpc GetModelsByLocation (GetAllModelsRequest) returns (JModelResponses) {
   }
-  rpc DeployModel (DeployModelRequest) returns (TrainingModelResponse) {
+  rpc DeployModel (CreatePodRequest) returns (TrainingModelResponse) {
   }
   rpc UploadTrainingImages (TrainingImages) returns (Void) {
   }
