@@ -505,3 +505,7 @@ message TrainingModelResponse {
 message TrainingId {
   string id = 1;
 }
+
+message TrainingsModelResponse {
+  repeated TrainingModelResponse trainings = 1;
+}
