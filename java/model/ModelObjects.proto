@@ -481,11 +481,13 @@ message TrainingImage {
 }
 
 message TrainingImagesResponse {
-  repeated TrainingImageResponse modelImages = 1;
+  repeated TrainingImageResponse trainingImages = 1;
 }
 
 message TrainingImageResponse {
-  string path = 1;
+  string id = 1;
+  string created = 2;
+  string path = 3;
 }
 
 message CreatePodRequest {
