@@ -79,6 +79,7 @@ message DeleteProductItemRequest {
 message UploadId {
   string id = 1;
   bool isNew = 2;
+  string listId = 3;
 }
 
 message Id {
