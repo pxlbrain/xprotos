@@ -509,3 +509,11 @@ message TrainingId {
 message TrainingsModelResponse {
   repeated TrainingModelResponse trainings = 1;
 }
+
+message PredictionResults {
+  repeated PredictionResult results = 1;
+}
+
+message PredictionResult {
+  string id = 1;
+}
