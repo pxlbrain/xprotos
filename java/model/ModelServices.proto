@@ -101,6 +101,8 @@ service JModelService {
   }
   rpc StartPrediction (TrainingId) returns (Void) {
   }
+  rpc GetPredictionResults (TrainingId) returns (PredictionResults) {
+  }
 }
 
 service ConfigurationService {
