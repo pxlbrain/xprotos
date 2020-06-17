@@ -37,6 +37,8 @@ service UserService {
   };
   rpc CheckAuthorization (GRPCAuthorizationRequest) returns (IsAuthorized) {
   };
+  rpc GetPresignedUrl(PresignedUrlRequest) returns (PresignedUrlResponse) {
+  };
 }
 
 service RoleService {
