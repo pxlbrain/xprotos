@@ -515,5 +515,16 @@ message PredictionResults {
 }
 
 message PredictionResult {
-  string id = 1;
+  string imagePath = 1;
+  string created = 2;
+  repeated ScoreValues values = 3;
+}
+
+message ScoreValues {
+  string score = 1;
+  string class = 2;
+  float x1 = 3;
+  float x2 = 4;
+  float y1 = 5;
+  float y2 = 6;
 }
