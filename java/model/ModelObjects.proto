@@ -468,26 +468,16 @@ message AssignConfigInput {
 }
 
 message TrainingImages {
-  string client = 1;
-  string location = 2;
-  string trainingId = 3;
-  repeated TrainingImage trainingImages = 4;
+  string trainingId = 1;
+  repeated TrainingImage trainingImages = 2;
 }
 
 message TrainingImage {
   string image = 1;
-  string imageType = 2;
-  string imageName = 3;
 }
 
 message TrainingImagesResponse {
-  repeated TrainingImageResponse trainingImages = 1;
-}
-
-message TrainingImageResponse {
-  string id = 1;
-  string created = 2;
-  string path = 3;
+  repeated TrainingImage trainingImages = 1;
 }
 
 message CreatePodRequest {
@@ -499,7 +489,7 @@ message TrainingModelResponse {
   string id = 1;
   string name = 2;
   string username = 3;
-  repeated TrainingImageResponse images = 4;
+  repeated TrainingImage trainingImages = 4;
 }
 
 message TrainingId {
