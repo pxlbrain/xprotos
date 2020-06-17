@@ -141,3 +141,14 @@ message GRPCRoles {
 message IsAuthorized {
   bool isAuthorized = 1;
 }
+
+message PresignedUrlResponse {
+  string url = 1;
+}
+
+message PresignedUrlRequest {
+  string client = 1;
+  string location = 2;
+  string bucket = 3;
+  string key = 4;
+}
