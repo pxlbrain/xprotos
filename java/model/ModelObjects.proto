@@ -512,9 +512,12 @@ message PredictionResult {
 
 message ScoreValues {
   string score = 1;
-  string class = 2;
-  float x1 = 3;
-  float x2 = 4;
-  float y1 = 5;
-  float y2 = 6;
+  string label = 2;
+  string productId = 3;
+  string productName = 4;
+  string productCategory = 5;
+  float x1 = 6;
+  float x2 = 7;
+  float y1 = 8;
+  float y2 = 9;
 }
