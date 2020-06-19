@@ -96,6 +96,10 @@ service DeviceService {
   }
   rpc UpdateInitialDeviceConfigurations (DeviceConfig) returns (Void) {
   }
+  rpc UpdateGRPCStatusOnDevice (DeviceId) returns (Void) {
+  }
+  rpc ReactivateDeviceConfiguration (DeviceConfiguration) returns (Void) {
+  }
 
 }
 
