@@ -1,6 +1,9 @@
 syntax = "proto3";
 package ai.pixlbrain.backend;
 
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
 import "product/Product.proto";
 
 message GRPCJobs {
@@ -489,7 +492,11 @@ message TrainingModelResponse {
   string id = 1;
   string name = 2;
   string username = 3;
-  repeated TrainingImage trainingImages = 4;
+  string status = 4;
+  string modelId = 5;
+  string modelType = 6;
+  string modelName = 7;
+  repeated TrainingImage trainingImages = 8;
 }
 
 message TrainingId {
@@ -520,4 +527,19 @@ message ScoreValues {
   float x2 = 7;
   float y1 = 8;
   float y2 = 9;
+}
+
+message GRPCGetTrainingsRequest {
+  string companyId = 1;
+  string locationId = 2;
+  repeated GRPCFilter filter = 3;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
+}
+
+message GRPCTrainingsModelResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated TrainingModelResponse trainings = 4;
 }
