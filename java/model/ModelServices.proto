@@ -103,6 +103,8 @@ service JModelService {
   }
   rpc GetPredictionResults (TrainingId) returns (PredictionResults) {
   }
+  rpc GetTrainingsByLocation (GRPCGetTrainingsRequest) returns (GRPCTrainingsModelResponse) {
+  }
 }
 
 service ConfigurationService {
