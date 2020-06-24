@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+import "report/result_query.proto";
+import "report/results.proto";
+import "report/stats_query.proto";
+import "report/queue_stats.proto";
+import "inventory/Void.proto";
+
+service CQueueService {
+    rpc GetResults(ResultQuery) returns (Results);
+    rpc GetResultById(ResultQueryById) returns (Result);
+//    rpc AddResults(Results) returns (Void);
+//    rpc DeleteResults(ResultQuery) returns (Void);
+//    rpc DeleteResultById(ResultQueryById) returns (Void);
+    rpc GetStats(StatsQuery) returns (QueueStats);
+};
