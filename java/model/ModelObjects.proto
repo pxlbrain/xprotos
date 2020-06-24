@@ -1,6 +1,9 @@
 syntax = "proto3";
 package ai.pixlbrain.backend;
 
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
 import "product/Product.proto";
 
 message GRPCJobs {
@@ -468,26 +471,16 @@ message AssignConfigInput {
 }
 
 message TrainingImages {
-  string client = 1;
-  string location = 2;
-  string trainingId = 3;
-  repeated TrainingImage trainingImages = 4;
+  string trainingId = 1;
+  repeated TrainingImage trainingImages = 2;
 }
 
 message TrainingImage {
   string image = 1;
-  string imageType = 2;
-  string imageName = 3;
 }
 
 message TrainingImagesResponse {
-  repeated TrainingImageResponse trainingImages = 1;
-}
-
-message TrainingImageResponse {
-  string id = 1;
-  string created = 2;
-  string path = 3;
+  repeated TrainingImage trainingImages = 1;
 }
 
 message CreatePodRequest {
@@ -499,7 +492,11 @@ message TrainingModelResponse {
   string id = 1;
   string name = 2;
   string username = 3;
-  repeated TrainingImageResponse images = 4;
+  string status = 4;
+  string modelId = 5;
+  string modelType = 6;
+  string modelName = 7;
+  repeated TrainingImage trainingImages = 8;
 }
 
 message TrainingId {
@@ -508,4 +505,41 @@ message TrainingId {
 
 message TrainingsModelResponse {
   repeated TrainingModelResponse trainings = 1;
+}
+
+message PredictionResults {
+  repeated PredictionResult results = 1;
+}
+
+message PredictionResult {
+  string imagePath = 1;
+  string created = 2;
+  repeated ScoreValues values = 3;
+}
+
+message ScoreValues {
+  string score = 1;
+  string label = 2;
+  string productId = 3;
+  string productName = 4;
+  string productCategory = 5;
+  float x1 = 6;
+  float x2 = 7;
+  float y1 = 8;
+  float y2 = 9;
+}
+
+message GRPCGetTrainingsRequest {
+  string companyId = 1;
+  string locationId = 2;
+  repeated GRPCFilter filter = 3;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
+}
+
+message GRPCTrainingsModelResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated TrainingModelResponse trainings = 4;
 }

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+
+import "report/time_range.proto";
+
+
+message WaitingTimes {
+    int32 avg_waiting_time = 1;
+    TimeRange time_range = 2;
+}
+
+message ZoneStats {
+    string zone = 1;
+
+    int32 total_max_waiting_time = 2;
+    int32 total_avg_waiting_time = 3;
+
+    int32 people_count = 4;
+
+    repeated WaitingTimes waiting_times = 5;
+}
+
+
+
+message QueueStats {
+    repeated ZoneStats zones = 1;
+}
