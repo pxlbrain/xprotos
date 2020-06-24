@@ -9,6 +9,14 @@ enum SortDirection {
     DESC = 1;
 };
 
+enum CoordType {
+    XYXY = 0;
+    TLBR = 1;
+    XYAH = 2;
+    CXCYWH = 3;
+    TLWH = 4;
+};
+
 message SortObject {
     string fieldName = 1;
     SortDirection direction = 2;
@@ -44,9 +52,14 @@ message VFSTagValue {
     map<string, string> map = 1;
 };
 
-
 message VFSTagTypes {
     repeated VFSTagType definitions = 1;
+};
+
+message VFSTagMeta {
+    string remoteCsvPath = 1;
+    CoordType coordType = 2;
+
 };
 
 message VFSTag  {
@@ -101,9 +114,10 @@ message VFSRequest {
     oneof data {
         VFSTagTypes tags = 3;
         VFSTagValue tagValue = 4;
-        string payload = 5;
+        VFSTagMeta tagMeta = 5;
+        string payload = 6;
     };
-    VFSRequestFilter filter = 6;
+    VFSRequestFilter filter = 7;
 };
 
 message AutoCompleteStructure{
