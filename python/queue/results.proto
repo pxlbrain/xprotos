@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+
+message Crop {
+    repeated double coordinates = 1;
+    double confidence = 2;
+    string state = 3;
+    string track_id = 4;
+}
+
+message Result {
+    string device_id = 1;
+    string client = 2;
+    string location = 3;
+
+    enum Type {
+        UNDEFINED = 0;
+        DETECTION = 1;
+        TRACKING = 2;
+    }
+
+    Type type = 4;
+
+    string timestamp = 5;
+    repeated Crop crops = 6;
+}
+
+message Results {
+    repeated Result results = 1;
+}

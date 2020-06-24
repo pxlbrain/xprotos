@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "time_range.proto";
+import "results.proto";
+
+
+message ResultQuery {
+    string device_id = 1;
+    string client = 2;
+    string location = 3;
+    TimeRange time_range = 4;
+    Result.Type type = 5;
+}
+
+message ResultQueryById {
+    string id = 1;
+}
