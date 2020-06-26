@@ -3,6 +3,10 @@ package ai.pixlbrain.backend;
 
 import "ptag/VFSObject.proto";
 
+service VFSTagMetaService {
+    rpc UpdateTags(VFSRequest) returns (VFResponseStructure) {};
+};
+
 service VFSTagService {
     rpc GetTags(VFSRequest) returns (VFResponseStructure) {};
     rpc UpdateTags(VFSRequest) returns (VFResponseStructure) {};
