@@ -31,4 +31,5 @@ gradlew.bat
 
 ### VS Code ###
 .vscode/
+.history
 python/.DS_Store
