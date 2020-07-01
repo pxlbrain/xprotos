@@ -314,3 +314,14 @@ message LocationLayout {
     string id = 1;
     string image = 2;
 }
+
+message GrpcDeviceActivities {
+    repeated GrpcDeviceActivity activities = 1;
+}
+
+message GrpcDeviceActivity {
+    string created = 1;
+    string log = 2;
+    string user = 3;
+    string action = 4;
+}
