@@ -5,6 +5,7 @@ option java_package = "ai.pixlbrain.backend";
 
 import "inventory/Void.proto";
 import "inventory/InventoryObject.proto";
+import "middleware/MiddlewareObject.proto";
 
 package ai.pixlbrain.backend;
 
@@ -100,6 +101,10 @@ service DeviceService {
   }
   rpc ReactivateDeviceConfiguration (DeviceConfiguration) returns (Void) {
   }
+  rpc GetActivitiesForDevice (DeviceId) returns (GrpcDeviceActivities) {
+  }
+  rpc UpdateDeviceMode (DeviceMode) returns (DeviceResponse) {
+  };
 
 }
 
