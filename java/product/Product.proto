@@ -80,6 +80,7 @@ message UploadId {
   string id = 1;
   bool isNew = 2;
   string listId = 3;
+  string location = 4;
 }
 
 message Id {
