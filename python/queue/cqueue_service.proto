@@ -1,20 +1,9 @@
 syntax = "proto3";
 
-import "void.proto";
-import "result_query.proto";
-import "results.proto";
 import "stats_query.proto";
 import "queue_stats.proto";
 
 
 service CQueueService {
-    rpc GetResults(ResultQuery) returns (Results);
-    rpc GetResultById(ResultQueryById) returns (Result);
-
-    rpc AddResults(Results) returns (Void);
-
-    rpc DeleteResults(ResultQuery) returns (Void);
-    rpc DeleteResultById(ResultQueryById) returns (Void);
-
     rpc GetStats(StatsQuery) returns (QueueStats);
 };
