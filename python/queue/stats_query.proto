@@ -4,10 +4,6 @@ import "time_range.proto";
 
 
 message StatsQuery {
-    string client = 1;
-    string location = 2;
-
-    repeated string zones = 3;
-
-    repeated TimeRange time_ranges = 4;
+    repeated string zones = 1;
+    repeated TimeRange time_ranges = 2  ;
 }
