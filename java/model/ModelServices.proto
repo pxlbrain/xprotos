@@ -107,6 +107,10 @@ service JModelService {
   }
   rpc StopPrediction (TrainingId) returns (Void) {
   }
+  rpc StartIntegrationTraining (IntegrationTrainings) returns (Void) {
+  }
+  rpc GetModelsByLocationAndStatus (ModelStatusRequest) returns (ModelsStatusResponse) {
+  }
 }
 
 service ConfigurationService {

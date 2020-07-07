@@ -496,7 +496,10 @@ message TrainingModelResponse {
   string modelId = 5;
   string modelType = 6;
   string modelName = 7;
-  repeated TrainingImage trainingImages = 8;
+  string count = 8;
+  string accuracy = 9;
+  string trainingType = 10;
+  repeated TrainingImage trainingImages = 11;
 }
 
 message TrainingId {
@@ -515,6 +518,8 @@ message PredictionResult {
   string imagePath = 1;
   string created = 2;
   repeated ScoreValues values = 3;
+  repeated InferenceValues inference = 4;
+  repeated InferenceValues prediction = 5;
 }
 
 message ScoreValues {
@@ -532,9 +537,8 @@ message ScoreValues {
 message GRPCGetTrainingsRequest {
   string companyId = 1;
   string locationId = 2;
-  repeated GRPCFilter filter = 3;
-  GRPCPaging paging = 4;
-  GRPCSorting sorting = 5;
+  GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
 }
 
 message GRPCTrainingsModelResponse {
@@ -542,4 +546,42 @@ message GRPCTrainingsModelResponse {
   int32 size = 2;
   int32 count = 3;
   repeated TrainingModelResponse trainings = 4;
+}
+
+message IntegrationTrainings {
+  string companyId = 1;
+  string locationId = 2;
+  string username = 3;
+  repeated IntegrationTraining integration = 4;
+}
+
+message IntegrationTraining {
+  string type = 1;
+  string modelId = 2;
+  double threshold = 3;
+  double nmsThreshold = 4;
+}
+
+message InferenceValues {
+  string label = 1;
+  float x1 = 2;
+  float x2 = 3;
+  float y1 = 4;
+  float y2 = 5;
+}
+
+message ModelStatusRequest {
+  string client = 1;
+  string location = 2;
+  string status = 3;
+}
+
+message ModelsStatusResponse {
+  repeated ModelStatusResponse models = 1;
+}
+
+message ModelStatusResponse {
+  string id = 1;
+  string name = 2;
+  string type = 3;
 }
