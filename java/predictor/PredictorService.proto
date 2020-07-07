@@ -6,4 +6,6 @@ import "predictor/PredictorObject.proto";
 service PredictorService {
     rpc PredictAndReport(PredictorRequest) returns (PredictorResponse) {
     };
+    rpc PredictWithFilterAndReport(FilterPredictorRequest) returns (PredictorResponse) {
+    };
 };

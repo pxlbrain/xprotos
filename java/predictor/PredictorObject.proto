@@ -1,6 +1,8 @@
 syntax = "proto3";
 package ai.pixlbrain.backend;
 
+import "ptag/VFSObject.proto";
+
 message MessageUnit {
     string message = 1;
     string requestId = 2;
@@ -21,3 +23,45 @@ message PredictorRequest {
     string modelType = 4;
     double threshold = 5;
 };
+
+message FilterPredictorRequest {
+    string client = 1;
+    string location = 2;
+    string filter = 3;
+    string modelType = 4;
+    SchemaRequest schema = 5;
+};
+
+message SchemaRequest {
+    repeated NodeUnit nodes = 1;
+};
+
+
+message NodeUnit {
+    int32 _id = 1;
+    string type = 2;
+    string name = 3;
+    repeated Next next = 4;
+    Params params = 5;
+};
+
+message Next {
+    int32 next = 1;
+};
+
+message Params {
+    string protocol = 1;
+    string host = 2;
+    string model_name = 3;
+    double threshold = 4;
+    bbx roi = 5;
+    string category = 6;
+    string model_type = 7;
+};
+
+message bbx {
+    int32 x1 = 1;
+    int32 y1 = 2;
+    int32 x2 = 3;
+    int32 y2 = 4;
+}
