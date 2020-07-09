@@ -105,6 +105,16 @@ service DeviceService {
   }
   rpc UpdateDeviceMode (DeviceMode) returns (DeviceResponse) {
   };
+  rpc CreateDeviceCamera (DeviceCamera) returns (DeviceCamera) {
+  };
+  rpc UpdateDeviceCamera (DeviceCamera) returns (DeviceCamera) {
+  };
+  rpc DeleteDeviceCamera (CameraId) returns (Void){
+  };
+  rpc GetDeviceCameras (DeviceId) returns (DeviceCameras){
+  };
+  rpc GetDeviceCamerasByLocationId (LocationId) returns (DeviceCameras){
+  };
 
 }
 
