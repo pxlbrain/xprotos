@@ -24,32 +24,20 @@ message PredictorRequest {
     double threshold = 5;
 };
 
-message FilterPredictorRequest {
-    string client = 1;
-    string location = 2;
-    string filter = 3;
-    string modelType = 4;
-    SchemaRequest schema = 5;
+message ServiceParams{
+    string protocol = 1;
+    string host = 2;
+    string model_name = 3;
 };
 
-message SchemaRequest {
-    repeated NodeUnit nodes = 1;
+message bbx{
+    int32 x1 = 1;
+    int32 y1 = 2;
+    int32 x2 = 3;
+    int32 y2 = 4;
 };
 
-
-message NodeUnit {
-    int32 _id = 1;
-    string type = 2;
-    string name = 3;
-    repeated Next next = 4;
-    Params params = 5;
-};
-
-message Next {
-    int32 next = 1;
-};
-
-message Params {
+message Params{
     string protocol = 1;
     string host = 2;
     string model_name = 3;
@@ -59,9 +47,22 @@ message Params {
     string model_type = 7;
 };
 
-message bbx {
-    int32 x1 = 1;
-    int32 y1 = 2;
-    int32 x2 = 3;
-    int32 y2 = 4;
-}
+message NodeUnit {
+    int32 _id = 1;
+    string type = 2;
+    string name = 3;
+    repeated int32 next = 4;
+    Params params = 5;
+};
+
+message SchemaRequest {
+    repeated NodeUnit nodes = 1;
+};
+
+message FilterPredictorRequest{
+    SchemaRequest schema = 1;
+    string client = 2;
+    string location = 3;
+    string filter = 4;
+    string modelType = 5;
+};
