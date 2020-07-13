@@ -593,3 +593,9 @@ message ModelTestingJob {
   string location = 2;
   DatasetType type = 3;
 }
+
+message StartPredictionRequest {
+  string trainingId = 1;
+  double threshold = 2;
+}
+
