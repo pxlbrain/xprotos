@@ -113,6 +113,8 @@ service JModelService {
   }
   rpc GetModelsByLocationAndStatus (ModelStatusRequest) returns (ModelsStatusResponse) {
   }
+  rpc StartIntegrationUsingImageUpload (IntegrationImageRequest) returns (Void) {
+  }
 }
 
 service ConfigurationService {
