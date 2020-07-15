@@ -486,7 +486,7 @@ message TrainingImagesResponse {
 }
 
 message CreatePodRequest {
-  string modelId = 1;
+  repeated string modelIds = 1;
   string username = 2;
 }
 

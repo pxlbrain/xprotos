@@ -22,6 +22,9 @@ message PredictorRequest {
     string location = 3;
     string modelType = 4;
     double threshold = 5;
+    double detector_threshold = 6;
+    double mlc_threshold = 7;
+    double classifier_threshold = 8;
 };
 
 message ServiceParams{
