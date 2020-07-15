@@ -599,3 +599,10 @@ message StartPredictionRequest {
   double threshold = 2;
 }
 
+message IntegrationImageRequest {
+  string trainingId = 1;
+  double detectorThreshold = 2;
+  double classifierThreshold = 3;
+  double mlcThreshold = 4;
+}
+
