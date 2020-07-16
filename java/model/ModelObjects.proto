@@ -570,6 +570,7 @@ message InferenceValues {
   float x2 = 3;
   float y1 = 4;
   float y2 = 5;
+  repeated string productIds = 6;
 }
 
 message ModelStatusRequest {
