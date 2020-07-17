@@ -335,7 +335,7 @@ message ClusterFilter {
   string location = 2;
   string date = 3;
   string clusterType = 4;
-  repeated string deviceIds = 5;
+  repeated DeviceCameraGRPC deviceIds = 5;
   repeated string labels = 6;
   string maxNumOfClustersCrops = 7;
   string maxNumberOfClustersFullFrames = 8;
@@ -343,7 +343,11 @@ message ClusterFilter {
   string clusterBatchSize = 10;
   string fileType = 11;
   string numberAroundCluster = 12;
+}
 
+message DeviceCameraGRPC {
+  string deviceId =1;
+  repeated string cameraIds = 2;
 }
 
 message JobIds {
