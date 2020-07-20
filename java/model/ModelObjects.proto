@@ -539,6 +539,8 @@ message ScoreValues {
   float x2 = 7;
   float y1 = 8;
   float y2 = 9;
+  string productMHSId = 10;
+  string modelType = 11;
 }
 
 message GRPCGetTrainingsRequest {
@@ -576,6 +578,9 @@ message InferenceValues {
   float y1 = 4;
   float y2 = 5;
   repeated string productIds = 6;
+  string productName = 7;
+  string productMHSId = 8;
+  string productId = 9;
 }
 
 message ModelStatusRequest {

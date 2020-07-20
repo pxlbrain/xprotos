@@ -25,6 +25,7 @@ message PredictorRequest {
     double detector_threshold = 6;
     double mlc_threshold = 7;
     double classifier_threshold = 8;
+    string product_list_path = 9;
 };
 
 message ServiceParams{
@@ -47,7 +48,8 @@ message Params{
     double threshold = 4;
     bbx roi = 5;
     string category = 6;
-    string model_type = 7;
+    string product_list_path = 7;
+    string model_type = 8;
 };
 
 message NodeUnit {
