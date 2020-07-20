@@ -24,6 +24,8 @@ service JobService {
   };
   rpc ModelTestingJobWithFilter (ModelTestingJob) returns (Void) {
   };
+  rpc GetJobsByModelId (ModelId) returns (GRPCJobs) {
+  };
 }
 
 service CVATService {
