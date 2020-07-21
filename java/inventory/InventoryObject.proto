@@ -352,3 +352,18 @@ enum CameraType {
     FISHEYE = 0;
     NORMAL = 1;
 }
+
+message GRPCGetDeviceRequest {
+  string deviceId = 1;
+  string locationId = 2;
+  repeated GRPCFilter filter = 3;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
+}
+
+message GRPCDeviceCameraResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated DeviceCamera deviceCameras = 4;
+}
