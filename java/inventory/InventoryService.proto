@@ -111,9 +111,9 @@ service DeviceService {
   };
   rpc DeleteDeviceCamera (CameraId) returns (Void){
   };
-  rpc GetDeviceCameras (DeviceId) returns (DeviceCameras){
+  rpc GetDeviceCameras (GRPCGetDeviceRequest) returns (GRPCDeviceCameraResponse){
   };
-  rpc GetDeviceCamerasByLocationId (LocationId) returns (DeviceCameras){
+  rpc GetDeviceCamerasByLocationId (GRPCGetDeviceRequest) returns (GRPCDeviceCameraResponse){
   };
 
 }
