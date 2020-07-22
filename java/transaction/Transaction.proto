@@ -7,7 +7,7 @@ import "product/Product.proto";
 service TransactionService {
   rpc GetTransaction (TransactionId) returns (Transaction) {}
   rpc GetAllTransactions (TransactionRequest) returns (GRPCGetTransactionResponse) {}
-  rpc GetTransactionByTrayId (TransactionId) returns (Transactions) {}
+  rpc GetTransactionByTrayId (TransactionIdsRequest) returns (Transactions) {}
 }
 
 message GRPCGetTransactionResponse {
@@ -31,6 +31,7 @@ message Transaction {
   string rescanned = 11;
   string trayLabel = 12;
   string type = 13;
+  string transactionId = 14;
 }
 
 message Frame {
@@ -86,5 +87,10 @@ message TransactionId {
 
 message Transactions {
   repeated Transaction transactions = 1;
+}
+
+message TransactionIdsRequest {
+  string trayId = 1;
+  string transactionId = 2;
 }
 
