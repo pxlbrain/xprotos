@@ -367,3 +367,52 @@ message GRPCDeviceCameraResponse {
   int32 count = 3;
   repeated DeviceCamera deviceCameras = 4;
 }
+
+message GRPCDeviceActivitiesResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated GrpcDeviceActivity grpcDeviceActivities = 4;
+}
+
+message GRPCDeviceProductListsResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceProductList deviceProductLists = 4;
+}
+
+message GRPCDeviceConfigurationsResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceConfiguration deviceConfigurations = 4;
+}
+
+message GRPCDeviceServicesResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated ServiceDevice deviceServices = 4;
+}
+
+message GRPCDeviceModelsResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceModel deviceModels = 4;
+}
+
+message GRPCDeviceAlertsResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceAlert deviceAlerts = 4;
+}
+
+message GRPCDeviceStatusesResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceStatus deviceStatuses = 4;
+}
