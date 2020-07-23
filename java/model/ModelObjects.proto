@@ -507,6 +507,7 @@ message TrainingModelResponse {
   string accuracy = 9;
   string trainingType = 10;
   repeated TrainingImage trainingImages = 11;
+  string created = 12;
 }
 
 message TrainingId {
@@ -548,6 +549,7 @@ message GRPCGetTrainingsRequest {
   string locationId = 2;
   GRPCPaging paging = 3;
   GRPCSorting sorting = 4;
+  repeated GRPCFilter filter = 5;
 }
 
 message GRPCTrainingsModelResponse {
