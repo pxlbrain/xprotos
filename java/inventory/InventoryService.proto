@@ -57,19 +57,19 @@ service DeviceService {
   }
   rpc GetDeviceTypes(Void) returns (DeviceType) {
   }
-  rpc GetDeviceStatuses(DeviceId) returns (DeviceStatuses) {
+  rpc GetDeviceStatuses(GRPCGetDeviceRequest) returns (GRPCDeviceStatusesResponse) {
   }
   rpc GetDeviceStatus(DeviceId) returns (DeviceStatus) {
   }
-  rpc GetDeviceAlerts(DeviceId) returns (DeviceAlerts) {
+  rpc GetDeviceAlerts(GRPCGetDeviceRequest) returns (GRPCDeviceAlertsResponse) {
   }
   rpc GetDeviceHardware(DeviceId) returns (DeviceHardware) {
   }
-  rpc GetDeviceModels(DeviceId) returns (DeviceModels) {
+  rpc GetDeviceModels(GRPCGetDeviceRequest) returns (GRPCDeviceModelsResponse) {
   }
   rpc GetDeviceModelsByType(GRPCGetDeviceModelsRequest) returns (GRPCDeviceModelResponse) {
   }
-  rpc GetDeviceServices(DeviceId) returns (DeviceServices) {
+  rpc GetDeviceServices(GRPCGetDeviceRequest) returns (GRPCDeviceServicesResponse) {
   }
   rpc CreateDeviceStatus(DeviceStatus) returns (DeviceStatus) {
   }
@@ -87,13 +87,13 @@ service DeviceService {
   }
   rpc GetDeviceProductList(DeviceId) returns (DeviceProductList) {
   }
-  rpc GetDeviceConfigurations(DeviceId) returns (DeviceConfigurations) {
+  rpc GetDeviceConfigurations(GRPCGetDeviceRequest) returns (GRPCDeviceConfigurationsResponse) {
   }
   rpc UpdateServiceOnDevice(ServiceDevice) returns (Void) {
   }
   rpc AddModelOnDevice(DeviceModel) returns (Void) {
   }
-  rpc GetDeviceProductLists(DeviceId) returns (DeviceProductLists) {
+  rpc GetDeviceProductLists(GRPCGetDeviceRequest) returns (GRPCDeviceProductListsResponse) {
   }
   rpc UpdateInitialDeviceConfigurations (DeviceConfig) returns (Void) {
   }
@@ -101,7 +101,7 @@ service DeviceService {
   }
   rpc ReactivateDeviceConfiguration (DeviceConfiguration) returns (Void) {
   }
-  rpc GetActivitiesForDevice (DeviceId) returns (GrpcDeviceActivities) {
+  rpc GetActivitiesForDevice (GRPCGetDeviceRequest) returns (GRPCDeviceActivitiesResponse) {
   }
   rpc UpdateDeviceMode (DeviceMode) returns (DeviceResponse) {
   };
