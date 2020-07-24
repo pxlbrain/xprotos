@@ -493,6 +493,7 @@ message CreatePodRequest {
   repeated string modelIds = 1;
   string username = 2;
   string type = 3;
+  string trainingName = 4;
 }
 
 message TrainingModelResponse {
@@ -571,6 +572,7 @@ message IntegrationTraining {
   string modelId = 2;
   double threshold = 3;
   double nmsThreshold = 4;
+  string trainingName = 5;
 }
 
 message InferenceValues {
@@ -619,3 +621,7 @@ message IntegrationImageRequest {
   double mlcThreshold = 4;
 }
 
+message TrainingName {
+  string trainingId = 1;
+  string trainingName = 2;
+}
