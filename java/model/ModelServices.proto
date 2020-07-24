@@ -117,6 +117,8 @@ service JModelService {
   }
   rpc StartIntegrationUsingImageUpload (IntegrationImageRequest) returns (Void) {
   }
+  rpc UpdateTrainingName (TrainingName) returns (Void) {
+  }
 }
 
 service ConfigurationService {
