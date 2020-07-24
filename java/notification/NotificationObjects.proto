@@ -1,6 +1,8 @@
 syntax = "proto3";
 
 package ai.pixlbrain.backend;
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
 
 message MessageIds {
   repeated string messageId = 1;
@@ -111,4 +113,9 @@ message EmailRequest {
   repeated string mailBcc = 4;
   string mailSubject = 5;
   string mailContent = 6;
+}
+
+message AlertRequest {
+  string type =1;
+  string message=2;
 }

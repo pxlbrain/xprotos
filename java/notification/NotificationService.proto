@@ -1,6 +1,8 @@
 syntax = "proto3";
 
 package ai.pixlbrain.backend;
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
 
 import "notification/NotificationObjects.proto";
 import "inventory/Void.proto";
@@ -52,5 +54,7 @@ service NotificationTopicService {
 
 service MailService {
   rpc SendEmail (EmailRequest) returns (Void) {
+  }
+  rpc SendAlert (AlertRequest) returns (Void) {
   }
 }
