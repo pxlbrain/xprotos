@@ -103,3 +103,17 @@ message NotificationSubscriberMessage {
   NotificationSubscriber notificationSubscriber = 5;
   NotificationMessage notificationMessage = 6;
 }
+
+message EmailRequest {
+  string mailFrom = 1;
+  repeated string mailTo = 2;
+  repeated string mailCc = 3;
+  repeated string mailBcc = 4;
+  string mailSubject = 5;
+  string mailContent = 6;
+}
+
+message AlertRequest {
+  string type =1;
+  string message=2;
+}

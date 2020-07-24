@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend;
+
+import "notification/NotificationObjects.proto";
+import "inventory/Void.proto";
+
+
+service NotificationMessageService {
+  rpc CreateNotificationMessage (NotificationMessageRequest) returns (NotificationMessage) {
+  }
+  rpc DeleteNotificationMessage (MessageId) returns (Void) {
+  }
+}
+
+service NotificationOrganizationService {
+  rpc CreateNotificationOrganization (NotificationOrganizationRequest) returns (NotificationOrganization) {
+  }
+  rpc DeleteNotificationOrganization (OrganizationId) returns (Void) {
+  }
+  rpc GetOrganizationTopic (OrganizationId) returns (NotificationTopic) {
+  }
+}
+
+service NotificationSubscriberService {
+  rpc UnsubscribeTopic (UnsubscribeMessageRequest) returns (Void) {
+  }
+  rpc CreateNotificationSubscriber (NotificationSubscriberRequest) returns (NotificationSubscriber) {
+  }
+  rpc GetNotificationSubscriber (NotificationSubscriberRequest) returns (NotificationSubscriber) {
+  }
+}
+
+service NotificationSubscriberMessageService {
+  rpc CreateNotificationSubscriberMessage (NotificationSubscriberMessageRequest) returns (NotificationSubscriberMessage) {
+  }
+  rpc MarkAsRead (MessageIds) returns (Void) {
+  }
+  rpc GetActiveMessages (UserId) returns (NotificationMessages) {
+  }
+}
+
+service NotificationTopicService {
+  rpc CreateNotificationTopic (NotificationTopicRequest) returns (NotificationTopic) {
+  }
+  rpc DeleteNotificationTopic (TopicId) returns (Void) {
+  }
+  rpc FindNotificationTopic (TopicId) returns (NotificationTopic) {
+  }
+  rpc FindAllNotificationTopics (Void) returns (NotificationTopics) {
+  }
+}
+
+service MailService {
+  rpc SendEmail (EmailRequest) returns (Void) {
+  }
+  rpc SendAlert (AlertRequest) returns (Void) {
+  }
+}
