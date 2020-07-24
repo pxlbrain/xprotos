@@ -115,6 +115,8 @@ service DeviceService {
   };
   rpc GetDeviceCamerasByLocationId (GRPCGetDeviceRequest) returns (GRPCDeviceCameraResponse){
   };
+  rpc GetDeviceCamerasByDeviceId(DeviceId) returns (DeviceCameras){
+  };
 
 }
 
