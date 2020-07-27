@@ -24,6 +24,7 @@ message ScanningRequest {
   string id = 1;
   string productId = 2;
   int32 seconds = 3;
+  string cameraId = 4;
 }
 
 message DeviceResponse {
