@@ -74,6 +74,8 @@ service DatasetService {
   }
   rpc PreparingDataset (ModelId) returns (Void) {
   }
+  rpc MergeDataset (MergeDatasetRequest) returns (MergeStatusResponse) {
+  }
 }
 
 service JModelService {
@@ -118,6 +120,8 @@ service JModelService {
   rpc StartIntegrationUsingImageUpload (IntegrationImageRequest) returns (Void) {
   }
   rpc UpdateTrainingName (TrainingName) returns (Void) {
+  }
+  rpc GetModelsForMergeByType (ModelTypeRequest) returns (ModelsStatusResponse) {
   }
 }
 
