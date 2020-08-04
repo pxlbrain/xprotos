@@ -15,14 +15,17 @@ service DatasetCommonService {
 
 service DatasetDetectorService {
     rpc CreateDataset(DatasetRequest) returns (DatasetResponse) {};
+    rpc MergeDataset(DatasetRequest) returns (DatasetResponse) {};
 };
 
 service DatasetClassifierService {
     rpc CreateDataset(stream DatasetRequest) returns (stream DatasetResponse) {};
     rpc GenerateRequest(DatasetRequest) returns (DatasetResponse) {};
+    rpc MergeDataset(DatasetRequest) returns (DatasetResponse) {};
 };
 
 service DatasetMLCService {
     rpc CreateDataset(stream DatasetRequest) returns (stream DatasetResponse) {};
     rpc GenerateRequest(DatasetRequest) returns (DatasetResponse) {};
+    rpc MergeDataset(DatasetRequest) returns (DatasetResponse) {};
 };
