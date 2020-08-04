@@ -243,7 +243,9 @@ message ModelRequestWrapper {
   string client = 1;
   string locationId = 2;
   string type = 3;
-  GRPCSorting sorting = 4;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
+  repeated GRPCFilter filter = 6;
 }
 
 message GetAllModelsRequest {
@@ -293,7 +295,10 @@ message JModelRequest {
 }
 
 message JModelResponses {
-  repeated JModelResponse responses = 1;
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated JModelResponse responses = 4;
 }
 
 message GRPCTrainingResponse {

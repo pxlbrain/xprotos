@@ -95,7 +95,7 @@ service JModelService {
   }
   rpc GetModelById (ModelId) returns (JModelResponse) {
   }
-  rpc GetModelsByLocation (GetAllModelsRequest) returns (JModelResponses) {
+  rpc GetModelsByLocation (ModelRequestWrapper) returns (JModelResponses) {
   }
   rpc DeployModel (CreatePodRequest) returns (TrainingModelResponse) {
   }
