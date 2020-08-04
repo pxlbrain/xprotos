@@ -111,13 +111,6 @@ message DatasetStatus {
     DatasetObjectId datasetObjectId = 5;
 };
 
-message MergeDataset{
-    string version = 1;
-    repeated string labels = 2;
-    DatasetSplit split = 3;
-    repeated string mergeWithVersions = 4;
-};
-
 message DatasetRequest {
     oneof request {
         NewVersion newVersion = 1;
@@ -125,7 +118,6 @@ message DatasetRequest {
         CreateDataset createDataset = 3;
         DatasetStatus datasetStatus = 4;
         DatasetObjectId datasetObjectId = 5;
-        MergeDataset mergeDataset = 6;
     };
 };
 
