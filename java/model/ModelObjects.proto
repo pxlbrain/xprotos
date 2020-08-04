@@ -625,3 +625,20 @@ message TrainingName {
   string trainingId = 1;
   string trainingName = 2;
 }
+
+message MergeDatasetRequest {
+  string type = 1;
+  repeated string labels = 2;
+  int32 train = 3;
+  int32 test = 4;
+  repeated string versions = 5;
+}
+
+message ModelTypeRequest {
+   string location = 1;
+   string modelType = 2;
+}
+
+message MergeStatusResponse {
+   string status = 1;
+}
