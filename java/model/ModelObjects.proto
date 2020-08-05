@@ -644,6 +644,26 @@ message ModelTypeRequest {
    string modelType = 2;
 }
 
-message MergeStatusResponse {
-   string status = 1;
+message DatasetRequestWrapper {
+  string client = 1;
+  string location = 2;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
+  repeated GRPCFilter filter = 6;
+}
+
+message DatasetsResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated DatasetPayloadResponse responses = 4;
+}
+
+message DatasetPayloadResponse {
+  string id = 1;
+  string created = 2;
+  string version = 3;
+  string type = 4;
+  string path = 5;
+  string status = 6;
 }
