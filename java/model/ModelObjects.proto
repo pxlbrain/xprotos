@@ -637,6 +637,7 @@ message MergeDatasetRequest {
   int32 train = 3;
   int32 test = 4;
   repeated string versions = 5;
+  string location = 6;
 }
 
 message ModelTypeRequest {
