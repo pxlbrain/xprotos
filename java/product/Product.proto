@@ -53,27 +53,29 @@ service ProductService {
   }
   rpc GetProductsByClientAndLocation (ProductClientLocationRequest) returns (Products) {
   }
-  rpc DeleteProductPlateItem(DeleteProductItemRequest) returns (Void) {
+  rpc DeleteProductPlateItem (DeleteProductItemRequest) returns (Void) {
   }
-  rpc DeleteProductSideDish(DeleteProductItemRequest) returns (Void) {
+  rpc DeleteProductSideDish (DeleteProductItemRequest) returns (Void) {
   }
-  rpc DeactivateProducts(ProductsRequest) returns (Void) {
+  rpc DeactivateProducts (ProductsRequest) returns (Void) {
   }
-  rpc UploadProductImages(ProductImages) returns (Void) {
+  rpc UploadProductImages (ProductImages) returns (Void) {
   }
-  rpc DeleteProductImages(DeleteProductImagesRequest) returns (Void){
+  rpc DeleteProductImages (DeleteProductImagesRequest) returns (Void) {
   }
-  rpc GetProductsByLocationId(Id) returns (Products) {
+  rpc GetProductsByLocationId (Id) returns (Products) {
   }
-  rpc UpdateProductImage(UpdateImageRequest) returns (Void) {
+  rpc UpdateProductImage (UpdateImageRequest) returns (Void) {
   }
-  rpc GetProductCategories(Void) returns (ProductCategories) {
+  rpc GetProductCategories (Void) returns (ProductCategories) {
+  }
+  rpc GetOtherProducts (OtherRequest) returns (Products) {
   }
 }
 
 message DeleteProductItemRequest {
   string productId = 1;
-  string productItemId =2;
+  string productItemId = 2;
 }
 
 message UploadId {
@@ -232,17 +234,17 @@ message ProductImages {
 }
 
 message ProductImage {
-    string image = 1;
-    string imageName = 2;
-    string imageType = 3;
-    bool isMain = 4;
+  string image = 1;
+  string imageName = 2;
+  string imageType = 3;
+  bool isMain = 4;
 }
 
 message ProductImageResponse {
-    string id = 1;
-    string path = 2;
-    string imageName = 3;
-    bool isMain = 4;
+  string id = 1;
+  string path = 2;
+  string imageName = 3;
+  bool isMain = 4;
 }
 
 message DeleteProductImagesRequest {
@@ -259,4 +261,8 @@ message UpdateImageRequest {
 
 message ProductCategories {
   repeated string category = 1;
+}
+message OtherRequest {
+  string client = 1;
+  string location = 2;
 }
