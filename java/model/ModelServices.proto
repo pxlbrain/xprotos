@@ -78,6 +78,8 @@ service DatasetService {
   }
   rpc GetDatasetsByLocation (DatasetRequestWrapper) returns (DatasetsResponse) {
   }
+  rpc GetDatasetJobs (DatasetId) returns (DatasetJobsResponse) {
+  }
 }
 
 service JModelService {
@@ -124,6 +126,8 @@ service JModelService {
   rpc UpdateTrainingName (TrainingName) returns (Void) {
   }
   rpc GetModelsForMergeByType (ModelTypeRequest) returns (ModelsStatusResponse) {
+  }
+  rpc GetModelDatasetHistory (ModelId) returns (DatasetHistoryResponse) {
   }
 }
 
