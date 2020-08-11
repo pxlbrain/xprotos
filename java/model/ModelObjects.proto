@@ -667,4 +667,22 @@ message DatasetPayloadResponse {
   string type = 4;
   string path = 5;
   string status = 6;
+  string description = 7;
+  string datasetStructure = 8;
+  string customName = 9;
+  bool archived = 10;
+}
+
+message DatasetHistoryResponse {
+  string id = 1;
+  string created = 2;
+  string datasetVersion = 3;
+}
+
+message DatasetId {
+  string id = 1;
+}
+
+message DatasetJobsResponse {
+  repeated GRPCJob jobs = 1;
 }
