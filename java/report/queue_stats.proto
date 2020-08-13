@@ -7,16 +7,16 @@ import "report/time_range.proto";
 
 
 message WaitingTimes {
-    int32 avg_waiting_time = 1;
+    float avg_waiting_time = 1;
     TimeRange time_range = 2;
 }
 
 message ZoneStats {
     string zone = 1;
 
-    int32 total_max_waiting_time = 2;
-    int32 total_avg_waiting_time = 3;
-    int32 total_avg_group_size = 4;
+    float total_max_waiting_time = 2;
+    float total_avg_waiting_time = 3;
+    float total_avg_group_size = 4;
 
     int32 people_count = 5;
 
