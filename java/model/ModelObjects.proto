@@ -673,6 +673,10 @@ message DatasetPayloadResponse {
   bool archived = 10;
 }
 
+message DatasetsHistory {
+  repeated DatasetHistoryResponse response = 1;
+}
+
 message DatasetHistoryResponse {
   string id = 1;
   string created = 2;
@@ -685,4 +689,13 @@ message DatasetId {
 
 message DatasetJobsResponse {
   repeated GRPCJob jobs = 1;
+}
+
+message DatasetsMergeResponse {
+  repeated DatasetMerge respone = 1;
+}
+
+message DatasetMerge {
+  string id = 1;
+  string version = 2;
 }

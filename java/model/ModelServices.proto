@@ -80,6 +80,8 @@ service DatasetService {
   }
   rpc GetDatasetJobs (DatasetId) returns (DatasetJobsResponse) {
   }
+  rpc GetDatasetsForMergeByType (ModelTypeRequest) returns (DatasetsMergeResponse) {
+  }
 }
 
 service JModelService {
@@ -127,7 +129,7 @@ service JModelService {
   }
   rpc GetModelsForMergeByType (ModelTypeRequest) returns (ModelsStatusResponse) {
   }
-  rpc GetModelDatasetHistory (ModelId) returns (DatasetHistoryResponse) {
+  rpc GetModelDatasetHistory (ModelId) returns (DatasetsHistory) {
   }
 }
 
