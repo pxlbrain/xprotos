@@ -682,6 +682,7 @@ message DatasetHistoryResponse {
   string id = 1;
   string created = 2;
   string datasetVersion = 3;
+  string modelVersion = 4;
 }
 
 message DatasetId {
