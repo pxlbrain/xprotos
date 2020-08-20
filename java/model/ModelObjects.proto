@@ -701,7 +701,7 @@ message DatasetMerge {
   string version = 2;
 }
 
-message DeleteDatasetJob {
+message DeleteDatasetJobRequest {
   string datasetId = 1;
   string jobId = 2;
 }

@@ -26,6 +26,8 @@ service JobService {
   };
   rpc GetJobsByModelId (ModelId) returns (GRPCJobs) {
   };
+  rpc GetJobsForDatasetByLocationAndType (DatasetId) returns (GRPCJobs) {
+  }
 }
 
 service CVATService {
@@ -84,7 +86,7 @@ service DatasetService {
   }
   rpc GetDatasetById (DatasetId) returns (DatasetPayloadResponse) {
   }
-  rpc DeleteDatasetJob (DeleteDatasetJob) returns (Void) {
+  rpc DeleteDatasetJob (DeleteDatasetJobRequest) returns (Void) {
   }
 }
 
