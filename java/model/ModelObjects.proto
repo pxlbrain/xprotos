@@ -671,6 +671,7 @@ message DatasetPayloadResponse {
   string datasetStructure = 8;
   string customName = 9;
   bool archived = 10;
+  repeated GRPCJob jobs = 11;
 }
 
 message DatasetsHistory {
@@ -698,4 +699,9 @@ message DatasetsMergeResponse {
 message DatasetMerge {
   string id = 1;
   string version = 2;
+}
+
+message DeleteDatasetJob {
+  string datasetId = 1;
+  string jobId = 2;
 }

@@ -82,6 +82,10 @@ service DatasetService {
   }
   rpc GetDatasetsForMergeByType (ModelTypeRequest) returns (DatasetsMergeResponse) {
   }
+  rpc GetDatasetById (DatasetId) returns (DatasetPayloadResponse) {
+  }
+  rpc DeleteDatasetJob (DeleteDatasetJob) returns (Void) {
+  }
 }
 
 service JModelService {
