@@ -137,6 +137,8 @@ service JModelService {
   }
   rpc GetModelDatasetHistory (ModelId) returns (DatasetsHistory) {
   }
+  rpc AssignDatasetFromHistory(AssignDatasetRequest) returns (Void) {
+  }
 }
 
 service ConfigurationService {
