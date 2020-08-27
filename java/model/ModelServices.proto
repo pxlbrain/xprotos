@@ -88,6 +88,10 @@ service DatasetService {
   }
   rpc DeleteDatasetJob (DeleteDatasetJobRequest) returns (Void) {
   }
+  rpc AddJobsToDataset (AddJobDataset) returns (Void){
+  }
+  rpc CreateDatasetForClassifierOrMlc (NewDatasetRequest) returns (Void){
+  }
 }
 
 service JModelService {
@@ -136,6 +140,8 @@ service JModelService {
   rpc GetModelsForMergeByType (ModelTypeRequest) returns (ModelsStatusResponse) {
   }
   rpc GetModelDatasetHistory (ModelId) returns (DatasetsHistory) {
+  }
+  rpc AssignDatasetFromHistory(AssignDatasetRequest) returns (Void) {
   }
 }
 

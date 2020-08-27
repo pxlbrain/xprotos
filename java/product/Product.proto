@@ -71,6 +71,8 @@ service ProductService {
   }
   rpc GetOtherProducts (OtherRequest) returns (Products) {
   }
+  rpc GetProductsForDataset (ProductDatasetRequest) returns (Products) {
+  }
 }
 
 message DeleteProductItemRequest {
@@ -265,4 +267,10 @@ message ProductCategories {
 message OtherRequest {
   string client = 1;
   string location = 2;
+}
+
+message ProductDatasetRequest {
+  string type = 1;
+  string client = 2;
+  string location = 3;
 }

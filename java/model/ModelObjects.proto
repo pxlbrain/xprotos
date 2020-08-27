@@ -707,3 +707,27 @@ message DeleteDatasetJobRequest {
   string datasetId = 1;
   string jobId = 2;
 }
+
+message AssignDatasetRequest {
+  string modelId = 1;
+  string datasetVersion = 2;
+  string modelVersion = 3;
+}
+
+message AddJobDataset {
+  string datasetId = 1;
+  repeated string jobIds = 2;
+}
+
+message NewDatasetRequest {
+  string client = 1;
+  string location = 2;
+  string type = 3;
+  repeated DatasetProducts products = 4;
+}
+
+message DatasetProducts {
+  string productId = 1;
+  string productName = 2;
+  repeated string plateItems = 3;
+}
