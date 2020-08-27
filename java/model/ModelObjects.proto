@@ -713,3 +713,8 @@ message AssignDatasetRequest {
   string datasetVersion = 2;
   string modelVersion = 3;
 }
+
+message AddJobDataset {
+  string datasetId = 1;
+  repeated string jobIds = 2;
+}

@@ -88,6 +88,8 @@ service DatasetService {
   }
   rpc DeleteDatasetJob (DeleteDatasetJobRequest) returns (Void) {
   }
+  rpc AddJobsToDataset (AddJobDataset) returns (Void){
+  }
 }
 
 service JModelService {
