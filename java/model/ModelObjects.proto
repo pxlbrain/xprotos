@@ -535,6 +535,7 @@ message PredictionResult {
   repeated ScoreValues values = 3;
   repeated InferenceValues inference = 4;
   repeated InferenceValues prediction = 5;
+  bool isCorrect = 6;
 }
 
 message ScoreValues {
