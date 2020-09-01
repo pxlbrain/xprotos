@@ -143,6 +143,10 @@ service JModelService {
   }
   rpc AssignDatasetFromHistory(AssignDatasetRequest) returns (Void) {
   }
+  rpc ModelTrainingMonitoring(ModelId) returns (stream TrainingMonitoringResponse) {
+  }
+  rpc GetModelTrainingStatistics(ModelId) returns (TrainingMonitoringResponse) {
+  }
 }
 
 service ConfigurationService {
