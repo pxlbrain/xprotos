@@ -742,3 +742,47 @@ message PagedPredictionRequest {
   GRPCPaging paging = 3;
   GRPCSorting sorting = 4;
 }
+
+message TrainingMonitoringResponse {
+  TrainingModelRes model = 1;
+  string event = 2;
+  string name = 3;
+  string timestamp = 4;
+  TrainingNodeResponse node = 5;
+  TrainingDataResponse data = 6;
+  string modelId = 7;
+  string datasetId = 8;
+}
+
+message TrainingModelRes {
+  string modelType = 1;
+  int64 modelId = 2;
+  int64 epoch = 3;
+  string modelPath = 4;
+  TrainingMatrixResponse matrics = 5;
+  string confusionMatrix = 6;
+}
+
+message TrainingMatrixResponse {
+  float globalAccuracy = 1;
+  TrainingSpecificAttrsResponse specificAttrs = 2;
+  TrainingClassAccuracyResponse per_class_accuracy = 3;
+}
+
+message TrainingSpecificAttrsResponse {
+  map<string, float> map = 1;
+}
+
+message TrainingClassAccuracyResponse {
+  map<string, float> map = 1;
+}
+
+message TrainingNodeResponse {
+  string podName = 1;
+  string nodeName = 2;
+  string podId = 3;
+}
+
+message TrainingDataResponse {
+  string location = 1;
+}
