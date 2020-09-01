@@ -526,7 +526,10 @@ message TrainingsModelResponse {
 }
 
 message PredictionResults {
-  repeated PredictionResult results = 1;
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated PredictionResult results = 4;
 }
 
 message PredictionResult {
@@ -731,4 +734,11 @@ message DatasetProducts {
   string productId = 1;
   string productName = 2;
   repeated string plateItems = 3;
+}
+
+message PagedPredictionRequest {
+  string id = 1;
+  repeated GRPCFilter filter = 2;
+  GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
 }

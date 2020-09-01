@@ -123,7 +123,7 @@ service JModelService {
   }
   rpc StartPrediction (StartPredictionRequest) returns (Void) {
   }
-  rpc GetPredictionResults (TrainingId) returns (PredictionResults) {
+  rpc GetPredictionResults (PagedPredictionRequest) returns (PredictionResults) {
   }
   rpc GetTrainingsByLocation (GRPCGetTrainingsRequest) returns (GRPCTrainingsModelResponse) {
   }
