@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend;
+
+enum StatusType {
+   GOOD = 0;
+   BAD = 1;
+};
+
+message DictMapper {
+   map<string, float> map = 1;
+};
+
+message ProductsInfo {
+   DictMapper products = 1;
+}
+
+message ClassificationSpecificAttrs{
+    int32 TP = 1;
+    int32 TN = 2;
+    int32 FP = 3;
+    int32 FN = 4;
+    string confusionMatrix = 5;
+};
+
+message DetectorSpecificAttrs{
+  float MAP = 1;
+};
+
+message EpochInfo{
+  string path = 1;
+  int32 epoch = 2;
+  float accuracy = 3;
+};
+
+message EpochsInfo{
+  repeated EpochInfo epochsInfo = 1;
+}
+
+message EpochFullMetrics {
+    EpochInfo epochInfo = 1;
+    DictMapper per_class_accuracy = 2;
+    oneof specific_attrs {
+      ClassificationSpecificAttrs classification_attrs = 3;
+      DetectorSpecificAttrs detector_attrs = 4;
+    }
+};
+
+message MetricsRequest {
+    string modelId = 1;
+    string datasetId = 2;
+    int32 count = 3;
+    StatusType status = 4;
+    int32 epoch = 5;
+};
+
+message MetricsResponse {
+    oneof data {
+       EpochInfo epochInfo = 1;
+       EpochsInfo epochsInfo = 2;
+       EpochFullMetrics epochFullMetrics = 3;
+       ProductsInfo productsInfo = 4;
+    }
+};
