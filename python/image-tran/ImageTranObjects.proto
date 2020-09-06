@@ -1,0 +1,14 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "google/protobuf/struct.proto";
+
+message ImageTranResponse {
+  string message = 1;
+};
+
+message ImageTranRequest {
+  string ptagFilter = 1;
+  string transformation = 2;
+  google.protobuf.Struct params = 3;
+};
