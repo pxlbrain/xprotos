@@ -7,6 +7,6 @@ service MetricsService {
     rpc GetBestEpoch(MetricsRequest) returns (MetricsResponse) {};
     rpc GetAllEpochs(MetricsRequest) returns (MetricsResponse) {};
     rpc GetEpochFullMetrics(MetricsRequest) returns (MetricsResponse) {};
-    rpc GetNEpochs(MetricsRequest) returns (MetrcisResponse) {};
+    rpc GetNEpochs(MetricsRequest) returns (MetricsResponse) {};
     rpc GetNProducts(MetricsRequest) returns (MetricsResponse) {};
 };
