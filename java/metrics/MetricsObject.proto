@@ -44,6 +44,8 @@ message EpochFullMetrics {
       ClassificationSpecificAttrs classification_attrs = 3;
       DetectorSpecificAttrs detector_attrs = 4;
     }
+    float train_loss = 5;
+    float val_loss = 6;
 };
 
 message MetricsRequest {
