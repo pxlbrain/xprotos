@@ -786,3 +786,8 @@ message TrainingNodeResponse {
 message TrainingDataResponse {
   string location = 1;
 }
+
+message AssignDatasetToModelsRequest {
+  string datasetId = 1;
+  repeated string modelIds = 2;
+}
