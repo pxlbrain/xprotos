@@ -7,6 +7,10 @@ enum StatusType {
    BAD = 1;
 };
 
+message Error {
+    string message = 1;
+};
+
 message DictMapper {
    map<string, float> map = 1;
 };
@@ -62,5 +66,6 @@ message MetricsResponse {
        EpochsInfo epochsInfo = 2;
        EpochFullMetrics epochFullMetrics = 3;
        ProductsInfo productsInfo = 4;
+       Error error = 5;
     }
 };
