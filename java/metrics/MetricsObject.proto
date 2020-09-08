@@ -2,13 +2,12 @@ syntax = "proto3";
 
 package ai.pixlbrain.backend;
 
+
+import "dataset/DatasetObject.proto";
+
 enum StatusType {
    GOOD = 0;
    BAD = 1;
-};
-
-message Error {
-    string message = 1;
 };
 
 message DictMapper {
