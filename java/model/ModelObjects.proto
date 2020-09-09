@@ -274,6 +274,7 @@ message JModelResponse {
   repeated GRPCJob jobs = 17;
   string errorStep = 18;
   string errorReason = 19;
+  DatasetPayloadResponse dataset = 20;
 }
 
 message JModelRequest {
