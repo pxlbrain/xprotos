@@ -503,6 +503,7 @@ message CreatePodRequest {
   string username = 2;
   string type = 3;
   string trainingName = 4;
+  string epochPath = 5;
 }
 
 message TrainingModelResponse {
@@ -586,6 +587,7 @@ message IntegrationTraining {
   double threshold = 3;
   double nmsThreshold = 4;
   string trainingName = 5;
+  string epochPath =6;
 }
 
 message InferenceValues {
