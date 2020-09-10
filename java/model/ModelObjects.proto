@@ -275,6 +275,7 @@ message JModelResponse {
   string errorStep = 18;
   string errorReason = 19;
   DatasetPayloadResponse dataset = 20;
+  string epochPath = 21;
 }
 
 message JModelRequest {
