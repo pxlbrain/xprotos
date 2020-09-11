@@ -94,6 +94,8 @@ service DatasetService {
   }
   rpc AssignDatasetToModels (AssignDatasetToModelsRequest) returns (Void){
   }
+  rpc GetModelsByDataset(DatasetId) returns (DatasetModels){
+  }
 }
 
 service JModelService {
