@@ -290,6 +290,7 @@ message GRPCDeviceSerials {
     string cameraLabel = 2;
     string cameraPosition = 3;
     string cameraType = 4;
+    string ykush = 5;
 }
 
 message GRPCDeviceModeConfig {
