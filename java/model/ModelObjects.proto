@@ -683,7 +683,6 @@ message DatasetPayloadResponse {
   string customName = 9;
   bool archived = 10;
   repeated GRPCJob jobs = 11;
-  repeated JModelResponse models = 12;
 }
 
 message DatasetsHistory {
@@ -790,4 +789,8 @@ message TrainingDataResponse {
 message AssignDatasetToModelsRequest {
   string datasetId = 1;
   repeated string modelIds = 2;
+}
+
+message DatasetModels {
+  repeated JModelResponse models = 1;
 }
