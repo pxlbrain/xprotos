@@ -281,7 +281,7 @@ message GRPCDeviceConfiguration {
     string startTime = 6;
     string endTime = 7;
     repeated string resolution = 8;
-    GRPCDeviceSerials serials = 9;
+    repeated GRPCDeviceSerials serials = 9;
 
 }
 
