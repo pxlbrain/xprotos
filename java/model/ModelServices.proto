@@ -151,6 +151,8 @@ service JModelService {
   }
   rpc GetModelsForDatasetAssign (DatasetId) returns (ModelsStatusResponse) {
   }
+  rpc GetModelDataset(ModelId) returns (DatasetPayloadResponse){
+  }
 }
 
 service ConfigurationService {
