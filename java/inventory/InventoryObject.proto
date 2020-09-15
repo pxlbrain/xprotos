@@ -347,6 +347,12 @@ message DeviceCamera {
     string description = 8;
     string label = 9;
     string firmwareVersion = 10;
+    string fps = 11;
+    string movementFilter = 12;
+    string focus = 13;
+    string startTime = 14;
+    string endTime = 15;
+    string resolution = 16;
 }
 
 
