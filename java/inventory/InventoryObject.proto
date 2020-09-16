@@ -349,10 +349,11 @@ message DeviceCamera {
     string firmwareVersion = 10;
     string fps = 11;
     string movementFilter = 12;
-    string focus = 13;
-    string startTime = 14;
-    string endTime = 15;
-    string resolution = 16;
+    string capturingFormat = 13;
+    string focus = 14;
+    string startTime = 15;
+    string endTime = 16;
+    string resolution = 17;
 }
 
 
