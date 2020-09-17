@@ -96,6 +96,10 @@ service DatasetService {
   }
   rpc GetModelsByDataset(DatasetId) returns (DatasetModels){
   }
+  rpc AddProductsToDataset(AddProductsDataset) returns (Void){
+  }
+  rpc AddCustomJobToDataset(CustomJob) returns (Void){
+  }
 }
 
 service JModelService {

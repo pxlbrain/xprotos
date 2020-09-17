@@ -73,6 +73,8 @@ service ProductService {
   }
   rpc GetProductsForDataset (ProductDatasetRequest) returns (Products) {
   }
+  rpc GetProductsForDatasetByType (ProductDatasetByTypeRequest) returns (Products) {
+  }
 }
 
 message DeleteProductItemRequest {
@@ -273,4 +275,11 @@ message ProductDatasetRequest {
   string type = 1;
   string client = 2;
   string location = 3;
+}
+
+message ProductDatasetByTypeRequest {
+  string type = 1;
+  string client = 2;
+  string location = 3;
+  repeated string productNames = 4;
 }
