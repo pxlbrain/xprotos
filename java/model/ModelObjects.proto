@@ -794,3 +794,18 @@ message AssignDatasetToModelsRequest {
 message DatasetModels {
   repeated JModelResponse models = 1;
 }
+
+message AddProductsDataset {
+  string datasetId = 1;
+  repeated DatasetProducts products = 2;
+}
+
+message CustomJob {
+  string datasetId = 1;
+  repeated JobMap jobs = 2;
+}
+
+message JobMap {
+  string name = 1;
+  string value = 2;
+}
