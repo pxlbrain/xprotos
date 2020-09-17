@@ -803,7 +803,7 @@ message AddProductsDataset {
 
 message CustomJob {
   string datasetId = 1;
-  int32 jobType = 2;
+  string jobType = 2;
   repeated JobMap jobs = 3;
 }
 
