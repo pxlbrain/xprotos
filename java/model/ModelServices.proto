@@ -159,6 +159,8 @@ service JModelService {
   }
   rpc GetModelDataset(ModelId) returns (DatasetPayloadResponse){
   }
+  rpc GetTrainingById(TrainingId) returns (TrainingModelResponse){
+  }
 }
 
 service ConfigurationService {
