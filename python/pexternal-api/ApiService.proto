@@ -1,0 +1,8 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "pexternal-api/ApiObject.proto";
+
+service ExternalApiService {
+    rpc call(RequestObject) returns (ResponseObject) {};
+};

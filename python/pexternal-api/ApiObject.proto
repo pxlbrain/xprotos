@@ -1,0 +1,10 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+message RequestObject {
+    string product_id = 1;
+    string client = 2;
+}
+
+message ResponseObject {
+    string json = 1;
+}
