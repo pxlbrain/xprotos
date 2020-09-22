@@ -376,6 +376,8 @@ message GRPCGetDeviceRequest {
     repeated GRPCFilter filter = 3;
     GRPCPaging paging = 4;
     GRPCSorting sorting = 5;
+    bool deployed = 6;
+    string type = 7;
 }
 
 message GRPCDeviceCameraResponse {
