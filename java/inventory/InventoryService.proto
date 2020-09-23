@@ -117,7 +117,8 @@ service DeviceService {
   };
   rpc GetDeviceCamerasByDeviceId(DeviceId) returns (DeviceCameras){
   };
-
+  rpc ScheduleTask(ScheduleTaskRequest) returns (Void){
+  };
 }
 
 service LocationService {
