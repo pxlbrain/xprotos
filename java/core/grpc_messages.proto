@@ -4,25 +4,26 @@ package ai.pixlbrain.backend;
 
 
 enum MessageType {
-    UNSPECIFIED = 0;
-    INIT = 1;
-    GET_CONFIG = 2;
-    SET_CONFIG = 3;
-    GET_PRODUCT_LIST = 4;
-    SET_PRODUCT_LIST = 5;
-    REQUEST_MONITOR_INFO = 6;
-    RESPONSE_MONITOR_INFO = 7;
-    STREAM_CONTROL = 8;
-    FRAME_STREAM = 9;
-    SET_MODE = 10;
-    START_CAPTURING = 11;
-    HW_INFO = 12;
+  UNSPECIFIED = 0;
+  INIT = 1;
+  GET_CONFIG = 2;
+  SET_CONFIG = 3;
+  GET_PRODUCT_LIST = 4;
+  SET_PRODUCT_LIST = 5;
+  REQUEST_MONITOR_INFO = 6;
+  RESPONSE_MONITOR_INFO = 7;
+  STREAM_CONTROL = 8;
+  FRAME_STREAM = 9;
+  SET_MODE = 10;
+  START_CAPTURING = 11;
+  HW_INFO = 12;
+  EXTERNAL_API = 13;
 }
 
 message Message {
-    MessageType message_type = 1;
-    oneof payload {
-        string message = 2;
-        bytes raw = 3;
-    }
+  MessageType message_type = 1;
+  oneof payload {
+    string message = 2;
+    bytes raw = 3;
+  }
 }
