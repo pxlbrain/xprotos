@@ -245,6 +245,7 @@ message DeviceModel {
     string modelId = 7;
     string size = 8;
     string deviceId = 9;
+    string path = 10;
 }
 
 message GRPCGetDeviceModelsRequest {
