@@ -245,6 +245,7 @@ message DeviceModel {
     string modelId = 7;
     string size = 8;
     string deviceId = 9;
+    string path = 10;
 }
 
 message GRPCGetDeviceModelsRequest {
@@ -434,4 +435,17 @@ message GRPCDeviceStatusesResponse {
     int32 size = 2;
     int32 count = 3;
     repeated DeviceStatus deviceStatuses = 4;
+}
+
+message ScheduleTaskRequest {
+    repeated string deviceIds = 1;
+    string detectorModel = 2;
+    string detectorVersion = 3;
+    string classifierModel = 4;
+    string classifierVersion = 5;
+    string mlcModel = 6;
+    string mlcVersion = 7;
+    string productListId = 8;
+    string source = 9;
+    string date = 10;
 }

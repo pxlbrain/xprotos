@@ -6,6 +6,7 @@ package ai.pixlbrain.backend;
 
 import "product/Product.proto";
 import "inventory/Void.proto";
+import "inventory/InventoryObject.proto";
 
 service ProductListService {
   rpc CreateProductList (ProductList) returns (ProductList) {
@@ -29,6 +30,8 @@ service ProductListService {
   rpc GetInactiveProductsFromList (ProductListId) returns (Products) {
   }
   rpc GetActiveProductsFromList (ProductListId) returns (Products) {
+  }
+  rpc GetProductListByLocation(LocationId) returns (ProductListsLocation) {
   }
 }
 
@@ -70,4 +73,14 @@ message GRPCProductListResponse {
   int32 size = 2;
   int32 count = 3;
   repeated ProductList productList = 4;
+}
+
+message ProductListsLocation {
+  repeated ProductListLocation productLists = 1;
+}
+
+message ProductListLocation {
+  string productListId = 1;
+  string productListName = 2;
+  string productListPath = 3;
 }
