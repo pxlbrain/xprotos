@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend;
+
+import "core/grpc_messages.proto";
+
+
+service StreamingService {
+    rpc MessageExchange(stream Message) returns (stream Message) {}
+}
