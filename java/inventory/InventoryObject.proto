@@ -28,6 +28,7 @@ message Device {
     string capacity = 20;
     bool grpc = 21;
     bool ssh = 22;
+    repeated EventScheduling scheduling = 23;
 }
 
 
@@ -448,4 +449,10 @@ message ScheduleTaskRequest {
     string productListId = 8;
     string source = 9;
     string date = 10;
+}
+
+message EventScheduling {
+    string status = 1;
+    string description = 2;
+    string errorMessage = 3;
 }
