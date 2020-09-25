@@ -75,6 +75,16 @@ service ProductService {
   }
   rpc GetProductsForDatasetByType (ProductDatasetByTypeRequest) returns (Products) {
   }
+  rpc AddKidsItem (KidsRequest) returns (Void) {
+  }
+  rpc GetKidsItem (Id) returns (Product) {
+  }
+}
+
+
+message KidsRequest {
+  string parentId = 1;
+  string kidsId = 2;
 }
 
 message DeleteProductItemRequest {
