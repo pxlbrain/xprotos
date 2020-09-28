@@ -455,4 +455,5 @@ message EventScheduling {
     string status = 1;
     string description = 2;
     string errorMessage = 3;
+    string date = 4;
 }
