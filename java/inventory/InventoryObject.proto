@@ -59,6 +59,14 @@ message CompanyId {
     string id = 1;
 }
 
+message WorkingHours {
+    string id = 1;
+    string openingTime = 2;
+    string closingTime = 3;
+    bool isClosed = 4;
+    string dayType = 5;
+}
+
 message Location {
     string id = 1;
     string name = 2;
@@ -73,6 +81,11 @@ message Location {
     string companyId = 11;
     string companyName = 12;
     string layout = 13;
+    string dns = 14;
+    string ipAddress = 15;
+    string subnetMask = 16;
+    string gateway = 17;
+    repeated WorkingHours workingHours = 18;
 }
 
 message Region {
