@@ -29,6 +29,7 @@ message Device {
     bool grpc = 21;
     bool ssh = 22;
     repeated EventScheduling scheduling = 23;
+    string username = 24;
 }
 
 
@@ -153,6 +154,7 @@ message GRPCGetDeviceResponse {
 message DeviceConfig {
     string id = 1;
     string jsonConfig = 2;
+    string username = 3;
 }
 
 message LearningModeRequest {
@@ -247,6 +249,7 @@ message ServiceDevice {
     string activated = 5;
     string config = 6;
     string deviceId = 7;
+    string username = 8;
 }
 
 message DeviceModel {
@@ -260,6 +263,7 @@ message DeviceModel {
     string size = 8;
     string deviceId = 9;
     string path = 10;
+    string username = 11;
 }
 
 message GRPCGetDeviceModelsRequest {
@@ -325,6 +329,7 @@ message DeviceProductList {
     string created = 5;
     string updated = 6;
     bool active = 7;
+    string username = 8;
 }
 
 message DeviceConfigurations {
@@ -469,4 +474,9 @@ message EventScheduling {
     string description = 2;
     string errorMessage = 3;
     string date = 4;
+}
+
+message DeviceDelete {
+    string id = 1;
+    string username = 2;
 }
