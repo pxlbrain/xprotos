@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend;
+
+message ExporterRequest{
+   string modelPath = 1;
+   string modelType = 2;
+   string labelsPath = 3;
+   string modelId = 4;
+   string datasetId = 5;
+   int32 epoch = 6;
+};
+
+message ExporterResponse {
+   string message = 1;
+};
