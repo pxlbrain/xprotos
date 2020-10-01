@@ -35,7 +35,7 @@ service DeviceService {
   };
   rpc UpdateDevice (Device) returns (Device) {
   };
-  rpc DeleteDevice (DeviceId) returns (Void) {
+  rpc DeleteDevice (DeviceDelete) returns (Void) {
   };
   rpc GetDevice (DeviceId) returns (Device) {
   };
