@@ -161,6 +161,8 @@ service JModelService {
   }
   rpc GetTrainingById(TrainingId) returns (TrainingModelResponse){
   }
+  rpc SetBestEpoch(BestEpoch) returns (Void){
+  }
 }
 
 service ConfigurationService {
