@@ -21,6 +21,7 @@ service VFSFileService {
     rpc DeleteFiles(VFSRequest) returns (VFResponseStructure) {};
     rpc UpdateFile(VFSRequest) returns (VFResponseStructure) {};
     rpc AutoComplete(VFSRequest) returns (AutoCompleteStructure){};
+    rpc DeleteTag(VFSRequest) returns (AutoCompleteStructure){};
 };
 
 
