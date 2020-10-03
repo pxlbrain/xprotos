@@ -36,6 +36,7 @@ message EpochInfo{
   float accuracy = 3;
   string exportStatus = 4;
   string exportPath = 5;
+  string labelsPath = 6;
 };
 
 message EpochsInfo{
