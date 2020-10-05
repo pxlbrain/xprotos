@@ -7,6 +7,7 @@ option java_package = "ai.pixlbrain.backend";
 import "inventory/Void.proto";
 import "inventory/InventoryObject.proto";
 import "middleware/MiddlewareObject.proto";
+import "pexternal-api/ApiObject.proto";
 
 service MiddlewareService {
   rpc PushConfig (ConfigWrapper) returns (DeviceResponse) {
@@ -21,4 +22,6 @@ service MiddlewareService {
   };
   rpc GetDeviceConfigurations (DeviceId) returns (DeviceResponse) {
   };
+  rpc CallExternalApi (RequestObject) returns (ResponseObject) {
+  }
 }
