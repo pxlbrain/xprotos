@@ -5,5 +5,5 @@ package ai.pixlbrain.backend;
 import "exporter/ExporterObject.proto";
 
 service ExporterService {
-    rpc ExportModel(ExporterRequest) returns (ExporterResponse) {};
+    rpc ExportModel(ExporterRequest) returns (Void) {};
 };

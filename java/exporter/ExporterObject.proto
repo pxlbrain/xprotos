@@ -10,7 +10,3 @@ message ExporterRequest{
    string datasetId = 5;
    int32 epoch = 6;
 };
-
-message ExporterResponse {
-   string message = 1;
-};
