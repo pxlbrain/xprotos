@@ -3,7 +3,6 @@ syntax = "proto3";
 package ai.pixlbrain.backend;
 
 import "ExporterObject.proto";
-import "inventory/Void.proto";
 
 service ExporterService {
     rpc ExportModel(ExporterRequest) returns (Void) {};
