@@ -1,10 +1,55 @@
 syntax = "proto3";
+
 package ai.pixlbrain.backend;
-message RequestObject {
-    repeated string product_ids = 1;
-    string client = 2;
+
+import "google/protobuf/wrappers.proto";
+
+message PagedExternalRequest {
+  int32 page = 1;
+  int32 size = 2;
+  string client = 3;
 }
 
-message ResponseObject {
-    string json = 1;
+message PagedExternalResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int64 count = 3;
+  ExternalPayloadResponse payload = 4;
+}
+
+message ExternalPayloadResponse {
+  string store_id = 1;
+  repeated ExternalProductResponse products = 2;
+}
+
+message ExternalProductResponse {
+  string product_id = 1;
+  string product_name = 2;
+  repeated string s3_keys = 3;
+  repeated ExternalProductDimension dimensions = 4;
+  google.protobuf.BoolValue is_brownbox = 5;
+  google.protobuf.BoolValue verified = 6;
+  google.protobuf.BoolValue updated = 7;
+}
+
+message ExternalProductDimension {
+  google.protobuf.DoubleValue length = 1;
+  google.protobuf.DoubleValue width = 2;
+  google.protobuf.DoubleValue height = 3;
+  google.protobuf.DoubleValue depth = 4;
+}
+
+message ExternalProductsImport {
+  string url = 1;
+}
+
+message ExternalProductVerification {
+  string store_id = 1;
+  string product_id = 2;
+  google.protobuf.BoolValue is_brownbox = 3;
+}
+
+message ExternalProductLinks {
+  string store_id = 1;
+  repeated string s3_paths = 2;
 }
