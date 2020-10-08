@@ -7,7 +7,7 @@ import "google/protobuf/wrappers.proto";
 message PagedExternalRequest {
   int32 page = 1;
   int32 size = 2;
-  string client = 3;
+  string store_id = 3;
 }
 
 message PagedExternalResponse {
