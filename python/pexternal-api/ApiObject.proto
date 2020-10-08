@@ -49,7 +49,12 @@ message ExternalProductVerification {
   google.protobuf.BoolValue is_brownbox = 3;
 }
 
+message ExternalProductPaths {
+  string product_id = 1;
+  repeated string paths = 2;
+}
+
 message ExternalProductLinks {
   string store_id = 1;
-  repeated string s3_paths = 2;
+  repeated ExternalProductPaths products = 2;
 }
