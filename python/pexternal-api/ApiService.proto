@@ -2,7 +2,11 @@ syntax = "proto3";
 package ai.pixlbrain.backend;
 
 import "pexternal-api/ApiObject.proto";
+import "google/protobuf/empty.proto";
 
 service ExternalApiService {
-    rpc call(RequestObject) returns (ResponseObject) {};
+  rpc getByStoreId(PagedExternalRequest) returns (PagedExternalResponse) {};
+  rpc verify(ExternalProductVerification) returns(google.protobuf.Empty) {};
+  rpc addProductLinks(ExternalProductLinks) returns(google.protobuf.Empty) {};
+  rpc updateProducts(ExternalProductsImport) returns(google.protobuf.Empty) {};
 };
