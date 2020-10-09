@@ -27,4 +27,6 @@ message Message {
     string message = 2;
     bytes raw = 3;
   }
+  string event_id = 4;
 }
+
