@@ -250,6 +250,7 @@ message ServiceDevice {
     string config = 6;
     string deviceId = 7;
     string username = 8;
+    string date = 9;
 }
 
 message DeviceModel {
@@ -264,6 +265,8 @@ message DeviceModel {
     string deviceId = 9;
     string path = 10;
     string username = 11;
+    string date = 12;
+    string status = 13;
 }
 
 message GRPCGetDeviceModelsRequest {
@@ -289,6 +292,8 @@ message DeviceConfiguration {
     bool active = 6;
     GRPCDeviceConfiguration configuration = 7;
     GRPCDeviceModeConfig modeConfiguration = 8;
+    string date = 9;
+    string status = 10;
 }
 
 message GRPCDeviceConfiguration {
@@ -330,6 +335,8 @@ message DeviceProductList {
     string updated = 6;
     bool active = 7;
     string username = 8;
+    string date = 9;
+    string status = 10;
 }
 
 message DeviceConfigurations {
@@ -467,6 +474,7 @@ message ScheduleTaskRequest {
     string productListId = 8;
     string source = 9;
     string date = 10;
+    string username = 11;
 }
 
 message EventScheduling {
