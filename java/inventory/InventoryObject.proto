@@ -480,3 +480,10 @@ message DeviceDelete {
     string id = 1;
     string username = 2;
 }
+
+message GRPCStatusResponse {
+    string deviceId = 1;
+    string status = 2;
+    string eventId = 3;
+    string message = 4;
+}

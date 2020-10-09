@@ -8,6 +8,7 @@ message ConfigWrapper {
   string id = 1;
   string jsonConfig = 2;
   string cameraId = 3;
+  string eventId = 4;
 }
 
 message LearningMode {
