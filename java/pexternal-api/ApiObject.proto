@@ -8,6 +8,7 @@ message PagedExternalRequest {
   int32 page = 1;
   int32 size = 2;
   string store_id = 3;
+  string product_id = 4;
 }
 
 message PagedExternalResponse {
@@ -26,10 +27,10 @@ message ExternalProductResponse {
   string product_id = 1;
   string product_name = 2;
   repeated string s3_keys = 3;
-  repeated ExternalProductDimension dimensions = 4;
+  ExternalProductDimension dimensions = 4;
   google.protobuf.BoolValue is_brownbox = 5;
   google.protobuf.BoolValue verified = 6;
-  google.protobuf.BoolValue updated = 7;
+  string updated_at = 7;
 }
 
 message ExternalProductDimension {

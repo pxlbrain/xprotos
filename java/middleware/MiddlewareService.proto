@@ -22,6 +22,6 @@ service MiddlewareService {
   };
   rpc GetDeviceConfigurations (DeviceId) returns (DeviceResponse) {
   };
-  rpc CallExternalApi (RequestObject) returns (ResponseObject) {
+  rpc CallExternalApi (PagedExternalRequest) returns (PagedExternalResponse) {
   }
 }
