@@ -336,6 +336,7 @@ message PtagFilter {
   bool forceCreate = 6;
   string device = 7;
   repeated string cameras = 8;
+  string filterLocation = 9;
 }
 
 message ClusterFilter {
