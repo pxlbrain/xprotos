@@ -26,6 +26,7 @@ message PredictorRequest {
     double mlc_threshold = 7;
     double classifier_threshold = 8;
     string product_list_path = 9;
+    string segments_rule_path = 10;
 };
 
 message ServiceParams{
@@ -50,6 +51,7 @@ message Params{
     string category = 6;
     string product_list_path = 7;
     string model_type = 8;
+    string segments_rule_path = 9;
 };
 
 message NodeUnit {
