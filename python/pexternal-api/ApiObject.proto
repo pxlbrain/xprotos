@@ -33,6 +33,7 @@ message ExternalProductResponse {
   google.protobuf.BoolValue is_brownbox = 5;
   google.protobuf.BoolValue verified = 6;
   string updated_at = 7;
+  repeated string media_imgs = 8;
 }
 
 message ExternalProductDimension {
