@@ -121,6 +121,8 @@ service DeviceService {
   };
   rpc ActionResponse(GRPCStatusResponse) returns (Void){
   };
+  rpc GetDeviceErrorsByLocationId(GRPCGetLocationRequest) returns (GRPCDeviceStatusesResponse) {
+  };
 }
 
 service LocationService {
