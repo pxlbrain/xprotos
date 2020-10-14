@@ -9,6 +9,8 @@ message PagedExternalRequest {
   int32 size = 2;
   string store_id = 3;
   string product_id = 4;
+  int32 verifiedOrder = 5;
+  int32 brownboxOrder = 6;
 }
 
 message PagedExternalResponse {
