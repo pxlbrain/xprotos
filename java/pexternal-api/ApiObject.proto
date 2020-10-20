@@ -11,6 +11,7 @@ message PagedExternalRequest {
   string product_id = 4;
   int32 verifiedOrder = 5;
   int32 brownboxOrder = 6;
+  repeated string return_fields = 7;
 }
 
 message PagedExternalResponse {
