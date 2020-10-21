@@ -28,8 +28,7 @@ message Device {
     string capacity = 20;
     bool grpc = 21;
     bool ssh = 22;
-    repeated EventScheduling scheduling = 23;
-    string username = 24;
+    string username = 23;
 }
 
 
