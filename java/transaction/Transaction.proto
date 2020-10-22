@@ -65,6 +65,13 @@ message Transaction {
 message Frame {
   string path = 1;
   repeated Item items = 2;
+  repeated CorrectItemResponse correctItems = 3;
+}
+
+message CorrectItemResponse {
+  string productId = 1;
+  string productName = 2;
+  string type = 3;
 }
 
 message Item {
