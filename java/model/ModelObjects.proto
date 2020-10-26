@@ -337,6 +337,7 @@ message PtagFilter {
   string device = 7;
   repeated string cameras = 8;
   string filterLocation = 9;
+  string uploadedDate = 10;
 }
 
 message ClusterFilter {
@@ -807,6 +808,12 @@ message CustomJob {
   string datasetId = 1;
   string jobType = 2;
   repeated JobMap jobs = 3;
+}
+
+message CreateCustomJob {
+  string locationId = 1;
+  string client = 2;
+  repeated JobMap filters = 3;
 }
 
 message JobMap {

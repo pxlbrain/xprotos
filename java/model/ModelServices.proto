@@ -27,7 +27,9 @@ service JobService {
   rpc GetJobsByModelId (ModelId) returns (GRPCJobs) {
   };
   rpc GetJobsForDatasetByLocationAndType (DatasetId) returns (GRPCJobs) {
-  }
+  };
+  rpc AddCustomJob(CreateCustomJob) returns (Void){
+  };
 }
 
 service CVATService {
