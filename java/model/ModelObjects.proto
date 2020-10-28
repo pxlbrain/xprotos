@@ -186,6 +186,7 @@ message GRPCCreateTaskResponse {
   int32 startFrame = 5;
   int32 stopFrame = 6;
   int32 taskId = 7;
+  repeated string jobs = 8;
 }
 
 message GRPCPostDataResponse {
