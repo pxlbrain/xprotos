@@ -14,6 +14,14 @@ message PagedExternalRequest {
   repeated string return_fields = 7;
 }
 
+message PagedExternalRequestNewer {
+  int32 page = 1;
+  int32 size = 2;
+  string store_id = 3;
+  string timestamp = 4;
+  repeated string return_fields = 5;
+}
+
 message PagedExternalResponse {
   int32 page = 1;
   int32 size = 2;
