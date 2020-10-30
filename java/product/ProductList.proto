@@ -33,6 +33,8 @@ service ProductListService {
   }
   rpc GetProductListByLocation(LocationId) returns (ProductListsLocation) {
   }
+  rpc GetActiveProductListByLocation(LocationId) returns (ProductListLocation) {
+  }
 }
 
 message GRPCProductListGetRequest {
