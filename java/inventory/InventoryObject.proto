@@ -466,14 +466,17 @@ message ScheduleTaskRequest {
     repeated string deviceIds = 1;
     string detectorModel = 2;
     string detectorVersion = 3;
-    string classifierModel = 4;
-    string classifierVersion = 5;
-    string mlcModel = 6;
-    string mlcVersion = 7;
-    string productListId = 8;
-    string source = 9;
-    string date = 10;
-    string username = 11;
+    string detectorPath = 4;
+    string classifierModel = 5;
+    string classifierVersion = 6;
+    string classifierPath = 7;
+    string mlcModel = 8;
+    string mlcVersion = 9;
+    string mlcPath = 10;
+    string productListId = 11;
+    string source = 12;
+    string date = 13;
+    string username = 14;
 }
 
 message EventScheduling {
