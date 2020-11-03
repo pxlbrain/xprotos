@@ -266,6 +266,7 @@ message DeviceModel {
     string username = 11;
     string date = 12;
     string status = 13;
+    string eventId = 14;
 }
 
 message GRPCGetDeviceModelsRequest {
@@ -336,6 +337,7 @@ message DeviceProductList {
     string username = 8;
     string date = 9;
     string status = 10;
+    string eventId = 11;
 }
 
 message DeviceConfigurations {
@@ -484,6 +486,8 @@ message EventScheduling {
     string description = 2;
     string errorMessage = 3;
     string date = 4;
+    string deviceId = 5;
+    string eventType = 6;
 }
 
 message DeviceDelete {
@@ -496,4 +500,11 @@ message GRPCStatusResponse {
     string status = 2;
     string eventId = 3;
     string message = 4;
+}
+
+message EventsScheduling {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated EventScheduling events = 4;
 }
