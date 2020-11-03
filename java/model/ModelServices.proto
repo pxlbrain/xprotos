@@ -165,6 +165,8 @@ service JModelService {
   }
   rpc SetBestEpoch(BestEpoch) returns (Void){
   }
+  rpc UpdateModel(JModelRequest) returns (JModelResponse) {
+  }
 }
 
 service ConfigurationService {
