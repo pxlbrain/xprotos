@@ -123,6 +123,8 @@ service DeviceService {
   };
   rpc GetDeviceErrorsByLocationId(GRPCGetLocationRequest) returns (GRPCDeviceStatusesResponse) {
   };
+  rpc GetDeviceEvents(GRPCGetLocationRequest) returns (EventsScheduling) {
+  };
 }
 
 service LocationService {
