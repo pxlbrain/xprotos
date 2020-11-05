@@ -488,6 +488,7 @@ message EventScheduling {
     string date = 4;
     string deviceId = 5;
     string eventType = 6;
+    string finishedDate = 7;
 }
 
 message DeviceDelete {
