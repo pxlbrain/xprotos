@@ -30,6 +30,7 @@ message TransactionReportResp {
   StatisticsReport detectorReport = 4;
   string comment = 5;
   string author = 6;
+  string mainTransactionId = 7;
 }
 
 message ProductReportRes {
@@ -172,6 +173,7 @@ message AddReports {
   int32 transactionItems = 8;
   repeated Report reports = 9;
   string locationId = 10;
+  string mainTransactionId = 11;
 }
 
 message Report {
