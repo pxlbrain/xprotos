@@ -29,6 +29,7 @@ message TransactionReportResp {
   StatisticsReport classifierReport = 3;
   StatisticsReport detectorReport = 4;
   string comment = 5;
+  string author = 6;
 }
 
 message ProductReportRes {
