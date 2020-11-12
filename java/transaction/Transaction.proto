@@ -180,6 +180,7 @@ message Report {
   string wrongId = 1;
   string correctId = 2;
   bool isDetector = 3;
+  bool isCorrect = 4;
 }
 
 message ReportId {
