@@ -135,7 +135,7 @@ message GRPCRole {
 }
 
 message GRPCRoles {
-  repeated GRPCRole roles =1 ;
+  repeated GRPCRole roles = 1;
 }
 
 message IsAuthorized {
@@ -151,4 +151,18 @@ message PresignedUrlRequest {
   string location = 2;
   string bucket = 3;
   string key = 4;
+}
+
+message ReferenceLookupRequest {
+  string tableName = 1;
+  string columnName = 2;
+}
+
+message ReferenceLookupResponse {
+  repeated LookupResponse responses = 1;
+}
+
+message LookupResponse {
+  string name = 1;
+  string value = 2;
 }

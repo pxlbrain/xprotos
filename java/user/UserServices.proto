@@ -44,3 +44,7 @@ service UserService {
 service RoleService {
   rpc GetRoles (Void) returns (GRPCRoles);
 }
+
+service ReferenceLookupService {
+  rpc GetReferenceLookup (ReferenceLookupRequest) returns (ReferenceLookupResponse);
+}
