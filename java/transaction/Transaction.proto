@@ -21,6 +21,9 @@ message ReportItemRes {
   StatisticsReport detectorReport = 4;
   repeated TransactionReportResp transactions = 5;
   repeated ProductReportRes products = 6;
+  int32 unknownProducts = 7;
+  int32 cameraCorrect = 8;
+  int32 servingCorrect = 9;
 }
 
 message TransactionReportResp {
@@ -31,6 +34,9 @@ message TransactionReportResp {
   string comment = 5;
   string author = 6;
   string mainTransactionId = 7;
+  int32 unknownProducts = 8;
+  int32 cameraCorrect = 9;
+  int32 servingCorrect = 10;
 }
 
 message ProductReportRes {
@@ -62,6 +68,8 @@ message Transaction {
   string type = 13;
   string transactionId = 14;
   bool checked = 15;
+  bool cameraCorrect = 16;
+  int32 unknownProducts = 17;
 }
 
 message Frame {
@@ -74,6 +82,7 @@ message CorrectItemResponse {
   string productId = 1;
   string productName = 2;
   string type = 3;
+  bool servingCorrect = 4;
 }
 
 message Item {
@@ -145,6 +154,9 @@ message TransactionReports {
   StatisticsReport detectorReport = 3;
   repeated ReportResponse reports = 4;
   int32 count = 5;
+  int32 unknownProducts = 6;
+  int32 cameraCorrect = 7;
+  int32 servingCorrect = 8;
 }
 
 message ReportResponse {
@@ -155,6 +167,9 @@ message ReportResponse {
   int32 correct = 5;
   int32 failed = 6;
   string description = 7;
+  int32 unknownProducts = 8;
+  int32 cameraCorrect = 9;
+  int32 servingCorrect = 10;
 }
 
 message StatisticsReport {
@@ -174,6 +189,9 @@ message AddReports {
   repeated Report reports = 9;
   string locationId = 10;
   string mainTransactionId = 11;
+  int32 unknownProducts = 12;
+  bool cameraCorrect = 13;
+  int32 servingStatistics = 14;
 }
 
 message Report {
@@ -181,6 +199,7 @@ message Report {
   string correctId = 2;
   bool isDetector = 3;
   bool isCorrect = 4;
+  bool servingCorrect = 5;
 }
 
 message ReportId {
