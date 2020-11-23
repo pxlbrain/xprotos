@@ -57,6 +57,7 @@ message ProductList {
   repeated Product products = 10;
   repeated string productIds = 11;
   string path = 12;
+  string type = 13;
 }
 
 message UpdateList {
@@ -64,6 +65,7 @@ message UpdateList {
   bool active = 2;
   repeated string productIdsToDeactivate = 3;
   repeated string productIdsToActivate = 4;
+  string type = 5;
 }
 
 message ProductLists {
