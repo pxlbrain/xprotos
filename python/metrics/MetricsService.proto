@@ -9,4 +9,5 @@ service MetricsService {
     rpc GetEpochFullMetrics(MetricsRequest) returns (MetricsResponse) {};
     rpc GetNEpochs(MetricsRequest) returns (MetricsResponse) {};
     rpc GetNProducts(MetricsRequest) returns (MetricsResponse) {};
+    rpc GetAllEpochLosses(MetricsRequest) returns (MetricsResponse) {};
 };

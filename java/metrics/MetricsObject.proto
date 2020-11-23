@@ -18,6 +18,15 @@ message ProductsInfo {
    DictMapper products = 1;
 }
 
+message TrainLossInfo {
+    int32 epoch = 1;
+    float trainLoss = 2;
+}
+
+message TrainLossesMetrics {
+   repeated TrainLossInfo trainLossesInfo = 1;
+}
+
 message ClassificationSpecificAttrs{
     int32 TP = 1;
     int32 TN = 2;
@@ -68,6 +77,7 @@ message MetricsResponse {
        EpochsInfo epochsInfo = 2;
        EpochFullMetrics epochFullMetrics = 3;
        ProductsInfo productsInfo = 4;
-       Error error = 5;
+       TrainLossesMetrics trainLosses = 5;
+       Error error = 6;
     }
 };
