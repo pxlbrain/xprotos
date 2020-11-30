@@ -79,6 +79,8 @@ service ProductService {
   }
   rpc GetKidsItem (Id) returns (Product) {
   }
+  rpc DeleteMhsProducts (DeleteProductItemRequest) returns (Void) {
+  }
 }
 
 
@@ -124,7 +126,7 @@ message Product {
   string id = 1;
   string created = 2;
   string updated = 3;
-  string productId = 4;
+  repeated MHSProduct mhsProducts = 4;
   string name = 5;
   string category = 6;
   string subCategory = 7;
@@ -144,6 +146,11 @@ message Product {
   repeated NameId mistakenProducts = 21;
   repeated ProductImageResponse productImages = 22;
   string obid = 23;
+}
+
+message MHSProduct {
+  string productId = 1;
+  string indicator =2;
 }
 
 message Products {
