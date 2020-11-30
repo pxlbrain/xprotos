@@ -37,13 +37,19 @@ message ExternalPayloadResponse {
 message ExternalProductResponse {
   string product_id = 1;
   string product_name = 2;
-  repeated string s3_keys = 3;
+  repeated ExternalExtractedInfo extracted = 3;
   ExternalProductDimension dimensions = 4;
   google.protobuf.BoolValue is_brownbox = 5;
   google.protobuf.BoolValue verified = 6;
   string updated_at = 7;
   repeated string media_imgs = 8;
   int32 quantity = 9;
+}
+
+message ExternalExtractedInfo {
+  string image_path = 1;
+  string video_path = 2;
+  float video_timestamp = 3;
 }
 
 message ExternalProductDimension {
