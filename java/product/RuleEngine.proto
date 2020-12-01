@@ -1,0 +1,41 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+package ai.pixlbrain.backend;
+
+import "inventory/Void.proto";
+import "inventory/InventoryObject.proto";
+
+service RuleEngineService {
+    rpc SaveRuleEngine (RuleEngine) returns (RuleEngine) {
+    }
+    rpc GetRuleEngineByLocation (LocationId) returns (RuleEngine) {
+    }
+    rpc UploadRuleEngineToS3 (RuleEngineId) returns (Void) {
+    }
+}
+
+message RuleEngine {
+    string id = 1;
+    string name = 2;
+    string created = 3;
+    string updated = 4;
+    string client = 5;
+    string location = 6;
+    string path = 7;
+    string username = 8;
+    repeated PlateFilter plateFiltering = 9;
+    repeated string otherFiltering = 10;
+}
+
+message PlateFilter {
+    string cls = 1;
+    string mlc = 2;
+}
+
+message RuleEngineId {
+    string id = 1;
+}
+
+
