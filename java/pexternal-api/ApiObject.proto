@@ -71,7 +71,7 @@ message ExternalProductVerification {
 
 message ExternalProductPaths {
   string product_id = 1;
-  repeated string paths = 2;
+  repeated ExternalExtractedInfo extracted = 2;
 }
 
 message ExternalProductLinks {
