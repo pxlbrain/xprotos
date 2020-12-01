@@ -12,21 +12,30 @@ service RuleEngineService {
     }
     rpc GetRuleEngineByLocation (LocationId) returns (RuleEngine) {
     }
+    rpc UploadRuleEngineToS3 (RuleEngineId) returns (Void) {
+    }
 }
 
 message RuleEngine {
     string id = 1;
     string name = 2;
-    string client = 3;
-    string location = 4;
-    string path = 5;
-    repeated PlateFilter plateFiltering = 6;
-    repeated string otherFiltering = 7;
+    string created = 3;
+    string updated = 4;
+    string client = 5;
+    string location = 6;
+    string path = 7;
+    string username = 8;
+    repeated PlateFilter plateFiltering = 9;
+    repeated string otherFiltering = 10;
 }
 
 message PlateFilter {
     string cls = 1;
     string mlc = 2;
+}
+
+message RuleEngineId {
+    string id = 1;
 }
 
 
