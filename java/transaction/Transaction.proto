@@ -71,6 +71,7 @@ message Transaction {
   bool checked = 15;
   bool cameraCorrect = 16;
   int32 unknownProducts = 17;
+  string comment = 18;
 }
 
 message Frame {
