@@ -37,6 +37,7 @@ message TransactionReportResp {
   int32 unknownProducts = 8;
   int32 cameraCorrect = 9;
   int32 servingCorrect = 10;
+  bool correct = 11;
 }
 
 message ProductReportRes {
