@@ -30,6 +30,8 @@ service JobService {
   };
   rpc AddCustomJob(CreateCustomJob) returns (Void){
   };
+  rpc UpdateJobAfterDeletingUser(UserEmail) returns (Void) {
+  };
 }
 
 service CVATService {
