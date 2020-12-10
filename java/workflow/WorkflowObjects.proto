@@ -1,0 +1,188 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+enum WorkflowStatus {
+  PENDING = 0;
+  IN_PROGRESS = 1;
+  FAILED = 2;
+  DONE = 3;
+}
+
+message GRPCWorkflowHistory {
+  int64 id = 1;
+  string workflowId = 2;
+  string workflowName = 3;
+  string workflowStatus = 4;
+  string stepName = 5;
+  string stepStatus = 6;
+  string eventName = 7;
+  string eventStatus = 8;
+  string parameterName = 9;
+  string parameterValue = 10;
+  string created = 11;
+  string createdBy = 12;
+}
+
+message GRPCWorkflow {
+  int64 id = 1;
+  string created = 2;
+  string updated = 3;
+  string createdBy = 4;
+  string updatedBy = 5;
+  string name = 6;
+  string client = 7;
+  string location = 8;
+  WorkflowStatus status = 9;
+  GRPCTemplate template = 10;
+  repeated GRPCStep steps = 11;
+}
+
+message GRPCTemplate {
+  int64 id = 1;
+  string created = 2;
+  string updated = 3;
+  string createdBy = 4;
+  string updatedBy = 5;
+  string name = 6;
+  repeated GRPCStep steps = 7;
+
+}
+
+message GRPCStep {
+  int64 id = 1;
+  string created = 2;
+  string updated = 3;
+  string createdBy = 4;
+  string updatedBy = 5;
+  string type = 6;
+  bool doubleCheck = 7;
+  string name = 8;
+  repeated GRPCEvent events = 9;
+}
+
+message GRPCEvent {
+  int64 id = 1;
+  string created = 2;
+  string updated = 3;
+  string createdBy = 4;
+  string updatedBy = 5;
+  string type = 6;
+  bool doubleCheck = 7;
+  string name = 8;
+  repeated GRPCParameter parameters = 9;
+
+}
+
+message GRPCParameter {
+  int64 id = 1;
+  string name = 2;
+  string created = 3;
+  string updated = 4;
+  string createdBy = 5;
+  string updatedBy = 6;
+}
+
+message GRPCEventTracker {
+  int64 id = 1;
+  string created = 2;
+  string updated = 3;
+  string createdBy = 4;
+  string updatedBy = 5;
+  WorkflowStatus status = 6;
+  bool validated = 7;
+  bool forcedValidation = 8;
+  string validatedBy = 9;
+  string validatedBy2 = 10;
+  int64 eventId = 11;
+  string eventName = 12;
+  string parameterName = 13;
+  string parameterValue = 14;
+}
+
+message GRPCStepTracker {
+  int64 id = 1;
+  string created = 2;
+  string updated = 3;
+  string createdBy = 4;
+  string updatedBy = 5;
+  WorkflowStatus status = 6;
+  bool validated = 7;
+  bool forcedValidation = 8;
+  string validatedBy = 9;
+  string validatedBy2 = 10;
+  int64 stepId = 11;
+  string stepName = 12;
+  repeated GRPCEventTracker eventTrackers = 13;
+}
+
+message ID {
+  int64 id = 1;
+}
+
+message GRPCEventPayloadResponse {
+  repeated GRPCEvent payload = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int32 count = 4;
+}
+
+message GRPCStepPayloadResponse {
+  repeated GRPCStep payload = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int32 count = 4;
+}
+
+message GRPCTemplatePayloadResponse {
+  repeated GRPCTemplate payload = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int32 count = 4;
+}
+
+message GRPCWorkflowPayloadResponse {
+  repeated GRPCWorkflow payload = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int32 count = 4;
+}
+
+message GRPCWorkflowHistoryPayloadResponse {
+  repeated GRPCWorkflowHistory payload = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int32 count = 4;
+}
+
+message GRPCParameterPayloadResponse {
+  repeated GRPCParameter payload = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int32 count = 4;
+}
+
+message GRPCStepTrackerPayloadResponse {
+  repeated GRPCStepTracker payload = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int32 count = 4;
+}
+
+message GRPCEventTrackerPayloadResponse {
+  repeated GRPCEventTracker payload = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int32 count = 4;
+}
+
+message GRPCParameters {
+  repeated GRPCParameter parameters = 1;
+}
+
+message GRPCParentChildRequest {
+  int64 parent = 1;
+  repeated int64 childIds = 2;
+}

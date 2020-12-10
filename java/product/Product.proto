@@ -193,6 +193,7 @@ message GRPCGetRequest {
   repeated GRPCFilter filter = 2;
   GRPCPaging paging = 3;
   GRPCSorting sorting = 4;
+  int64 id = 5;
 }
 
 message GRPCFilter {
