@@ -40,6 +40,15 @@ message GRPCWorkflow {
   repeated GRPCStep steps = 11;
 }
 
+message GRPCWorkflowTracker {
+  int64 id = 1;
+  string name = 6;
+  string client = 7;
+  string location = 8;
+  WorkflowStatus status = 9;
+  repeated GRPCStepTracker stepTrackers = 10;
+}
+
 message GRPCTemplate {
   int64 id = 1;
   string created = 2;
@@ -85,6 +94,16 @@ message GRPCParameter {
   string updatedBy = 6;
 }
 
+message GRPCParameterTracker {
+  int64 id = 1;
+  string name = 2;
+  string value = 3;
+  WorkflowStatus status = 4;
+  int64 eventId = 5;
+  int64 workflowId = 6;
+
+}
+
 message GRPCEventTracker {
   int64 id = 1;
   string created = 2;
@@ -98,8 +117,19 @@ message GRPCEventTracker {
   string validatedBy2 = 10;
   int64 eventId = 11;
   string eventName = 12;
-  string parameterName = 13;
-  string parameterValue = 14;
+  int64 workflowId = 13;
+  repeated GrpcParameterTracker parameterTrackers = 14;
+}
+
+message GrpcParameterTracker {
+  int64 id = 1;
+  string created = 2;
+  string updated = 3;
+  string createdBy = 4;
+  string updatedBy = 5;
+  string parameterName = 6;
+  string parameterValue = 7;
+  int64 workflowId = 8;
 }
 
 message GRPCStepTracker {
@@ -116,6 +146,11 @@ message GRPCStepTracker {
   int64 stepId = 11;
   string stepName = 12;
   repeated GRPCEventTracker eventTrackers = 13;
+  int64 workflowId = 14;
+}
+
+message GRPCStepTrackers {
+  repeated GRPCStepTracker stepTrackers = 1;
 }
 
 message ID {
