@@ -154,3 +154,16 @@ service LocationService {
   };
 }
 
+service DeviceIsoFileService {
+  rpc SaveDeviceIsoFile (DeviceIsoFile) returns (DeviceIsoFile) {
+  }
+  rpc GetDeviceIsoFiles (GRPCGetAllDeviceIsoFiles) returns (DeviceIsoFiles) {
+  }
+  rpc GetDeviceIsoFile (DeviceId) returns (DeviceIsoFile) {
+  }
+  rpc UploadDeviceIsoFileToS3 (DeviceIsoFileId) returns (Void) {
+  }
+  rpc DeleteDeviceIsoFile (DeviceIsoFileId) returns (Void) {
+  }
+}
+

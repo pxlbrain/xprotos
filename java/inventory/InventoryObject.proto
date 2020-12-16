@@ -511,3 +511,33 @@ message EventsScheduling {
     int32 count = 3;
     repeated EventScheduling events = 4;
 }
+
+message DeviceIsoFile {
+    string id = 1;
+    string created = 2;
+    string updated = 3;
+    string name = 4;
+    string path = 5;
+    repeated IsoFileProperty isoFileProperty = 6;
+    string isDeployed = 7;
+}
+
+message IsoFileProperty {
+    string key = 1;
+    string value = 2;
+}
+
+message DeviceIsoFiles {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceIsoFile deviceIsoFiles = 4;
+}
+
+message DeviceIsoFileId {
+    string id = 1;
+}
+
+message GRPCGetAllDeviceIsoFiles {
+    GRPCPaging paging = 1;
+}
