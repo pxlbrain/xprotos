@@ -159,11 +159,12 @@ service DeviceIsoFileService {
   }
   rpc GetDeviceIsoFiles (GRPCGetAllDeviceIsoFiles) returns (DeviceIsoFiles) {
   }
-  rpc GetDeviceIsoFile (DeviceId) returns (DeviceIsoFile) {
+  rpc GetDeviceIsoFileByDeviceId (DeviceId) returns (DeviceIsoFile) {
+  }
+  rpc AssignDeviceIsoFileToDevice (AssignDeviceIsoFile) returns (Void) {
   }
   rpc UploadDeviceIsoFileToS3 (DeviceIsoFileId) returns (Void) {
   }
   rpc DeleteDeviceIsoFile (DeviceIsoFileId) returns (Void) {
   }
 }
-

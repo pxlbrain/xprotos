@@ -541,3 +541,8 @@ message DeviceIsoFileId {
 message GRPCGetAllDeviceIsoFiles {
     GRPCPaging paging = 1;
 }
+
+message AssignDeviceIsoFile {
+    DeviceId deviceId = 1;
+    DeviceIsoFileId deviceIsoFileId = 2;
+}
