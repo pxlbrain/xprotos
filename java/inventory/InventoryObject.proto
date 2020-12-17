@@ -516,10 +516,7 @@ message DeviceIsoFile {
     string id = 1;
     string created = 2;
     string updated = 3;
-    string name = 4;
-    string path = 5;
-    repeated IsoFileProperty isoFileProperty = 6;
-    string isDeployed = 7;
+    repeated IsoFileProperty isoFileProperty = 4;
 }
 
 message IsoFileProperty {
