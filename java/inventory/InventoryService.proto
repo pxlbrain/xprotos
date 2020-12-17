@@ -163,8 +163,6 @@ service DeviceIsoFileService {
   }
   rpc AssignDeviceIsoFileToDevice (AssignDeviceIsoFile) returns (Void) {
   }
-  rpc UploadDeviceIsoFileToS3 (DeviceIsoFileId) returns (Void) {
-  }
   rpc DeleteDeviceIsoFile (DeviceIsoFileId) returns (Void) {
   }
 }
