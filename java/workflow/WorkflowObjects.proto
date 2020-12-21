@@ -66,10 +66,9 @@ message GRPCStep {
   string updated = 3;
   string createdBy = 4;
   string updatedBy = 5;
-  string type = 6;
-  bool doubleCheck = 7;
-  string name = 8;
-  repeated GRPCEvent events = 9;
+  bool doubleCheck = 6;
+  string name = 7;
+  repeated GRPCEvent events = 8;
 }
 
 message GRPCEvent {
@@ -94,16 +93,6 @@ message GRPCParameter {
   string updatedBy = 6;
 }
 
-message GRPCParameterTracker {
-  int64 id = 1;
-  string name = 2;
-  string value = 3;
-  WorkflowStatus status = 4;
-  int64 eventId = 5;
-  int64 workflowId = 6;
-
-}
-
 message GRPCEventTracker {
   int64 id = 1;
   string created = 2;
@@ -118,18 +107,16 @@ message GRPCEventTracker {
   int64 eventId = 11;
   string eventName = 12;
   int64 workflowId = 13;
-  repeated GrpcParameterTracker parameterTrackers = 14;
+  repeated GRPCParameterTracker parameterTrackers = 14;
 }
 
-message GrpcParameterTracker {
+message GRPCParameterTracker {
   int64 id = 1;
-  string created = 2;
-  string updated = 3;
-  string createdBy = 4;
-  string updatedBy = 5;
   string parameterName = 6;
   string parameterValue = 7;
-  int64 workflowId = 8;
+  WorkflowStatus status = 8;
+  string eventName = 9;
+  int64 workflowId = 10;
 }
 
 message GRPCStepTracker {
