@@ -45,6 +45,7 @@ message GRPCGetJobsRequest {
   string type = 4;
   GRPCPaging paging = 5;
   GRPCSorting sorting = 6;
+  repeated GRPCFilter filter = 7;
 }
 
 message GRPCGetJobsResponse {
