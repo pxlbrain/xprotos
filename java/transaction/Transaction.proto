@@ -73,6 +73,7 @@ message Transaction {
   int32 unknownProducts = 17;
   string comment = 18;
   string cameraId = 19;
+  bool productDeviation = 20;
 }
 
 message Frame {
