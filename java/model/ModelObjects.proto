@@ -6,6 +6,7 @@ option java_package = "ai.pixlbrain.backend";
 
 import "product/Product.proto";
 import "dataset/DatasetObject.proto";
+import "common/Filter.proto";
 
 message GRPCJobs {
   repeated GRPCJob jobs = 1;

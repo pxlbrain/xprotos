@@ -3,6 +3,7 @@ syntax = "proto3";
 package ai.pixlbrain.backend;
 import "inventory/Void.proto";
 import "product/Product.proto";
+import "common/Filter.proto";
 
 service TransactionService {
   rpc GetTransaction (TransactionId) returns (Transaction) {}

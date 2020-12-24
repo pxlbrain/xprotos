@@ -6,6 +6,7 @@ option java_package = "ai.pixlbrain.backend";
 import "workflow/WorkflowObjects.proto";
 import "inventory/Void.proto";
 import "product/Product.proto";
+import "common/Filter.proto";
 
 package ai.pixlbrain.backend;
 
