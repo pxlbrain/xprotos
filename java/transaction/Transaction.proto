@@ -12,6 +12,7 @@ service TransactionService {
   rpc GetTransactionReports (TransactionReport) returns (TransactionReports) {}
   rpc AddTransactionReport (AddReports) returns (Void) {}
   rpc GetReportById (ReportId) returns (ReportItemRes) {}
+  rpc GetCheckScanTransactionById (TransactionId) returns (Transaction) {}
 }
 
 message ReportItemRes {
