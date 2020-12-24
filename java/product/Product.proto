@@ -7,6 +7,7 @@ option java_package = "ai.pixlbrain.backend";
 
 import "google/protobuf/wrappers.proto";
 import "inventory/Void.proto";
+import "common/Filter.proto";
 
 service ProductService {
   rpc CreateProduct (GRPCProductRequest) returns (Product) {
