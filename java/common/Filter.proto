@@ -6,8 +6,9 @@ option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 
 message GRPCFilter {
-  string field = 1;
+  string field1 = 1;
   string value = 2;
   string operator = 3;
+  string field2 = 4;
 }
 
