@@ -86,6 +86,8 @@ service DatasetService {
   }
   rpc GetDatasetJobs (DatasetId) returns (DatasetJobsResponse) {
   }
+  rpc GetDatasetJobsById (DatasetJobsRequest) returns (DatasetJobsResponse) {
+  }
   rpc GetDatasetsForMergeByType (ModelTypeRequest) returns (DatasetsMergeResponse) {
   }
   rpc GetDatasetById (DatasetId) returns (DatasetPayloadResponse) {
@@ -95,6 +97,8 @@ service DatasetService {
   rpc AddJobsToDataset (AddJobDataset) returns (Void){
   }
   rpc CreateDatasetForClassifierOrMlc (NewDatasetRequest) returns (Void){
+  }
+  rpc CreateDatasetForDetector (NewDetectorDatasetRequest) returns (Void){
   }
   rpc AssignDatasetToModels (AssignDatasetToModelsRequest) returns (Void){
   }

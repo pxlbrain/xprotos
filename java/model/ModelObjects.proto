@@ -707,8 +707,18 @@ message DatasetId {
   string id = 1;
 }
 
+message DatasetJobsRequest {
+  string datasetId = 1;
+  GRPCPaging paging = 2;
+  GRPCSorting sorting = 3;
+  repeated GRPCFilter filter = 4;
+}
+
 message DatasetJobsResponse {
   repeated GRPCJob jobs = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int32 count = 4;
 }
 
 message DatasetsMergeResponse {
@@ -741,6 +751,12 @@ message NewDatasetRequest {
   string location = 2;
   string type = 3;
   repeated DatasetProducts products = 4;
+}
+
+message NewDetectorDatasetRequest {
+  string client = 1;
+  string location = 2;
+  PtagFilter ptagFilter = 3;
 }
 
 message DatasetProducts {
