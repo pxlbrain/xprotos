@@ -5,6 +5,7 @@ option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 
 import "product/Product.proto";
+import "common/Filter.proto";
 
 message Device {
     string id = 1;

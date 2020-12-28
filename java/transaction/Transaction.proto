@@ -3,6 +3,7 @@ syntax = "proto3";
 package ai.pixlbrain.backend;
 import "inventory/Void.proto";
 import "product/Product.proto";
+import "common/Filter.proto";
 
 service TransactionService {
   rpc GetTransaction (TransactionId) returns (Transaction) {}
@@ -12,6 +13,7 @@ service TransactionService {
   rpc GetTransactionReports (TransactionReport) returns (TransactionReports) {}
   rpc AddTransactionReport (AddReports) returns (Void) {}
   rpc GetReportById (ReportId) returns (ReportItemRes) {}
+  rpc GetCheckScanTransactionById (TransactionId) returns (Transaction) {}
 }
 
 message ReportItemRes {
@@ -72,6 +74,8 @@ message Transaction {
   bool cameraCorrect = 16;
   int32 unknownProducts = 17;
   string comment = 18;
+  string cameraId = 19;
+  bool productDeviation = 20;
 }
 
 message Frame {
@@ -93,6 +97,10 @@ message Item {
   string name = 3;
   string category = 4;
   repeated Bbs bbs = 5;
+  string productType = 6;
+  string posTimestamp = 7;
+  int32 quantity = 8;
+  Coordinate trackingResult = 9;
 }
 
 message Bbs {
@@ -127,6 +135,7 @@ message TransactionRequest {
   repeated GRPCFilter filter = 2;
   GRPCPaging paging = 3;
   GRPCSorting sorting = 4;
+  string type = 5;
 }
 
 message TransactionId {
