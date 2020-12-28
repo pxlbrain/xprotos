@@ -843,3 +843,8 @@ message BestEpoch {
   string epochPath = 1;
   string modelId = 2;
 }
+
+message ActivateDetectorJobsRequest {
+  repeated GRPCJob jobs = 1;
+  DatasetId datasetId = 2;
+}

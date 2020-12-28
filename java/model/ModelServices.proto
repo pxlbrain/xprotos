@@ -108,6 +108,8 @@ service DatasetService {
   }
   rpc AddCustomJobToDataset(CustomJob) returns (Void){
   }
+  rpc ActivateDetectorJobs(ActivateDetectorJobsRequest) returns (Void) {
+  };
 }
 
 service JModelService {
