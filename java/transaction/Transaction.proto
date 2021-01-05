@@ -157,6 +157,7 @@ message TransactionReport {
   string username = 3;
   int32 page = 4;
   int32 size = 5;
+  bool isCheckscan = 6;
 }
 
 message TransactionReports {
