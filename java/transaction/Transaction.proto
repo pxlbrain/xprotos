@@ -204,6 +204,7 @@ message AddReports {
   int32 unknownProducts = 12;
   bool cameraCorrect = 13;
   int32 servingStatistics = 14;
+  bool isCheckScan = 15;
 }
 
 message Report {
