@@ -78,9 +78,13 @@ service ProductService {
   }
   rpc AddKidsItem (KidsRequest) returns (Void) {
   }
+  rpc RemoveKidsItem (KidsRequest) returns (Void) {
+  }
   rpc GetKidsItem (Id) returns (Product) {
   }
   rpc DeleteMhsProducts (DeleteProductItemRequest) returns (Void) {
+  }
+  rpc RemoveMistakenProducts (DeleteProductItemRequest) returns (Void) {
   }
 }
 
