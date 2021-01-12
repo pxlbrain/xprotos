@@ -15,7 +15,7 @@ service TransactionService {
   rpc GetReportById (ReportId) returns (ReportItemRes) {}
   rpc GetCheckScanTransactionById (TransactionId) returns (Transaction) {}
   rpc CreateCheckScanTransactionReport (CheckScanReport) returns (Void) {}
-  rpc CheckDateRange (ValidateDateRange) returns (ValidateDateRange) {}
+  rpc CheckDateRange (CheckScanReport) returns (ValidateDateRange) {}
 }
 
 message ReportItemRes {
@@ -231,7 +231,5 @@ message CheckScanReport {
 }
 
 message ValidateDateRange {
-  string dateFrom = 1;
-  string dateTo = 2;
-  string message = 3;
+  string message = 1;
 }
