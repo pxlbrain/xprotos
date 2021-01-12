@@ -14,6 +14,8 @@ service TransactionService {
   rpc AddTransactionReport (AddReports) returns (Void) {}
   rpc GetReportById (ReportId) returns (ReportItemRes) {}
   rpc GetCheckScanTransactionById (TransactionId) returns (Transaction) {}
+  rpc CreateCheckScanTransactionReport (CheckScanReport) returns (Void) {}
+  rpc CheckDateRange (ValidateDateRange) returns (ValidateDateRange) {}
 }
 
 message ReportItemRes {
@@ -219,4 +221,17 @@ message ReportId {
   string id = 1;
   int32 page = 2;
   int32 size = 3;
+}
+
+message CheckScanReport {
+  string client = 1;
+  string location = 2;
+  string dateFrom = 3;
+  string dateTo = 4;
+}
+
+message ValidateDateRange {
+  string dateFrom = 1;
+  string dateTo = 2;
+  string message = 3;
 }
