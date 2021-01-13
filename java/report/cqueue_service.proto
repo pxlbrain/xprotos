@@ -9,4 +9,13 @@ import "report/queue_stats.proto";
 
 service CQueueService {
     rpc GetStats(StatsQuery) returns (QueueStats);
+    rpc GetLiveStats(LiveQueueQuery) returns (LiveQueueStats);
 };
+
+message LiveQueueQuery {
+    string id = 1;
+}
+
+message LiveQueueStats {
+    string response = 1;
+}
