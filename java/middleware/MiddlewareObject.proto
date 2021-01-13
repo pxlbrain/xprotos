@@ -33,3 +33,7 @@ message DeviceResponse {
   string response = 1;
 }
 
+message Boolean {
+  bool value = 1;
+}
+

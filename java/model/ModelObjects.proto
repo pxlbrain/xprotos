@@ -215,6 +215,10 @@ message ModelId {
   string id = 1;
 }
 
+message NumberOfItems {
+  int32 number = 1;
+}
+
 message ModelVersion {
   string version = 1;
   string type = 2;
