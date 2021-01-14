@@ -11,6 +11,12 @@ enum WorkflowStatus {
   DONE = 3;
 }
 
+enum WorkflowType {
+  DETECTION = 0;
+  CLASSIFICATION = 1;
+}
+
+
 message GRPCWorkflowHistory {
   int64 id = 1;
   string workflowId = 2;
@@ -38,15 +44,17 @@ message GRPCWorkflow {
   WorkflowStatus status = 9;
   GRPCTemplate template = 10;
   repeated GRPCStep steps = 11;
+  WorkflowType type = 12;
 }
 
 message GRPCWorkflowTracker {
   int64 id = 1;
-  string name = 6;
-  string client = 7;
-  string location = 8;
-  WorkflowStatus status = 9;
-  repeated GRPCStepTracker stepTrackers = 10;
+  string name = 2;
+  string client = 3;
+  string location = 4;
+  WorkflowStatus status = 5;
+  repeated GRPCStepTracker stepTrackers = 6;
+  WorkflowType type = 7;
 }
 
 message GRPCTemplate {
