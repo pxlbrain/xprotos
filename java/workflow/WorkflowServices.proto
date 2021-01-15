@@ -118,6 +118,8 @@ service EventTrackerService {
 service ParameterTrackerService {
   rpc UpdateParameterTracker (GRPCParameterTracker) returns (GRPCParameterTracker) {
   };
+  rpc UpdateParameterTrackers (GRPCParameterTrackers) returns (GRPCParameterTrackers) {
+  };
   rpc GetParameterTracker (GRPCParameterTracker) returns (GRPCParameterTracker) {
   };
 }

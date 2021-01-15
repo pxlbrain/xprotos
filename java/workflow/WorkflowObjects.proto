@@ -216,3 +216,7 @@ message GRPCParentChildRequest {
   int64 parent = 1;
   repeated int64 childIds = 2;
 }
+
+message GRPCParameterTrackers {
+  repeated GRPCParameterTracker parameterTrackers = 1;
+}
