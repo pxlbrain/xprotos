@@ -111,14 +111,15 @@ message VFSFieldFilters {
 
 message VFSRequest {
     string client = 1;
-    string message = 2;
+    string serviceType = 2;
+    string message = 3;
     oneof data {
-        VFSTagTypes tags = 3;
-        VFSTagValue tagValue = 4;
-        VFSTagMeta tagMeta = 5;
-        string payload = 6;
+        VFSTagTypes tags = 4;
+        VFSTagValue tagValue = 5;
+        VFSTagMeta tagMeta = 6;
+        string payload = 7;
     };
-    VFSRequestFilter filter = 7;
+    VFSRequestFilter filter = 8;
 };
 
 message AutoCompleteStructure{
