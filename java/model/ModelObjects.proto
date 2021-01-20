@@ -209,7 +209,7 @@ message ProductJob {
   repeated ProductJob children = 4;
   string productName = 5;
   string productStatus = 6;
-  string workflowId = 7;
+
 }
 
 message ModelId {
@@ -232,6 +232,7 @@ message ProductJobs {
   string name = 4;
   string productListId = 5;
   bool active = 6;
+  string workflowId = 7;
 }
 
 message GRPCClusterResponse {
