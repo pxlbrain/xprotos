@@ -56,17 +56,17 @@ service CVATService {
 }
 
 service CallbackService {
-  rpc dumpCallback (GRPCScheduleResponse) returns (Void) {
+  rpc DumpCallback (GRPCScheduleResponse) returns (Void) {
   }
-  rpc taskCallback (GRPCCreateTaskResponse) returns (Void) {
+  rpc TaskCallback (GRPCCreateTaskResponse) returns (Void) {
   }
-  rpc postCallback (GRPCPostDataResponse) returns (Void) {
+  rpc PostCallback (GRPCPostDataResponse) returns (Void) {
   }
-  rpc clusterCallback (GRPCClusterResponse) returns (Void) {
+  rpc ClusterCallback (GRPCClusterResponse) returns (Void) {
   }
   rpc TrainingDoneCallback (GRPCTrainingResponse) returns (Void) {
   }
-  rpc preannotationDoneCallback (GRPCAutoAnnotationResponse) returns (Void) {
+  rpc PreannotationDoneCallback (GRPCAutoAnnotationResponse) returns (Void) {
   }
 }
 
