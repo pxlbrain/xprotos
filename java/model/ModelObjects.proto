@@ -37,6 +37,7 @@ message GRPCJob {
   repeated GRPCJob children = 22;
   string modelId = 23;
   bool trolley = 24;
+  string cvatPreannotationStatus = 25;
 }
 
 message GRPCGetJobsRequest {
@@ -855,3 +856,10 @@ message ActivateDetectorJobsRequest {
   repeated GRPCJob jobs = 1;
   DatasetId datasetId = 2;
 }
+
+message GRPCAutoAnnotationResponse {
+  string taskId = 1;
+  string status = 2;
+  repeated string jobs = 3;
+}
+

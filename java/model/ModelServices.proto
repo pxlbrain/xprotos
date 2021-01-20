@@ -66,7 +66,8 @@ service CallbackService {
   }
   rpc TrainingDoneCallback (GRPCTrainingResponse) returns (Void) {
   }
-
+  rpc preannotationDoneCallback (GRPCAutoAnnotationResponse) returns (Void) {
+  }
 }
 
 service DatasetService {
