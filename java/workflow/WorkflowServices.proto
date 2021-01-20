@@ -99,24 +99,36 @@ service WorkflowService {
   };
   rpc GetWorkflowTrackers (ID) returns (GRPCWorkflowTracker) {
   };
+  rpc ConvertToTemplate(ID) returns (Void) {
+  };
 }
 
 service StepTrackerService {
   rpc UpdateStepTracker (GRPCStepTracker) returns (GRPCStepTracker) {
   };
-  rpc GetStepTracker (GRPCParentChildRequest) returns (GRPCStepTracker) {
+  rpc GetStepTracker (GRPCParentChildNameRequest) returns (GRPCStepTracker) {
+  };
+  rpc ForceStepValidation (GRPCWorkflowValidation) returns (Void) {
+  };
+  rpc ValidateStep (GRPCWorkflowValidation) returns (Void) {
   };
 }
 
 service EventTrackerService {
   rpc UpdateEventTracker (GRPCEventTracker) returns (GRPCEventTracker) {
   };
-  rpc GetEventTracker (GRPCParentChildRequest) returns (GRPCEventTracker) {
+  rpc GetEventTracker (GRPCParentChildNameRequest) returns (GRPCEventTracker) {
+  };
+  rpc ForceEventValidation (GRPCWorkflowValidation) returns (Void) {
+  };
+  rpc ValidateEvent (GRPCWorkflowValidation) returns (Void) {
   };
 }
 
 service ParameterTrackerService {
   rpc UpdateParameterTracker (GRPCParameterTracker) returns (GRPCParameterTracker) {
+  };
+  rpc UpdateParameterTrackers (GRPCParameterTrackers) returns (GRPCParameterTrackers) {
   };
   rpc GetParameterTracker (GRPCParameterTracker) returns (GRPCParameterTracker) {
   };

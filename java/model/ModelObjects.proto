@@ -210,6 +210,7 @@ message ProductJob {
   repeated ProductJob children = 4;
   string productName = 5;
   string productStatus = 6;
+  string workflowId = 7;
 }
 
 message ModelId {

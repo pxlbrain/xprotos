@@ -11,6 +11,12 @@ enum WorkflowStatus {
   DONE = 3;
 }
 
+enum WorkflowType {
+  DETECTION = 0;
+  CLASSIFICATION = 1;
+}
+
+
 message GRPCWorkflowHistory {
   int64 id = 1;
   string workflowId = 2;
@@ -38,15 +44,17 @@ message GRPCWorkflow {
   WorkflowStatus status = 9;
   GRPCTemplate template = 10;
   repeated GRPCStep steps = 11;
+  WorkflowType type = 12;
 }
 
 message GRPCWorkflowTracker {
   int64 id = 1;
-  string name = 6;
-  string client = 7;
-  string location = 8;
-  WorkflowStatus status = 9;
-  repeated GRPCStepTracker stepTrackers = 10;
+  string name = 2;
+  string client = 3;
+  string location = 4;
+  WorkflowStatus status = 5;
+  repeated GRPCStepTracker stepTrackers = 6;
+  WorkflowType type = 7;
 }
 
 message GRPCTemplate {
@@ -108,6 +116,7 @@ message GRPCEventTracker {
   string eventName = 12;
   int64 workflowId = 13;
   repeated GRPCParameterTracker parameterTrackers = 14;
+  bool doubleCheck = 15;
 }
 
 message GRPCParameterTracker {
@@ -134,6 +143,7 @@ message GRPCStepTracker {
   string stepName = 12;
   repeated GRPCEventTracker eventTrackers = 13;
   int64 workflowId = 14;
+  bool doubleCheck = 15;
 }
 
 message GRPCStepTrackers {
@@ -207,4 +217,19 @@ message GRPCParameters {
 message GRPCParentChildRequest {
   int64 parent = 1;
   repeated int64 childIds = 2;
+}
+
+message GRPCParentChildNameRequest {
+  int64 parent = 1;
+  string childName=2;
+}
+
+message GRPCParameterTrackers {
+  repeated GRPCParameterTracker parameterTrackers = 1;
+}
+
+message GRPCWorkflowValidation {
+  int64 parent = 1;
+  string trackerName = 2;
+  string username = 3;
 }

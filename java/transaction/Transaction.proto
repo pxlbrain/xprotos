@@ -14,6 +14,46 @@ service TransactionService {
   rpc AddTransactionReport (AddReports) returns (Void) {}
   rpc GetReportById (ReportId) returns (ReportItemRes) {}
   rpc GetCheckScanTransactionById (TransactionId) returns (Transaction) {}
+  rpc CreateCheckScanTransactionReport (CheckScanReport) returns (Void) {}
+  rpc CheckDateRange (CheckScanReport) returns (ValidateDateRange) {}
+  rpc GetAutomaticCheckScanReports (CheckscanReports) returns (AutoCheckscanReports) {}
+  rpc GetCheckScanReportsById (ReportId) returns (CheckscanReportItems) {}
+}
+
+message CheckscanReportItems {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated CheckscanReportItem reports = 4;
+}
+
+message CheckscanReportItem {
+  string transactionId = 1;
+  string productDeviationSize = 2;
+  bool productDeviation = 3;
+}
+
+message CheckscanReports {
+  string client = 1;
+  string location = 2;
+  repeated GRPCFilter filter = 3;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
+}
+
+message AutoCheckscanReports {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated AutoCheckscanReport reports = 4;
+}
+
+message AutoCheckscanReport {
+  string id = 1;
+  string startDate = 2;
+  string endDate = 3;
+  int32 count = 4;
+  int32 failed = 5;
 }
 
 message ReportItemRes {
@@ -219,4 +259,15 @@ message ReportId {
   string id = 1;
   int32 page = 2;
   int32 size = 3;
+}
+
+message CheckScanReport {
+  string client = 1;
+  string location = 2;
+  string dateFrom = 3;
+  string dateTo = 4;
+}
+
+message ValidateDateRange {
+  string message = 1;
 }
