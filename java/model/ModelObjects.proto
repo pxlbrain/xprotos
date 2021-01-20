@@ -234,6 +234,7 @@ message ProductJobs {
   string productListId = 5;
   bool active = 6;
   string workflowId = 7;
+  string user = 8;
 }
 
 message GRPCClusterResponse {
