@@ -306,6 +306,7 @@ message JModelRequest {
   bool classifier = 14;
   bool mlc = 15;
   bool detector = 16;
+  string user = 17;
 }
 
 message JModelResponses {
@@ -698,6 +699,7 @@ message DatasetPayloadResponse {
   string customName = 9;
   bool archived = 10;
   repeated GRPCJob jobs = 11;
+  string workflowId = 12;
 }
 
 message DatasetsHistory {
