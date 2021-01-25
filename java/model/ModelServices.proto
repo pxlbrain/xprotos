@@ -176,9 +176,11 @@ service JModelService {
   }
   rpc UpdateModel(JModelRequest) returns (JModelResponse) {
   }
-  rpc getNumberOfClasses(ModelId) returns (NumberOfItems)  {
+  rpc GetNumberOfClasses(ModelId) returns (NumberOfItems)  {
   }
-  rpc getNumberOfImages(ModelId) returns (NumberOfItems)  {
+  rpc GetNumberOfImages(ModelId) returns (NumberOfItems)  {
+  }
+  rpc GetModelByModelVersion(ModelId) returns (JModelResponse)  {
   }
 }
 
