@@ -77,6 +77,7 @@ message GRPCStep {
   bool doubleCheck = 6;
   string name = 7;
   repeated GRPCEvent events = 8;
+  string type = 9;
 }
 
 message GRPCEvent {
@@ -116,6 +117,8 @@ message GRPCEventTracker {
   string eventName = 12;
   int64 workflowId = 13;
   repeated GRPCParameterTracker parameterTrackers = 14;
+  bool doubleCheck = 15;
+  string type  = 16;
 }
 
 message GRPCParameterTracker {
@@ -125,6 +128,7 @@ message GRPCParameterTracker {
   WorkflowStatus status = 8;
   string eventName = 9;
   int64 workflowId = 10;
+  string eventType = 11;
 }
 
 message GRPCStepTracker {
@@ -142,6 +146,8 @@ message GRPCStepTracker {
   string stepName = 12;
   repeated GRPCEventTracker eventTrackers = 13;
   int64 workflowId = 14;
+  bool doubleCheck = 15;
+  string type  = 16;
 }
 
 message GRPCStepTrackers {
@@ -217,6 +223,19 @@ message GRPCParentChildRequest {
   repeated int64 childIds = 2;
 }
 
+message GRPCParentChildNameRequest {
+  int64 parent = 1;
+  string childName= 2;
+  string type = 3;
+}
+
 message GRPCParameterTrackers {
   repeated GRPCParameterTracker parameterTrackers = 1;
+}
+
+message GRPCWorkflowValidation {
+  int64 parent = 1;
+  string trackerName = 2;
+  string username = 3;
+  string type =4;
 }

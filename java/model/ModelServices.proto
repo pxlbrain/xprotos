@@ -56,17 +56,18 @@ service CVATService {
 }
 
 service CallbackService {
-  rpc dumpCallback (GRPCScheduleResponse) returns (Void) {
+  rpc DumpCallback (GRPCScheduleResponse) returns (Void) {
   }
-  rpc taskCallback (GRPCCreateTaskResponse) returns (Void) {
+  rpc TaskCallback (GRPCCreateTaskResponse) returns (Void) {
   }
-  rpc postCallback (GRPCPostDataResponse) returns (Void) {
+  rpc PostCallback (GRPCPostDataResponse) returns (Void) {
   }
-  rpc clusterCallback (GRPCClusterResponse) returns (Void) {
+  rpc ClusterCallback (GRPCClusterResponse) returns (Void) {
   }
   rpc TrainingDoneCallback (GRPCTrainingResponse) returns (Void) {
   }
-
+  rpc PreannotationDoneCallback (GRPCAutoAnnotationResponse) returns (Void) {
+  }
 }
 
 service DatasetService {
@@ -175,9 +176,11 @@ service JModelService {
   }
   rpc UpdateModel(JModelRequest) returns (JModelResponse) {
   }
-  rpc getNumberOfClasses(ModelId) returns (NumberOfItems)  {
+  rpc GetNumberOfClasses(ModelId) returns (NumberOfItems)  {
   }
-  rpc getNumberOfImages(ModelId) returns (NumberOfItems)  {
+  rpc GetNumberOfImages(ModelId) returns (NumberOfItems)  {
+  }
+  rpc GetModelByModelVersion(ModelId) returns (JModelResponse)  {
   }
 }
 
