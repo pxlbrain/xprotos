@@ -140,7 +140,11 @@ message Item {
   string productType = 6;
   string posTimestamp = 7;
   int32 quantity = 8;
-  Coordinate trackingResult = 9;
+  repeated Coordinate bag = 9;
+  repeated Coordinate cart = 10;
+  repeated Coordinate hand = 11;
+  repeated Coordinate product = 12;
+  repeated Coordinate person = 13;
 }
 
 message Bbs {
