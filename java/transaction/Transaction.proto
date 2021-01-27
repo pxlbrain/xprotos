@@ -116,6 +116,7 @@ message Transaction {
   string comment = 18;
   string cameraId = 19;
   bool productDeviation = 20;
+  string productDeviationSize = 21;
 }
 
 message Frame {
