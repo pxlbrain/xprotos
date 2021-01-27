@@ -30,6 +30,8 @@ service JobService {
   };
   rpc AddCustomJob(CreateCustomJob) returns (Void){
   };
+  rpc UpdateJobAfterDeletingUser(UserEmail) returns (Void) {
+  };
 }
 
 service CVATService {
@@ -54,17 +56,18 @@ service CVATService {
 }
 
 service CallbackService {
-  rpc dumpCallback (GRPCScheduleResponse) returns (Void) {
+  rpc DumpCallback (GRPCScheduleResponse) returns (Void) {
   }
-  rpc taskCallback (GRPCCreateTaskResponse) returns (Void) {
+  rpc TaskCallback (GRPCCreateTaskResponse) returns (Void) {
   }
-  rpc postCallback (GRPCPostDataResponse) returns (Void) {
+  rpc PostCallback (GRPCPostDataResponse) returns (Void) {
   }
-  rpc clusterCallback (GRPCClusterResponse) returns (Void) {
+  rpc ClusterCallback (GRPCClusterResponse) returns (Void) {
   }
   rpc TrainingDoneCallback (GRPCTrainingResponse) returns (Void) {
   }
-
+  rpc PreannotationDoneCallback (GRPCAutoAnnotationResponse) returns (Void) {
+  }
 }
 
 service DatasetService {
@@ -84,6 +87,8 @@ service DatasetService {
   }
   rpc GetDatasetJobs (DatasetId) returns (DatasetJobsResponse) {
   }
+  rpc GetDatasetJobsById (DatasetJobsRequest) returns (DatasetJobsResponse) {
+  }
   rpc GetDatasetsForMergeByType (ModelTypeRequest) returns (DatasetsMergeResponse) {
   }
   rpc GetDatasetById (DatasetId) returns (DatasetPayloadResponse) {
@@ -94,6 +99,8 @@ service DatasetService {
   }
   rpc CreateDatasetForClassifierOrMlc (NewDatasetRequest) returns (Void){
   }
+  rpc CreateDatasetForDetector (NewDetectorDatasetRequest) returns (Void){
+  }
   rpc AssignDatasetToModels (AssignDatasetToModelsRequest) returns (Void){
   }
   rpc GetModelsByDataset(DatasetId) returns (DatasetModels){
@@ -102,6 +109,8 @@ service DatasetService {
   }
   rpc AddCustomJobToDataset(CustomJob) returns (Void){
   }
+  rpc ActivateDetectorJobs(ActivateDetectorJobsRequest) returns (Void) {
+  };
 }
 
 service JModelService {
@@ -166,6 +175,12 @@ service JModelService {
   rpc SetBestEpoch(BestEpoch) returns (Void){
   }
   rpc UpdateModel(JModelRequest) returns (JModelResponse) {
+  }
+  rpc GetNumberOfClasses(ModelId) returns (NumberOfItems)  {
+  }
+  rpc GetNumberOfImages(ModelId) returns (NumberOfItems)  {
+  }
+  rpc GetModelByModelVersion(ModelId) returns (JModelResponse)  {
   }
 }
 

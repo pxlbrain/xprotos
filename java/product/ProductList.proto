@@ -7,6 +7,7 @@ package ai.pixlbrain.backend;
 import "product/Product.proto";
 import "inventory/Void.proto";
 import "inventory/InventoryObject.proto";
+import "common/Filter.proto";
 
 service ProductListService {
   rpc CreateProductList (ProductList) returns (ProductList) {
@@ -23,7 +24,7 @@ service ProductListService {
   }
   rpc CloneProductList (ProductListId) returns (Void) {
   }
-  rpc ActivateProductList (ProductListId) returns (Void) {
+  rpc ActivateProductList (ListActivateInput) returns (Void) {
   }
   rpc DeleteProductsFromList (ProductsAndProductList) returns (ProductList) {
   }
@@ -31,9 +32,9 @@ service ProductListService {
   }
   rpc GetActiveProductsFromList (ProductListId) returns (Products) {
   }
-  rpc GetProductListByLocation(LocationId) returns (ProductListsLocation) {
+  rpc GetProductListByLocation (LocationId) returns (ProductListsLocation) {
   }
-  rpc GetActiveProductListByLocation(LocationId) returns (ProductListLocation) {
+  rpc GetActiveProductListByLocation (LocationId) returns (ProductListLocation) {
   }
 }
 
@@ -87,4 +88,11 @@ message ProductListLocation {
   string productListId = 1;
   string productListName = 2;
   string productListPath = 3;
+}
+
+
+message ListActivateInput {
+  string productListId = 1;
+  string workflowId = 2;
+  string user = 3;
 }

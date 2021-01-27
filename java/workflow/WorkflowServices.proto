@@ -1,0 +1,136 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+import "workflow/WorkflowObjects.proto";
+import "inventory/Void.proto";
+import "product/Product.proto";
+import "common/Filter.proto";
+
+package ai.pixlbrain.backend;
+
+service ParameterService {
+  rpc CreateParameter (GRPCParameter) returns (GRPCParameter) {
+  };
+  rpc UpdateParameter (GRPCParameter) returns (GRPCParameter) {
+  };
+  rpc DeleteParameter (ID) returns (Void) {
+  };
+  rpc GetParameter (ID) returns (GRPCParameter) {
+  };
+  rpc GetParameters (GRPCGetRequest) returns (GRPCParameterPayloadResponse) {
+  };
+}
+
+service EventService {
+  rpc CreateEvent (GRPCEvent) returns (GRPCEvent) {
+  };
+  rpc UpdateEvent (GRPCEvent) returns (GRPCEvent) {
+  };
+  rpc DeleteEvent (ID) returns (Void) {
+  };
+  rpc GetEvent (ID) returns (GRPCEvent) {
+  };
+  rpc GetEvents (GRPCGetRequest) returns (GRPCEventPayloadResponse) {
+  };
+  rpc AddEventParameters (GRPCParentChildRequest) returns (Void) {
+  };
+  rpc RemoveEventParameters (GRPCParentChildRequest) returns (Void) {
+  };
+}
+
+service StepService {
+  rpc CreateStep (GRPCStep) returns (GRPCStep) {
+  };
+  rpc UpdateStep (GRPCStep) returns (GRPCStep) {
+  };
+  rpc DeleteStep (ID) returns (Void) {
+  };
+  rpc GetStep (ID) returns (GRPCStep) {
+  };
+  rpc GetSteps (GRPCGetRequest) returns (GRPCStepPayloadResponse) {
+  };
+  rpc AddStepEvents (GRPCParentChildRequest) returns (Void) {
+  };
+  rpc RemoveStepEvents (GRPCParentChildRequest) returns (Void) {
+  };
+}
+
+service TemplateService {
+  rpc CreateTemplate (GRPCTemplate) returns (GRPCTemplate) {
+  };
+  rpc UpdateTemplate (GRPCTemplate) returns (GRPCTemplate) {
+  };
+  rpc DeleteTemplate (ID) returns (Void) {
+  };
+  rpc GetTemplate (ID) returns (GRPCTemplate) {
+  };
+  rpc GetTemplates (GRPCGetRequest) returns (GRPCTemplatePayloadResponse) {
+  };
+  rpc AddTemplateSteps (GRPCParentChildRequest) returns (Void) {
+  };
+  rpc RemoveTemplateSteps (GRPCParentChildRequest) returns (Void) {
+  };
+}
+
+service WorkflowService {
+  rpc CreateWorkflow (GRPCWorkflow) returns (GRPCWorkflow) {
+  };
+  rpc UpdateWorkflow (GRPCWorkflow) returns (GRPCWorkflow) {
+  };
+  rpc DeleteWorkflow (ID) returns (Void) {
+  };
+  rpc GetWorkflow (ID) returns (GRPCWorkflow) {
+  };
+  rpc GetWorkflows (GRPCGetRequest) returns (GRPCWorkflowPayloadResponse) {
+  };
+  rpc AddWorkflowHistoryLog (GRPCWorkflowHistory) returns (Void) {
+  };
+  rpc GetWorkflowHistory (GRPCGetRequest) returns (GRPCWorkflowHistoryPayloadResponse) {
+  };
+  rpc AddWorkflowSteps (GRPCParentChildRequest) returns (Void) {
+  };
+  rpc RemoveWorkflowSteps (GRPCParentChildRequest) returns (Void) {
+  };
+  rpc AssignTemplate (GRPCParentChildRequest) returns (Void) {
+  };
+  rpc StartWorkflow (ID) returns (Void) {
+  };
+  rpc GetWorkflowTrackers (ID) returns (GRPCWorkflowTracker) {
+  };
+  rpc ConvertToTemplate(ID) returns (Void) {
+  };
+}
+
+service StepTrackerService {
+  rpc UpdateStepTracker (GRPCStepTracker) returns (GRPCStepTracker) {
+  };
+  rpc GetStepTracker (GRPCParentChildNameRequest) returns (GRPCStepTracker) {
+  };
+  rpc ForceStepValidation (GRPCWorkflowValidation) returns (Void) {
+  };
+  rpc ValidateStep (GRPCWorkflowValidation) returns (Void) {
+  };
+}
+
+service EventTrackerService {
+  rpc UpdateEventTracker (GRPCEventTracker) returns (GRPCEventTracker) {
+  };
+  rpc GetEventTracker (GRPCParentChildNameRequest) returns (GRPCEventTracker) {
+  };
+  rpc ForceEventValidation (GRPCWorkflowValidation) returns (Void) {
+  };
+  rpc ValidateEvent (GRPCWorkflowValidation) returns (Void) {
+  };
+}
+
+service ParameterTrackerService {
+  rpc UpdateParameterTracker (GRPCParameterTracker) returns (GRPCParameterTracker) {
+  };
+  rpc UpdateParameterTrackers (GRPCParameterTrackers) returns (GRPCParameterTrackers) {
+  };
+  rpc GetParameterTracker (GRPCParameterTracker) returns (GRPCParameterTracker) {
+  };
+}
+

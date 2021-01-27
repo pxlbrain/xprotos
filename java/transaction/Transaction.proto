@@ -3,6 +3,7 @@ syntax = "proto3";
 package ai.pixlbrain.backend;
 import "inventory/Void.proto";
 import "product/Product.proto";
+import "common/Filter.proto";
 
 service TransactionService {
   rpc GetTransaction (TransactionId) returns (Transaction) {}
@@ -12,6 +13,47 @@ service TransactionService {
   rpc GetTransactionReports (TransactionReport) returns (TransactionReports) {}
   rpc AddTransactionReport (AddReports) returns (Void) {}
   rpc GetReportById (ReportId) returns (ReportItemRes) {}
+  rpc GetCheckScanTransactionById (TransactionId) returns (Transaction) {}
+  rpc CreateCheckScanTransactionReport (CheckScanReport) returns (Void) {}
+  rpc CheckDateRange (CheckScanReport) returns (ValidateDateRange) {}
+  rpc GetAutomaticCheckScanReports (CheckscanReports) returns (AutoCheckscanReports) {}
+  rpc GetCheckScanReportsById (ReportId) returns (CheckscanReportItems) {}
+}
+
+message CheckscanReportItems {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated CheckscanReportItem reports = 4;
+}
+
+message CheckscanReportItem {
+  string transactionId = 1;
+  string productDeviationSize = 2;
+  bool productDeviation = 3;
+}
+
+message CheckscanReports {
+  string client = 1;
+  string location = 2;
+  repeated GRPCFilter filter = 3;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
+}
+
+message AutoCheckscanReports {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated AutoCheckscanReport reports = 4;
+}
+
+message AutoCheckscanReport {
+  string id = 1;
+  string startDate = 2;
+  string endDate = 3;
+  int32 count = 4;
+  int32 failed = 5;
 }
 
 message ReportItemRes {
@@ -37,6 +79,7 @@ message TransactionReportResp {
   int32 unknownProducts = 8;
   int32 cameraCorrect = 9;
   int32 servingCorrect = 10;
+  bool correct = 11;
 }
 
 message ProductReportRes {
@@ -70,6 +113,9 @@ message Transaction {
   bool checked = 15;
   bool cameraCorrect = 16;
   int32 unknownProducts = 17;
+  string comment = 18;
+  string cameraId = 19;
+  bool productDeviation = 20;
 }
 
 message Frame {
@@ -91,6 +137,14 @@ message Item {
   string name = 3;
   string category = 4;
   repeated Bbs bbs = 5;
+  string productType = 6;
+  string posTimestamp = 7;
+  int32 quantity = 8;
+  repeated Coordinate bag = 9;
+  repeated Coordinate cart = 10;
+  repeated Coordinate hand = 11;
+  repeated Coordinate product = 12;
+  repeated Coordinate person = 13;
 }
 
 message Bbs {
@@ -125,6 +179,7 @@ message TransactionRequest {
   repeated GRPCFilter filter = 2;
   GRPCPaging paging = 3;
   GRPCSorting sorting = 4;
+  string type = 5;
 }
 
 message TransactionId {
@@ -146,6 +201,7 @@ message TransactionReport {
   string username = 3;
   int32 page = 4;
   int32 size = 5;
+  bool isCheckscan = 6;
 }
 
 message TransactionReports {
@@ -192,6 +248,7 @@ message AddReports {
   int32 unknownProducts = 12;
   bool cameraCorrect = 13;
   int32 servingStatistics = 14;
+  bool isCheckScan = 15;
 }
 
 message Report {
@@ -206,4 +263,15 @@ message ReportId {
   string id = 1;
   int32 page = 2;
   int32 size = 3;
+}
+
+message CheckScanReport {
+  string client = 1;
+  string location = 2;
+  string dateFrom = 3;
+  string dateTo = 4;
+}
+
+message ValidateDateRange {
+  string message = 1;
 }

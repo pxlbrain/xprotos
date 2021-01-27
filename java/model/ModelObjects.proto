@@ -6,6 +6,7 @@ option java_package = "ai.pixlbrain.backend";
 
 import "product/Product.proto";
 import "dataset/DatasetObject.proto";
+import "common/Filter.proto";
 
 message GRPCJobs {
   repeated GRPCJob jobs = 1;
@@ -36,6 +37,7 @@ message GRPCJob {
   repeated GRPCJob children = 22;
   string modelId = 23;
   bool trolley = 24;
+  string cvatPreannotationStatus = 25;
 }
 
 message GRPCGetJobsRequest {
@@ -45,6 +47,7 @@ message GRPCGetJobsRequest {
   string type = 4;
   GRPCPaging paging = 5;
   GRPCSorting sorting = 6;
+  repeated GRPCFilter filter = 7;
 }
 
 message GRPCGetJobsResponse {
@@ -207,10 +210,15 @@ message ProductJob {
   repeated ProductJob children = 4;
   string productName = 5;
   string productStatus = 6;
+
 }
 
 message ModelId {
   string id = 1;
+}
+
+message NumberOfItems {
+  int32 number = 1;
 }
 
 message ModelVersion {
@@ -225,6 +233,8 @@ message ProductJobs {
   string name = 4;
   string productListId = 5;
   bool active = 6;
+  string workflowId = 7;
+  string user = 8;
 }
 
 message GRPCClusterResponse {
@@ -296,6 +306,7 @@ message JModelRequest {
   bool classifier = 14;
   bool mlc = 15;
   bool detector = 16;
+  string user = 17;
 }
 
 message JModelResponses {
@@ -688,6 +699,7 @@ message DatasetPayloadResponse {
   string customName = 9;
   bool archived = 10;
   repeated GRPCJob jobs = 11;
+  string workflowId = 12;
 }
 
 message DatasetsHistory {
@@ -705,8 +717,18 @@ message DatasetId {
   string id = 1;
 }
 
+message DatasetJobsRequest {
+  string datasetId = 1;
+  GRPCPaging paging = 2;
+  GRPCSorting sorting = 3;
+  repeated GRPCFilter filter = 4;
+}
+
 message DatasetJobsResponse {
   repeated GRPCJob jobs = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int32 count = 4;
 }
 
 message DatasetsMergeResponse {
@@ -739,6 +761,12 @@ message NewDatasetRequest {
   string location = 2;
   string type = 3;
   repeated DatasetProducts products = 4;
+}
+
+message NewDetectorDatasetRequest {
+  string client = 1;
+  string location = 2;
+  PtagFilter ptagFilter = 3;
 }
 
 message DatasetProducts {
@@ -827,3 +855,15 @@ message BestEpoch {
   string epochPath = 1;
   string modelId = 2;
 }
+
+message ActivateDetectorJobsRequest {
+  repeated GRPCJob jobs = 1;
+  DatasetId datasetId = 2;
+}
+
+message GRPCAutoAnnotationResponse {
+  string taskId = 1;
+  string status = 2;
+  repeated string jobs = 3;
+}
+
