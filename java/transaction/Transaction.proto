@@ -141,11 +141,11 @@ message Item {
   string productType = 6;
   string posTimestamp = 7;
   int32 quantity = 8;
-  repeated Coordinate bag = 9;
-  repeated Coordinate cart = 10;
-  repeated Coordinate hand = 11;
-  repeated Coordinate product = 12;
-  repeated Coordinate person = 13;
+  repeated Bbs bag = 9;
+  repeated Bbs cart = 10;
+  repeated Bbs hand = 11;
+  repeated Bbs product = 12;
+  repeated Bbs person = 13;
 }
 
 message Bbs {
