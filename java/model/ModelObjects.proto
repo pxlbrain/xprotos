@@ -38,6 +38,7 @@ message GRPCJob {
   string modelId = 23;
   bool trolley = 24;
   string cvatPreannotationStatus = 25;
+  string serviceType = 26;
 }
 
 message GRPCGetJobsRequest {
@@ -235,6 +236,7 @@ message ProductJobs {
   bool active = 6;
   string workflowId = 7;
   string user = 8;
+  string serviceType = 9;
 }
 
 message GRPCClusterResponse {
@@ -350,6 +352,7 @@ message PtagFilter {
   repeated string cameras = 8;
   string filterLocation = 9;
   string uploadedDate = 10;
+  string serviceType = 11;
 }
 
 message ClusterFilter {
