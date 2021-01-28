@@ -178,7 +178,6 @@ message ProductsAndProductList {
 
 message ProductListId {
   string id = 1;
-  string serviceType = 2;
 }
 
 message DateRange {
