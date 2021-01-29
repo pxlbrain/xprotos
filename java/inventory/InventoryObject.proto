@@ -480,6 +480,7 @@ message ScheduleTaskRequest {
     string source = 12;
     string date = 13;
     string username = 14;
+    string role = 15;
 }
 
 message EventScheduling {
