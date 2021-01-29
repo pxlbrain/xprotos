@@ -88,6 +88,7 @@ message ProductListLocation {
   string productListId = 1;
   string productListName = 2;
   string productListPath = 3;
+  string productListType = 4;
 }
 
 
