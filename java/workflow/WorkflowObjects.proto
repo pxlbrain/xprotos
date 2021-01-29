@@ -77,7 +77,6 @@ message GRPCStep {
   bool doubleCheck = 6;
   string name = 7;
   repeated GRPCEvent events = 8;
-  string type = 9;
 }
 
 message GRPCEvent {
@@ -147,7 +146,6 @@ message GRPCStepTracker {
   repeated GRPCEventTracker eventTrackers = 13;
   int64 workflowId = 14;
   bool doubleCheck = 15;
-  string type  = 16;
 }
 
 message GRPCStepTrackers {

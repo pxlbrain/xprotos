@@ -309,6 +309,7 @@ message JModelRequest {
   bool mlc = 15;
   bool detector = 16;
   string user = 17;
+  string role = 18;
 }
 
 message JModelResponses {
@@ -770,6 +771,8 @@ message NewDetectorDatasetRequest {
   string client = 1;
   string location = 2;
   PtagFilter ptagFilter = 3;
+  string workflowId = 4;
+  string user = 5;
 }
 
 message DatasetProducts {
