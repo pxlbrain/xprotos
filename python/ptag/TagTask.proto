@@ -1,10 +1,24 @@
 syntax = "proto3";
 package ai.pixlbrain.backend;
 
+import "google/protobuf/any.proto";
+
+
+message TransformationFields {
+    string field = 1;
+    map<string, google.protobuf.Any> arguments = 2;
+    string name = 3;
+};
+
+message ListTransformations {
+    repeated TransformationFields transformations = 1;
+};
+
 message TagTask {
     string taskId = 1;
     string data = 2;
     string pattern = 3;
     string timestamp = 4;
     string clientId = 5;
+    ListTransformations transform = 6;
 };

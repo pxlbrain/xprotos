@@ -38,6 +38,7 @@ message GRPCJob {
   string modelId = 23;
   bool trolley = 24;
   string cvatPreannotationStatus = 25;
+  string serviceType = 26;
 }
 
 message GRPCGetJobsRequest {
@@ -235,6 +236,7 @@ message ProductJobs {
   bool active = 6;
   string workflowId = 7;
   string user = 8;
+  string serviceType = 9;
 }
 
 message GRPCClusterResponse {
@@ -306,6 +308,8 @@ message JModelRequest {
   bool classifier = 14;
   bool mlc = 15;
   bool detector = 16;
+  string user = 17;
+  string role = 18;
 }
 
 message JModelResponses {
@@ -349,6 +353,7 @@ message PtagFilter {
   repeated string cameras = 8;
   string filterLocation = 9;
   string uploadedDate = 10;
+  string serviceType = 11;
 }
 
 message ClusterFilter {
@@ -698,6 +703,7 @@ message DatasetPayloadResponse {
   string customName = 9;
   bool archived = 10;
   repeated GRPCJob jobs = 11;
+  string workflowId = 12;
 }
 
 message DatasetsHistory {
@@ -765,6 +771,8 @@ message NewDetectorDatasetRequest {
   string client = 1;
   string location = 2;
   PtagFilter ptagFilter = 3;
+  string workflowId = 4;
+  string user = 5;
 }
 
 message DatasetProducts {

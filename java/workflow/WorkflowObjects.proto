@@ -117,6 +117,7 @@ message GRPCEventTracker {
   int64 workflowId = 13;
   repeated GRPCParameterTracker parameterTrackers = 14;
   bool doubleCheck = 15;
+  string type  = 16;
 }
 
 message GRPCParameterTracker {
@@ -126,6 +127,7 @@ message GRPCParameterTracker {
   WorkflowStatus status = 8;
   string eventName = 9;
   int64 workflowId = 10;
+  string eventType = 11;
 }
 
 message GRPCStepTracker {
@@ -221,7 +223,8 @@ message GRPCParentChildRequest {
 
 message GRPCParentChildNameRequest {
   int64 parent = 1;
-  string childName=2;
+  string childName= 2;
+  string type = 3;
 }
 
 message GRPCParameterTrackers {
@@ -232,4 +235,5 @@ message GRPCWorkflowValidation {
   int64 parent = 1;
   string trackerName = 2;
   string username = 3;
+  string type =4;
 }

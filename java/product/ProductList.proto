@@ -96,4 +96,5 @@ message ListActivateInput {
   string productListId = 1;
   string workflowId = 2;
   string user = 3;
+  string serviceType = 4;
 }

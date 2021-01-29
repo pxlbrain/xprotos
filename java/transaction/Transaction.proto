@@ -116,6 +116,7 @@ message Transaction {
   string comment = 18;
   string cameraId = 19;
   bool productDeviation = 20;
+  string productDeviationSize = 21;
 }
 
 message Frame {
@@ -140,7 +141,11 @@ message Item {
   string productType = 6;
   string posTimestamp = 7;
   int32 quantity = 8;
-  Coordinate trackingResult = 9;
+  repeated Bbs bag = 9;
+  repeated Bbs cart = 10;
+  repeated Bbs hand = 11;
+  repeated Bbs product = 12;
+  repeated Bbs person = 13;
 }
 
 message Bbs {
