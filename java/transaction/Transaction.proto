@@ -24,7 +24,12 @@ message CheckscanReportItems {
   int32 page = 1;
   int32 size = 2;
   int32 count = 3;
-  repeated CheckscanReportItem reports = 4;
+  int32 failed = 4;
+  string client = 5;
+  string location = 6;
+  string startDate = 7;
+  string endDate = 8;
+  repeated CheckscanReportItem reports = 9;
 }
 
 message CheckscanReportItem {
