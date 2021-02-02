@@ -101,6 +101,8 @@ service WorkflowService {
   };
   rpc ConvertToTemplate(ID) returns (Void) {
   };
+  rpc ReassignTemplate (GRPCParentChildRequest) returns (Void) {
+  };
 }
 
 service StepTrackerService {
@@ -122,6 +124,8 @@ service EventTrackerService {
   rpc ForceEventValidation (GRPCWorkflowValidation) returns (Void) {
   };
   rpc ValidateEvent (GRPCWorkflowValidation) returns (Void) {
+  };
+  rpc GetEventTrackers (ID) returns (GRPCEventTrackers) {
   };
 }
 
