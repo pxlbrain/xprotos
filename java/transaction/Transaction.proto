@@ -59,6 +59,7 @@ message AutoCheckscanReport {
   string endDate = 3;
   int32 count = 4;
   int32 failed = 5;
+  string username = 6;
 }
 
 message ReportItemRes {
@@ -276,6 +277,7 @@ message CheckScanReport {
   string location = 2;
   string dateFrom = 3;
   string dateTo = 4;
+  string username = 5;
 }
 
 message ValidateDateRange {
