@@ -101,7 +101,7 @@ service WorkflowService {
   };
   rpc ConvertToTemplate(ID) returns (Void) {
   };
-  rpc ReassignTemplate (GRPCParentChildRequest) returns (Void) {
+  rpc ReassignTemplate (ID) returns (Void) {
   };
 }
 
