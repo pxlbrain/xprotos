@@ -369,6 +369,7 @@ message ClusterFilter {
   string clusterBatchSize = 10;
   string fileType = 11;
   string numberAroundCluster = 12;
+  string serviceType = 13;
 }
 
 message DeviceCameraGRPC {
