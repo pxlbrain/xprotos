@@ -546,3 +546,21 @@ message AssignDeviceIsoFile {
     DeviceId deviceId = 1;
     DeviceIsoFileId deviceIsoFileId = 2;
 }
+
+message QueueStatusConfiguration {
+    string location = 1;
+    repeated QueueStatusRule queueStatusRules = 2;
+}
+
+message QueueStatusRule {
+    string id = 1;
+    string status = 2;
+    string thresholdFrom = 3;
+    string thresholdTo = 4;
+    string color = 5;
+    string location = 6;
+}
+
+message QueueStatusRuleId {
+    string id = 1;
+}
