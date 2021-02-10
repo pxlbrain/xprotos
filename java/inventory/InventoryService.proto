@@ -167,3 +167,15 @@ service DeviceIsoFileService {
   }
 }
 
+service QueueStatusService {
+  rpc GetQueueStatusConfigurationByLocation (LocationId) returns (QueueStatusConfiguration) {
+  }
+  rpc SaveQueueStatusConfiguration (QueueStatusConfiguration) returns (QueueStatusConfiguration) {
+  }
+  rpc SaveQueueStatusRule (QueueStatusRule) returns (QueueStatusRule) {
+  }
+  rpc deleteQueueStatusRule (QueueStatusRuleId) returns (Void) {
+  }
+  rpc deleteQueueStatusConfigurationByLocation (LocationId) returns (Void) {
+  }
+}
