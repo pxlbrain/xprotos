@@ -178,4 +178,6 @@ service QueueStatusService {
   }
   rpc deleteQueueStatusConfigurationByLocation (LocationId) returns (Void) {
   }
+  rpc validateQueueStatusConfiguration(LocationId) returns (Void) {
+  }
 }
