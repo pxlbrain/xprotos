@@ -1,0 +1,9 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "ArchiveObject.proto";
+
+service ArchiveService {
+    rpc Backup(ArchiveRequest) returns (ArchiveResponse) {};
+    rpc Restore(ArchiveRequest) returns (ArchiveResponse) {};
+};
