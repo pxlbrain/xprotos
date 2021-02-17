@@ -7,6 +7,7 @@ option java_package = "ai.pixlbrain.backend";
 
 import "google/protobuf/wrappers.proto";
 import "inventory/Void.proto";
+import "product/Product.proto";
 
 service ProductCategoryService {
   rpc GetAllProductCategories (GRPCProductCategoriesRequest) returns (GRPCProductCategories) {
@@ -19,6 +20,7 @@ service ProductCategoryService {
 
 message GRPCProductCategoriesRequest {
   string client = 1;
+  GRPCPaging paging = 2;
 }
 
 message GRPCProductCategories {
