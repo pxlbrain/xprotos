@@ -850,6 +850,7 @@ message CreateCustomJob {
   string locationId = 1;
   string client = 2;
   repeated JobMap filters = 3;
+  string serviceType = 4;
 }
 
 message JobMap {
