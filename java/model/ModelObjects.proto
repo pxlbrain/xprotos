@@ -244,6 +244,7 @@ message GRPCClusterResponse {
   string client = 2;
   string location = 3;
   string date = 4;
+  string serviceType = 5;
 }
 
 message GRPCCluster {
@@ -369,6 +370,7 @@ message ClusterFilter {
   string clusterBatchSize = 10;
   string fileType = 11;
   string numberAroundCluster = 12;
+  string serviceType = 13;
 }
 
 message DeviceCameraGRPC {

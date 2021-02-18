@@ -237,3 +237,8 @@ message GRPCWorkflowValidation {
   string username = 3;
   string type =4;
 }
+
+message GRPCEventTrackers {
+  repeated GRPCEventTracker eventTrackers = 1;
+}
+

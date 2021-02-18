@@ -18,13 +18,20 @@ service TransactionService {
   rpc CheckDateRange (CheckScanReport) returns (ValidateDateRange) {}
   rpc GetAutomaticCheckScanReports (CheckscanReports) returns (AutoCheckscanReports) {}
   rpc GetCheckScanReportsById (ReportId) returns (CheckscanReportItems) {}
+  rpc GetActiveReports (GetActiveReport) returns (ActiveReports) {}
+  rpc CompleteReport (ReportStop) returns (Void) {}
 }
 
 message CheckscanReportItems {
   int32 page = 1;
   int32 size = 2;
   int32 count = 3;
-  repeated CheckscanReportItem reports = 4;
+  int32 failed = 4;
+  string client = 5;
+  string location = 6;
+  string startDate = 7;
+  string endDate = 8;
+  repeated CheckscanReportItem reports = 9;
 }
 
 message CheckscanReportItem {
@@ -54,6 +61,7 @@ message AutoCheckscanReport {
   string endDate = 3;
   int32 count = 4;
   int32 failed = 5;
+  string username = 6;
 }
 
 message ReportItemRes {
@@ -203,6 +211,8 @@ message TransactionReport {
   int32 page = 4;
   int32 size = 5;
   bool isCheckscan = 6;
+  string reportId = 7;
+  string name = 8;
 }
 
 message TransactionReports {
@@ -227,6 +237,7 @@ message ReportResponse {
   int32 unknownProducts = 8;
   int32 cameraCorrect = 9;
   int32 servingCorrect = 10;
+  string name = 11;
 }
 
 message StatisticsReport {
@@ -250,6 +261,7 @@ message AddReports {
   bool cameraCorrect = 13;
   int32 servingStatistics = 14;
   bool isCheckScan = 15;
+  string reportId = 16;
 }
 
 message Report {
@@ -271,8 +283,30 @@ message CheckScanReport {
   string location = 2;
   string dateFrom = 3;
   string dateTo = 4;
+  string username = 5;
 }
 
 message ValidateDateRange {
   string message = 1;
+}
+
+message GetActiveReport {
+  string client = 1;
+  string location = 2;
+}
+
+message ActiveReports {
+  repeated ActiveReport reports = 1;
+}
+
+message ActiveReport {
+  string name = 1;
+  string id = 2;
+}
+
+message ReportStop {
+  string client = 1;
+  string location = 2;
+  bool isCheckScan = 3;
+  string reportId = 4;
 }

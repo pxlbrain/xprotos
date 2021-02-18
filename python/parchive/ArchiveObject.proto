@@ -1,0 +1,11 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+message ArchiveRequest {
+    string path = 1;
+    int32 chunks = 2;
+};
+
+message ArchiveResponse {
+    string path = 1;
+};

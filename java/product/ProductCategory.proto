@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend;
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+import "google/protobuf/wrappers.proto";
+import "inventory/Void.proto";
+import "product/Product.proto";
+
+service ProductCategoryService {
+  rpc GetAllProductCategories (GRPCProductCategoriesRequest) returns (GRPCProductCategories) {
+  }
+  rpc DeleteProductCategory (ProductCategoryId) returns (Void) {
+  }
+  rpc SaveProductCategory (GRPCProductCategoryRequest) returns (ProductCategory) {
+  }
+}
+
+message GRPCProductCategoriesRequest {
+  string client = 1;
+  GRPCPaging paging = 2;
+}
+
+message GRPCProductCategories {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated ProductCategory payload = 4;
+}
+
+message ProductCategoryId {
+  int64 id = 1;
+}
+
+message GRPCProductCategoryRequest {
+  string id = 1;
+  string createdBy = 2;
+  string name = 3;
+  string value = 4;
+  string client = 5;
+}
+
+message ProductCategory {
+  string id = 1;
+  string createdBy = 2;
+  string name = 3;
+  string value = 4;
+  string client = 5;
+  string created = 6;
+}
