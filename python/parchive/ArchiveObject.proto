@@ -6,11 +6,6 @@ enum RetrieveType {
    STANDARD = 1;
 };
 
-enum DeleteAfterBackup {
-    FALSE = 0;
-    TRUE = 1;
-};
-
 message ArchiveRequest {
     string path = 1;
     int32 chunks = 2;
@@ -18,7 +13,7 @@ message ArchiveRequest {
     string chunkName = 4;
     int32 expirationDays = 5;
     RetrieveType retrieveType = 6;
-    DeleteAfterBackup deleteAfterBackup = 7;
+    bool deleteAfterBackup = 7;
 
 };
 
