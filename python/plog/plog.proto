@@ -8,7 +8,7 @@ message LogTask {
 message Content {
        string client = 1;
        string location = 2;
-       string device = 3;
+       string device_id = 3;
        string status = 4;
        string description = 5;
        string service_name = 6;
