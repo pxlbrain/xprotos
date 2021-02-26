@@ -30,6 +30,7 @@ message Device {
     bool grpc = 21;
     bool ssh = 22;
     string username = 23;
+    bool yepkit = 24;
 }
 
 
