@@ -182,6 +182,10 @@ service JModelService {
   }
   rpc GetModelByModelVersion(ModelId) returns (JModelResponse)  {
   }
+  rpc DeletePod (ModelId) returns (Void) {
+  }
+  rpc CheckPodStatus (ModelId) returns (Void) {
+  }
 }
 
 service ConfigurationService {
