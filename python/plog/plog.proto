@@ -2,10 +2,14 @@ syntax = "proto3";
 package ai.pixlbrain.backend;
 
 message LogTask {
-    string clientId = 1;
-    string location = 2;
-    string deviceId = 3;
-    string content = 4;
-    string timestamp = 5;
-    string service = 6;
-};
+    repeated Content content = 1;
+}
+
+message Content {
+       string client = 1;
+       string location = 2;
+       string device_id = 3;
+       string status = 4;
+       string description = 5;
+       string service_name = 6;
+}

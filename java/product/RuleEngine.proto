@@ -27,6 +27,8 @@ message RuleEngine {
     string username = 8;
     repeated PlateFilter plateFiltering = 9;
     repeated string otherFiltering = 10;
+    float overlapTreshold = 11;
+    int32 sizeTreshold = 12;
 }
 
 message PlateFilter {

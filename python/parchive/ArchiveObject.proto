@@ -1,9 +1,20 @@
 syntax = "proto3";
 package ai.pixlbrain.backend;
 
+enum RetrieveType {
+   BULK = 0;
+   STANDARD = 1;
+};
+
 message ArchiveRequest {
     string path = 1;
     int32 chunks = 2;
+    string pathId = 3;
+    string chunkName = 4;
+    int32 expirationDays = 5;
+    RetrieveType retrieveType = 6;
+    bool deleteAfterBackup = 7;
+
 };
 
 message ArchiveResponse {
