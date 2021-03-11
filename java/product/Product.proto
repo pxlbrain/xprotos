@@ -151,6 +151,7 @@ message Product {
   repeated NameId mistakenProducts = 21;
   repeated ProductImageResponse productImages = 22;
   string obid = 23;
+  string type = 24;
 }
 
 message MHSProduct {
