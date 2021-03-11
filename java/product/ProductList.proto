@@ -44,6 +44,7 @@ message GRPCProductListGetRequest {
   repeated GRPCFilter filter = 3;
   GRPCPaging paging = 4;
   GRPCSorting sorting = 5;
+  string type = 6;
 }
 
 message ProductList {
@@ -59,6 +60,7 @@ message ProductList {
   repeated string productIds = 11;
   string path = 12;
   string type = 13;
+  string globalType = 14;
 }
 
 message UpdateList {
