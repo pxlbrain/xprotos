@@ -355,6 +355,7 @@ message PtagFilter {
   string filterLocation = 9;
   string uploadedDate = 10;
   string serviceType = 11;
+  bool preannotation = 12;
 }
 
 message ClusterFilter {
@@ -525,6 +526,7 @@ message CreatePodRequest {
   string type = 3;
   string trainingName = 4;
   string epochPath = 5;
+  bool overwrite = 6;
 }
 
 message TrainingModelResponse {
@@ -540,6 +542,7 @@ message TrainingModelResponse {
   string trainingType = 10;
   repeated TrainingImage trainingImages = 11;
   string created = 12;
+  string description = 13;
 }
 
 message TrainingId {
@@ -609,6 +612,7 @@ message IntegrationTraining {
   double nmsThreshold = 4;
   string trainingName = 5;
   string epochPath = 6;
+  bool overwrite = 7;
 }
 
 message InferenceValues {
@@ -876,3 +880,10 @@ message GRPCAutoAnnotationResponse {
   repeated string jobs = 3;
 }
 
+message ModelIds {
+  repeated string modelIds = 1;
+}
+
+message PodStatusResponse {
+  string podStatus = 1;
+}
