@@ -184,7 +184,7 @@ service JModelService {
   }
   rpc DeletePod (ModelId) returns (Void) {
   }
-  rpc CheckPodStatus (ModelId) returns (Void) {
+  rpc CheckPodStatus (ModelIds) returns (PodStatusResponse) {
   }
 }
 
