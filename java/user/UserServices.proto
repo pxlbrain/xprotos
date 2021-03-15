@@ -47,4 +47,5 @@ service RoleService {
 
 service ReferenceLookupService {
   rpc GetReferenceLookup (ReferenceLookupRequest) returns (ReferenceLookupResponse);
+  rpc GetReferenceLookupOrdered (ReferenceLookupRequest) returns (ReferenceLookupResponse);
 }
