@@ -86,6 +86,8 @@ service ProductService {
   }
   rpc RemoveMistakenProducts (DeleteProductItemRequest) returns (Void) {
   }
+  rpc GetProductById (Id) returns (Product) {
+  }
 }
 
 
