@@ -521,12 +521,9 @@ message TrainingImagesResponse {
 }
 
 message CreatePodRequest {
-  repeated string modelIds = 1;
-  string username = 2;
-  string type = 3;
-  string trainingName = 4;
-  string epochPath = 5;
-  bool overwrite = 6;
+  string trainingId = 1;
+  string epochPath = 2;
+  bool overwrite = 3;
 }
 
 message TrainingModelResponse {
@@ -886,4 +883,11 @@ message ModelIds {
 
 message PodStatusResponse {
   string podStatus = 1;
+}
+
+message CreateModelTraining {
+  repeated string modelIds = 1;
+  string username = 2;
+  string type = 3;
+  string trainingName = 4;
 }

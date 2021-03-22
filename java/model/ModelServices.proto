@@ -186,6 +186,8 @@ service JModelService {
   }
   rpc CheckPodStatus (ModelIds) returns (PodStatusResponse) {
   }
+  rpc CreateTraining (CreateModelTraining) returns (TrainingModelResponse) {
+  }
 }
 
 service ConfigurationService {
