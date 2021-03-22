@@ -86,6 +86,8 @@ service ProductService {
   }
   rpc RemoveMistakenProducts (DeleteProductItemRequest) returns (Void) {
   }
+  rpc GetProductById (Id) returns (Product) {
+  }
 }
 
 
@@ -118,6 +120,7 @@ message BytesWrapper {
 message GRPCProductRequest {
   string locationId = 1;
   Product product = 2;
+  string client = 3;
 }
 
 message GRPCProductResposne {
@@ -151,7 +154,7 @@ message Product {
   repeated NameId mistakenProducts = 21;
   repeated ProductImageResponse productImages = 22;
   string obid = 23;
-  string type = 24;
+  string globalType = 24;
 }
 
 message MHSProduct {
