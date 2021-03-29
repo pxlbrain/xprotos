@@ -3,6 +3,7 @@ package ai.pixlbrain.backend;
 
 option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
+import "common/Enums.proto";
 
 enum WorkflowStatus {
   PENDING = 0;
@@ -45,6 +46,7 @@ message GRPCWorkflow {
   GRPCTemplate template = 10;
   repeated GRPCStep steps = 11;
   WorkflowType type = 12;
+  GRPCGlobalType globalType = 13;
 }
 
 message GRPCWorkflowTracker {
