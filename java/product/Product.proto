@@ -88,6 +88,8 @@ service ProductService {
   }
   rpc GetProductById (Id) returns (Product) {
   }
+  rpc GetProductsByType (GRPCGetByTypeRequest) returns (GRPCProductResposne) {
+  }
 }
 
 
@@ -203,6 +205,9 @@ message GRPCGetRequest {
   GRPCPaging paging = 3;
   GRPCSorting sorting = 4;
   int64 id = 5;
+  string location = 6;
+  string client = 7;
+  string globalType = 8;
 }
 
 message GRPCPaging {
@@ -234,6 +239,7 @@ message ProductsRequest {
   repeated string productIds = 1;
   string client = 2;
   string locationId = 3;
+  string globalType = 4;
 }
 
 message LocationAndDeviceId {
@@ -256,6 +262,7 @@ message ProductImages {
   string location = 2;
   string productId = 3;
   repeated ProductImage productImages = 4;
+  string globalType = 5;
 }
 
 message ProductImage {
@@ -277,6 +284,7 @@ message DeleteProductImagesRequest {
   string location = 2;
   string productId = 3;
   repeated string imageIds = 4;
+  string globalType = 5;
 }
 
 message UpdateImageRequest {
@@ -303,4 +311,14 @@ message ProductDatasetByTypeRequest {
   string client = 2;
   string location = 3;
   repeated string productNames = 4;
+}
+
+message GRPCGetByTypeRequest {
+  string globalType = 1;
+  string client = 2;
+  string locationId = 3;
+  string status = 4;
+  repeated GRPCFilter filter = 5;
+  GRPCPaging paging = 6;
+  GRPCSorting sorting = 7;
 }
