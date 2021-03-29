@@ -24,6 +24,7 @@ message GRPCUser {
   string email = 7;
   repeated GRPCRole roles = 8;
   repeated GRPCScope scopes = 9;
+  bool cvat = 10;
 }
 
 message GRPCScope {
