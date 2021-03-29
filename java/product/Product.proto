@@ -108,6 +108,8 @@ message UploadId {
   bool isNew = 2;
   string listId = 3;
   string location = 4;
+  string client = 5;
+  string globalType = 6;
 }
 
 message Id {
