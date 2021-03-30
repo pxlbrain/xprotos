@@ -57,6 +57,7 @@ message GRPCWorkflowTracker {
   WorkflowStatus status = 5;
   repeated GRPCStepTracker stepTrackers = 6;
   WorkflowType type = 7;
+  GRPCGlobalType globalType = 8;
 }
 
 message GRPCTemplate {
