@@ -40,6 +40,9 @@ message GRPCProductCategoryRequest {
   string name = 3;
   string value = 4;
   string client = 5;
+  bool isVisible = 6;
+  int32 numberOfProducts = 7;
+  string parent = 8;
 }
 
 message ProductCategory {
@@ -49,4 +52,7 @@ message ProductCategory {
   string value = 4;
   string client = 5;
   string created = 6;
+  bool isVisible = 7;
+  int32 numberOfProducts = 8;
+  repeated ProductCategory subcategories = 9;
 }
