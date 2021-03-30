@@ -159,6 +159,8 @@ message Product {
   repeated ProductImageResponse productImages = 22;
   string obid = 23;
   string globalType = 24;
+  bool isVisible = 25;
+  bool isVirtual = 26;
 }
 
 message MHSProduct {
