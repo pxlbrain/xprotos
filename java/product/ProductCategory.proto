@@ -21,6 +21,7 @@ service ProductCategoryService {
 message GRPCProductCategoriesRequest {
   string client = 1;
   GRPCPaging paging = 2;
+  repeated GRPCFilter filter = 3;
 }
 
 message GRPCProductCategories {
