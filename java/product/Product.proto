@@ -161,6 +161,7 @@ message Product {
   string globalType = 24;
   bool isVisible = 25;
   bool isVirtual = 26;
+  string categoryId = 27;
 }
 
 message MHSProduct {
