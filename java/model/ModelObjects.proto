@@ -7,6 +7,7 @@ option java_package = "ai.pixlbrain.backend";
 import "product/Product.proto";
 import "dataset/DatasetObject.proto";
 import "common/Filter.proto";
+import "common/Enums.proto";
 
 message GRPCJobs {
   repeated GRPCJob jobs = 1;
@@ -39,6 +40,7 @@ message GRPCJob {
   bool trolley = 24;
   string cvatPreannotationStatus = 25;
   string serviceType = 26;
+  GRPCGlobalType globalType = 27;
 }
 
 message GRPCGetJobsRequest {
@@ -49,6 +51,7 @@ message GRPCGetJobsRequest {
   GRPCPaging paging = 5;
   GRPCSorting sorting = 6;
   repeated GRPCFilter filter = 7;
+  GRPCGlobalType globalType = 27;
 }
 
 message GRPCGetJobsResponse {
@@ -237,6 +240,7 @@ message ProductJobs {
   string workflowId = 7;
   string user = 8;
   string serviceType = 9;
+  GRPCGlobalType globalType = 10;
 }
 
 message GRPCClusterResponse {
@@ -261,6 +265,7 @@ message ModelRequestWrapper {
   GRPCPaging paging = 4;
   GRPCSorting sorting = 5;
   repeated GRPCFilter filter = 6;
+  GRPCGlobalType globalType = 7;
 }
 
 message GetAllModelsRequest {
@@ -290,6 +295,7 @@ message JModelResponse {
   string errorReason = 19;
   DatasetPayloadResponse dataset = 20;
   string bestEpoch = 21;
+  GRPCGlobalType globalType = 22;
 }
 
 message JModelRequest {
@@ -356,6 +362,7 @@ message PtagFilter {
   string uploadedDate = 10;
   string serviceType = 11;
   bool preannotation = 12;
+  GRPCGlobalType globalType = 13;
 }
 
 message ClusterFilter {
@@ -540,6 +547,7 @@ message TrainingModelResponse {
   repeated TrainingImage trainingImages = 11;
   string created = 12;
   string description = 13;
+  GRPCGlobalType globalType = 14;
 }
 
 message TrainingId {
@@ -685,6 +693,7 @@ message DatasetRequestWrapper {
   GRPCPaging paging = 4;
   GRPCSorting sorting = 5;
   repeated GRPCFilter filter = 6;
+  GRPCGlobalType globalType = 7;
 }
 
 message DatasetsResponse {
@@ -707,6 +716,7 @@ message DatasetPayloadResponse {
   bool archived = 10;
   repeated GRPCJob jobs = 11;
   string workflowId = 12;
+  GRPCGlobalType globalType = 13;
 }
 
 message DatasetsHistory {
@@ -776,6 +786,7 @@ message NewDetectorDatasetRequest {
   PtagFilter ptagFilter = 3;
   string workflowId = 4;
   string user = 5;
+  GRPCGlobalType globalType = 6;
 }
 
 message DatasetProducts {
