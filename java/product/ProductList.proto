@@ -36,6 +36,8 @@ service ProductListService {
   }
   rpc GetActiveProductListByLocation (LocationId) returns (ProductListLocation) {
   }
+  rpc GetProductListByType (GetByType) returns (ProductListsLocation) {
+  }
 }
 
 message GRPCProductListGetRequest {
@@ -99,4 +101,11 @@ message ListActivateInput {
   string workflowId = 2;
   string user = 3;
   string serviceType = 4;
+}
+
+message GetByType {
+  string globalType = 1;
+  string productListType = 2;
+  string client = 3;
+  string location = 4;
 }
