@@ -38,6 +38,8 @@ service ProductListService {
   }
   rpc GetProductListByType (GetByType) returns (ProductListsLocation) {
   }
+  rpc GetProductsFromActiveList (GRPCGetProductsActive) returns (Products) {
+  }
 }
 
 message GRPCProductListGetRequest {
@@ -62,7 +64,7 @@ message ProductList {
   repeated string productIds = 11;
   string path = 12;
   string type = 13;
-  string globalType = 14;
+  GRPCGlobalType globalType = 14;
 }
 
 message UpdateList {
@@ -104,8 +106,17 @@ message ListActivateInput {
 }
 
 message GetByType {
-  string globalType = 1;
+  GRPCGlobalType globalType = 1;
   string productListType = 2;
   string client = 3;
   string location = 4;
+}
+
+message GRPCGetProductsActive {
+  string client = 1;
+  string location = 2;
+  GRPCGlobalType globalType = 3;
+  repeated GRPCFilter filter = 4;
+  GRPCPaging paging = 5;
+  GRPCSorting sorting = 6;
 }

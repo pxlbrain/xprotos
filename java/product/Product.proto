@@ -8,6 +8,7 @@ option java_package = "ai.pixlbrain.backend";
 import "google/protobuf/wrappers.proto";
 import "inventory/Void.proto";
 import "common/Filter.proto";
+import "common/Enums.proto";
 
 service ProductService {
   rpc CreateProduct (GRPCProductRequest) returns (Product) {
@@ -109,7 +110,7 @@ message UploadId {
   string listId = 3;
   string location = 4;
   string client = 5;
-  string globalType = 6;
+  GRPCGlobalType globalType = 6;
 }
 
 message Id {
@@ -158,7 +159,7 @@ message Product {
   repeated NameId mistakenProducts = 21;
   repeated ProductImageResponse productImages = 22;
   string obid = 23;
-  string globalType = 24;
+  GRPCGlobalType globalType = 24;
   bool isVisible = 25;
   bool isVirtual = 26;
   string categoryId = 27;
@@ -212,7 +213,7 @@ message GRPCGetRequest {
   int64 id = 5;
   string location = 6;
   string client = 7;
-  string globalType = 8;
+  GRPCGlobalType globalType = 8;
 }
 
 message GRPCPaging {
@@ -244,7 +245,7 @@ message ProductsRequest {
   repeated string productIds = 1;
   string client = 2;
   string locationId = 3;
-  string globalType = 4;
+  GRPCGlobalType globalType = 4;
 }
 
 message LocationAndDeviceId {
@@ -267,7 +268,7 @@ message ProductImages {
   string location = 2;
   string productId = 3;
   repeated ProductImage productImages = 4;
-  string globalType = 5;
+  GRPCGlobalType globalType = 5;
 }
 
 message ProductImage {
@@ -289,7 +290,7 @@ message DeleteProductImagesRequest {
   string location = 2;
   string productId = 3;
   repeated string imageIds = 4;
-  string globalType = 5;
+  GRPCGlobalType globalType = 5;
 }
 
 message UpdateImageRequest {
@@ -319,7 +320,7 @@ message ProductDatasetByTypeRequest {
 }
 
 message GRPCGetByTypeRequest {
-  string globalType = 1;
+  GRPCGlobalType globalType = 1;
   string client = 2;
   string locationId = 3;
   string status = 4;
