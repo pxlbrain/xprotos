@@ -163,6 +163,7 @@ message Product {
   bool isVisible = 25;
   bool isVirtual = 26;
   string categoryId = 27;
+  string trainLabel = 28;
 }
 
 message MHSProduct {
