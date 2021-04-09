@@ -8,6 +8,7 @@ import "product/Product.proto";
 import "inventory/Void.proto";
 import "inventory/InventoryObject.proto";
 import "common/Filter.proto";
+import "common/Enums.proto";
 
 service ProductListService {
   rpc CreateProductList (ProductList) returns (ProductList) {
