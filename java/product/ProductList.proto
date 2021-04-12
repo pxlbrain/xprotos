@@ -39,7 +39,7 @@ service ProductListService {
   }
   rpc GetProductListByType (GetByType) returns (ProductListsLocation) {
   }
-  rpc GetProductsFromActiveList (GRPCGetProductsActive) returns (Products) {
+  rpc GetProductsFromActiveList (GRPCGetProductsActive) returns (GRPCProductResposne) {
   }
 }
 
