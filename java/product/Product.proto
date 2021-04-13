@@ -305,6 +305,7 @@ message ProductCategories {
 message OtherRequest {
   string client = 1;
   string location = 2;
+  GRPCGlobalType globalType = 3;
 }
 
 message ProductDatasetRequest {
