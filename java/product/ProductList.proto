@@ -29,9 +29,9 @@ service ProductListService {
   }
   rpc DeleteProductsFromList (ProductsAndProductList) returns (ProductList) {
   }
-  rpc GetInactiveProductsFromList (ProductListId) returns (Products) {
+  rpc GetInactiveProductsFromList (ProductListId) returns (GRPCProductResposne) {
   }
-  rpc GetActiveProductsFromList (ProductListId) returns (Products) {
+  rpc GetActiveProductsFromList (ProductListId) returns (GRPCProductResposne) {
   }
   rpc GetProductListByLocation (LocationId) returns (ProductListsLocation) {
   }
