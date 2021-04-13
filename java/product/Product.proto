@@ -191,6 +191,9 @@ message ProductsAndProductList {
 
 message ProductListId {
   string id = 1;
+  repeated GRPCFilter filter = 2;
+  GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
 }
 
 message DateRange {
