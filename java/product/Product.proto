@@ -91,6 +91,8 @@ service ProductService {
   }
   rpc GetProductsByType (GRPCGetByTypeRequest) returns (GRPCProductResposne) {
   }
+  rpc GetAllProductsByGlobalType (GRPCGetByTypeRequest) returns (GRPCProductResposne) {
+  }
 }
 
 
@@ -326,9 +328,6 @@ message ProductDatasetByTypeRequest {
 
 message GRPCGetByTypeRequest {
   GRPCGlobalType globalType = 1;
-  string client = 2;
-  string locationId = 3;
-  string status = 4;
   repeated GRPCFilter filter = 5;
   GRPCPaging paging = 6;
   GRPCSorting sorting = 7;
