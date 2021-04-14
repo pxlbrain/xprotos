@@ -379,6 +379,7 @@ message ClusterFilter {
   string fileType = 11;
   string numberAroundCluster = 12;
   string serviceType = 13;
+  GRPCGlobalType globalType = 14;
 }
 
 message DeviceCameraGRPC {
@@ -608,6 +609,7 @@ message IntegrationTrainings {
   string locationId = 2;
   string username = 3;
   repeated IntegrationTraining integration = 4;
+  GRPCGlobalType globalType = 5;
 }
 
 message IntegrationTraining {
@@ -655,6 +657,7 @@ message ModelTestingJob {
   string client = 1;
   string location = 2;
   DatasetType type = 3;
+  GRPCGlobalType globalType = 4;
 }
 
 message StartPredictionRequest {
@@ -903,4 +906,5 @@ message CreateModelTraining {
   string username = 2;
   string type = 3;
   string trainingName = 4;
+  GRPCGlobalType globalType = 5;
 }
