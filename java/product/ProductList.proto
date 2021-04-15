@@ -66,6 +66,7 @@ message ProductList {
   string path = 12;
   string type = 13;
   GRPCGlobalType globalType = 14;
+  string locationId = 15;
 }
 
 message UpdateList {
@@ -104,6 +105,7 @@ message ListActivateInput {
   string workflowId = 2;
   string user = 3;
   string serviceType = 4;
+  string locationId = 5;
 }
 
 message GetByType {
