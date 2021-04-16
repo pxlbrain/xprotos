@@ -870,6 +870,7 @@ message CreateCustomJob {
   string client = 2;
   repeated JobMap filters = 3;
   string serviceType = 4;
+  GRPCGlobalType globalType = 5;
 }
 
 message JobMap {
