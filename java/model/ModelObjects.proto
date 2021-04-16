@@ -783,6 +783,7 @@ message NewDatasetRequest {
   string location = 2;
   string type = 3;
   repeated DatasetProducts products = 4;
+  GRPCGlobalType globalType = 5;
 }
 
 message NewDetectorDatasetRequest {
