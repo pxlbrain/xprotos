@@ -339,4 +339,5 @@ message ProductInherit {
   repeated string productIds = 2;
   string client = 3;
   string location = 4;
+  string locationId = 5;
 }
