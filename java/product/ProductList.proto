@@ -41,6 +41,10 @@ service ProductListService {
   }
   rpc GetProductsFromActiveList (GRPCGetProductsActive) returns (GRPCProductResposne) {
   }
+  rpc GetDefaultProductList (DefaultProductList) returns (ProductListId) {
+  }
+  rpc SetDefaultProductList (DefaultProductList) returns (Void) {
+  }
 }
 
 message GRPCProductListGetRequest {
@@ -67,6 +71,7 @@ message ProductList {
   string type = 13;
   GRPCGlobalType globalType = 14;
   string locationId = 15;
+  bool default = 16;
 }
 
 message UpdateList {
@@ -122,4 +127,11 @@ message GRPCGetProductsActive {
   repeated GRPCFilter filter = 4;
   GRPCPaging paging = 5;
   GRPCSorting sorting = 6;
+}
+
+message DefaultProductList {
+  string client = 1;
+  string location = 2;
+  GRPCGlobalType globalType = 3;
+  string productListId = 4;
 }
