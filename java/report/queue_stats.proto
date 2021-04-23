@@ -10,6 +10,7 @@ message WaitingTimes {
     float avg_waiting_time = 1;
     float median_waiting_time = 2;
     TimeRange time_range = 3;
+    float avg_group_waiting_time = 4;
 }
 
 message ZoneStats {
@@ -23,6 +24,7 @@ message ZoneStats {
     int32 people_count = 6;
 
     repeated WaitingTimes waiting_times = 7;
+    float total_avg_group_waiting_time = 8;
 }
 
 message QueueStats {
