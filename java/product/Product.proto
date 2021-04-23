@@ -167,6 +167,7 @@ message Product {
   bool isVirtual = 26;
   string categoryId = 27;
   string trainLabel = 28;
+  string parentId = 29;
 }
 
 message MHSProduct {
