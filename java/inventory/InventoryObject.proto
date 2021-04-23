@@ -560,6 +560,7 @@ message QueueStatusRule {
     string thresholdTo = 4;
     string color = 5;
     string location = 6;
+    string property = 7;
 }
 
 message QueueStatusRuleId {
