@@ -296,6 +296,7 @@ message JModelResponse {
   DatasetPayloadResponse dataset = 20;
   string bestEpoch = 21;
   GRPCGlobalType globalType = 22;
+  int32 imageCount = 23;
 }
 
 message JModelRequest {
@@ -722,6 +723,7 @@ message DatasetPayloadResponse {
   repeated GRPCJob jobs = 11;
   string workflowId = 12;
   GRPCGlobalType globalType = 13;
+  repeated ModelId modelId = 14;
 }
 
 message DatasetsHistory {
