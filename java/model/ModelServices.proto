@@ -194,6 +194,8 @@ service JModelService {
   }
   rpc GetModelTestReports (ModelRequestWrapper) returns (GRPCTrainingsModelResponse) {
   }
+  rpc ActivateModel (ModelId) returns (Void) {
+  }
 }
 
 service ConfigurationService {
