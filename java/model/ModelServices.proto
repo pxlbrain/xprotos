@@ -113,6 +113,8 @@ service DatasetService {
   };
   rpc GetDatasets (DatasetRequestWrapper) returns (DatasetsResponse) {
   }
+  rpc UpdateDatasetName (DatasetName) returns (Void) {
+  }
 }
 
 service JModelService {

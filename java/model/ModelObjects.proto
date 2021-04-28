@@ -724,6 +724,7 @@ message DatasetPayloadResponse {
   string workflowId = 12;
   GRPCGlobalType globalType = 13;
   repeated ModelId modelId = 14;
+  int32 imageCount = 15;
 }
 
 message DatasetsHistory {
@@ -911,4 +912,9 @@ message CreateModelTraining {
   string type = 3;
   string trainingName = 4;
   GRPCGlobalType globalType = 5;
+}
+
+message DatasetName {
+  string datasetId = 1;
+  string datasetName = 2;
 }
