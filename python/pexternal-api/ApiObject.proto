@@ -70,6 +70,12 @@ message ExternalProductVerification {
   google.protobuf.BoolValue is_brownbox = 3;
 }
 
+message ExternalProductSetDetected {
+  string store_id = 1;
+  string product_id = 2;
+  google.protobuf.BoolValue detected = 3;
+}
+
 message ExternalProductPaths {
   string product_id = 1;
   repeated ExternalExtractedInfo extracted = 2;
