@@ -684,6 +684,7 @@ message MergeDatasetRequest {
   int32 test = 4;
   repeated string versions = 5;
   string location = 6;
+  string client = 7;
   GRPCGlobalType globalType = 8;
 }
 
