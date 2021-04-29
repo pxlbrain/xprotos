@@ -684,12 +684,14 @@ message MergeDatasetRequest {
   int32 test = 4;
   repeated string versions = 5;
   string location = 6;
-  string client = 7;
+  GRPCGlobalType globalType = 8;
 }
 
 message ModelTypeRequest {
   string location = 1;
-  string modelType = 2;
+  string client = 2;
+  string modelType = 3;
+  GRPCGlobalType globalType = 4;
 }
 
 message DatasetRequestWrapper {
