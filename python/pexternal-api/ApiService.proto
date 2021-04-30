@@ -11,4 +11,5 @@ service ExternalApiService {
   rpc addProductLinks(ExternalProductLinks) returns(google.protobuf.Empty) {};
   rpc updateProducts(ExternalProductsImport) returns(google.protobuf.Empty) {};
   rpc setDetected(ExternalProductSetDetected) returns(google.protobuf.Empty) {};
+  rpc addLinkedProducts(ExternalProductLinkAddition) returns(google.protobuf.Empty) {};
 };
