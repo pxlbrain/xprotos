@@ -300,6 +300,7 @@ message Report {
   bool isDetector = 3;
   bool isCorrect = 4;
   bool servingCorrect = 5;
+  string modelType = 6;
 }
 
 message ReportId {
