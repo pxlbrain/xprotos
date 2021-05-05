@@ -482,6 +482,7 @@ message ScheduleTaskRequest {
     string date = 13;
     string username = 14;
     string role = 15;
+    string client = 16;
 }
 
 message EventScheduling {

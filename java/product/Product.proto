@@ -95,6 +95,8 @@ service ProductService {
   }
   rpc InheritProducts (ProductInherit) returns (Void) {
   }
+  rpc UploadListToS3WithType (UploadWithType) returns (Path) {
+  }
 }
 
 message KidsRequest {
@@ -341,4 +343,13 @@ message ProductInherit {
   string client = 3;
   string location = 4;
   string locationId = 5;
+}
+
+message UploadWithType {
+  string listId = 1;
+  string type = 2;
+}
+
+message Path {
+  string path = 1;
 }
