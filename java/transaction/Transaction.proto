@@ -100,7 +100,23 @@ message GRPCGetTransactionResponse {
   int32 page = 1;
   int32 size = 2;
   int32 count = 3;
-  repeated Transaction transactions = 4;
+  repeated TransactionPaged transactions = 4;
+}
+
+message TransactionPaged {
+  string id = 1;
+  string transactionId = 2;
+  string client = 3;
+  string location = 4;
+  string time = 5;
+  string status = 6;
+  double detectionThreshold = 7;
+  double classificationThreshold = 8;
+  bool checked = 9;
+  string deviceId = 10;
+  string cameraId = 11;
+  bool productDeviation = 12;
+  string productDeviationSize = 13;
 }
 
 message Transaction {
@@ -154,6 +170,7 @@ message Item {
   repeated Bbs hand = 11;
   repeated Bbs product = 12;
   repeated Bbs person = 13;
+  double classificationScore = 14;
 }
 
 message Bbs {
@@ -162,6 +179,7 @@ message Bbs {
   string category = 3;
   Coordinate coordinates = 4;
   repeated PlateItem plateItems = 5;
+  double classificationScore = 6;
 }
 
 message Coordinate {
@@ -169,12 +187,23 @@ message Coordinate {
   double x2 = 2;
   double y1 = 3;
   double y2 = 4;
+  double detectionScore = 5;
+  string classifier = 6;
 }
 
 message PlateItem {
   string id = 1;
   string name = 2;
   string category = 3;
+  repeated SideDish sideDishes = 4;
+  double classificationScore = 5;
+}
+
+message SideDish {
+  string id = 1;
+  string name = 2;
+  string category = 3;
+  double classificationScore = 4;
 }
 
 message QueryParam {
@@ -262,6 +291,7 @@ message AddReports {
   int32 servingStatistics = 14;
   bool isCheckScan = 15;
   string reportId = 16;
+  string trayId = 17;
 }
 
 message Report {
@@ -270,6 +300,7 @@ message Report {
   bool isDetector = 3;
   bool isCorrect = 4;
   bool servingCorrect = 5;
+  string modelType = 6;
 }
 
 message ReportId {

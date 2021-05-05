@@ -44,6 +44,8 @@ message ExternalProductResponse {
   string updated_at = 7;
   repeated string media_imgs = 8;
   int32 quantity = 9;
+  google.protobuf.BoolValue detected = 10;
+  repeated string linked_products = 11;
 }
 
 message ExternalExtractedInfo {
@@ -69,6 +71,12 @@ message ExternalProductVerification {
   google.protobuf.BoolValue is_brownbox = 3;
 }
 
+message ExternalProductSetDetected {
+  string store_id = 1;
+  string product_id = 2;
+  google.protobuf.BoolValue detected = 3;
+}
+
 message ExternalProductPaths {
   string product_id = 1;
   repeated ExternalExtractedInfo extracted = 2;
@@ -77,4 +85,10 @@ message ExternalProductPaths {
 message ExternalProductLinks {
   string store_id = 1;
   repeated ExternalProductPaths products = 2;
+}
+
+message ExternalProductLinkAddition {
+  string store_id = 1;
+  string product_id = 2;
+  repeated string linked_products = 3;
 }
