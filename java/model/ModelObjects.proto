@@ -296,6 +296,7 @@ message JModelResponse {
   string bestEpoch = 21;
   GRPCGlobalType globalType = 22;
   int32 imageCount = 23;
+  string datasetId = 24;
 }
 
 message JModelRequest {
@@ -549,6 +550,7 @@ message TrainingModelResponse {
   string created = 12;
   string description = 13;
   GRPCGlobalType globalType = 14;
+  string updated = 15;
 }
 
 message TrainingId {
