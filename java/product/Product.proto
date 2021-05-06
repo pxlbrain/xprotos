@@ -35,6 +35,8 @@ service ProductService {
   }
   rpc GetProducts (GRPCGetRequest) returns (GRPCProductResposne) {
   }
+  rpc GetProductsWithStatus (GRPCGetRequest) returns (GRPCProductResposne) {
+  }
   rpc AddSideDishes (SideDishIds) returns (Void) {
   }
   rpc AddPlateItems (PlateItemIds) returns (Void) {
