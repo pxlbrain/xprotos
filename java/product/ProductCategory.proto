@@ -23,6 +23,8 @@ message GRPCProductCategoriesRequest {
   string client = 1;
   GRPCPaging paging = 2;
   repeated GRPCFilter filter = 3;
+  string location = 4;
+  GRPCGlobalType globalType = 5;
 }
 
 message GRPCProductCategories {
@@ -45,6 +47,8 @@ message GRPCProductCategoryRequest {
   bool isVisible = 6;
   int32 numberOfProducts = 7;
   string parent = 8;
+  string location = 9;
+  GRPCGlobalType globalType = 10;
 }
 
 message ProductCategory {
@@ -57,4 +61,6 @@ message ProductCategory {
   bool isVisible = 7;
   int32 numberOfProducts = 8;
   repeated ProductCategory subcategories = 9;
+  string location = 10;
+  GRPCGlobalType globalType = 11;
 }
