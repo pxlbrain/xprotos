@@ -9,6 +9,7 @@ import "google/protobuf/wrappers.proto";
 import "inventory/Void.proto";
 import "product/Product.proto";
 import "common/Filter.proto";
+import "common/Enums.proto";
 
 service ProductCategoryService {
   rpc GetAllProductCategories (GRPCProductCategoriesRequest) returns (GRPCProductCategories) {
