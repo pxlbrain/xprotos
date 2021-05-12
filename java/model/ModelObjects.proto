@@ -645,6 +645,11 @@ message ModelTestingJob {
   string client = 1;
   string location = 2;
   DatasetType type = 3;
+  string device = 4;
+  repeated string cameras = 5;
+  string timeTo =6;
+  string timeFrom =7;
+  string uploadedDate = 8;
 }
 
 message StartPredictionRequest {
