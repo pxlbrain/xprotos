@@ -146,6 +146,8 @@ service LocationService {
   };
   rpc GetLocationsByCompanyId (CompanyId) returns (Locations) {
   };
+  rpc GetLocationsByCompanyName (CompanyName) returns (Locations) {
+  };
   rpc GetLocationsByRegionIds (RegionIds) returns (Locations) {
   };
   rpc GetScosByLocationId (LocationId) returns (SCOs) {

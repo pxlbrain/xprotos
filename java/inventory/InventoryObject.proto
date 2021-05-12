@@ -61,6 +61,10 @@ message CompanyId {
     string id = 1;
 }
 
+message CompanyName {
+    string name = 1;
+}
+
 message WorkingHours {
     string id = 1;
     string openingTime = 2;
