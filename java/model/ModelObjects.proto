@@ -660,6 +660,11 @@ message ModelTestingJob {
   string location = 2;
   DatasetType type = 3;
   GRPCGlobalType globalType = 4;
+  string device = 5;
+  repeated string cameras = 6;
+  string timeTo =7;
+  string timeFrom =8;
+  string uploadedDate = 9;
 }
 
 message StartPredictionRequest {
