@@ -64,4 +64,5 @@ message ProductCategory {
   repeated ProductCategory subcategories = 9;
   string location = 10;
   GRPCGlobalType globalType = 11;
+  string globalParent = 12;
 }
