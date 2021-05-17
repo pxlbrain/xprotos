@@ -95,6 +95,8 @@ service ProductService {
   }
   rpc GetAllProductsByGlobalType (GRPCGetByTypeRequest) returns (GRPCProductResposne) {
   }
+  rpc GetAllProductsByGlobalTypeForInherit (GRPCGetByTypeRequest) returns (GRPCProductResposne) {
+  }
   rpc InheritProducts (ProductInherit) returns (Void) {
   }
   rpc UploadListToS3WithType (UploadWithType) returns (Path) {
