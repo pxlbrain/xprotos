@@ -117,6 +117,7 @@ message TransactionPaged {
   string cameraId = 11;
   bool productDeviation = 12;
   string productDeviationSize = 13;
+  bool isTrolley = 14;
 }
 
 message Transaction {
