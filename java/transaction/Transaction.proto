@@ -176,6 +176,8 @@ message Item {
   repeated Bbs product = 12;
   repeated Bbs person = 13;
   double classificationScore = 14;
+  bool filteredOut = 15;
+  string filteringReason = 16;
 }
 
 message Bbs {
