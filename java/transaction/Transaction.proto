@@ -117,6 +117,7 @@ message TransactionPaged {
   string cameraId = 11;
   bool productDeviation = 12;
   string productDeviationSize = 13;
+  bool isTrolley = 14;
 }
 
 message Transaction {
@@ -141,12 +142,16 @@ message Transaction {
   string cameraId = 19;
   bool productDeviation = 20;
   string productDeviationSize = 21;
+  double detectionThreshold = 22;
+  double classificationThreshold = 23;
+  bool trolley = 24;
 }
 
 message Frame {
   string path = 1;
   repeated Item items = 2;
-  repeated CorrectItemResponse correctItems = 3;
+  repeated Item POSItems = 3;
+  repeated CorrectItemResponse correctItems = 4;
 }
 
 message CorrectItemResponse {
@@ -171,6 +176,8 @@ message Item {
   repeated Bbs product = 12;
   repeated Bbs person = 13;
   double classificationScore = 14;
+  bool filteredOut = 15;
+  string filteringReason = 16;
 }
 
 message Bbs {
