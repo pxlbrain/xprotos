@@ -18,6 +18,10 @@ service ProductCategoryService {
   }
   rpc SaveProductCategory (GRPCProductCategoryRequest) returns (ProductCategory) {
   }
+  rpc CreateProductCategoriesForClient (GRPCCreateProductCategoriesRequest) returns (Void) {
+  }
+  rpc CreateProductCategoriesForLocation (GRPCCreateProductCategoriesRequest) returns (Void) {
+  }
 }
 
 message GRPCProductCategoriesRequest {
@@ -65,4 +69,9 @@ message ProductCategory {
   string location = 10;
   GRPCGlobalType globalType = 11;
   string globalParent = 12;
+
+  message GRPCCreateProductCategoriesRequest {
+    string client = 1;
+    string loction = 2;
+  }
 }
