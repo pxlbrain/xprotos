@@ -184,4 +184,8 @@ service QueueStatusService {
   }
   rpc validateQueueStatusConfiguration(LocationId) returns (Void) {
   }
+  rpc deleteQueueStatusConfigurationByZone (ZoneId) returns (Void) {
+  }
+  rpc GetQueueStatusConfigurationByZone (ZoneId) returns (QueueStatusConfiguration) {
+  }
 }
