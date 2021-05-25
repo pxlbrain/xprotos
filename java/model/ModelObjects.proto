@@ -929,3 +929,8 @@ message DatasetName {
   string datasetId = 1;
   string datasetName = 2;
 }
+
+message DatasetJobRequest {
+  string datasetId = 1;
+  string jobId = 2;
+}

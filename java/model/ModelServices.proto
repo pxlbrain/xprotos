@@ -115,6 +115,8 @@ service DatasetService {
   }
   rpc UpdateDatasetName (DatasetName) returns (Void) {
   }
+  rpc AddExistingCustomJobToDataset(DatasetJobRequest) returns (Void){
+  }
 }
 
 service JModelService {
