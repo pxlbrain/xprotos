@@ -18,7 +18,8 @@ service ProductListUploadService {
     }
     rpc GetAllProductListUploads (GRPCProductListUploadGetRequest) returns (GRPCProductListUploadResponse) {
     }
-
+    rpc GetProductsFromUpload (ProductListUploadId) returns (ProductsUpload) {
+    }
 }
 
 message ProductListUploadId {
@@ -55,4 +56,8 @@ message GRPCProductListUploadResponse {
     int32 size = 2;
     int32 count = 3;
     repeated ProductListUpload productList = 4;
+}
+
+message ProductsUpload {
+    repeated ProductUpload products = 1;
 }
