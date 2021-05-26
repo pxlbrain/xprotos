@@ -891,6 +891,7 @@ message CreateCustomJob {
 message JobMap {
   string name = 1;
   string value = 2;
+  string operator = 3;
 }
 
 message BestEpoch {
