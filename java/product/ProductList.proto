@@ -102,6 +102,7 @@ message ProductListLocation {
   string productListName = 2;
   string productListPath = 3;
   string productListType = 4;
+  repeated ProductListLocation uploadedLists = 5;
 }
 
 
