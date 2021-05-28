@@ -120,6 +120,7 @@ message VFSRequest {
         string payload = 7;
     };
     VFSRequestFilter filter = 8;
+    string updateStrategy = 9;
 };
 
 message AutoCompleteStructure{

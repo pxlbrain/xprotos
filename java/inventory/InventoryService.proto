@@ -146,6 +146,8 @@ service LocationService {
   };
   rpc GetLocationsByCompanyId (CompanyId) returns (Locations) {
   };
+  rpc GetLocationsByCompanyName (CompanyName) returns (Locations) {
+  };
   rpc GetLocationsByRegionIds (RegionIds) returns (Locations) {
   };
   rpc GetScosByLocationId (LocationId) returns (SCOs) {
@@ -181,5 +183,9 @@ service QueueStatusService {
   rpc deleteQueueStatusConfigurationByLocation (LocationId) returns (Void) {
   }
   rpc validateQueueStatusConfiguration(LocationId) returns (Void) {
+  }
+  rpc deleteQueueStatusConfigurationByZone (ZoneId) returns (Void) {
+  }
+  rpc GetQueueStatusConfigurationByZone (ZoneId) returns (QueueStatusConfiguration) {
   }
 }

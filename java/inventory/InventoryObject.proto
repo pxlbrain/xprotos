@@ -61,6 +61,10 @@ message CompanyId {
     string id = 1;
 }
 
+message CompanyName {
+    string name = 1;
+}
+
 message WorkingHours {
     string id = 1;
     string openingTime = 2;
@@ -562,8 +566,13 @@ message QueueStatusRule {
     string color = 5;
     string location = 6;
     string property = 7;
+    string zone = 8;
 }
 
 message QueueStatusRuleId {
+    string id = 1;
+}
+
+message ZoneId {
     string id = 1;
 }

@@ -41,6 +41,7 @@ message GRPCJob {
   string cvatPreannotationStatus = 25;
   string serviceType = 26;
   GRPCGlobalType globalType = 27;
+  string subType = 28;
 }
 
 message GRPCGetJobsRequest {
@@ -660,6 +661,11 @@ message ModelTestingJob {
   string location = 2;
   DatasetType type = 3;
   GRPCGlobalType globalType = 4;
+  string device = 5;
+  repeated string cameras = 6;
+  string timeTo =7;
+  string timeFrom =8;
+  string uploadedDate = 9;
 }
 
 message StartPredictionRequest {
@@ -879,11 +885,13 @@ message CreateCustomJob {
   repeated JobMap filters = 3;
   string serviceType = 4;
   GRPCGlobalType globalType = 5;
+  string subType = 6;
 }
 
 message JobMap {
   string name = 1;
   string value = 2;
+  string operator = 3;
 }
 
 message BestEpoch {
@@ -921,4 +929,9 @@ message CreateModelTraining {
 message DatasetName {
   string datasetId = 1;
   string datasetName = 2;
+}
+
+message DatasetJobRequest {
+  string datasetId = 1;
+  string jobId = 2;
 }

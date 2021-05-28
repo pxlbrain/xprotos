@@ -95,6 +95,8 @@ service ProductService {
   }
   rpc GetAllProductsByGlobalType (GRPCGetByTypeRequest) returns (GRPCProductResposne) {
   }
+  rpc GetAllProductsByGlobalTypeForInherit (GRPCGetByTypeRequest) returns (GRPCProductResposne) {
+  }
   rpc InheritProducts (ProductInherit) returns (Void) {
   }
   rpc UploadListToS3WithType (UploadWithType) returns (Path) {
@@ -334,6 +336,8 @@ message ProductDatasetByTypeRequest {
 
 message GRPCGetByTypeRequest {
   GRPCGlobalType globalType = 1;
+  string client = 3;
+  string location = 4;
   repeated GRPCFilter filter = 5;
   GRPCPaging paging = 6;
   GRPCSorting sorting = 7;
