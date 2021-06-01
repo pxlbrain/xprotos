@@ -47,7 +47,6 @@ message ExternalProductResponse {
   google.protobuf.BoolValue ignored = 10;
   repeated string linked_products = 11;
   string fetched_at = 12;
-  int32 quantity_default = 13;
 }
 
 message ExternalExtractedInfo {
