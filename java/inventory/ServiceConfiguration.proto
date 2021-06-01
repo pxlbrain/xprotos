@@ -24,7 +24,9 @@ message ServiceConfigurationReq {
     string createdBy = 5;
     string locationId = 6;
     string cameraId = 7;
-    repeated ConfigurationRule rule = 8;
+    string cameraType = 8;
+    string zone = 9;
+    repeated ConfigurationRule rule = 10;
 }
 
 message ConfigurationRule {
