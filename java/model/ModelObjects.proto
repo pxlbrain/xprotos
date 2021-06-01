@@ -937,3 +937,8 @@ message DatasetJobRequest {
   string datasetId = 1;
   string jobId = 2;
 }
+
+message UpdateJobStatus {
+  string status = 1;
+  repeated string jobIds = 2;
+}

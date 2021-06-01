@@ -32,6 +32,8 @@ service JobService {
   };
   rpc UpdateJobAfterDeletingUser(UserEmail) returns (Void) {
   };
+  rpc UpdateJobsStatus(UpdateJobStatus) returns (Void) {
+  };
 }
 
 service CVATService {
