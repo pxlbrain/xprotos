@@ -4,20 +4,19 @@ option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 
 import "inventory/Void.proto";
-import "inventory/InventoryObject.proto";
 import "common/Enums.proto";
 
 package ai.pixlbrain.backend;
 
 service ServiceConfiguration {
-    rpc CreateServiceConfiguration(ServiceConfiguration) returns (Void) {}
-    rpc GetServiceConfigurations(GetServiceConfigurations) returns (ServiceConfigurations) {}
+    rpc CreateServiceConfiguration(ServiceConfigurationReq) returns (Void) {}
+    rpc GetServiceConfigurations(GetServiceConfigurationsReq) returns (ServiceConfigurations) {}
     rpc DeleteServiceConfiguration(ServiceConfigurationId) returns (Void) {}
     rpc SaveConfigurationRules(ConfigurationRules) returns (Void) {}
     rpc DeleteConfigurationRules(ConfigurationRuleIds) returns (Void) {}
 }
 
-message ServiceConfiguration {
+message ServiceConfigurationReq {
     string id = 1;
     string created = 2;
     string updated = 3;
@@ -37,13 +36,13 @@ message ConfigurationRule {
     string property = 6;
 }
 
-message GetServiceConfigurations {
+message GetServiceConfigurationsReq {
     string locationId = 1;
     GRPCConfigurationType type = 2;
 }
 
 message ServiceConfigurations {
-    repeated ServiceConfiguration configurations = 1;
+    repeated ServiceConfigurationReq configurations = 1;
 }
 
 message ServiceConfigurationId {
