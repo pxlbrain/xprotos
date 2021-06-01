@@ -11,3 +11,9 @@ enum GRPCGlobalType {
   STORE = 2;
 }
 
+enum GRPCConfigurationType {
+  QUEUE = 0;
+  SCAN = 1;
+  TRAY = 2;
+}
+
