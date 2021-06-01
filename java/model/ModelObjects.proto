@@ -42,6 +42,7 @@ message GRPCJob {
   string serviceType = 26;
   GRPCGlobalType globalType = 27;
   string subType = 28;
+  string qaUser =29;
 }
 
 message GRPCGetJobsRequest {
@@ -66,6 +67,7 @@ message PtagClassifierRequest {
   string jobId = 1;
   repeated string paths = 2;
   string imageCounter = 3;
+  string user = 4;
 }
 
 message GRPCRegisterRequest {
