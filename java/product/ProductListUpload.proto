@@ -41,6 +41,7 @@ message ProductListUpload {
     repeated ProductUpload products = 5;
     string path = 6;
     string productListId = 7;
+    string type = 8;
 }
 
 message ProductUpload {
