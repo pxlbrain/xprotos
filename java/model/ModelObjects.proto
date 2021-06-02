@@ -642,7 +642,7 @@ message InferenceValues {
 message ModelStatusRequest {
   string client = 1;
   string location = 2;
-  string status = 3;
+  repeated string status = 3;
   GRPCGlobalType globalType = 4;
 }
 
