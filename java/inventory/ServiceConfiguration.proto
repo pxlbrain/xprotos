@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+import "inventory/Void.proto";
+import "common/Enums.proto";
+
+package ai.pixlbrain.backend;
+
+service ServiceConfiguration {
+    rpc CreateServiceConfiguration(ServiceConfigurationReq) returns (Void) {}
+    rpc GetServiceConfigurations(GetServiceConfigurationsReq) returns (ServiceConfigurations) {}
+    rpc DeleteServiceConfiguration(ServiceConfigurationId) returns (Void) {}
+    rpc SaveConfigurationRules(ConfigurationRules) returns (Void) {}
+    rpc DeleteConfigurationRules(ConfigurationRuleIds) returns (Void) {}
+}
+
+message ServiceConfigurationReq {
+    string id = 1;
+    string created = 2;
+    string updated = 3;
+    GRPCConfigurationType type = 4;
+    string createdBy = 5;
+    string locationId = 6;
+    string cameraId = 7;
+    string cameraType = 8;
+    string zone = 9;
+    repeated ConfigurationRule rule = 10;
+}
+
+message ConfigurationRule {
+    string id = 1;
+    string status = 2;
+    string thresholdFrom = 3;
+    string thresholdTo = 4;
+    string color = 5;
+    string property = 6;
+}
+
+message GetServiceConfigurationsReq {
+    string locationId = 1;
+    GRPCConfigurationType type = 2;
+}
+
+message ServiceConfigurations {
+    repeated ServiceConfigurationReq configurations = 1;
+}
+
+message ServiceConfigurationId {
+    string id = 1;
+}
+
+message ConfigurationRuleIds {
+    repeated string ids = 1;
+}
+
+message ConfigurationRules {
+    string configurationId = 1;
+    repeated ConfigurationRule rules = 2;
+}

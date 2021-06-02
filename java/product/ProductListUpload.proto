@@ -1,0 +1,63 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+package ai.pixlbrain.backend;
+
+import "product/Product.proto";
+import "inventory/Void.proto";
+import "inventory/InventoryObject.proto";
+import "common/Filter.proto";
+import "common/Enums.proto";
+
+service ProductListUploadService {
+
+    rpc CreateProductListUpload (ProductListUpload) returns (ProductListUpload) {
+    }
+    rpc DeleteProductListUpload (ProductListUploadId) returns (Void) {
+    }
+    rpc GetAllProductListUploads (GRPCProductListUploadGetRequest) returns (GRPCProductListUploadResponse) {
+    }
+    rpc GetProductsFromUpload (ProductListUploadId) returns (ProductsUpload) {
+    }
+}
+
+message ProductListUploadId {
+    string id = 1;
+}
+
+message GRPCProductListUploadGetRequest {
+    string productListId = 1;
+    repeated GRPCFilter filter = 2;
+    GRPCPaging paging = 3;
+    GRPCSorting sorting = 4;
+}
+
+message ProductListUpload {
+    string id = 1;
+    string name = 2;
+    string created = 3;
+    string updated = 4;
+    repeated ProductUpload products = 5;
+    string path = 6;
+    string productListId = 7;
+}
+
+message ProductUpload {
+    string id = 1;
+    string name = 2;
+    string category = 3;
+    string image = 4;
+}
+
+
+message GRPCProductListUploadResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated ProductListUpload productList = 4;
+}
+
+message ProductsUpload {
+    repeated ProductUpload products = 1;
+}

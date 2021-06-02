@@ -10,6 +10,7 @@ service ExternalApiService {
   rpc verify(ExternalProductVerification) returns(google.protobuf.Empty) {};
   rpc addProductLinks(ExternalProductLinks) returns(google.protobuf.Empty) {};
   rpc updateProducts(ExternalProductsImport) returns(google.protobuf.Empty) {};
-  rpc setDetected(ExternalProductSetDetected) returns(google.protobuf.Empty) {};
+  rpc setIgnored(ExternalProductSetIgnored) returns(google.protobuf.Empty) {};
   rpc addLinkedProducts(ExternalProductLinkAddition) returns(google.protobuf.Empty) {};
+  rpc setQuantity(ExternalProductSetQuantity) returns(google.protobuf.Empty) {};
 };

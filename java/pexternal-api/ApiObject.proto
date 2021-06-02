@@ -44,8 +44,9 @@ message ExternalProductResponse {
   string updated_at = 7;
   repeated string media_imgs = 8;
   int32 quantity = 9;
-  google.protobuf.BoolValue detected = 10;
+  google.protobuf.BoolValue ignored = 10;
   repeated string linked_products = 11;
+  string fetched_at = 12;
 }
 
 message ExternalExtractedInfo {
@@ -71,10 +72,16 @@ message ExternalProductVerification {
   google.protobuf.BoolValue is_brownbox = 3;
 }
 
-message ExternalProductSetDetected {
+message ExternalProductSetIgnored {
   string store_id = 1;
   string product_id = 2;
-  google.protobuf.BoolValue detected = 3;
+  google.protobuf.BoolValue ignored = 3;
+}
+
+message ExternalProductSetQuantity {
+  string store_id = 1;
+  string product_id = 2;
+  int32 quantity = 3;
 }
 
 message ExternalProductPaths {
