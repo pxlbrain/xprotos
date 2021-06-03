@@ -30,6 +30,7 @@ message ServiceConfigurationReq {
     string cameraType = 8;
     string zone = 9;
     repeated ConfigurationRule rule = 10;
+    string property = 11;
 }
 
 message ConfigurationRule {
