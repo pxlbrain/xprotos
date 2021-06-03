@@ -4,6 +4,7 @@ option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 
 import "inventory/Void.proto";
+import "inventory/InventoryObject.proto";
 import "common/Enums.proto";
 
 package ai.pixlbrain.backend;
@@ -15,6 +16,7 @@ service ServiceConfiguration {
     rpc SaveConfigurationRules(ConfigurationRules) returns (Void) {}
     rpc DeleteConfigurationRules(ConfigurationRuleIds) returns (Void) {}
     rpc GetConfigurationByZone(GetByZone) returns (ConfigurationRules) {}
+    rpc CheckConfigExistsByCamera(CameraId) returns (ExistsByCamera) {}
 }
 
 message ServiceConfigurationReq {
@@ -64,4 +66,8 @@ message ConfigurationRules {
 message GetByZone {
     string zoneId = 1;
     GRPCConfigurationType type = 2;
+}
+
+message ExistsByCamera {
+    bool exist = 1;
 }
