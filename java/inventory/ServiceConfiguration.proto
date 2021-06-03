@@ -14,6 +14,7 @@ service ServiceConfiguration {
     rpc DeleteServiceConfiguration(ServiceConfigurationId) returns (Void) {}
     rpc SaveConfigurationRules(ConfigurationRules) returns (Void) {}
     rpc DeleteConfigurationRules(ConfigurationRuleIds) returns (Void) {}
+    rpc GetConfigurationByZone(GetByZone) returns (ConfigurationRules) {}
 }
 
 message ServiceConfigurationReq {
@@ -58,4 +59,9 @@ message ConfigurationRuleIds {
 message ConfigurationRules {
     string configurationId = 1;
     repeated ConfigurationRule rules = 2;
+}
+
+message GetByZone {
+    string zoneId = 1;
+    GRPCConfigurationType type = 2;
 }
