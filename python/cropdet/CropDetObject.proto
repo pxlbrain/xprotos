@@ -4,11 +4,11 @@ package ai.pixlbrain.backend;
 
 message BatchImagePath {
     repeated string remoteImagePaths = 1;
-    string client = 2;
-    string location = 3;
-    double threshold = 4;
-    string bucket = 5;
-    repeated string classes = 6;
+    string modelName = 2;
+    double threshold = 3;
+    string bucket = 4;
+    repeated string classes = 5;
+    string ptagQuery = 6;
 };
 
 message MessageUnit {
