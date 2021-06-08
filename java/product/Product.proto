@@ -359,3 +359,10 @@ message UploadWithType {
 message Path {
   string path = 1;
 }
+
+message ImportDatasetRequest {
+  string serviceType = 1;
+  string productId = 2;
+  string chosenProductId = 3;
+  bool append = 4;
+}
