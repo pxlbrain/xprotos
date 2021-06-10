@@ -176,6 +176,8 @@ message Product {
   string categoryId = 27;
   string trainLabel = 28;
   string parentId = 29;
+  bool countryDataset = 30;
+  bool globalDataset = 31;
 }
 
 message MHSProduct {
