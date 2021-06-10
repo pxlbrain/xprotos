@@ -62,6 +62,7 @@ message ConfigurationRuleIds {
 message ConfigurationRules {
     string configurationId = 1;
     repeated ConfigurationRule rules = 2;
+    string property = 3;
 }
 
 message GetByZone {

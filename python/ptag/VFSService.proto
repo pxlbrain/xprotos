@@ -31,3 +31,7 @@ service VFSFilterService {
     rpc DeleteFilter(VFSRequest) returns (VFResponseStructure) {};
     rpc UpdateFilter(VFSRequest) returns (VFResponseStructure) {};
 };
+
+service VFSAggregationService {
+    rpc CountBy(VFSRequest) returns (VFResponseStructure) {};
+};

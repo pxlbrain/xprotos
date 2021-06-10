@@ -118,6 +118,7 @@ message TransactionPaged {
   bool productDeviation = 12;
   string productDeviationSize = 13;
   bool isTrolley = 14;
+  bool good = 15;
 }
 
 message Transaction {
