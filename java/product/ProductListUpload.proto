@@ -47,7 +47,7 @@ message ProductListUpload {
 message ProductUpload {
     string id = 1;
     string name = 2;
-    string category = 3;
+    repeated string category = 3;
     string image = 4;
 }
 

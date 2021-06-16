@@ -202,6 +202,7 @@ service JModelService {
   }
   rpc UpdateModelStatus (ModelId) returns (Void) {
   }
+  rpc CreateModelForDetectorDataset (ModelDetector) returns (ModelId) {}
 }
 
 service ConfigurationService {
