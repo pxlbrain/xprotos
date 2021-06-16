@@ -173,7 +173,7 @@ message Product {
   GRPCGlobalType globalType = 24;
   bool isVisible = 25;
   bool isVirtual = 26;
-  string categoryId = 27;
+  repeated string categoryIds = 27;
   string trainLabel = 28;
   string parentId = 29;
   bool countryDataset = 30;
