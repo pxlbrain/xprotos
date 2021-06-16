@@ -942,3 +942,11 @@ message UpdateJobStatus {
   string status = 1;
   repeated string jobIds = 2;
 }
+
+message ModelDetector {
+  string datasetVersion = 1;
+  string request = 2;
+  string client = 3;
+  string location = 4;
+  GRPCGlobalType globalType = 5;
+}
