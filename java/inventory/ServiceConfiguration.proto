@@ -17,6 +17,7 @@ service ServiceConfiguration {
     rpc DeleteConfigurationRules(ConfigurationRuleIds) returns (Void) {}
     rpc GetConfigurationByZone(GetByZone) returns (ConfigurationRules) {}
     rpc CheckConfigExistsByCamera(CameraId) returns (ExistsByCamera) {}
+    rpc GetCVATLabelsByServiceType(GetServiceConfigurationsReq) returns (Labels) {}
 }
 
 message ServiceConfigurationReq {
@@ -74,4 +75,8 @@ message GetByZone {
 
 message ExistsByCamera {
     bool exist = 1;
+}
+
+message Labels {
+    repeated string label = 1;
 }
