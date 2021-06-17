@@ -941,6 +941,7 @@ message DatasetJobRequest {
 message UpdateJobStatus {
   string status = 1;
   repeated string jobIds = 2;
+  string user = 3;
 }
 
 message ModelDetector {
