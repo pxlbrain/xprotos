@@ -951,3 +951,9 @@ message ModelDetector {
   string location = 4;
   GRPCGlobalType globalType = 5;
 }
+
+message ModelStepReq {
+  string datasetVersion = 1;
+  string step = 2;
+  bool isFinal = 3;
+}
