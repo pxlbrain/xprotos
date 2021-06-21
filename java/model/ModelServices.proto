@@ -204,6 +204,7 @@ service JModelService {
   }
   rpc CreateModelForDetectorDataset (ModelDetector) returns (ModelId) {}
   rpc UpdateModelStepByDataset (ModelStepReq) returns (Void) {}
+  rpc AssignDatasetToModel (AssignVersionRequest) returns (Void) {}
 }
 
 service ConfigurationService {
