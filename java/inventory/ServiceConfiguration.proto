@@ -32,6 +32,7 @@ message ServiceConfigurationReq {
     string zone = 9;
     repeated ConfigurationRule rule = 10;
     string property = 11;
+    string ruleType = 12;
 }
 
 message ConfigurationRule {
