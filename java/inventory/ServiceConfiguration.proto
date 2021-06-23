@@ -12,6 +12,7 @@ package ai.pixlbrain.backend;
 service ServiceConfiguration {
     rpc CreateServiceConfiguration(ServiceConfigurationReq) returns (Void) {}
     rpc GetServiceConfigurations(GetServiceConfigurationsReq) returns (ServiceConfigurations) {}
+    rpc GetServiceConfiguration(GetServiceConfigurationReq) returns (ServiceConfigurationReq) {}
     rpc DeleteServiceConfiguration(ServiceConfigurationId) returns (Void) {}
     rpc SaveConfigurationRules(ConfigurationRules) returns (Void) {}
     rpc DeleteConfigurationRules(ConfigurationRuleIds) returns (Void) {}
@@ -49,6 +50,11 @@ message ConfigurationRule {
 message GetServiceConfigurationsReq {
     string locationId = 1;
     GRPCConfigurationType type = 2;
+}
+
+message GetServiceConfigurationReq {
+    GRPCConfigurationType type = 1;
+    string property = 2;
 }
 
 message ServiceConfigurations {
