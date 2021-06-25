@@ -178,6 +178,7 @@ message Product {
   string parentId = 29;
   bool countryDataset = 30;
   bool globalDataset = 31;
+  repeated NameId categoryResponse = 32;
 }
 
 message MHSProduct {
