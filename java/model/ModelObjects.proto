@@ -941,4 +941,21 @@ message DatasetJobRequest {
 message UpdateJobStatus {
   string status = 1;
   repeated string jobIds = 2;
+  string user = 3;
+}
+
+message ModelDataset {
+  string datasetVersion = 1;
+  string request = 2;
+  string client = 3;
+  string location = 4;
+  string modelType = 5;
+  string productListId = 6;
+  GRPCGlobalType globalType = 7;
+}
+
+message ModelStepReq {
+  string datasetVersion = 1;
+  string step = 2;
+  bool isFinal = 3;
 }
