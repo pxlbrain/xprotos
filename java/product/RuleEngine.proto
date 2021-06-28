@@ -29,6 +29,8 @@ message RuleEngine {
     repeated string otherFiltering = 10;
     float overlapTreshold = 11;
     int32 sizeTreshold = 12;
+    float detectionThreshold = 13;
+    float classificationThreshold = 14;
 }
 
 message PlateFilter {
