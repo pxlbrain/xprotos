@@ -737,6 +737,7 @@ message DatasetPayloadResponse {
   GRPCGlobalType globalType = 13;
   repeated ModelId modelId = 14;
   int32 imageCount = 15;
+  string location = 16;
 }
 
 message DatasetsHistory {
