@@ -46,6 +46,7 @@ message EpochInfo{
   string exportStatus = 4;
   string exportPath = 5;
   string labelsPath = 6;
+  string message = 7;
 };
 
 message EpochsInfo{
