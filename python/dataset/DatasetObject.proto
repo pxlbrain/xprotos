@@ -7,6 +7,24 @@ enum DatasetType {
     MLC = 2;
 };
 
+enum DatasetFormat {
+    CUSTOM = 0;
+    CSV = 1;
+    COCO = 2;
+    VOC = 3;
+};
+
+enum CoordinateFormat {
+    TLBR = 0;
+    BLTR = 1;
+    CXCYWH = 2;
+    TLWH = 3;
+    BRWH = 4;
+};
+
+message Void {
+};
+
 message DatasetObjectId {
     string request = 1;
 };
@@ -18,7 +36,9 @@ message Error {
 message NewVersion {
     string message = 1;
     DatasetType datasetType = 2;
-    string version = 3;
+    DatasetFormat datasetFormat = 3;
+    CoordinateFormat coordinateFormat = 4;
+    string version = 5;
 };
 
 message GetVersion {
@@ -27,15 +47,24 @@ message GetVersion {
     string path = 3;
     string createdAt = 4;
     DatasetType datasetType = 5;
+    CoordinateFormat coordinateFormat = 6;
+};
+
+message Configuration {
+    int32 splitRatio = 1;
+    string filename = 2;
+    string imagesKey = 3;
 };
 
 message DatasetSplit {
-    int32 train = 1;
-    int32 test = 2;
+    Configuration train = 1;
+    Configuration validation = 2;
+    Configuration test = 3;
 };
 
 message Files {
     repeated string path = 1;
+    CoordinateFormat coordinatesFormat = 3;
 };
 
 message PTagFile {
@@ -68,7 +97,6 @@ message BlockFiles {
         PTagTreeFiles ptagTreeFiles = 2;
     };
     string request = 3;
-    bool isFinal = 4;
 };
 
 message BlockMeta {
@@ -80,10 +108,10 @@ message CreateDataset {
     string version = 1;
     repeated string labels = 2;
     DatasetSplit split = 3;
-
+    CoordinateFormat coordinatesFormat = 4;
     oneof data {
-        Files csvPaths = 4;
-        BlockFiles blockFiles = 5;
+        Files csvPaths = 5;
+        BlockFiles blockFiles = 6;
     };
 };
 
@@ -122,12 +150,18 @@ message CreateAndMergeDataset{
     string version = 1;
     repeated string labels = 2;
     DatasetSplit split = 3;
-    repeated string mergeWithVersions = 4;
-     oneof data {
-        Files csvPaths = 5;
-        BlockFiles blockFiles = 6;
+    string requestId = 4;
+    repeated string mergeWithVersions = 5;
+    oneof data {
+        Files csvPaths = 6;
+        BlockFiles blockFiles = 7;
     };
-}
+};
+
+message DeleteJob{
+    string request_id = 1;
+    string version = 2;
+};
 
 message DatasetRequest {
     oneof request {
@@ -138,6 +172,7 @@ message DatasetRequest {
         DatasetObjectId datasetObjectId = 5;
         MergeDataset mergeDataset = 6;
         CreateAndMergeDataset createAndMergeDataset = 7;
+        DeleteJob deleteJob = 8;
     };
 };
 
