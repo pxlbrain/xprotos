@@ -121,6 +121,8 @@ service DatasetService {
   }
   rpc GetJobsForTraining(DatasetId) returns (GRPCJobs){
   }
+  rpc RemoveJobFromDataset(RemoveDatasetJob) returns (Void) {
+  }
 }
 
 service JModelService {
