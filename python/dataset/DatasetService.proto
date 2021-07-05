@@ -8,11 +8,6 @@ service VersionService {
     rpc GetVersion(DatasetRequest) returns (DatasetResponse) {};
 };
 
-service DatasetCommonService {
-    rpc ListenDatasetStatus(DatasetRequest) returns (stream DatasetResponse) {};
-    rpc ListenDatasetStatusByRequest(DatasetRequest) returns (stream DatasetResponse) {};
-};
-
 service DatasetDetectorService {
     rpc CreateDataset(DatasetRequest) returns (DatasetResponse) {};
     rpc MergeDataset(DatasetRequest) returns (DatasetResponse) {};
@@ -20,15 +15,17 @@ service DatasetDetectorService {
 };
 
 service DatasetClassifierService {
-    rpc CreateDataset(stream DatasetRequest) returns (stream DatasetResponse) {};
+    rpc CreateDataset(stream DatasetRequest) returns ( DatasetResponse) {};
     rpc GenerateRequest(DatasetRequest) returns (DatasetResponse) {};
     rpc MergeDataset(DatasetRequest) returns (DatasetResponse) {};
-    rpc CreateAndMerge(stream DatasetRequest) returns (stream DatasetResponse) {};
+    rpc CreateAndMerge(stream DatasetRequest) returns ( DatasetResponse) {};
+    rpc DeleteJob(DatasetRequest) returns (Void) {};
 };
 
 service DatasetMLCService {
-    rpc CreateDataset(stream DatasetRequest) returns (stream DatasetResponse) {};
+    rpc CreateDataset(stream DatasetRequest) returns (DatasetResponse) {};
     rpc GenerateRequest(DatasetRequest) returns (DatasetResponse) {};
     rpc MergeDataset(DatasetRequest) returns (DatasetResponse) {};
-    rpc CreateAndMerge(stream DatasetRequest) returns (stream DatasetResponse) {};
+    rpc CreateAndMerge(stream DatasetRequest) returns ( DatasetResponse) {};
+    rpc DeleteJob(DatasetRequest) returns (Void) {};
 };
