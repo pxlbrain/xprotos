@@ -961,3 +961,8 @@ message ModelStepReq {
   string step = 2;
   bool isFinal = 3;
 }
+
+message RemoveDatasetJob {
+  string datasetId = 1;
+  string jobId = 2;
+}
