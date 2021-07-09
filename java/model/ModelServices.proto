@@ -123,6 +123,8 @@ service DatasetService {
   }
   rpc RemoveJobFromDataset(RemoveDatasetJob) returns (Void) {
   }
+  rpc ActivateDatasetForClsOrMlc(DatasetId) returns (Void) {
+  }
 }
 
 service JModelService {
