@@ -64,6 +64,7 @@ message FilterPredictorRequest{
     string location = 3;
     string filter = 4;
     string modelType = 5;
+    string product_list_path = 6;
 };
 
 
