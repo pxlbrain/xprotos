@@ -119,6 +119,7 @@ message GetByType {
   string productListType = 2;
   string client = 3;
   string location = 4;
+  bool activated = 5;
 }
 
 message GRPCGetProductsActive {
