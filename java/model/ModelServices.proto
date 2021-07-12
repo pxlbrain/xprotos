@@ -107,8 +107,6 @@ service DatasetService {
   }
   rpc AssignDatasetToModels (AssignDatasetToModelsRequest) returns (Void){
   }
-  rpc GetModelsByDataset(DatasetId) returns (DatasetModels){
-  }
   rpc AddProductsToDataset(AddProductsDataset) returns (Void){
   }
   rpc AddCustomJobToDataset(CustomJob) returns (Void){
@@ -213,6 +211,8 @@ service JModelService {
   rpc CreateModelForDataset (ModelDataset) returns (ModelId) {}
   rpc UpdateModelStepByDataset (ModelStepReq) returns (Void) {}
   rpc AssignDatasetToModel (AssignVersionRequest) returns (Void) {}
+  rpc GetModelsByDataset(DatasetId) returns (DatasetModels){
+  }
 }
 
 service ConfigurationService {
