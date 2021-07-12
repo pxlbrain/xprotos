@@ -945,13 +945,6 @@ message UpdateJobStatus {
   string user = 3;
 }
 
-message UpdateDatasetJobStatus {
-  string status = 1;
-  repeated string jobIds = 2;
-  string user = 3;
-  string datasetId = 4;
-}
-
 message ModelDataset {
   string datasetVersion = 1;
   string datasetId = 2;

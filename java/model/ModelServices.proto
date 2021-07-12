@@ -34,8 +34,6 @@ service JobService {
   };
   rpc UpdateJobsStatus(UpdateJobStatus) returns (Void) {
   };
-  rpc UpdateDatasetJobsStatus(UpdateDatasetJobStatus) returns (Void) {
-  };
 }
 
 service CVATService {
