@@ -97,6 +97,8 @@ service DatasetService {
   }
   rpc AddJobsToDataset (AddJobDataset) returns (Void){
   }
+  rpc CreateDatasetForClassifierOrMlc (NewDatasetRequest) returns (Void){
+  }
   rpc CreateDatasetForDetector (NewDetectorDatasetRequest) returns (Void){
   }
   rpc AssignDatasetToModels (AssignDatasetToModelsRequest) returns (Void){
