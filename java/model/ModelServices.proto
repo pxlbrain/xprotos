@@ -95,11 +95,7 @@ service DatasetService {
   }
   rpc GetDatasetById (DatasetId) returns (DatasetPayloadResponse) {
   }
-  rpc DeleteDatasetJob (DeleteDatasetJobRequest) returns (Void) {
-  }
   rpc AddJobsToDataset (AddJobDataset) returns (Void){
-  }
-  rpc CreateDatasetForClassifierOrMlc (NewDatasetRequest) returns (Void){
   }
   rpc CreateDatasetForDetector (NewDetectorDatasetRequest) returns (Void){
   }
