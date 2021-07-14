@@ -200,8 +200,7 @@ message ProductId {
 
 message ProductArchived {
   repeated string ids = 1;
-  GRPCGlobalType globalType = 2;
-  bool archived = 3;
+  bool archived = 2;
 }
 
 message ProductClientLocationRequest {
