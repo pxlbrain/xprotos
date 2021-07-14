@@ -17,6 +17,10 @@ service ProductService {
   }
   rpc DeleteProduct (ProductId) returns (Void) {
   }
+  rpc ChangeProductArchived (ProductArchived) returns (Void) {
+  }
+  rpc GetAllArchivedProducts(Void) returns (Products) {
+  }
   rpc GetProduct (ProductClientLocationRequest) returns (Product) {
   }
   rpc GetAllProducts (Void) returns (Products) {
@@ -192,6 +196,12 @@ message Products {
 
 message ProductId {
   string id = 1;
+}
+
+message ProductArchived {
+  repeated string ids = 1;
+  GRPCGlobalType globalType = 2;
+  bool archived = 3;
 }
 
 message ProductClientLocationRequest {
