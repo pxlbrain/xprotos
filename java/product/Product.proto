@@ -203,7 +203,7 @@ message ProductArchived {
   bool archived = 2;
 }
 
-message AllProductArchived {
+message ProductsArchived {
   repeated Product products = 1;
   repeated GRPCFilter filter = 2;
   GRPCPaging paging = 3;
