@@ -19,7 +19,7 @@ service ProductService {
   }
   rpc ChangeProductArchived (ProductArchived) returns (Void) {
   }
-  rpc GetArchivedProducts(Void) returns (AllProductArchived) {
+  rpc GetArchivedProducts(Void) returns (ProductsArchived) {
   }
   rpc GetProduct (ProductClientLocationRequest) returns (Product) {
   }
