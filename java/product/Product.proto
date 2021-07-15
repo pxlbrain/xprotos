@@ -19,7 +19,7 @@ service ProductService {
   }
   rpc ChangeProductArchived (ProductArchived) returns (Void) {
   }
-  rpc GetArchivedProducts(ArchivedProductsRequest) returns (ArchivedProducts) {
+  rpc GetArchivedProducts(ArchivedProductsRequest) returns (GRPCProductResposne) {
   }
   rpc GetProduct (ProductClientLocationRequest) returns (Product) {
   }
@@ -201,13 +201,6 @@ message ProductId {
 message ProductArchived {
   repeated string ids = 1;
   bool archived = 2;
-}
-
-message ArchivedProducts {
-  int32 page = 1;
-  int32 size = 2;
-  int32 count = 3;
-  repeated Product products = 4;
 }
 
 message ArchivedProductsRequest {
