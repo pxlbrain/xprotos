@@ -183,7 +183,6 @@ message Product {
   bool countryDataset = 30;
   bool globalDataset = 31;
   repeated NameId categoryResponse = 32;
-  repeated Product globalChildProducts = 33;
 }
 
 message MHSProduct {
@@ -208,6 +207,7 @@ message ArchivedProductsRequest {
   repeated GRPCFilter filter = 1;
   GRPCPaging paging = 2;
   GRPCSorting sorting = 3;
+  GRPCGlobalType globalType = 4;
 }
 
 message ProductClientLocationRequest {
