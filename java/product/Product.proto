@@ -19,7 +19,7 @@ service ProductService {
   }
   rpc ChangeProductArchived (ProductArchived) returns (Void) {
   }
-  rpc GetArchivedProducts(Void) returns (ProductsArchived) {
+  rpc GetArchivedProducts(Void) returns (ArchivedProducts) {
   }
   rpc GetProduct (ProductClientLocationRequest) returns (Product) {
   }
@@ -203,7 +203,7 @@ message ProductArchived {
   bool archived = 2;
 }
 
-message ProductsArchived {
+message ArchivedProducts {
   repeated Product products = 1;
   repeated GRPCFilter filter = 2;
   GRPCPaging paging = 3;
