@@ -208,7 +208,7 @@ message ArchivedProductsRequest {
   GRPCPaging paging = 2;
   GRPCSorting sorting = 3;
   GRPCGlobalType globalType = 4;
-  string location = 5;
+  string locationId = 5;
   string client = 6;
 }
 
