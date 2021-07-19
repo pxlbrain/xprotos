@@ -22,6 +22,8 @@ message ZoneStats {
 
     repeated WaitingTimes waiting_times = 7;
     float total_avg_group_waiting_time = 8;
+
+    int32 num_groups = 9;
 }
 
 message QueueStats {
