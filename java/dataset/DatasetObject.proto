@@ -16,6 +16,14 @@ enum DatasetFormat {
     VOC = 3;
 };
 
+enum CoordinateFormat {
+    TLBR = 0;
+    BLTR = 1;
+    CXCYWH = 2;
+    TLWH = 3;
+    BRWH = 4;
+};
+
 message DatasetObjectId {
     string request = 1;
 };
@@ -28,7 +36,7 @@ message NewVersion {
     string message = 1;
     DatasetType datasetType = 2;
     DatasetFormat datasetFormat = 3;
-    CoordType coordinateFormat = 4;
+    CoordinateFormat coordinateFormat = 4;
     string version = 5;
 };
 
@@ -38,7 +46,7 @@ message GetVersion {
     string path = 3;
     string createdAt = 4;
     DatasetType datasetType = 5;
-    CoordType coordinateFormat = 6;
+    CoordinateFormat coordinateFormat = 6;
 };
 
 message Configuration {
@@ -55,7 +63,7 @@ message DatasetSplit {
 
 message Files {
     repeated string path = 1;
-    CoordType coordinatesFormat = 3;
+    CoordinateFormat coordinatesFormat = 3;
 };
 
 message PTagFile {
@@ -99,7 +107,7 @@ message CreateDataset {
     string version = 1;
     repeated string labels = 2;
     DatasetSplit split = 3;
-    CoordType coordinatesFormat = 4;
+    CoordinateFormat coordinatesFormat = 4;
     oneof data {
         Files csvPaths = 5;
         BlockFiles blockFiles = 6;
