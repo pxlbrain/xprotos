@@ -367,6 +367,7 @@ message PtagFilter {
   string serviceType = 11;
   bool preannotation = 12;
   GRPCGlobalType globalType = 13;
+  string bestEpoch = 14;
 }
 
 message ClusterFilter {
