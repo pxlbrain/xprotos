@@ -107,6 +107,8 @@ service ProductService {
   }
   rpc ImportDataset (ImportDatasetRequest) returns (Void) {
   }
+  rpc PullGlobalProductChanges (ProductClientLocationRequest) returns (Void) {
+  }
 }
 
 message KidsRequest {
