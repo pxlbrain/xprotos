@@ -15,9 +15,9 @@ service ParameterService {
   };
   rpc UpdateParameter (GRPCParameter) returns (GRPCParameter) {
   };
-  rpc DeleteParameter (ID) returns (Void) {
+  rpc DeleteParameter (IDField) returns (Void) {
   };
-  rpc GetParameter (ID) returns (GRPCParameter) {
+  rpc GetParameter (IDField) returns (GRPCParameter) {
   };
   rpc GetParameters (GRPCGetRequest) returns (GRPCParameterPayloadResponse) {
   };
@@ -28,9 +28,9 @@ service EventService {
   };
   rpc UpdateEvent (GRPCEvent) returns (GRPCEvent) {
   };
-  rpc DeleteEvent (ID) returns (Void) {
+  rpc DeleteEvent (IDField) returns (Void) {
   };
-  rpc GetEvent (ID) returns (GRPCEvent) {
+  rpc GetEvent (IDField) returns (GRPCEvent) {
   };
   rpc GetEvents (GRPCGetRequest) returns (GRPCEventPayloadResponse) {
   };
@@ -45,9 +45,9 @@ service StepService {
   };
   rpc UpdateStep (GRPCStep) returns (GRPCStep) {
   };
-  rpc DeleteStep (ID) returns (Void) {
+  rpc DeleteStep (IDField) returns (Void) {
   };
-  rpc GetStep (ID) returns (GRPCStep) {
+  rpc GetStep (IDField) returns (GRPCStep) {
   };
   rpc GetSteps (GRPCGetRequest) returns (GRPCStepPayloadResponse) {
   };
@@ -62,9 +62,9 @@ service TemplateService {
   };
   rpc UpdateTemplate (GRPCTemplate) returns (GRPCTemplate) {
   };
-  rpc DeleteTemplate (ID) returns (Void) {
+  rpc DeleteTemplate (IDField) returns (Void) {
   };
-  rpc GetTemplate (ID) returns (GRPCTemplate) {
+  rpc GetTemplate (IDField) returns (GRPCTemplate) {
   };
   rpc GetTemplates (GRPCGetRequest) returns (GRPCTemplatePayloadResponse) {
   };
@@ -79,9 +79,9 @@ service WorkflowService {
   };
   rpc UpdateWorkflow (GRPCWorkflow) returns (GRPCWorkflow) {
   };
-  rpc DeleteWorkflow (ID) returns (Void) {
+  rpc DeleteWorkflow (IDField) returns (Void) {
   };
-  rpc GetWorkflow (ID) returns (GRPCWorkflow) {
+  rpc GetWorkflow (IDField) returns (GRPCWorkflow) {
   };
   rpc GetWorkflows (GRPCGetRequest) returns (GRPCWorkflowPayloadResponse) {
   };
@@ -95,13 +95,13 @@ service WorkflowService {
   };
   rpc AssignTemplate (GRPCParentChildRequest) returns (Void) {
   };
-  rpc StartWorkflow (ID) returns (Void) {
+  rpc StartWorkflow (IDField) returns (Void) {
   };
-  rpc GetWorkflowTrackers (ID) returns (GRPCWorkflowTracker) {
+  rpc GetWorkflowTrackers (IDField) returns (GRPCWorkflowTracker) {
   };
-  rpc ConvertToTemplate(ID) returns (Void) {
+  rpc ConvertToTemplate(IDField) returns (Void) {
   };
-  rpc ReassignTemplate (ID) returns (Void) {
+  rpc ReassignTemplate (IDField) returns (Void) {
   };
 }
 
@@ -125,7 +125,7 @@ service EventTrackerService {
   };
   rpc ValidateEvent (GRPCWorkflowValidation) returns (Void) {
   };
-  rpc GetEventTrackers (ID) returns (GRPCEventTrackers) {
+  rpc GetEventTrackers (IDField) returns (GRPCEventTrackers) {
   };
 }
 
@@ -137,4 +137,3 @@ service ParameterTrackerService {
   rpc GetParameterTracker (GRPCParameterTracker) returns (GRPCParameterTracker) {
   };
 }
-
