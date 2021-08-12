@@ -109,6 +109,8 @@ service ProductService {
   }
   rpc PullGlobalProductChanges (ProductClientLocationRequest) returns (Void) {
   }
+  rpc PullGlobalProductChangesForSelected (ProductsClientLocationRequest) returns (Void) {
+  }
 }
 
 message KidsRequest {
@@ -218,6 +220,11 @@ message ArchivedProductsRequest {
 message ProductClientLocationRequest {
   string location = 1;
   string productId = 2;
+}
+
+message ProductsClientLocationRequest {
+  string location = 1;
+  repeated string productIds = 2;
 }
 
 message ProductsAndProductList {
