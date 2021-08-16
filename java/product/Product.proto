@@ -107,6 +107,10 @@ service ProductService {
   }
   rpc ImportDataset (ImportDatasetRequest) returns (Void) {
   }
+  rpc PullGlobalProductChanges (ProductClientLocationRequest) returns (Void) {
+  }
+  rpc PullGlobalProductChangesForSelected (ProductsClientLocationRequest) returns (Void) {
+  }
 }
 
 message KidsRequest {
@@ -183,6 +187,7 @@ message Product {
   bool countryDataset = 30;
   bool globalDataset = 31;
   repeated NameId categoryResponse = 32;
+  bool dirty = 33;
 }
 
 message MHSProduct {
@@ -215,6 +220,11 @@ message ArchivedProductsRequest {
 message ProductClientLocationRequest {
   string location = 1;
   string productId = 2;
+}
+
+message ProductsClientLocationRequest {
+  string location = 1;
+  repeated string productIds = 2;
 }
 
 message ProductsAndProductList {

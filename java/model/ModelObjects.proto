@@ -37,12 +37,11 @@ message GRPCJob {
   string imageCounter = 21;
   repeated GRPCJob children = 22;
   string modelId = 23;
-  bool trolley = 24;
-  string cvatPreannotationStatus = 25;
-  string serviceType = 26;
-  GRPCGlobalType globalType = 27;
-  string subType = 28;
-  string qaUser =29;
+  string cvatPreannotationStatus = 24;
+  string serviceType = 25;
+  GRPCGlobalType globalType = 26;
+  string subType = 27;
+  string qaUser =28;
 }
 
 message GRPCGetJobsRequest {
