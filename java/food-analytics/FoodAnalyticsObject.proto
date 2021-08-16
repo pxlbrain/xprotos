@@ -1,0 +1,69 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+import "product/Product.proto";
+
+message SalesProducts {
+    repeated SalesProduct products = 1;
+}
+
+message SalesProduct {
+    string name = 1;
+    string category = 2;
+    string count = 3;
+}
+
+message SalesProductsRequest {
+    string client = 1;
+    string location = 2;
+    bool top = 3;
+}
+
+message VisualInsights {
+    repeated Insight insights = 1;
+}
+
+message Insight  {
+    string trayId = 1;
+    repeated string paths = 2;
+    string date = 3;
+}
+
+message SalesProductInsights {
+    string name = 1;
+    string id = 2;
+    string count = 3;
+    string status = 4;
+    repeated SalesProductInsights variants = 5;
+}
+
+message VisualInsightsRequest {
+    string client = 1;
+    string location = 2;
+    string productId = 3;
+    AnalyticFilter filter = 4;
+    GRPCPaging paging = 5;
+    bool isTrending = 6;
+}
+
+message TrayId {
+    string id = 1;
+}
+
+message AnalyticFilter {
+    AnalyticFilterEnum type = 1;
+    string dateFrom = 2;
+    string dateTo = 3;
+}
+
+enum AnalyticFilterEnum {
+    TODAY = 0;
+    YESTERDAY = 1;
+    LAST_WEEK = 2;
+    LAST_MONTH = 3;
+    LAST_YEAR = 4;
+    CUSTOM = 5;
+}

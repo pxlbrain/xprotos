@@ -1,0 +1,11 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "food-analytics/FoodAnalyticsObject.proto";
+import "inventory/Void.proto";
+
+service FoodAnalyticsService {
+    rpc GetSalesProducts (SalesProductsRequest) returns (SalesProducts) {};
+    rpc GetVisualInsights (VisualInsightsRequest) returns (VisualInsights) {};
+    rpc GetInsightByTrayId (TrayId) returns (Insight) {};
+}
