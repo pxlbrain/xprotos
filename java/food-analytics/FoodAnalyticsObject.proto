@@ -59,6 +59,25 @@ message AnalyticFilter {
     string dateTo = 3;
 }
 
+message StatsRequest {
+    string field = 1;
+    GRPCGlobalType globalType = 2;
+    DashboardStatEnum type = 3;
+}
+
+message StatsResponse {
+    string stat = 1;
+}
+
+enum DashboardStatEnum {
+    PRODUCTS = 0;
+    TRANSACTIONS = 1;
+    SERVINGS = 2;
+    STAR_PRODUCT = 3;
+    TICKET_SIZE = 4;
+    SALES_INCREASE = 5;
+}
+
 enum AnalyticFilterEnum {
     TODAY = 0;
     YESTERDAY = 1;
