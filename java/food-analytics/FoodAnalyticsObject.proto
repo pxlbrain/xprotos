@@ -65,5 +65,5 @@ enum AnalyticFilterEnum {
     LAST_WEEK = 2;
     LAST_MONTH = 3;
     LAST_YEAR = 4;
-    CUSTOM = 5;
+    CUSTOM_RANGE = 5;
 }
