@@ -70,8 +70,12 @@ message StatsResponse {
 }
 
 enum DashboardStatEnum {
-    STAR_PRODUCT = 0;
-    SERVINGS = 1;
+    PRODUCTS = 0;
+    TRANSACTIONS = 1;
+    SERVINGS = 2;
+    STAR_PRODUCT = 3;
+    TICKET_SIZE = 4;
+    SALES_INCREASE = 5;
 }
 
 enum AnalyticFilterEnum {
