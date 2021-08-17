@@ -72,7 +72,10 @@ enum DashboardStatEnum {
 }
 
 message Autocomplete {
-    string request = 1;
+    string client = 1;
+    string location = 2;
+    GRPCGlobalType globalType = 3;
+    string request = 4;
 }
 
 message ProductsAutocomplete {
