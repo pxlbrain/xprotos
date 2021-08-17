@@ -9,4 +9,5 @@ service FoodAnalyticsService {
     rpc GetVisualInsights (VisualInsightsRequest) returns (VisualInsights) {};
     rpc GetInsightByTrayId (TrayId) returns (Insight) {};
     rpc GetDashboardStats (StatsRequest) returns (StatsResponse) {};
+    rpc GetProducts (Autocomplete) returns (ProductsAutocomplete) {};
 }

@@ -67,3 +67,17 @@ message StatsResponse {
 enum DashboardStatEnum {
     SERVINGS = 0;
 }
+
+message Autocomplete {
+    string request = 1;
+}
+
+message ProductsAutocomplete {
+    repeated ProductAutocomplete products = 1;
+}
+
+message ProductAutocomplete {
+    string id = 1;
+    string name = 2;
+    string mhs = 3;
+}
