@@ -47,7 +47,7 @@ message VisualInsightsRequest {
     string productId = 3;
     string dateFrom = 4;
     string dateTo = 5;
-    bool isTrending = 6;
+    GRPCPaging paging = 6;
 }
 
 message TrayId {
