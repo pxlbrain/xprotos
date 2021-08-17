@@ -65,10 +65,8 @@ message StatsResponse {
 }
 
 enum DashboardStatEnum {
-    PRODUCTS = 0;
-    TRANSACTIONS = 1;
-    SERVINGS = 2;
-    STAR_PRODUCT = 3;
-    TICKET_SIZE = 4;
-    SALES_INCREASE = 5;
+    SERVINGS = 0;
+    STAR_PRODUCT = 1;
+    TICKET_SIZE = 2;
+    SALES_INCREASE = 3;
 }
