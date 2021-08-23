@@ -11,11 +11,11 @@ enum SortDirection {
 };
 
 enum CoordType {
-    TLBR = 0;
-    BLTR = 1;
-    CXCYWH = 2;
-    TLWH = 3;
-    BRWH = 4;
+    XYXY = 0;
+    TLBR = 1;
+    XYAH = 2;
+    CXCYWH = 3;
+    TLWH = 4;
 };
 
 message SortObject {
