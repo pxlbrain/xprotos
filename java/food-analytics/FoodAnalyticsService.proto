@@ -11,4 +11,5 @@ service FoodAnalyticsService {
     rpc GetDashboardStats (StatsRequest) returns (StatsResponse) {};
     rpc GetProducts (Autocomplete) returns (ProductsAutocomplete) {};
     rpc GetTopCombinations (CombinationsReq) returns (CombinationsRes) {};
+    rpc GetProductCombinations (ProductCombinationsReq) returns (CombinationsRes) {};
 }
