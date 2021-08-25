@@ -87,3 +87,22 @@ message ProductAutocomplete {
     string name = 2;
     string mhs = 3;
 }
+
+message CombinationsReq {
+    string client = 1;
+    string location = 2;
+    string productId = 3;
+    string dateFrom = 4;
+    string dateTo = 5;
+}
+
+message CombinationsRes {
+    repeated CombinationRes combinations = 1;
+}
+
+message CombinationRes {
+    int32 count = 1;
+    string name = 2;
+    string id = 3;
+    repeated CombinationRes productCombinations = 4;
+}
