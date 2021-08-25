@@ -5,6 +5,7 @@ option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 
 import "product/Product.proto";
+import "common/Enums.proto";
 
 message SalesProducts {
     repeated SalesProduct products = 1;
@@ -23,7 +24,10 @@ message SalesProductsRequest {
 }
 
 message VisualInsights {
-    repeated Insight insights = 1;
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated Insight insights = 4;
 }
 
 message Insight  {
@@ -44,26 +48,61 @@ message VisualInsightsRequest {
     string client = 1;
     string location = 2;
     string productId = 3;
-    AnalyticFilter filter = 4;
-    GRPCPaging paging = 5;
-    bool isTrending = 6;
+    string dateFrom = 4;
+    string dateTo = 5;
+    GRPCPaging paging = 6;
 }
 
 message TrayId {
     string id = 1;
 }
 
-message AnalyticFilter {
-    AnalyticFilterEnum type = 1;
-    string dateFrom = 2;
-    string dateTo = 3;
+message StatsRequest {
+    string field = 1;
+    GRPCGlobalType globalType = 2;
+    DashboardStatEnum type = 3;
 }
 
-enum AnalyticFilterEnum {
-    TODAY = 0;
-    YESTERDAY = 1;
-    LAST_WEEK = 2;
-    LAST_MONTH = 3;
-    LAST_YEAR = 4;
-    CUSTOM_RANGE = 5;
+message StatsResponse {
+    string stat = 1;
+}
+
+enum DashboardStatEnum {
+    SERVINGS = 0;
+}
+
+message Autocomplete {
+    string client = 1;
+    string location = 2;
+    GRPCGlobalType globalType = 3;
+    string request = 4;
+}
+
+message ProductsAutocomplete {
+    repeated ProductAutocomplete products = 1;
+}
+
+message ProductAutocomplete {
+    string id = 1;
+    string name = 2;
+    string mhs = 3;
+}
+
+message CombinationsReq {
+    string client = 1;
+    string location = 2;
+    string productId = 3;
+    string dateFrom = 4;
+    string dateTo = 5;
+}
+
+message CombinationsRes {
+    repeated CombinationRes combinations = 1;
+}
+
+message CombinationRes {
+    int32 count = 1;
+    string name = 2;
+    string id = 3;
+    repeated CombinationRes productCombinations = 4;
 }
