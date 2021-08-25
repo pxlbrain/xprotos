@@ -104,5 +104,16 @@ message CombinationRes {
     int32 count = 1;
     string name = 2;
     string id = 3;
-    repeated CombinationRes productCombinations = 4;
+}
+
+message ProductCombinationsReq {
+    string client = 1;
+    string location = 2;
+    string dateFrom = 3;
+    string dateTo = 4;
+    repeated ProductCombinationReq products = 5;
+}
+
+message ProductCombinationReq {
+    string name = 1;
 }
