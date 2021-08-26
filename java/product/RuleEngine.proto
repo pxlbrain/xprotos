@@ -6,11 +6,12 @@ package ai.pixlbrain.backend;
 
 import "inventory/Void.proto";
 import "inventory/InventoryObject.proto";
+import "common/Enums.proto";
 
 service RuleEngineService {
     rpc SaveRuleEngine (RuleEngine) returns (RuleEngine) {
     }
-    rpc GetRuleEngineByLocation (LocationId) returns (RuleEngine) {
+    rpc GetRuleEngineByType (GetRuleEngineRequest) returns (RuleEngine) {
     }
     rpc UploadRuleEngineToS3 (RuleEngineId) returns (Void) {
     }
@@ -31,6 +32,8 @@ message RuleEngine {
     int32 sizeTreshold = 12;
     float detectionThreshold = 13;
     float classificationThreshold = 14;
+    GRPCGlobalType globalType = 15;
+
 }
 
 message PlateFilter {
@@ -42,4 +45,9 @@ message RuleEngineId {
     string id = 1;
 }
 
+message GetRuleEngineRequest {
+    string client = 1;
+    string location = 2;
+    GRPCGlobalType globalType = 3;
+}
 
