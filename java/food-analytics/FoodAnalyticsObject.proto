@@ -118,6 +118,10 @@ message ProductCombinationReq {
     string name = 1;
 }
 
+message ProductCombinationsRes {
+    repeated ProductCombinationRes productCombinations = 1;
+}
+
 message ProductCombinationRes {
     string name = 1;
     repeated CombinationRes combinations = 2;
