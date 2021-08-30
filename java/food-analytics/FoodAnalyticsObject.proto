@@ -104,6 +104,7 @@ message CombinationRes {
     int32 count = 1;
     string name = 2;
     string id = 3;
+    string status = 4;
 }
 
 message ProductCombinationsReq {
