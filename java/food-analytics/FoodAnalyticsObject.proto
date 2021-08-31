@@ -127,3 +127,11 @@ message ProductCombinationRes {
     string name = 1;
     repeated CombinationRes combinations = 2;
 }
+
+message SideDishCombinationsReq {
+    string client = 1;
+    string location = 2;
+    string dateFrom = 3;
+    string dateTo = 4;
+    string productName = 5;
+}
