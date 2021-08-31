@@ -12,4 +12,6 @@ service FoodAnalyticsService {
     rpc GetProducts (Autocomplete) returns (ProductsAutocomplete) {};
     rpc GetTopCombinations (CombinationsReq) returns (CombinationsRes) {};
     rpc GetProductCombinations (ProductCombinationsReq) returns (ProductCombinationsRes) {};
+    rpc GetSideDishes (CombinationsReq) returns (CombinationsRes) {};
+    rpc GetSideDishCombinations (SideDishCombinationsReq) returns (CombinationsRes) {};
 }
