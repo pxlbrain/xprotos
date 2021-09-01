@@ -20,7 +20,7 @@ service OrganizationService {
   };
   rpc GetAllOrganizations (GRPCGetOrganizationRequest) returns (GRPCGetOrganizationResponse) {
   };
-  rpc GetCompaniesByOrganization(OrganizationId) returns (Companies) {
+  rpc GetCompaniesByOrganization(GRPCGetOrganizationCompanyRequest) returns (GRPCPagedCompanyResponse) {
   };
   rpc AddCompanyToOrganization(OrganizationCompanyRequest) returns (Void) {
   };
