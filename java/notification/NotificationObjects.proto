@@ -70,8 +70,8 @@ message NotificationMessageRequest {
   string userId = 3;
 }
 
-message OrganizationId {
-  string organizationId = 1;
+message NotOrganizationId {
+  string notOrganizationId = 1;
 }
 
 message NotificationOrganization {

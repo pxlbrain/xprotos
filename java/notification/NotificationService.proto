@@ -17,9 +17,9 @@ service NotificationMessageService {
 service NotificationOrganizationService {
   rpc CreateNotificationOrganization (NotificationOrganizationRequest) returns (NotificationOrganization) {
   }
-  rpc DeleteNotificationOrganization (OrganizationId) returns (Void) {
+  rpc DeleteNotificationOrganization (NotOrganizationId) returns (Void) {
   }
-  rpc GetOrganizationTopic (OrganizationId) returns (NotificationTopic) {
+  rpc GetOrganizationTopic (NotOrganizationId) returns (NotificationTopic) {
   }
 }
 

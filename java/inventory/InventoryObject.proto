@@ -51,6 +51,7 @@ message Company {
     string updated = 6;
     string displayName = 7;
     repeated Location locations = 8;
+    string flag = 9;
 }
 
 message Companies {
@@ -575,4 +576,44 @@ message QueueStatusRuleId {
 
 message ZoneId {
     string id = 1;
+}
+
+message Organization {
+    string id = 1;
+    string name = 2;
+    string address = 3;
+    string created = 5;
+    string updated = 6;
+    string displayName = 7;
+    repeated Company companies = 8;
+    OrganizationLogo logo = 9;
+    string logoURL = 10;
+}
+
+message OrganizationId {
+    string id = 1;
+}
+
+message GRPCGetOrganizationRequest {
+    repeated GRPCFilter filter = 3;
+    GRPCPaging paging = 4;
+    GRPCSorting sorting = 5;
+}
+
+message GRPCGetOrganizationResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated Organization organizations = 4;
+}
+
+message OrganizationCompanyRequest {
+    string organizationId = 1;
+    repeated string companyIds = 2;
+}
+
+message OrganizationLogo {
+    string image = 1;
+    string imageName = 2;
+    string imageType = 3;
 }
