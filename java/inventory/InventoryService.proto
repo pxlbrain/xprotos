@@ -9,6 +9,25 @@ import "middleware/MiddlewareObject.proto";
 
 package ai.pixlbrain.backend;
 
+service OrganizationService {
+  rpc CreateOrganization (Organization) returns (Organization) {
+  };
+  rpc UpdateOrganization (Organization) returns (Organization) {
+  };
+  rpc DeleteOrganization (OrganizationId) returns (Void) {
+  };
+  rpc GetOrganization (OrganizationId) returns (Organization) {
+  };
+  rpc GetAllOrganizations (GRPCGetOrganizationRequest) returns (GRPCGetOrganizationResponse) {
+  };
+  rpc GetCompaniesByOrganization(OrganizationId) returns (Companies) {
+  };
+  rpc AddCompanyToOrganization(OrganizationCompanyRequest) returns (Void) {
+  };
+  rpc RemoveCompanyFromOrganization(OrganizationCompanyRequest) returns (Void) {
+  };
+};
+
 service CompanyService {
   rpc CreateCompany (Company) returns (Company) {
   };
