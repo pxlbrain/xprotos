@@ -34,6 +34,17 @@ message ExternalPayloadResponse {
   repeated ExternalProductResponse products = 2;
 }
 
+message ExternalProductChange {
+  string property = 1;
+  string old_value = 3;
+  string new_value = 4;
+}
+
+message ExternalProductChanges {
+  repeated ExternalProductChange changes = 1;
+  string timestamp = 2;
+}
+
 message ExternalProductResponse {
   string product_id = 1;
   string product_name = 2;
@@ -48,6 +59,7 @@ message ExternalProductResponse {
   repeated string linked_products = 11;
   string fetched_at = 12;
   int32 quantity_default = 13;
+  repeated ExternalProductChanges change_history = 14;
 }
 
 message ExternalExtractedInfo {
