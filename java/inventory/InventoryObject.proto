@@ -588,6 +588,7 @@ message Organization {
     repeated Company companies = 8;
     OrganizationLogo logo = 9;
     string logoURL = 10;
+    string startOfFiscalYear = 11;
 }
 
 message OrganizationId {
