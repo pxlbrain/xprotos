@@ -10,7 +10,7 @@ package ai.pixlbrain.backend;
 
 service UserService {
   rpc GetUsers (GRPCGetUsersRequest) returns (GRPCUserResponse);
-  rpc SignUp (GRPCUser) returns (UserId);
+  rpc SignUp (GRPCUser) returns (UserAuthId);
   rpc UpdateUser (GRPCUser) returns (GRPCUser);
   rpc DeleteUser (StringField) returns (Void);
   rpc GetUserRoles(GRPCRoleRequest) returns (GRPCRoleResponse);

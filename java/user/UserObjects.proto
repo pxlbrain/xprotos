@@ -192,6 +192,6 @@ message GRPCPasswordRequest {
   string accessToken = 8;
 }
 
-message UserId {
+message UserAuthId {
   string userId = 1;
 }
