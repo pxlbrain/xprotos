@@ -52,6 +52,7 @@ message Company {
     string displayName = 7;
     repeated Location locations = 8;
     string flag = 9;
+    string organizationId = 10;
 }
 
 message Companies {
