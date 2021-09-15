@@ -191,3 +191,7 @@ message GRPCPasswordRequest {
   string session = 7;
   string accessToken = 8;
 }
+
+message UserId {
+  string userId = 1;
+}
