@@ -27,6 +27,7 @@ service UserService {
   rpc ChangePassword (StringField) returns (Void);
   rpc GetPresignedUrl(PresignedUrlRequest) returns (PresignedUrlResponse);
   rpc GetUserLogs(GRPCGetUsersRequest) returns (GRPCLogsResponse);
+  rpc UpdateUsersMetadata (DeleteRequest) returns (Void);
 
 }
 
