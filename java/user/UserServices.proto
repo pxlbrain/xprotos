@@ -46,6 +46,7 @@ service RoleService {
 
 service PermissionService {
   rpc CreatePermissions(GRPCPermissions) returns (Void);
+  rpc GetPermissions(Void) returns (GRPCPermissions);
 }
 
 service ReferenceLookupService {
