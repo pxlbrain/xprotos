@@ -175,6 +175,8 @@ service LocationService {
   };
   rpc UploadLocationLayout (LocationLayout) returns (Void) {
   };
+  rpc GetLocationsByCompanyIds (CompanyIds) returns (Locations) {
+  };
 }
 
 service DeviceIsoFileService {
