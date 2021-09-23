@@ -39,6 +39,7 @@ service UserService {
   };
   rpc GetPresignedUrl(PresignedUrlRequest) returns (PresignedUrlResponse) {
   };
+  rpc UpdateUsersMetadata (DeleteRequest) returns (Void);
 }
 
 service RoleService {
