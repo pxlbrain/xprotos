@@ -633,3 +633,7 @@ message GRPCPagedCompanyResponse {
     int32 count = 3;
     repeated Company companies = 4;
 }
+
+message OrganizationIds {
+    repeated string id = 1;
+}
