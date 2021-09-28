@@ -5,6 +5,7 @@ option java_package = "ai.pixlbrain.backend";
 
 import "user/UserObjects.proto";
 import "inventory/Void.proto";
+import "google/protobuf/wrappers.proto";
 
 package ai.pixlbrain.backend;
 
@@ -28,7 +29,7 @@ service UserService {
   rpc GetPresignedUrl(PresignedUrlRequest) returns (PresignedUrlResponse);
   rpc GetUserLogs(GRPCGetUsersRequest) returns (GRPCLogsResponse);
   rpc UpdateUsersMetadata (DeleteRequest) returns (Void);
-
+  rpc HasPermission (HasPermissionRequest) returns (google.protobuf.BoolValue);
 }
 
 service RoleService {
