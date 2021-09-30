@@ -4,6 +4,7 @@ package ai.pixlbrain.backend;
 import "inventory/Void.proto";
 import "product/Product.proto";
 import "common/Filter.proto";
+import "common/Enums.proto";
 
 service TransactionService {
   rpc GetTransaction (TransactionId) returns (Transaction) {}
@@ -250,6 +251,10 @@ message TransactionReport {
   bool isCheckscan = 6;
   string reportId = 7;
   string name = 8;
+  string dateFrom = 9;
+  string dateTo = 10;
+  int32 quantity = 11;
+  GRPCTransactionReportType type = 12;
 }
 
 message TransactionReports {
@@ -300,6 +305,7 @@ message AddReports {
   bool isCheckScan = 15;
   string reportId = 16;
   string trayId = 17;
+  string cameraId = 18;
 }
 
 message Report {
