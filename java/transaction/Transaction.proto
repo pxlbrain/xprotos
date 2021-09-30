@@ -73,8 +73,13 @@ message ReportItemRes {
   repeated TransactionReportResp transactions = 5;
   repeated ProductReportRes products = 6;
   int32 unknownProducts = 7;
-  int32 cameraCorrect = 8;
+  repeated CameraReportRes cameras = 8;
   int32 servingCorrect = 9;
+}
+
+message CameraReportRes {
+  string cameraId = 1;
+  int32 cameraCorrect = 2;
 }
 
 message TransactionReportResp {
@@ -95,6 +100,7 @@ message ProductReportRes {
   string productId = 1;
   string productName = 2;
   int32 count = 3;
+  int32 quantity = 4;
 }
 
 message GRPCGetTransactionResponse {
