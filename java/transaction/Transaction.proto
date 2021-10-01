@@ -294,6 +294,7 @@ message ReportResponse {
   int32 cameraCorrect = 9;
   int32 servingCorrect = 10;
   string name = 11;
+  string type = 12;
 }
 
 message StatisticsReport {
