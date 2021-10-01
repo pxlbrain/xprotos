@@ -21,6 +21,7 @@ service TransactionService {
   rpc GetCheckScanReportsById (ReportId) returns (CheckscanReportItems) {}
   rpc GetActiveReports (GetActiveReport) returns (ActiveReports) {}
   rpc CompleteReport (ReportStop) returns (Void) {}
+  rpc GetTransactionsByReportId (ReportId) returns (TransactionsReportResp) {}
 }
 
 message CheckscanReportItems {
@@ -80,6 +81,10 @@ message ReportItemRes {
 message CameraReportRes {
   string cameraId = 1;
   int32 cameraCorrect = 2;
+}
+
+message TransactionsReportResp {
+  repeated TransactionReportResp transactions = 1;
 }
 
 message TransactionReportResp {
@@ -327,6 +332,7 @@ message ReportId {
   string id = 1;
   int32 page = 2;
   int32 size = 3;
+  bool isDone = 4;
 }
 
 message CheckScanReport {
