@@ -84,7 +84,10 @@ message CameraReportRes {
 }
 
 message TransactionsReportResp {
-  repeated TransactionReportResp transactions = 1;
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated TransactionReportResp transactions = 4;
 }
 
 message TransactionReportResp {
