@@ -161,6 +161,7 @@ message Transaction {
   double detectionThreshold = 22;
   double classificationThreshold = 23;
   bool trolley = 24;
+  string reportId = 25;
 }
 
 message Frame {
