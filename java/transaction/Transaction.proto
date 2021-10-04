@@ -78,7 +78,12 @@ message ReportItemRes {
   int32 servingCorrect = 9;
   int32 correct = 10;
   int32 failed = 11;
-  int32 edgeCase = 12;
+  repeated EdgeCaseRes edgeCases = 12;
+}
+
+message EdgeCaseRes {
+  string productId = 1;
+  string productName = 2;
 }
 
 message CameraReportRes {
