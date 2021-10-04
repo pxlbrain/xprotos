@@ -324,6 +324,7 @@ message AddReports {
   string reportId = 16;
   string trayId = 17;
   string cameraId = 18;
+  bool isEdgeCase = 19;
 }
 
 message Report {
@@ -340,6 +341,7 @@ message ReportId {
   int32 page = 2;
   int32 size = 3;
   bool isDone = 4;
+  repeated GRPCFilter filter = 5;
 }
 
 message CheckScanReport {
