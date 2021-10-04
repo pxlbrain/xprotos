@@ -76,6 +76,8 @@ message ReportItemRes {
   int32 unknownProducts = 7;
   repeated CameraReportRes cameras = 8;
   int32 servingCorrect = 9;
+  int32 correct = 10;
+  int32 failed = 11;
 }
 
 message CameraReportRes {
