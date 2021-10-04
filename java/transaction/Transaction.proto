@@ -83,7 +83,7 @@ message ReportItemRes {
 
 message EdgeCaseRes {
   string productId = 1;
-  string productName = 2;
+  int32 count = 2;
 }
 
 message CameraReportRes {
@@ -111,6 +111,7 @@ message TransactionReportResp {
   int32 servingCorrect = 10;
   bool correct = 11;
   int32 edgeCase = 12;
+  string trayId = 13;
 }
 
 message ProductReportRes {
