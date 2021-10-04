@@ -105,6 +105,7 @@ message TransactionReportResp {
   int32 cameraCorrect = 9;
   int32 servingCorrect = 10;
   bool correct = 11;
+  int32 edgeCase = 12;
 }
 
 message ProductReportRes {
@@ -179,6 +180,7 @@ message CorrectItemResponse {
   string productName = 2;
   string type = 3;
   bool servingCorrect = 4;
+  bool edgeCase = 5;
 }
 
 message Item {
@@ -325,7 +327,6 @@ message AddReports {
   string reportId = 16;
   string trayId = 17;
   string cameraId = 18;
-  bool isEdgeCase = 19;
 }
 
 message Report {
@@ -335,6 +336,7 @@ message Report {
   bool isCorrect = 4;
   bool servingCorrect = 5;
   string modelType = 6;
+  bool isEdgeCase = 7;
 }
 
 message ReportId {
