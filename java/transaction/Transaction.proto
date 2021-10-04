@@ -78,6 +78,7 @@ message ReportItemRes {
   int32 servingCorrect = 9;
   int32 correct = 10;
   int32 failed = 11;
+  int32 edgeCase = 12;
 }
 
 message CameraReportRes {
