@@ -351,6 +351,9 @@ message ReportId {
   int32 size = 3;
   bool isDone = 4;
   repeated GRPCFilter filter = 5;
+  bool isEdgeCase = 6;
+  bool isCamera = 7;
+  GRPCSorting sorting = 8;
 }
 
 message CheckScanReport {
