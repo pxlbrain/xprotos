@@ -55,8 +55,14 @@ message GRPCUser {
   repeated GRPCScope scopes = 9;
   bool cvat = 10;
   repeated GRPCPermission permissions = 11;
+  repeated GRPCApps apps = 12;
 }
 
+message GRPCApps {
+  AppName rootApp = 1;
+  repeated ChildAppName childAppName = 2;
+
+}
 message GRPCScope {
   string id = 1;
   string resource = 2;
@@ -204,4 +210,18 @@ message DeleteRequest {
 message HasPermissionRequest {
   string permission = 1;
   string name = 2;
+}
+
+enum AppName {
+  PLATFORM = 0;
+  ANALYTICS = 1;
+  PTAG = 2;
+  CVAT = 3;
+  SCAN_UI = 4;
+}
+
+enum ChildAppName {
+  FOOD = 0;
+  SCAN = 1;
+  QUEUE = 2;
 }
