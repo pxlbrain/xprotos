@@ -354,6 +354,8 @@ message ReportId {
   bool isEdgeCase = 6;
   bool isCamera = 7;
   GRPCSorting sorting = 8;
+  bool isServing = 9;
+  bool isUnknownProduct = 10;
 }
 
 message CheckScanReport {
