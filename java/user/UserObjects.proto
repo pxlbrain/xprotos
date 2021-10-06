@@ -61,8 +61,8 @@ message GRPCUser {
 message GRPCApps {
   AppName rootApp = 1;
   repeated ChildAppName childAppName = 2;
-
 }
+
 message GRPCScope {
   string id = 1;
   string resource = 2;
