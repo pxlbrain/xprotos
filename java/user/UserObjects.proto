@@ -6,6 +6,7 @@ option java_package = "ai.pixlbrain.backend";
 
 import "product/Product.proto";
 import "common/Filter.proto";
+import "common/Enums.proto";
 
 message GRPCRoleRequest {
   GRPCPaging paging = 1;
@@ -210,18 +211,4 @@ message DeleteRequest {
 message HasPermissionRequest {
   string permission = 1;
   string name = 2;
-}
-
-enum AppName {
-  PLATFORM = 0;
-  ANALYTICS = 1;
-  PTAG = 2;
-  CVAT = 3;
-  SCAN_UI = 4;
-}
-
-enum ChildAppName {
-  FOOD = 0;
-  SCAN = 1;
-  QUEUE = 2;
 }
