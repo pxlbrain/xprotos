@@ -112,6 +112,7 @@ message TransactionReportResp {
   bool correct = 11;
   int32 edgeCase = 12;
   string trayId = 13;
+  string cameraId = 14;
 }
 
 message ProductReportRes {
