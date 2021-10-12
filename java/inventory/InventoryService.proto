@@ -47,6 +47,8 @@ service CompanyService {
   };
   rpc GetRegionsByCompanies(CompanyIds) returns (Regions) {
   };
+  rpc GetCompaniesByOrganizations(OrganizationIds) returns (Companies) {
+  };
 };
 
 service DeviceService {
@@ -174,6 +176,8 @@ service LocationService {
   rpc GetLocationByName (LocationName) returns (Location) {
   };
   rpc UploadLocationLayout (LocationLayout) returns (Void) {
+  };
+  rpc GetLocationsByCompanyIds (CompanyIds) returns (Locations) {
   };
 }
 

@@ -169,3 +169,8 @@ message LookupResponse {
   string name = 1;
   string value = 2;
 }
+
+message DeleteRequest {
+  string scope = 1;
+  string scopeName = 2;
+}

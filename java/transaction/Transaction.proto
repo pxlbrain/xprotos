@@ -4,6 +4,7 @@ package ai.pixlbrain.backend;
 import "inventory/Void.proto";
 import "product/Product.proto";
 import "common/Filter.proto";
+import "common/Enums.proto";
 
 service TransactionService {
   rpc GetTransaction (TransactionId) returns (Transaction) {}
@@ -13,13 +14,14 @@ service TransactionService {
   rpc GetTransactionReports (TransactionReport) returns (TransactionReports) {}
   rpc AddTransactionReport (AddReports) returns (Void) {}
   rpc GetReportById (ReportId) returns (ReportItemRes) {}
-  rpc GetCheckScanTransactionById (TransactionId) returns (Transaction) {}
+  rpc GetCheckScanTransactionById (TransactionId) returns (ScanTransactions) {}
   rpc CreateCheckScanTransactionReport (CheckScanReport) returns (Void) {}
   rpc CheckDateRange (CheckScanReport) returns (ValidateDateRange) {}
   rpc GetAutomaticCheckScanReports (CheckscanReports) returns (AutoCheckscanReports) {}
   rpc GetCheckScanReportsById (ReportId) returns (CheckscanReportItems) {}
   rpc GetActiveReports (GetActiveReport) returns (ActiveReports) {}
   rpc CompleteReport (ReportStop) returns (Void) {}
+  rpc GetTransactionsByReportId (ReportId) returns (TransactionsReportResp) {}
 }
 
 message CheckscanReportItems {
@@ -72,8 +74,28 @@ message ReportItemRes {
   repeated TransactionReportResp transactions = 5;
   repeated ProductReportRes products = 6;
   int32 unknownProducts = 7;
-  int32 cameraCorrect = 8;
+  repeated CameraReportRes cameras = 8;
   int32 servingCorrect = 9;
+  int32 correct = 10;
+  int32 failed = 11;
+  repeated EdgeCaseRes edgeCases = 12;
+}
+
+message EdgeCaseRes {
+  string productId = 1;
+  int32 count = 2;
+}
+
+message CameraReportRes {
+  string cameraId = 1;
+  int32 cameraCorrect = 2;
+}
+
+message TransactionsReportResp {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated TransactionReportResp transactions = 4;
 }
 
 message TransactionReportResp {
@@ -88,12 +110,16 @@ message TransactionReportResp {
   int32 cameraCorrect = 9;
   int32 servingCorrect = 10;
   bool correct = 11;
+  int32 edgeCase = 12;
+  string trayId = 13;
+  string cameraId = 14;
 }
 
 message ProductReportRes {
   string productId = 1;
   string productName = 2;
   int32 count = 3;
+  int32 quantity = 4;
 }
 
 message GRPCGetTransactionResponse {
@@ -146,6 +172,7 @@ message Transaction {
   double detectionThreshold = 22;
   double classificationThreshold = 23;
   bool trolley = 24;
+  string reportId = 25;
 }
 
 message Frame {
@@ -160,6 +187,7 @@ message CorrectItemResponse {
   string productName = 2;
   string type = 3;
   bool servingCorrect = 4;
+  bool edgeCase = 5;
 }
 
 message Item {
@@ -232,6 +260,16 @@ message TransactionId {
   string id = 1;
 }
 
+message ScanTransactions {
+  string date = 1;
+  string client = 2;
+  string location = 3;
+  string device = 4;
+  string camera = 5;
+  string transactionId = 6;
+  repeated Transaction transactions = 7;
+}
+
 message Transactions {
   repeated Transaction transactions = 1;
 }
@@ -250,6 +288,10 @@ message TransactionReport {
   bool isCheckscan = 6;
   string reportId = 7;
   string name = 8;
+  string dateFrom = 9;
+  string dateTo = 10;
+  int32 quantity = 11;
+  GRPCTransactionReportType type = 12;
 }
 
 message TransactionReports {
@@ -275,6 +317,7 @@ message ReportResponse {
   int32 cameraCorrect = 9;
   int32 servingCorrect = 10;
   string name = 11;
+  string type = 12;
 }
 
 message StatisticsReport {
@@ -300,6 +343,7 @@ message AddReports {
   bool isCheckScan = 15;
   string reportId = 16;
   string trayId = 17;
+  string cameraId = 18;
 }
 
 message Report {
@@ -309,12 +353,20 @@ message Report {
   bool isCorrect = 4;
   bool servingCorrect = 5;
   string modelType = 6;
+  bool isEdgeCase = 7;
 }
 
 message ReportId {
   string id = 1;
   int32 page = 2;
   int32 size = 3;
+  bool isDone = 4;
+  repeated GRPCFilter filter = 5;
+  bool isEdgeCase = 6;
+  bool isCamera = 7;
+  GRPCSorting sorting = 8;
+  bool isServing = 9;
+  bool isUnknownProduct = 10;
 }
 
 message CheckScanReport {
@@ -323,6 +375,8 @@ message CheckScanReport {
   string dateFrom = 3;
   string dateTo = 4;
   string username = 5;
+  int32 quantity = 6;
+  string name = 7;
 }
 
 message ValidateDateRange {
