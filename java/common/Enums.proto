@@ -22,3 +22,21 @@ enum GRPCTransactionReportType {
   DATE_RANGE = 1;
 }
 
+enum GRPCTransactionReportType {
+  STANDARD = 0;
+  DATE_RANGE = 1;
+}
+
+enum AppName {
+  PLATFORM = 0;
+  ANALYTICS = 1;
+  PTAG = 2;
+  CVAT = 3;
+  SCAN_UI = 4;
+}
+
+enum ChildAppName {
+  FOOD_APP = 0;
+  SCAN_APP = 1;
+  QUEUE_APP = 2;
+}
