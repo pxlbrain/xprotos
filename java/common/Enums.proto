@@ -22,11 +22,6 @@ enum GRPCTransactionReportType {
   DATE_RANGE = 1;
 }
 
-enum GRPCTransactionReportType {
-  STANDARD = 0;
-  DATE_RANGE = 1;
-}
-
 enum AppName {
   PLATFORM = 0;
   ANALYTICS = 1;
