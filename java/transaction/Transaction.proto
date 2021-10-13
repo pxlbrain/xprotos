@@ -14,7 +14,7 @@ service TransactionService {
   rpc GetTransactionReports (TransactionReport) returns (TransactionReports) {}
   rpc AddTransactionReport (AddReports) returns (Void) {}
   rpc GetReportById (ReportId) returns (ReportItemRes) {}
-  rpc GetCheckScanTransactionById (TransactionId) returns (Transactions) {}
+  rpc GetCheckScanTransactionById (TransactionId) returns (ScanTransactions) {}
   rpc CreateCheckScanTransactionReport (CheckScanReport) returns (Void) {}
   rpc CheckDateRange (CheckScanReport) returns (ValidateDateRange) {}
   rpc GetAutomaticCheckScanReports (CheckscanReports) returns (AutoCheckscanReports) {}
@@ -258,6 +258,16 @@ message TransactionRequest {
 
 message TransactionId {
   string id = 1;
+}
+
+message ScanTransactions {
+  string date = 1;
+  string client = 2;
+  string location = 3;
+  string device = 4;
+  string camera = 5;
+  string transactionId = 6;
+  repeated Transaction transactions = 7;
 }
 
 message Transactions {
