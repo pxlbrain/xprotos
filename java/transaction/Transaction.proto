@@ -377,6 +377,7 @@ message CheckScanReport {
   string username = 5;
   int32 quantity = 6;
   string name = 7;
+  GRPCTransactionReportType type = 8;
 }
 
 message ValidateDateRange {
