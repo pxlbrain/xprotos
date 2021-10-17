@@ -22,6 +22,7 @@ service TransactionService {
   rpc GetActiveReports (GetActiveReport) returns (ActiveReports) {}
   rpc CompleteReport (ReportStop) returns (Void) {}
   rpc GetTransactionsByReportId (ReportId) returns (TransactionsReportResp) {}
+  rpc GetScanTransactionsByReportId (ReportId) returns (TransactionsReportResp) {}
 }
 
 message CheckscanReportItems {
@@ -96,6 +97,17 @@ message TransactionsReportResp {
   int32 size = 2;
   int32 count = 3;
   repeated TransactionReportResp transactions = 4;
+  repeated ScanTransactionReportResp scanTransactions = 5;
+}
+
+message ScanTransactionReportResp {
+  string transactionId = 1;
+  string client = 2;
+  string location = 3;
+  string type = 4;
+  string message = 5;
+  string device = 6;
+  string camera = 7;
 }
 
 message TransactionReportResp {
