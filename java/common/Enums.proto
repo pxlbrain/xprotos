@@ -15,6 +15,7 @@ enum GRPCConfigurationType {
   QUEUE = 0;
   SCAN = 1;
   TRAY = 2;
+  FOOD_ANALYTICS = 3;
 }
 
 enum GRPCTransactionReportType {
