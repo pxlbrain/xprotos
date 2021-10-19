@@ -209,8 +209,8 @@ service JModelService {
   rpc CreateModelForDataset (ModelDataset) returns (ModelId) {}
   rpc UpdateModelStepByDataset (ModelStepReq) returns (Void) {}
   rpc AssignDatasetToModel (AssignVersionRequest) returns (Void) {}
-  rpc GetModelsByDataset(DatasetId) returns (DatasetModels){
-  }
+  rpc GetModelsByDataset(DatasetId) returns (DatasetModels) {}
+  rpc GetModelAndAssignToDataset (GetModelAndAssignToDatasetRequest) returns (Void) {}
 }
 
 service ConfigurationService {
