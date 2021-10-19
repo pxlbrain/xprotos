@@ -330,6 +330,8 @@ message ReportResponse {
   int32 servingCorrect = 10;
   string name = 11;
   string type = 12;
+  string dateFrom = 13;
+  string dateTo = 14;
 }
 
 message StatisticsReport {
