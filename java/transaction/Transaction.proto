@@ -108,6 +108,9 @@ message ScanTransactionReportResp {
   string message = 5;
   string device = 6;
   string camera = 7;
+  bool isHijack = 8;
+  bool productDeviation = 9;
+  string timestamp = 10;
 }
 
 message TransactionReportResp {
@@ -185,6 +188,9 @@ message Transaction {
   double classificationThreshold = 23;
   bool trolley = 24;
   string reportId = 25;
+  bool isHijack = 26;
+  string decisionRule = 27;
+  string message = 28;
 }
 
 message Frame {
