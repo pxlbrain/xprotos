@@ -55,6 +55,8 @@ service CVATService {
   }
   rpc GetUserInfoByEmail (UserEmail) returns (GRPCUserInfoResponse) {
   }
+  rpc DeleteUser (UserEmail) returns (Void) {
+  }
 }
 
 service CallbackService {
