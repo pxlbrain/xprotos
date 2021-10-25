@@ -203,6 +203,9 @@ message Transaction {
   bool isHijack = 26;
   string decisionRule = 27;
   string message = 28;
+  string posDeviationSize = 29;
+  int32 posFrom = 30;
+  int32 posTo = 31;
 }
 
 message Frame {
