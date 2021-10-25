@@ -94,6 +94,8 @@ message Location {
     string subnetMask = 16;
     string gateway = 17;
     repeated WorkingHours workingHours = 18;
+    string longitude = 19;
+    string latitude = 20;
 }
 
 message Region {
