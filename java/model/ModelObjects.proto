@@ -52,7 +52,8 @@ message GRPCGetJobsRequest {
   GRPCPaging paging = 5;
   GRPCSorting sorting = 6;
   repeated GRPCFilter filter = 7;
-  GRPCGlobalType globalType = 27;
+  GRPCGlobalType globalType = 8;
+  string datasetId = 9;
 }
 
 message GRPCGetJobsResponse {
