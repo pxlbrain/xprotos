@@ -24,6 +24,7 @@ service TransactionService {
   rpc GetTransactionsByReportId (ReportId) returns (TransactionsReportResp) {}
   rpc GetScanTransactionsByReportId (ReportId) returns (TransactionsReportResp) {}
   rpc GetTransactionsForExport(ReportId) returns (TransactionExportResp) {}
+  rpc GetStatisticForReport(ReportId) returns (StatisticsReport) {}
 }
 
 message TransactionExportResp {
