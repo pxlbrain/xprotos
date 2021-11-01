@@ -244,4 +244,3 @@ message GRPCWorkflowValidation {
 message GRPCEventTrackers {
   repeated GRPCEventTracker eventTrackers = 1;
 }
-

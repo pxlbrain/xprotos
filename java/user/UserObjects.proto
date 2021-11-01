@@ -6,6 +6,36 @@ option java_package = "ai.pixlbrain.backend";
 
 import "product/Product.proto";
 import "common/Filter.proto";
+import "common/Enums.proto";
+
+message GRPCRoleRequest {
+  GRPCPaging paging = 1;
+  string name = 2;
+}
+
+message GRPCPermissionResponse {
+  repeated GRPCPermission permissions = 1;
+  int32 count = 2;
+  string page = 3;
+  int32 size = 4;
+}
+
+message GRPCPermissions {
+  repeated GRPCPermission permission = 1;
+}
+
+message GRPCPermission {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message GRPCRoleResponse {
+  repeated GRPCRole roles = 1;
+  int32 count = 3;
+  string page = 4;
+  int32 size = 5;
+}
 
 message GRPCUserResponse {
   repeated GRPCUser users = 1;
@@ -25,6 +55,13 @@ message GRPCUser {
   repeated GRPCRole roles = 8;
   repeated GRPCScope scopes = 9;
   bool cvat = 10;
+  repeated GRPCPermission permissions = 11;
+  repeated GRPCApps apps = 12;
+}
+
+message GRPCApps {
+  AppName rootApp = 1;
+  repeated ChildAppName childAppName = 2;
 }
 
 message GRPCScope {
@@ -38,26 +75,10 @@ message GRPCScope {
 
 message GRPCGetUsersRequest {
   string companyId = 1;
-  repeated GRPCFilter filter = 2;
-  GRPCPaging paging = 3;
-  GRPCSorting sorting = 4;
-}
-
-message GRPCCustomUserType {
-  string id = 1;
-  string username = 2;
-  repeated GRPCCustomAttributeType attributes = 3;
-  string userCreateDate = 4;
-  string userLastModifiedDate = 5;
-  bool enabled = 6;
-  string userStatus = 7;
-  string firstName = 8;
-  string lastName = 9;
-}
-
-message GRPCCustomAttributeType {
-  string name = 1;
-  string value = 2;
+  string organizationId = 2;
+  repeated GRPCFilter filter =3;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
 }
 
 message GRPCLoginRequest {
@@ -65,11 +86,12 @@ message GRPCLoginRequest {
   string password = 2;
 }
 
-message GRPCAuthResponse {
-  string challengeName = 1;
-  string session = 2;
-  repeated GRPCChallengeParameters challengeParameters = 3;
-  GRPCAuthenticationResult authenticationResult = 4;
+message GRPCLoginResponse {
+  string accessToken = 1;
+  string idToken = 2;
+  string refreshToken = 3;
+  string tokenType = 4;
+  int32 expiresIn = 5;
   repeated GRPCRole roles = 6;
   repeated GRPCScopes scopes = 7;
 }
@@ -85,39 +107,17 @@ message GRPCResources {
   string resourceName = 3;
 }
 
-message GRPCChallengeParameters {
-  string key = 1;
-  string value = 2;
-}
-
 message GRPCAuthenticationResult {
   string accessToken = 1;
   int32 expiresIn = 2;
   string tokenType = 3;
   string refreshToken = 4;
   string idToken = 5;
+  string scope = 6;
 }
 
 message StringField {
   string field = 1;
-}
-
-message GRPCPasswordRequest {
-  string username = 1;
-  string password = 2;
-  string confirmationCode = 3;
-  string oldPassword = 4;
-  string email = 5;
-  GRPCRole role = 6;
-  string session = 7;
-  string accessToken = 8;
-}
-
-message GRPCPasswordResponse {
-  string destination = 1;
-  string deliveryMedium = 2;
-  string message = 3;
-  string username = 4;
 }
 
 message GRPCRefreshTokenRequest {
@@ -125,24 +125,14 @@ message GRPCRefreshTokenRequest {
   string refreshToken = 2;
 }
 
-message GRPCAuthorizationRequest {
-  string username = 1;
-  string role = 2;
-  string method = 3;
-}
-
 message GRPCRole {
   string id = 1;
   string name = 2;
-  string created = 3;
+  string description = 4;
 }
 
 message GRPCRoles {
   repeated GRPCRole roles = 1;
-}
-
-message IsAuthorized {
-  bool isAuthorized = 1;
 }
 
 message PresignedUrlResponse {
@@ -170,7 +160,56 @@ message LookupResponse {
   string value = 2;
 }
 
+message IdListRequest {
+  string id = 1;
+  repeated string ids = 2;
+}
+
+message GRPCPermissionRequest {
+  string id = 1;
+  repeated GRPCPermission permissions = 2;
+}
+
+message GRPCLogsResponse {
+  repeated GRPCLog logs = 1;
+  int32 count = 3;
+  string page = 4;
+  int32 size = 5;
+}
+
+message GRPCLog {
+  string id = 1;
+  string date = 2;
+  string type = 3;
+  string clientId = 4;
+  string clientName = 5;
+  string ip = 6;
+  string userId = 7;
+  map<string, string> locationInfo = 8;
+  map<string, string> details = 9;
+}
+
+message GRPCPasswordRequest {
+  string username = 1;
+  string password = 2;
+  string confirmationCode = 3;
+  string oldPassword = 4;
+  string email = 5;
+  GRPCRole role = 6;
+  string session = 7;
+  string accessToken = 8;
+}
+
+message UserAuthId {
+  string userId = 1;
+}
+
 message DeleteRequest {
   string scope = 1;
   string scopeName = 2;
+}
+
+message HasPermissionRequest {
+  string permission = 1;
+  string name = 2;
 }

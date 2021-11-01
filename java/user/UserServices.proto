@@ -5,45 +5,49 @@ option java_package = "ai.pixlbrain.backend";
 
 import "user/UserObjects.proto";
 import "inventory/Void.proto";
+import "google/protobuf/wrappers.proto";
 
 package ai.pixlbrain.backend;
 
 service UserService {
-  rpc GetUsers (GRPCGetUsersRequest) returns (GRPCUserResponse) {
-  };
-  rpc SignUp (GRPCUser) returns (GRPCCustomUserType) {
-  };
-  rpc SignIn (GRPCLoginRequest) returns (GRPCAuthResponse) {
-  };
-  rpc ChangeGroup (GRPCUser) returns (GRPCUser) {
-  };
-  rpc UpdateUser (GRPCUser) returns (GRPCUser) {
-  };
-  rpc DeleteUser (StringField) returns (Void) {
-  };
-  rpc SignOut (StringField) returns (Void) {
-  };
-  rpc GetAuthorizedUser (StringField) returns (Void) {
-  };
-  rpc ChangePassword (GRPCPasswordRequest) returns (Void) {
-  };
-  rpc ResetPassword (StringField) returns (GRPCPasswordResponse) {
-  };
-  rpc ConfirmPassword (GRPCPasswordRequest) returns (GRPCPasswordResponse) {
-  };
-  rpc ChangeInitialPassword (GRPCPasswordRequest) returns (GRPCAuthResponse) {
-  };
-  rpc GetAccessToken (GRPCRefreshTokenRequest) returns (GRPCAuthResponse) {
-  };
-  rpc CheckAuthorization (GRPCAuthorizationRequest) returns (IsAuthorized) {
-  };
-  rpc GetPresignedUrl(PresignedUrlRequest) returns (PresignedUrlResponse) {
-  };
+  rpc GetUsers (GRPCGetUsersRequest) returns (GRPCUserResponse);
+  rpc SignUp (GRPCUser) returns (UserAuthId);
+  rpc UpdateUser (GRPCUser) returns (GRPCUser);
+  rpc DeleteUser (StringField) returns (Void);
+  rpc GetUserRoles(GRPCRoleRequest) returns (GRPCRoleResponse);
+  rpc RemoveUserRoles (IdListRequest) returns (Void);
+  rpc AddUserRoles (IdListRequest) returns (Void);
+  rpc GetUserPermissions(GRPCRoleRequest) returns (GRPCPermissionResponse);
+  rpc RemoveUserPermissions (GRPCPermissionRequest) returns (Void);
+  rpc AddUserPermissions (GRPCPermissionRequest) returns (Void);
+  rpc GetUser (StringField) returns (GRPCUser);
+  rpc GetAuthorizedUser (StringField) returns (Void);
+  rpc GetAccessToken (GRPCRefreshTokenRequest) returns (GRPCAuthenticationResult);
+  rpc SignIn (GRPCLoginRequest) returns (GRPCLoginResponse);
+  rpc SignOut (StringField) returns (Void);
+  rpc ChangePassword (StringField) returns (Void);
+  rpc GetPresignedUrl(PresignedUrlRequest) returns (PresignedUrlResponse);
+  rpc GetUserLogs(GRPCGetUsersRequest) returns (GRPCLogsResponse);
   rpc UpdateUsersMetadata (DeleteRequest) returns (Void);
+  rpc HasPermission (HasPermissionRequest) returns (google.protobuf.BoolValue);
 }
 
 service RoleService {
-  rpc GetRoles (Void) returns (GRPCRoles);
+  rpc CreateRole (GRPCRole) returns (GRPCRole);
+  rpc UpdateRole (GRPCRole) returns (GRPCRole);
+  rpc DeleteRole (StringField) returns (Void);
+  rpc GetRole (StringField) returns (GRPCRole);
+  rpc GetRoles (GRPCRoleRequest) returns (GRPCRoleResponse);
+  rpc GetRoleUsers (GRPCRoleRequest) returns (GRPCUserResponse);
+  rpc AddRoleUsers (IdListRequest) returns (Void);
+  rpc GetRolePermissions (GRPCRoleRequest) returns (GRPCPermissionResponse);
+  rpc AddRolePermissions (GRPCPermissionRequest) returns (Void);
+  rpc DeleteRolePermissions (GRPCPermissionRequest) returns (Void);
+}
+
+service PermissionService {
+  rpc CreatePermissions(GRPCPermissions) returns (Void);
+  rpc GetPermissions(Void) returns (GRPCPermissions);
 }
 
 service ReferenceLookupService {
