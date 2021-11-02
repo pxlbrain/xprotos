@@ -179,6 +179,7 @@ service LocationService {
   };
   rpc GetLocationsByCompanyIds (CompanyIds) returns (Locations) {
   };
+  rpc GetLocationsByIds (LocationIds) returns (Locations){}
 }
 
 service DeviceIsoFileService {
