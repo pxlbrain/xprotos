@@ -639,3 +639,7 @@ message GRPCPagedCompanyResponse {
 message OrganizationIds {
     repeated string id = 1;
 }
+
+message LocationIds {
+    repeated string id = 1;
+}
