@@ -111,6 +111,8 @@ service ProductService {
   }
   rpc PullGlobalProductChangesForSelected (ProductsClientLocationRequest) returns (Void) {
   }
+  rpc DeleteLocation(DeleteLocationRequest) returns (Void) {
+  }
 }
 
 message KidsRequest {
@@ -399,4 +401,10 @@ message ImportDatasetRequest {
   string productId = 2;
   string chosenProductId = 3;
   bool append = 4;
+}
+
+message DeleteLocationRequest {
+  string locationId = 1;
+  string location = 2;
+  string client = 3;
 }
