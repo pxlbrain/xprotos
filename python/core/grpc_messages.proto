@@ -19,6 +19,8 @@ enum MessageType {
     HW_INFO = 12;
     EXTERNAL_API = 13;
     ACTION_RESPONSE = 14;
+    SET_EVENT_STATUS = 15;
+    GET_EVENT_STATUS = 16;
 }
 
 message Message {
