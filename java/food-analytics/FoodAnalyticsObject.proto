@@ -86,6 +86,7 @@ message ProductAutocomplete {
     string id = 1;
     string name = 2;
     string mhs = 3;
+    string globalId = 4;
 }
 
 message CombinationsReq {
