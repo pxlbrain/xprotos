@@ -41,7 +41,8 @@ message GRPCJob {
   string serviceType = 25;
   GRPCGlobalType globalType = 26;
   string subType = 27;
-  string qaUser =28;
+  string qaUser = 28;
+  string isLocked = 29;
 }
 
 message GRPCGetJobsRequest {
@@ -972,4 +973,10 @@ message GetModelAndAssignToDatasetRequest {
   string modelId = 1;
   string datasetVersion = 2;
   string datasetId = 3;
+}
+
+message OptimizationRequest {
+  repeated string jobIds = 1;
+  string actionType = 2;
+  repeated string optimizationTypes = 3;
 }
