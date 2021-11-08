@@ -42,7 +42,7 @@ message GRPCJob {
   GRPCGlobalType globalType = 26;
   string subType = 27;
   string qaUser = 28;
-  string isLocked = 29;
+  bool isLocked = 29;
 }
 
 message GRPCGetJobsRequest {
