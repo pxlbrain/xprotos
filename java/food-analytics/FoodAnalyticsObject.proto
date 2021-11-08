@@ -76,6 +76,7 @@ message Autocomplete {
     string location = 2;
     GRPCGlobalType globalType = 3;
     string request = 4;
+    string organization = 5;
 }
 
 message ProductsAutocomplete {
