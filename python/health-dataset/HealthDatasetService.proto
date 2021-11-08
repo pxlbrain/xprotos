@@ -1,0 +1,8 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+
+import "HealthDatasetObject.proto";
+
+service HealthDatasetService {
+    rpc FilterImages(HealthDatasetRequest) returns (HealthDatasetResponse) {};
+};
