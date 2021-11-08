@@ -977,6 +977,6 @@ message GetModelAndAssignToDatasetRequest {
 
 message OptimizationRequest {
   repeated string jobIds = 1;
-  string actionType = 2;
-  repeated string optimizationTypes = 3;
+  Actions actionType = 2;
+  repeated FilterTypes filterTypes = 3;
 }
