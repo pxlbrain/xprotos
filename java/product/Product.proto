@@ -132,6 +132,7 @@ message UploadId {
   string location = 4;
   string client = 5;
   GRPCGlobalType globalType = 6;
+  string organization = 7;
 }
 
 message Id {
@@ -147,6 +148,7 @@ message GRPCProductRequest {
   string locationId = 1;
   Product product = 2;
   string client = 3;
+  string organization = 4;
 }
 
 message GRPCProductResposne {
@@ -218,6 +220,7 @@ message ArchivedProductsRequest {
   GRPCGlobalType globalType = 4;
   string locationId = 5;
   string client = 6;
+  string organization = 7;
 }
 
 message ProductClientLocationRequest {
@@ -264,6 +267,7 @@ message GRPCGetRequest {
   string location = 6;
   string client = 7;
   GRPCGlobalType globalType = 8;
+  string organization = 9;
 }
 
 message GRPCPaging {
@@ -296,6 +300,7 @@ message ProductsRequest {
   string client = 2;
   string locationId = 3;
   GRPCGlobalType globalType = 4;
+  string organization = 5;
 }
 
 message LocationAndDeviceId {
@@ -319,6 +324,7 @@ message ProductImages {
   string productId = 3;
   repeated ProductImage productImages = 4;
   GRPCGlobalType globalType = 5;
+  string organization = 6;
 }
 
 message ProductImage {
@@ -341,6 +347,7 @@ message DeleteProductImagesRequest {
   string productId = 3;
   repeated string imageIds = 4;
   GRPCGlobalType globalType = 5;
+  string organization = 6;
 }
 
 message UpdateImageRequest {
@@ -355,12 +362,14 @@ message OtherRequest {
   string client = 1;
   string location = 2;
   GRPCGlobalType globalType = 3;
+  string organization = 4;
 }
 
 message ProductDatasetRequest {
   string type = 1;
   string client = 2;
   string location = 3;
+  string organization = 4;
 }
 
 message ProductDatasetByTypeRequest {
@@ -368,6 +377,7 @@ message ProductDatasetByTypeRequest {
   string client = 2;
   string location = 3;
   repeated string productNames = 4;
+  string organization = 5;
 }
 
 message GRPCGetByTypeRequest {
@@ -377,6 +387,7 @@ message GRPCGetByTypeRequest {
   repeated GRPCFilter filter = 5;
   GRPCPaging paging = 6;
   GRPCSorting sorting = 7;
+  string organization = 8;
 }
 
 message ProductInherit {
@@ -385,6 +396,7 @@ message ProductInherit {
   string client = 3;
   string location = 4;
   string locationId = 5;
+  string organization = 6;
 }
 
 message UploadWithType {
@@ -407,4 +419,5 @@ message DeleteLocationRequest {
   string locationId = 1;
   string location = 2;
   string client = 3;
+  string organization = 4;
 }

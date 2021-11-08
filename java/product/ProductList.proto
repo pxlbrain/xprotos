@@ -72,6 +72,7 @@ message ProductList {
   GRPCGlobalType globalType = 14;
   string locationId = 15;
   bool default = 16;
+  string organization = 17;
 }
 
 message UpdateList {
@@ -120,6 +121,7 @@ message GetByType {
   string client = 3;
   string location = 4;
   bool activated = 5;
+  string organization = 6;
 }
 
 message GRPCGetProductsActive {
@@ -129,6 +131,7 @@ message GRPCGetProductsActive {
   repeated GRPCFilter filter = 4;
   GRPCPaging paging = 5;
   GRPCSorting sorting = 6;
+  string organization = 7;
 }
 
 message DefaultProductList {
@@ -136,4 +139,5 @@ message DefaultProductList {
   string location = 2;
   GRPCGlobalType globalType = 3;
   string productListId = 4;
+  string organization = 5;
 }
