@@ -4,5 +4,5 @@ package ai.pixlbrain.backend;
 import "health-dataset/HealthDatasetObject.proto";
 
 service HealthDatasetService {
-    rpc FilterImages(HealthDatasetRequest) returns (HealthDatasetResponse) {};
+    rpc FilterImages(HealthDatasetRequest) returns (Void) {};
 };

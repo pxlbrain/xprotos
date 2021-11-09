@@ -25,12 +25,9 @@ message HealthDatasetFilterObject{
     repeated FilterTypes filterTypes = 4;
 };
 
-message HealthDatasetResponse {
-    string requestId = 1;
-};
-
 message HealthDatasetRequest {
     oneof request {
          HealthDatasetFilterObject filterObject = 1;
     };
+    string requestId = 2;
 };
