@@ -517,6 +517,10 @@ message GRPCStatusResponse {
     string message = 4;
 }
 
+message GRPCStatusResponses {
+    repeated GRPCStatusResponse statusResponses = 1;
+}
+
 message EventsScheduling {
     int32 page = 1;
     int32 size = 2;
