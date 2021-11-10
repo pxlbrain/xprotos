@@ -16,9 +16,15 @@ message ImagePathsObject {
     repeated string imagePaths = 1;
 };
 
+message PtagFilterObject {
+    string client = 1;
+    string serviceType = 2;
+    string filter = 3;
+};
+
 message HealthDatasetFilterObject{
     oneof input {
-         string ptagFilter = 1;
+         PtagFilterObject ptagObject= 1;
          ImagePathsObject imagePaths = 2;
     };
     Actions action = 3;
