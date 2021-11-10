@@ -37,3 +37,6 @@ message Boolean {
   bool value = 1;
 }
 
+message EventIds {
+  repeated string eventIds = 1;
+}
