@@ -26,6 +26,6 @@ service MiddlewareService {
   };
   rpc IsDeviceConnected (DeviceId) returns (Boolean) {
   };
-  rpc GetEventStatuses (EventIds) returns (GRPCStatusResponses) {
+  rpc GetEventStatus (EventId) returns (GRPCStatusResponse) {
   };
 }
