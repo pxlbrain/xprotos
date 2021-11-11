@@ -134,7 +134,7 @@ message SCO {
     string name = 4;
     string ipAddress = 5;
     string description = 6;
-    bool isConnected = 7;
+    bool connected = 7;
     string product = 8;
     string serialNumber = 9;
     string locationId = 10;
