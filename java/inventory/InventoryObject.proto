@@ -132,10 +132,19 @@ message SCO {
     string created = 2;
     string updated = 3;
     string name = 4;
+    string ipAddress = 5;
+    string description = 6;
+    bool isConnected = 7;
+    string product = 8;
+    string serialNumber = 9;
 }
 
 message SCOs {
     repeated SCO scos = 1;
+}
+
+message SCOId {
+    string id = 1;
 }
 
 message GRPCGetLocationRequest {
