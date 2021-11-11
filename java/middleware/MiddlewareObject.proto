@@ -37,3 +37,7 @@ message Boolean {
   bool value = 1;
 }
 
+message EventId {
+  string eventId = 1;
+  string deviceId = 2;
+}
