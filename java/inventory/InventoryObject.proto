@@ -137,6 +137,7 @@ message SCO {
     bool isConnected = 7;
     string product = 8;
     string serialNumber = 9;
+    string locationId = 10;
 }
 
 message SCOs {
