@@ -30,6 +30,9 @@ message Device {
     bool ssh = 21;
     string username = 22;
     bool yepkit = 23;
+    string ipAddress = 24;
+    string serialNumber = 25;
+    string hwType = 26;
 }
 
 
