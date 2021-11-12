@@ -17,20 +17,19 @@ message Device {
     string updated = 7;
     string status = 9;
     string cameraLink = 10;
-    string scoId = 11;
-    string scoName = 12;
-    string jsonConfig = 13;
-    bool learningMode = 14;
-    string mac = 15;
-    string name = 16;
-    string deviceType = 17;
-    string mode = 18;
-    string uptime = 19;
-    string capacity = 20;
-    bool grpc = 21;
-    bool ssh = 22;
-    string username = 23;
-    bool yepkit = 24;
+    SCOs scos = 11;
+    string jsonConfig = 12;
+    bool learningMode = 13;
+    string mac = 14;
+    string name = 15;
+    string deviceType = 16;
+    string mode = 17;
+    string uptime = 18;
+    string capacity = 19;
+    bool grpc = 20;
+    bool ssh = 21;
+    string username = 22;
+    bool yepkit = 23;
 }
 
 
@@ -138,6 +137,7 @@ message SCO {
     string product = 8;
     string serialNumber = 9;
     string locationId = 10;
+    string deviceId = 11;
 }
 
 message SCOs {
