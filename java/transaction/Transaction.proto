@@ -149,6 +149,7 @@ message ProductReportRes {
   int32 count = 3;
   int32 quantity = 4;
   int32 detector = 5;
+  int32 total = 6;
 }
 
 message GRPCGetTransactionResponse {
