@@ -148,6 +148,7 @@ message ProductReportRes {
   string productName = 2;
   int32 count = 3;
   int32 quantity = 4;
+  int32 detector = 5;
 }
 
 message GRPCGetTransactionResponse {
