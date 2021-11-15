@@ -193,6 +193,7 @@ message Product {
   repeated NameId categoryResponse = 32;
   bool dirty = 33;
   Product kidsItem = 34;
+  string globalId = 35;
 }
 
 message MHSProduct {
