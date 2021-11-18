@@ -25,6 +25,8 @@ service TransactionService {
   rpc GetScanTransactionsByReportId (ReportId) returns (TransactionsReportResp) {}
   rpc GetTransactionsForExport(ReportId) returns (TransactionExportResp) {}
   rpc GetStatisticForReport(ReportId) returns (StatisticsReport) {}
+  rpc UpdateServingIssue(ServingIssue) returns (ServingIssue) {}
+  rpc RemoveServingIssue(ServingIssue) returns (Void) {}
   rpc CreateJobsFromReport(JobReport) returns (Void) {}
 }
 
@@ -442,6 +444,17 @@ message ReportStop {
   string location = 2;
   bool isCheckScan = 3;
   string reportId = 4;
+}
+
+message ServingIssue {
+  string trayId = 1;
+  string path = 2;
+  string productId = 3;
+  string comment = 4;
+  string user = 5;
+  string positionX = 6;
+  string positionY = 7;
+  string commentDate = 8;
 }
 
 message JobReport {
