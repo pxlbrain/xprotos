@@ -5,6 +5,7 @@ option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 
 import "product/Product.proto";
+import "transaction/Transaction.proto";
 import "common/Enums.proto";
 
 message SalesProducts {
@@ -34,6 +35,8 @@ message Insight  {
     string trayId = 1;
     repeated string paths = 2;
     string date = 3;
+    bool servingIssue = 4;
+    repeated ServingIssue servingIssues = 5;
 }
 
 message SalesProductInsights {
@@ -51,6 +54,9 @@ message VisualInsightsRequest {
     string dateFrom = 4;
     string dateTo = 5;
     GRPCPaging paging = 6;
+    GRPCSorting sorting = 7;
+    bool servingIssue = 8;
+    bool trolley = 9;
 }
 
 message TrayId {
