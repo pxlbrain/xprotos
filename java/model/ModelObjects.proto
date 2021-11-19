@@ -985,7 +985,7 @@ message OptimizationRequest {
 message JobReport {
   string reportId = 1;
   string type = 2;
-  string productId = 3;
-  bool includeGood = 4;
-  int32 precOfGood = 5;
+  GRPCGlobalType globalType = 3;
+  repeated string productIds = 4;
+  int32 numOfGood = 5;
 }
