@@ -27,7 +27,7 @@ service TransactionService {
   rpc GetStatisticForReport(ReportId) returns (StatisticsReport) {}
   rpc UpdateServingIssue(ServingIssue) returns (ServingIssue) {}
   rpc RemoveServingIssue(ServingIssue) returns (Void) {}
-  rpc GetProductsForReportJob(ProductJobReq) returns (ProductReportRes) {}
+  rpc GetProductsForReportJob(ProductJobReq) returns (ProductsReportRes) {}
 }
 
 message TransactionExportResp {
@@ -460,4 +460,8 @@ message ServingIssue {
 message ProductJobReq {
   string reportId = 1;
   string type = 2;
+}
+
+message ProductsReportRes {
+  repeated ProductReportRes products = 1;
 }
