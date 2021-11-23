@@ -20,6 +20,7 @@ message DeviceMode {
   string id = 1;
   string mode = 2;
   string username = 3;
+  string eventId = 4;
 }
 
 message ScanningRequest {
