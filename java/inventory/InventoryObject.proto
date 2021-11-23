@@ -6,6 +6,7 @@ option java_package = "ai.pixlbrain.backend";
 
 import "product/Product.proto";
 import "common/Filter.proto";
+import "common/Enums.proto";
 
 message Device {
     string id = 1;
@@ -504,6 +505,7 @@ message ScheduleTaskRequest {
     string username = 14;
     string role = 15;
     string client = 16;
+    Mode mode = 17;
 }
 
 message EventScheduling {
