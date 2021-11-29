@@ -988,4 +988,6 @@ message JobReport {
   GRPCGlobalType globalType = 3;
   repeated string productIds = 4;
   int32 numOfGood = 5;
+  string client = 6;
+  string location = 7;
 }
