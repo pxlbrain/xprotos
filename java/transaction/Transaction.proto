@@ -29,6 +29,7 @@ service TransactionService {
   rpc RemoveServingIssue(ServingIssue) returns (Void) {}
   rpc GetProductsForReportJob(ProductJobReq) returns (ProductsReportRes) {}
   rpc AddServingIssue(ServingIssue) returns (ServingIssue) {}
+  rpc GetTransactionByProduct(IdProducts) returns (TransactionProducts) {}
 }
 
 message TransactionExportResp {
@@ -467,4 +468,17 @@ message ProductJobReq {
 
 message ProductsReportRes {
   repeated ProductReportRes products = 1;
+}
+
+message IdProducts {
+  repeated string productIds = 1;
+}
+
+message TransactionProducts {
+  repeated TransactionProduct transactionProduct = 1;
+}
+
+message TransactionProduct {
+  string productId = 1;
+  repeated string transactionIds = 2;
 }
