@@ -334,6 +334,7 @@ message TransactionReport {
   string dateTo = 10;
   int32 quantity = 11;
   GRPCTransactionReportType type = 12;
+  repeated GRPCFilter filter = 13;
 }
 
 message TransactionReports {
