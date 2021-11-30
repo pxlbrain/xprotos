@@ -474,6 +474,7 @@ message ProductsReportRes {
 message IdProducts {
   repeated string productIds = 1;
   string reportId = 2;
+  int32 numOfGood = 3;
 }
 
 message TransactionProducts {
