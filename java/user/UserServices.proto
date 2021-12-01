@@ -30,6 +30,7 @@ service UserService {
   rpc GetUserLogs(GRPCGetUsersRequest) returns (GRPCLogsResponse);
   rpc UpdateUsersMetadata (DeleteRequest) returns (Void);
   rpc HasPermission (HasPermissionRequest) returns (google.protobuf.BoolValue);
+  rpc RemoveUserPermissionCache(StringField) returns (Void);
 }
 
 service RoleService {
