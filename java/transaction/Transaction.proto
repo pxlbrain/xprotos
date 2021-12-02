@@ -30,6 +30,7 @@ service TransactionService {
   rpc GetProductsForReportJob(ProductJobReq) returns (ProductsReportRes) {}
   rpc AddServingIssue(ServingIssue) returns (ServingIssue) {}
   rpc GetTransactionByProduct(IdProducts) returns (TransactionProducts) {}
+  rpc DeleteScanReport(ReportId) returns (Void) {}
 }
 
 message TransactionExportResp {
