@@ -12,6 +12,9 @@ enum Actions {
   DELETE = 1;
 };
 
+message Void {
+};
+
 message ImagePathsObject {
     repeated string imagePaths = 1;
 };

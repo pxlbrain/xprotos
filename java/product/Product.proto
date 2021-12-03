@@ -113,6 +113,7 @@ service ProductService {
   }
   rpc DeleteLocation(DeleteLocationRequest) returns (Void) {
   }
+  rpc GetProductsByIds(ProductIds) returns (Products){}
 }
 
 message KidsRequest {
@@ -193,6 +194,7 @@ message Product {
   repeated NameId categoryResponse = 32;
   bool dirty = 33;
   Product kidsItem = 34;
+  string globalId = 35;
 }
 
 message MHSProduct {
@@ -420,4 +422,8 @@ message DeleteLocationRequest {
   string location = 2;
   string client = 3;
   string organization = 4;
+}
+
+message ProductIds {
+  repeated ProductId productIds = 1;
 }

@@ -981,3 +981,13 @@ message OptimizationRequest {
   Actions actionType = 2;
   repeated FilterTypes filterTypes = 3;
 }
+
+message JobReport {
+  string reportId = 1;
+  string type = 2;
+  GRPCGlobalType globalType = 3;
+  repeated string productIds = 4;
+  int32 numOfGood = 5;
+  string client = 6;
+  string location = 7;
+}

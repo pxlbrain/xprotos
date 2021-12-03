@@ -45,3 +45,10 @@ enum ChildAppName {
   SCAN_APP = 1;
   QUEUE_APP = 2;
 }
+
+enum Mode {
+  unknown = 0;
+  scanning = 1;
+  learning = 2;
+  None = 3;
+}

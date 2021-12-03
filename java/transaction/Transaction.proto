@@ -25,6 +25,12 @@ service TransactionService {
   rpc GetScanTransactionsByReportId (ReportId) returns (TransactionsReportResp) {}
   rpc GetTransactionsForExport(ReportId) returns (TransactionExportResp) {}
   rpc GetStatisticForReport(ReportId) returns (StatisticsReport) {}
+  rpc UpdateServingIssue(ServingIssue) returns (ServingIssue) {}
+  rpc RemoveServingIssue(ServingIssue) returns (Void) {}
+  rpc GetProductsForReportJob(ProductJobReq) returns (ProductsReportRes) {}
+  rpc AddServingIssue(ServingIssue) returns (ServingIssue) {}
+  rpc GetTransactionByProduct(IdProducts) returns (TransactionProducts) {}
+  rpc DeleteScanReport(ReportId) returns (Void) {}
 }
 
 message TransactionExportResp {
@@ -36,6 +42,7 @@ message TransactionsForExport {
   string date = 2;
   string type = 3;
   string message = 4;
+  bool support = 5;
 }
 
 message CheckscanReportItems {
@@ -141,6 +148,7 @@ message TransactionReportResp {
   int32 edgeCase = 12;
   string trayId = 13;
   string cameraId = 14;
+  string updated = 15;
 }
 
 message ProductReportRes {
@@ -148,6 +156,8 @@ message ProductReportRes {
   string productName = 2;
   int32 count = 3;
   int32 quantity = 4;
+  int32 detector = 5;
+  int32 total = 6;
 }
 
 message GRPCGetTransactionResponse {
@@ -326,6 +336,7 @@ message TransactionReport {
   string dateTo = 10;
   int32 quantity = 11;
   GRPCTransactionReportType type = 12;
+  repeated GRPCFilter filter = 13;
 }
 
 message TransactionReports {
@@ -439,4 +450,40 @@ message ReportStop {
   string location = 2;
   bool isCheckScan = 3;
   string reportId = 4;
+}
+
+message ServingIssue {
+  string trayId = 1;
+  string path = 2;
+  string productId = 3;
+  string comment = 4;
+  string user = 5;
+  string positionX = 6;
+  string positionY = 7;
+  string commentDate = 8;
+  string id = 9;
+}
+
+message ProductJobReq {
+  string reportId = 1;
+  string type = 2;
+}
+
+message ProductsReportRes {
+  repeated ProductReportRes products = 1;
+}
+
+message IdProducts {
+  repeated string productIds = 1;
+  string reportId = 2;
+  int32 numOfGood = 3;
+}
+
+message TransactionProducts {
+  repeated TransactionProduct transactionProduct = 1;
+}
+
+message TransactionProduct {
+  string productId = 1;
+  repeated string transactionIds = 2;
 }
