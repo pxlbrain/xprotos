@@ -518,6 +518,10 @@ message EventScheduling {
     string username = 9;
 }
 
+message CancelTaskRequest {
+    string id = 1;
+}
+
 message DeviceDelete {
     string id = 1;
     string username = 2;

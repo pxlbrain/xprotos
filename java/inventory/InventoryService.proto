@@ -142,6 +142,8 @@ service DeviceService {
   };
   rpc ScheduleTask(ScheduleTaskRequest) returns (Void){
   };
+  rpc CancelTask(CancelTaskRequest) returns (Void){
+  };
   rpc ActionResponse(GRPCStatusResponse) returns (Void){
   };
   rpc GetDeviceErrorsByLocationId(GRPCGetLocationRequest) returns (GRPCDeviceStatusesResponse) {
