@@ -44,6 +44,8 @@ message GRPCJob {
   string subType = 27;
   string qaUser = 28;
   string optimizationStatus = 29;
+  string blurryCounter = 30;
+  string duplicatedCounter = 31;
 }
 
 message GRPCGetJobsRequest {
