@@ -31,7 +31,6 @@ service TransactionService {
   rpc AddServingIssue(ServingIssue) returns (ServingIssue) {}
   rpc GetTransactionByProduct(IdProducts) returns (TransactionProducts) {}
   rpc DeleteScanReport(ReportId) returns (Void) {}
-  rpc UpdateMongo(ReportId) returns (Void) {}
 }
 
 message TransactionExportResp {
