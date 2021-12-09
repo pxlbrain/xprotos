@@ -294,7 +294,7 @@ message QueryParam {
 
 message TransactionRequest {
   string locationId = 1;
-  repeated GRPCFilter filter = 2;
+  repeated GRPCMultipleValuesFilter filter = 2;
   GRPCPaging paging = 3;
   GRPCSorting sorting = 4;
   string type = 5;
