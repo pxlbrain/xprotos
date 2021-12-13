@@ -142,7 +142,7 @@ service JModelService {
   }
   rpc StartPrediction (StartPredictionRequest) returns (Void) {
   }
-  rpc GetPredictionResults (PagedPredictionRequest) returns (PredictionResults) {
+  rpc GetPredictionResults (GRPCPagedPredictionRequest) returns (PredictionResults) {
   }
   rpc GetTrainingsByLocation (GRPCGetTrainingsRequest) returns (GRPCTrainingsModelResponse) {
   }
@@ -217,4 +217,12 @@ service ConfigurationService {
 service ClusterService {
   rpc startClustering (ClusterFilter) returns (Void) {
   }
+}
+
+service ModelPredictionService {
+  rpc GetPredictionResultDashboard(FieldString) returns (GRPCPredictionDashboardResponse) {};
+  rpc GetPredictionResultGrid(GRPCPagedPredictionRequest) returns (GRPCPagedPredictionResponse) {};
+  rpc GetPredictionResultClassification(GRPCPagedPredictionRequest) returns (GRPCPagedPredictionResponse) {};
+  rpc GetPredictionResultDetection(GRPCPagedPredictionRequest) returns (GRPCPagedPredictionResponse) {};
+  rpc GetPredictionResultIntegration(GRPCPagedPredictionRequest) returns (GRPCPagedPredictionResponse) {};
 }
