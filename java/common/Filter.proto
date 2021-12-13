@@ -12,3 +12,9 @@ message GRPCFilter {
   string field2 = 4;
 }
 
+message GRPCMultipleValuesFilter {
+  string field = 1;
+  repeated string values = 2;
+  string operator = 3;
+  string field2 = 4;
+}
