@@ -630,6 +630,7 @@ message IntegrationTraining {
   string trainingName = 5;
   string epochPath = 6;
   bool overwrite = 7;
+  repeated string productIds = 8;
 }
 
 message InferenceValues {
@@ -822,7 +823,7 @@ message DatasetProducts {
   repeated string plateItems = 3;
 }
 
-message PagedPredictionRequest {
+message GRPCPagedPredictionRequest {
   string id = 1;
   repeated GRPCFilter filter = 2;
   GRPCPaging paging = 3;
@@ -992,4 +993,125 @@ message JobReport {
   int32 numOfGood = 5;
   string client = 6;
   string location = 7;
+}
+
+message GRPCPredictionDashboardResponse {
+  string testType = 1;
+  int32 imageSize = 2;
+  int32 failedImageSize = 3;
+  double globalAccuracy = 4;
+  double threshold = 5;
+  string status = 6;
+  string modelType = 7;
+  repeated GRPCDashboardResponse dashboardResponses = 8;
+  repeated GRPCThreshold thresholds = 9;
+}
+
+message GRPCThreshold {
+  string mlcThreshold = 1;
+  string classifierThreshold = 2;
+  string detectorThreshold = 3;
+}
+
+message GRPCDashboardResponse {
+  string key = 1;
+  string value = 2;
+}
+
+message GRPCClassificationPredictionResultResponse {
+  string productId = 1;
+  double accuracy = 2;
+  int32 totalImages = 3;
+  int32 failedImages = 4;
+  string status = 5;
+}
+
+message GRPCClassificationPredictionResponses {
+  string productId = 1;
+  string productName = 2;
+  repeated string productClasses = 3;
+  repeated string productScores = 4;
+  bool aboveThreshold = 5;
+}
+
+message GRPCPagedPredictionResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated GRPCDetectionPredictionResponse payloadDetectionGallery = 4;
+  repeated GRPCClassificationPredictionResponse payloadClassificationGallery = 5;
+  repeated GRPCIntegrationPredictionResponse payloadIntegrationGallery = 6;
+  repeated GRPCClassificationPredictionProductResponse payloadClassificationProducts = 7;
+}
+
+message GRPCClassificationPredictionProductResponse {
+  string productId = 1;
+  double accuracy = 2;
+  int32 totalImages = 3;
+  int32 failedImages = 4;
+  string status = 5;
+}
+
+message GRPCIntegrationPredictionResponse {
+  string path = 1;
+  string status = 2;
+  bool isCorrect = 3;
+  string filterType = 4;
+  string width = 5;
+  string height = 6;
+  repeated GRPCIntegrationPredictionResult predictions = 7;
+}
+
+message GRPCIntegrationPredictionResult {
+  string x1 = 1;
+  string y1 = 2;
+  string x2 = 3;
+  string y2 = 4;
+  string label = 5;
+  string score = 6;
+  bool aboveThreshold = 7;
+  string productId = 8;
+  string productName = 9;
+  repeated string productClasses = 10;
+  repeated string productScores = 11;
+}
+
+message GRPCClassificationPredictionResponse {
+  string productId = 1;
+  string productMHSId = 2;
+  string productName = 3;
+  string path = 4;
+  string status = 5;
+  string message = 6;
+  bool isCorrect = 7;
+  repeated GRPCClassificationPrediction predictions = 8;
+}
+
+message GRPCClassificationPrediction {
+  string productId = 1;
+  string productName = 2;
+  repeated string productClasses = 3;
+  repeated string productScores = 4;
+  bool aboveThreshold = 5;
+}
+
+message GRPCDetectionPredictionResponse {
+  string path = 1;
+  string status = 2;
+  bool isCorrect = 3;
+  string filterType = 4;
+  string width = 5;
+  string height = 6;
+  repeated GRPCDetectionPrediction predictions =7;
+  repeated GRPCDetectionPrediction inferences = 8;
+}
+
+message GRPCDetectionPrediction {
+  string x1 = 1;
+  string y1 = 2;
+  string x2 = 3;
+  string y2 = 4;
+  string label = 5;
+  string score = 6;
+  bool aboveThreshold = 7;
 }
