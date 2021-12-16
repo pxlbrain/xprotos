@@ -1031,7 +1031,8 @@ message GRPCClassificationPredictionResponses {
   string productName = 2;
   repeated string productClasses = 3;
   repeated string productScores = 4;
-  bool aboveThreshold = 5;
+  bool filteredOut = 5;
+  string filterType = 6;
 }
 
 message GRPCPagedPredictionResponse {
@@ -1069,11 +1070,12 @@ message GRPCIntegrationPredictionResult {
   string y2 = 4;
   string label = 5;
   string score = 6;
-  bool aboveThreshold = 7;
+  bool filteredOut = 7;
   string productId = 8;
   string productName = 9;
   repeated string productClasses = 10;
   repeated string productScores = 11;
+  string filterType = 12;
 }
 
 message GRPCClassificationPredictionResponse {
@@ -1092,7 +1094,8 @@ message GRPCClassificationPrediction {
   string productName = 2;
   repeated string productClasses = 3;
   repeated string productScores = 4;
-  bool aboveThreshold = 5;
+  bool filteredOut = 5;
+  string filterType = 6;
 }
 
 message GRPCDetectionPredictionResponse {
@@ -1113,5 +1116,6 @@ message GRPCDetectionPrediction {
   string y2 = 4;
   string label = 5;
   string score = 6;
-  bool aboveThreshold = 7;
+  bool filteredOut = 7;
+  string filterType = 8;
 }
