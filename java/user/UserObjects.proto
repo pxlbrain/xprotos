@@ -207,6 +207,8 @@ message UserAuthId {
 message DeleteRequest {
   string scope = 1;
   string scopeName = 2;
+  string scopeId = 3;
+  bool delete = 4;
 }
 
 message HasPermissionRequest {
