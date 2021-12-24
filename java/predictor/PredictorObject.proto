@@ -74,3 +74,7 @@ message FilterPredictorRequest{
     string modelType = 5;
     string product_list_path = 6;
 };
+
+message StopTestingRequest{
+    string requestId = 1;
+};
