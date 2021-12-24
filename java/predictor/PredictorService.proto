@@ -8,4 +8,6 @@ service PredictorService {
     };
     rpc PredictWithFilterAndReport(FilterPredictorRequest) returns (PredictorResponse) {
     };
+    rpc StopTesting(StopTestingRequest) returns (Void) {
+    };
 };

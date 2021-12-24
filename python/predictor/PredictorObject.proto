@@ -1,6 +1,8 @@
 syntax = "proto3";
 package ai.pixlbrain.backend;
 
+message Void {};
+
 message MessageUnit {
     string message = 1;
     string requestId = 2;
@@ -67,4 +69,7 @@ message FilterPredictorRequest{
     string product_list_path = 6;
 };
 
+message StopTestingRequest{
+    string requestId = 1;
+};
 
