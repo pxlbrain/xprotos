@@ -1006,6 +1006,7 @@ message GRPCPredictionDashboardResponse {
   string modelType = 7;
   repeated GRPCDashboardResponse dashboardResponses = 8;
   repeated GRPCThreshold thresholds = 9;
+  string numOfProducts = 10;
 }
 
 message GRPCThreshold {
