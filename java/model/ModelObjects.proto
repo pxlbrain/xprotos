@@ -1018,6 +1018,8 @@ message GRPCThreshold {
 message GRPCDashboardResponse {
   string key = 1;
   string value = 2;
+  string numOfDoneImages = 3;
+  string numOfFailedImages = 4;
 }
 
 message GRPCClassificationPredictionResultResponse {
