@@ -1055,6 +1055,7 @@ message GRPCClassificationPredictionProductResponse {
   int32 totalImages = 3;
   int32 failedImages = 4;
   string status = 5;
+  string productName = 6;
 }
 
 message GRPCIntegrationPredictionResponse {
