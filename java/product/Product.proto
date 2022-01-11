@@ -113,7 +113,10 @@ service ProductService {
   }
   rpc DeleteLocation(DeleteLocationRequest) returns (Void) {
   }
-  rpc GetProductsByIds(ProductIds) returns (Products){}
+  rpc GetProductsByIds(ProductIds) returns (Products){
+  }
+  rpc ToggleLockProduct(Id) returns (Void) {
+  }
 }
 
 message KidsRequest {
@@ -195,6 +198,7 @@ message Product {
   bool dirty = 33;
   Product kidsItem = 34;
   string globalId = 35;
+  bool locked = 36;
 }
 
 message MHSProduct {
