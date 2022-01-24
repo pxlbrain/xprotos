@@ -4,14 +4,16 @@ option java_package = "ai.pixlbrain.backend";
 
 package ai.pixlbrain.backend;
 
+import "product/Product.proto";
 import "inventory/Void.proto";
 import "inventory/InventoryObject.proto";
+import "common/Filter.proto";
 import "common/Enums.proto";
 
 service RuleEngineService {
     rpc SaveRuleEngine (RuleEngine) returns (RuleEngine) {
     }
-    rpc GetRuleEngineByType (GetRuleEngineRequest) returns (RuleEngine) {
+    rpc GetRuleEnginesByType (GetRuleEnginesRequest) returns (RuleEnginesResponse) {
     }
     rpc UploadRuleEngineToS3 (RuleEngineId) returns (Void) {
     }
@@ -33,7 +35,13 @@ message RuleEngine {
     float detectionThreshold = 13;
     float classificationThreshold = 14;
     GRPCGlobalType globalType = 15;
+}
 
+message RuleEnginesResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated RuleEngine ruleEngines = 4;
 }
 
 message PlateFilter {
@@ -45,9 +53,12 @@ message RuleEngineId {
     string id = 1;
 }
 
-message GetRuleEngineRequest {
+message GetRuleEnginesRequest {
     string client = 1;
     string location = 2;
     GRPCGlobalType globalType = 3;
+    repeated GRPCFilter filter = 4;
+    GRPCPaging paging = 5;
+    GRPCSorting sorting = 6;
 }
 
