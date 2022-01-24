@@ -33,6 +33,12 @@ service UserService {
   rpc RemoveUserPermissionCache(StringField) returns (Void);
 }
 
+service UserAnalyticsService {
+  rpc GetUserAnalytics(GRPCUserAnalyticsRequest) returns (GRPCUserAnalyticsResponse);
+  rpc GetUserAnalyticsDashboard(GRPCUserAnalyticsRequest) returns (GRPCUserAnalyticsDashboardResponses);
+  rpc UpdateUserAnalytics(GRPCUserAnalytic) returns (Void);
+}
+
 service RoleService {
   rpc CreateRole (GRPCRole) returns (GRPCRole);
   rpc UpdateRole (GRPCRole) returns (GRPCRole);

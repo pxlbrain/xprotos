@@ -215,3 +215,43 @@ message HasPermissionRequest {
   string permission = 1;
   string name = 2;
 }
+
+message GRPCUserAnalyticsRequest {
+  repeated GRPCFilter filter =1;
+  GRPCPaging paging = 2;
+  GRPCSorting sorting = 3;
+}
+
+message GRPCUserAnalyticsResponse {
+  repeated GRPCUserAnalytic payload = 1;
+  int32 count = 2;
+  int32 page = 3;
+  int32 size =4;
+}
+
+message GRPCUserAnalytic {
+  string id = 1;
+  string startDate = 2;
+  string endDate = 3;
+  string user = 4;
+  string type = 5;
+  bool corrected = 6;
+  string comment = 7;
+  string link = 8;
+  string reviewer = 9;
+  string country = 10;
+  string location = 11;
+  string typeId = 12;
+  string subType = 13;
+}
+
+message GRPCUserAnalyticsDashboardResponses {
+  repeated GRPCUserAnalyticsDashboardResponse responses = 1;
+}
+
+message GRPCUserAnalyticsDashboardResponse {
+  int32 total = 1;
+  int32 corrected = 2;
+  string label = 3;
+  string avgTime = 4;
+}
