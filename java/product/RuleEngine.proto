@@ -35,6 +35,7 @@ message RuleEngine {
     float detectionThreshold = 13;
     float classificationThreshold = 14;
     GRPCGlobalType globalType = 15;
+    repeated IdMhs mhsMappping = 16;
 }
 
 message RuleEnginesResponse {
@@ -47,6 +48,11 @@ message RuleEnginesResponse {
 message PlateFilter {
     string cls = 1;
     string mlc = 2;
+}
+
+message IdMhs {
+    string id = 1;
+    string mhs = 2;
 }
 
 message RuleEngineId {
