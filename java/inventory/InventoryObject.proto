@@ -16,29 +16,29 @@ message Device {
     string locationName = 5;
     string created = 6;
     string updated = 7;
+    SCOs scos = 8;
     string status = 9;
-    string cameraLink = 10;
-    SCOs scos = 11;
-    string jsonConfig = 12;
-    bool learningMode = 13;
-    string mac = 14;
-    string name = 15;
-    string deviceType = 16;
-    string mode = 17;
-    string uptime = 18;
-    string capacity = 19;
-    bool grpc = 20;
-    bool ssh = 21;
-    string username = 22;
-    bool yepkit = 23;
-    string ipAddress = 24;
-    string serialNumber = 25;
-    string hwType = 26;
+    string jsonTemplate = 10;
+    string jsonDeviceInfo = 11;
+    string name = 12;
+    string deviceType = 13;
+    string mode = 14;
+    string uptime = 15;
+    bool grpc = 16;
+    bool ssh = 17;
+    string username = 18;
+    bool yepkit = 19;
+    string ipAddress = 20;
+    string serialNumber = 21;
+    string hwType = 22;
 }
 
 
 message DeviceId {
     string id = 1;
+    repeated GRPCFilter filter = 2;
+    GRPCPaging paging = 3;
+    GRPCSorting sorting = 4;
 }
 
 message Devices {
@@ -661,4 +661,31 @@ message OrganizationIds {
 
 message LocationIds {
     repeated string id = 1;
+}
+
+message DeviceRequest {
+    string deviceId = 1;
+    string configJson = 2;
+    string deviceInfoJson = 3;
+    string templatePath = 4;
+}
+
+message DeviceState {
+    string deviceId = 1;
+    bool connected = 2;
+}
+
+message DeviceVersions {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceVersion versions = 4;
+}
+
+message DeviceVersion {
+    string id = 1;
+    string created = 2;
+    string jsonConfig = 3;
+    string jsonChange = 4;
+    bool active = 5;
 }
