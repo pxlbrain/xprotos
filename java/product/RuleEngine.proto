@@ -17,6 +17,8 @@ service RuleEngineService {
     }
     rpc UploadRuleEngineToS3 (RuleEngineId) returns (Void) {
     }
+    rpc DeleteRuleEngine (RuleEngineId) returns (Void) {
+    }
 }
 
 message RuleEngine {
