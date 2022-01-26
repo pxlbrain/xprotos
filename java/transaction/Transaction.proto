@@ -365,6 +365,7 @@ message ReportResponse {
   string type = 12;
   string dateFrom = 13;
   string dateTo = 14;
+  string totalUnique = 15;
 }
 
 message StatisticsReport {
