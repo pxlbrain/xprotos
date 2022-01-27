@@ -34,8 +34,11 @@ service DeviceService {
   rpc GetActivitiesForDevice (GRPCGetDeviceRequest) returns (GRPCDeviceActivitiesResponse) {}
   rpc UpdateDeviceMode (DeviceMode) returns (DeviceResponse) {};
   rpc GetDeviceErrorsByLocationId(GRPCGetLocationRequest) returns (GRPCDeviceStatusesResponse) {};
-  rpc DeviceCallback(DeviceRequest) returns (Void) {};
-  rpc UpdateDeviceState(DeviceState) returns (Void) {};
   rpc PullLatestDeviceState(DeviceId) returns (Void) {};
   rpc GetDeviceVersions(DeviceId) returns (DeviceVersions) {};
+
+  // for core
+  rpc UpdateDeviceConfig(DeviceRequest) returns (Void) {};
+  rpc UpdateDeviceState(DeviceState) returns (Void) {};
+  rpc GetJobsByStatusAndDate(GetDeviceJobsRequest) returns (DeviceJobs) {};
 }
