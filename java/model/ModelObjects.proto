@@ -46,6 +46,7 @@ message GRPCJob {
   string optimizationStatus = 29;
   string blurryCounter = 30;
   string duplicatedCounter = 31;
+  string diff = 32;
 }
 
 message GRPCGetJobsRequest {
