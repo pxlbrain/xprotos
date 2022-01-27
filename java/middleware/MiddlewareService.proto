@@ -4,7 +4,7 @@ package ai.pixlbrain.backend;
 option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 
- mport "middleware/MiddlewareObjects.proto";
+import "middleware/MiddlewareObjects.proto";
 import "google/protobuf/empty.proto";
 
 service MiddlewareCore {
@@ -14,7 +14,5 @@ service MiddlewareCore {
 service MiddlewareBackend {
     rpc PushConfig(CoreConfigJob) returns (google.protobuf.Empty);
     rpc GetHardwareInfo(Device) returns (HardwareInfo);
-    rpc StartStream(Device) returns (google.protobuf.Empty);
-    rpc StopStream(Device) returns (google.protobuf.Empty);
-    rpc FrameStream(Device) returns (stream Frame);
+    rpc FrameStream(FrameStreamRequest) returns (stream Frame);
 }

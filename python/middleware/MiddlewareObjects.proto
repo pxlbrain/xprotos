@@ -32,13 +32,11 @@ message HardwareInfo {
 }
 
 message JobStatus {
-    string job_id = 1;
-    CoreConfig config = 2;
-    JobStatusType status = 3;
-    JobSourceType source = 4;
-    float progress = 5;
-    string message = 6;
-    google.protobuf.Timestamp scheduled_at = 7;
+    CoreConfigJob job = 1
+    JobStatusType status = 2;
+    JobSourceType source = 3;
+    float progress = 4;
+    string message = 5;
 }
 
 enum JobStatusType {
@@ -100,6 +98,10 @@ message Device {
     string id = 1;
 }
 
+message FrameStreamRequest {
+    Device device = 1;
+}
+
 // +--------+
 // | Common |
 // +--------+
@@ -113,29 +115,5 @@ message CoreConfigJob {
 
 message CoreConfig {
     string config_json = 1;
-    DeviceInfo device_info = 2;
-}
-
-message DeviceInfo {
-    string device = 1;
-    string bucket = 2;
-    string organisation = 3;
-    string client = 4;
-    string location = 5;
-    repeated CameraInfo camera_info = 6;
-    repeated YepkitInfo yepkit_info = 7;
-}
-
-message CameraInfo {
-    string serial = 1;
-    string id = 2;
-    string position = 3;
-    string type = 4;
-    string label = 5;
-    string port_id = 6;
-}
-
-message YepkitInfo {
-    string serial = 1;
-    string port_id = 2;
+    string device_info = 2;
 }
