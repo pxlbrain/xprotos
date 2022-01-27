@@ -35,7 +35,7 @@ message HardwareInfo {
 }
 
 message JobStatus {
-    CoreConfigJob job = 1
+    CoreConfigJob job = 1;
     JobStatusType status = 2;
     JobSourceType source = 3;
     float progress = 4;
