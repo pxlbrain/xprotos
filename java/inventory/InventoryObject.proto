@@ -667,7 +667,6 @@ message DeviceRequest {
     string deviceId = 1;
     string configJson = 2;
     string deviceInfoJson = 3;
-    string templatePath = 4;
 }
 
 message DeviceState {
@@ -688,4 +687,20 @@ message DeviceVersion {
     string jsonConfig = 3;
     string jsonChange = 4;
     bool active = 5;
+}
+
+message GetDeviceJobsRequest {
+    string status = 1;
+    string date = 2; // last updated
+}
+
+message DeviceJobs {
+    repeated DeviceJob deviceJobs = 1;
+}
+
+message DeviceJob {
+    string id = 1;
+    string deviceId = 2;
+    string status = 3;
+    string lastUpdated = 4;
 }
