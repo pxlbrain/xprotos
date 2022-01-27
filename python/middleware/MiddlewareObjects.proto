@@ -1,8 +1,6 @@
 syntax = "proto3";
-package ai.pixlbrain.backend;
 
-option java_multiple_files = true;
-option java_package = "ai.pixlbrain.backend";
+package ai.pixlbrain.backend;
 
 import "pexternal-api/ApiObject.proto";
 import "google/protobuf/empty.proto";
@@ -121,7 +119,7 @@ message CoreConfig {
 message DeviceInfo {
     string device = 1;
     string bucket = 2;
-    string organisation = 3; // TODO
+    string organisation = 3;
     string client = 4;
     string location = 5;
     repeated CameraInfo camera_info = 6;
