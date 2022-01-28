@@ -8,6 +8,7 @@ option java_package = "ai.pixlbrain.backend";
 import "pexternal-api/ApiObject.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
+import "common/CommonObjects.proto";
 
 // +--------------------+
 // | CORE -> Middleware |
@@ -97,12 +98,8 @@ message GetFrame {
 // | Backend -> Middleware |
 // +-----------------------+
 
-message Device {
-    string id = 1;
-}
-
 message FrameStreamRequest {
-    Device device = 1;
+    ObjectId device = 1;
 }
 
 // +--------+
