@@ -16,11 +16,12 @@ import "google/protobuf/timestamp.proto";
 message UpstreamMessage {
     oneof payload {
         google.protobuf.Empty       heartbeat = 1;
-        CoreConfig                  config = 2;
-        HardwareInfo                hardware_info = 3;
-        JobStatus                   job_status = 4;
-        Frames                      frames = 5;
-        PagedExternalRequestNewer   external_api_request = 6;
+        Device                      device_id = 2;
+        CoreConfig                  config = 3;
+        HardwareInfo                hardware_info = 4;
+        JobStatus                   job_status = 5;
+        Frames                      frames = 6;
+        PagedExternalRequestNewer   external_api_request = 7;
     }
 }
 
@@ -97,10 +98,6 @@ message GetFrame {
 // | Backend -> Middleware |
 // +-----------------------+
 
-message Device {
-    string id = 1;
-}
-
 message FrameStreamRequest {
     Device device = 1;
 }
@@ -119,4 +116,8 @@ message CoreConfigJob {
 message CoreConfig {
     string config_json = 1;
     string device_info = 2;
+}
+
+message Device {
+    string id = 1;
 }
