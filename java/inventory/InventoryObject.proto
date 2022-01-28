@@ -661,9 +661,8 @@ message DeviceRequest {
     string deviceInfoJson = 3;
 }
 
-message DeviceState {
-    string deviceId = 1;
-    bool connected = 2;
+message OnlineDevices {
+    repeated string deviceId = 1;
 }
 
 message DeviceVersions {
