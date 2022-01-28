@@ -1,14 +1,13 @@
 syntax = "proto3";
 
-package ai.pixlbrain.backend;
+package ai.pixlbrain.backend.middleware;
 
 option java_multiple_files = true;
-option java_package = "ai.pixlbrain.backend";
+option java_package = "ai.pixlbrain.backend.middleware";
 
 import "pexternal-api/ApiObject.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
-import "common/CommonObjects.proto";
 
 // +--------------------+
 // | CORE -> Middleware |
@@ -17,11 +16,11 @@ import "common/CommonObjects.proto";
 message UpstreamMessage {
     oneof payload {
         google.protobuf.Empty       heartbeat = 1;
-        CoreConfig                  config = 3;
-        HardwareInfo                hardware_info = 4;
-        TaskStatus                   task_status = 5;
-        Frames                      frames = 6;
-        PagedExternalRequestNewer   external_api_request = 7;
+        CoreConfig                  config = 2;
+        HardwareInfo                hardware_info = 3;
+        TaskStatus                  task_status = 4;
+        Frames                      frames = 5;
+        PagedExternalRequestNewer   external_api_request = 6;
     }
 }
 
@@ -98,8 +97,12 @@ message GetFrame {
 // | Backend -> Middleware |
 // +-----------------------+
 
+message Device {
+    string id = 1;
+}
+
 message FrameStreamRequest {
-    ObjectId device = 1;
+    Device device = 1;
 }
 
 // +--------+

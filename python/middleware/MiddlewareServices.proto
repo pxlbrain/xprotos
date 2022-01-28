@@ -1,5 +1,5 @@
 syntax = "proto3";
-package ai.pixlbrain.backend;
+package ai.pixlbrain.backend.middleware;
 
 import "middleware/MiddlewareObjects.proto";
 import "google/protobuf/empty.proto";
@@ -9,7 +9,7 @@ service MiddlewareCore {
 }
 
 service MiddlewareBackend {
-    rpc PushConfig(CoreConfigJob) returns (google.protobuf.Empty);
+    rpc PushConfig(CoreConfigTask) returns (google.protobuf.Empty);
     rpc GetHardwareInfo(Device) returns (HardwareInfo);
     rpc FrameStream(FrameStreamRequest) returns (stream Frame);
 }

@@ -1,18 +1,17 @@
 syntax = "proto3";
-package ai.pixlbrain.backend;
+package ai.pixlbrain.backend.middleware;
 
 option go_package = "./;xprotos";
 
 import "middleware/MiddlewareObjects.proto";
 import "google/protobuf/empty.proto";
-import "common/CommonObjects.proto";
 
 service MiddlewareCore {
     rpc MessageExchange(stream UpstreamMessage) returns (stream DownstreamMessage);
 }
 
 service MiddlewareBackend {
-    rpc PushConfig(CoreConfigJob) returns (google.protobuf.Empty);
-    rpc GetHardwareInfo(ObjectId) returns (HardwareInfo);
+    rpc PushConfig(CoreConfigTask) returns (google.protobuf.Empty);
+    rpc GetHardwareInfo(Device) returns (HardwareInfo);
     rpc FrameStream(FrameStreamRequest) returns (stream Frame);
 }

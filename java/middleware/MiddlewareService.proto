@@ -1,5 +1,5 @@
 syntax = "proto3";
-package ai.pixlbrain.backend;
+package ai.pixlbrain.backend.middleware;
 
 option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
@@ -12,7 +12,7 @@ service MiddlewareCore {
 }
 
 service MiddlewareBackend {
-    rpc PushConfig(CoreConfigJob) returns (google.protobuf.Empty);
+    rpc PushConfig(CoreConfigTask) returns (google.protobuf.Empty);
     rpc GetHardwareInfo(Device) returns (HardwareInfo);
     rpc FrameStream(FrameStreamRequest) returns (stream Frame);
 }
