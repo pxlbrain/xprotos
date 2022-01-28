@@ -7,6 +7,7 @@ option java_package = "ai.pixlbrain.backend";
 import "product/Product.proto";
 import "transaction/Transaction.proto";
 import "common/Enums.proto";
+import "common/Filter.proto";
 
 message SalesProducts {
     repeated SalesProduct products = 1;

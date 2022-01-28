@@ -5,7 +5,7 @@ option java_package = "ai.pixlbrain.backend";
 
 import "inventory/Void.proto";
 import "inventory/InventoryObject.proto";
-import "middleware/MiddlewareObject.proto";
+import "common/CommonObjects.proto";
 
 package ai.pixlbrain.backend;
 
@@ -88,7 +88,7 @@ service DeviceIsoFileService {
   }
   rpc GetDeviceIsoFiles (GRPCGetAllDeviceIsoFiles) returns (DeviceIsoFiles) {
   }
-  rpc GetDeviceIsoFileByDeviceId (DeviceId) returns (DeviceIsoFile) {
+  rpc GetDeviceIsoFileByDeviceId (ObjectId) returns (DeviceIsoFile) {
   }
   rpc AssignDeviceIsoFileToDevice (AssignDeviceIsoFile) returns (Void) {
   }
