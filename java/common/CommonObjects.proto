@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend;
+
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
+
+import "common/Filter.proto";
+
+message ObjectId {
+  string id = 1;
+}
+
+message GRPCObjectRequest {
+  string id = 1;
+  repeated GRPCFilter filter = 2;
+  GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
+}
