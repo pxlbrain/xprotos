@@ -33,14 +33,6 @@ message Device {
     string hwType = 22;
 }
 
-
-message DeviceId {
-    string id = 1;
-    repeated GRPCFilter filter = 2;
-    GRPCPaging paging = 3;
-    GRPCSorting sorting = 4;
-}
-
 message Devices {
     repeated Device device = 1;
 }
@@ -572,7 +564,7 @@ message GRPCGetAllDeviceIsoFiles {
 }
 
 message AssignDeviceIsoFile {
-    DeviceId deviceId = 1;
+    string deviceId = 1;
     DeviceIsoFileId deviceIsoFileId = 2;
 }
 
