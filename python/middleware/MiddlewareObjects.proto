@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package ai.pixlbrain.backend;
+package ai.pixlbrain.backend.middleware;
 
 import "pexternal-api/ApiObject.proto";
 import "google/protobuf/empty.proto";
@@ -15,7 +15,7 @@ message UpstreamMessage {
         google.protobuf.Empty       heartbeat = 1;
         CoreConfig                  config = 2;
         HardwareInfo                hardware_info = 3;
-        JobStatus                   job_status = 4;
+        TaskStatus                  task_status = 4;
         Frames                      frames = 5;
         PagedExternalRequestNewer   external_api_request = 6;
     }
@@ -31,15 +31,15 @@ message HardwareInfo {
     float disk_available = 7;
 }
 
-message JobStatus {
-    CoreConfigJob job = 1;
-    JobStatusType status = 2;
-    JobSourceType source = 3;
+message TaskStatus {
+    CoreConfigTask task = 1;
+    TaskStatusType status = 2;
+    TaskSourceType source = 3;
     float progress = 4;
     string message = 5;
 }
 
-enum JobStatusType {
+enum TaskStatusType {
     UNKNOWN = 0;
     SCHEDULED = 1;
     IN_PROGRESS = 2;
@@ -48,7 +48,7 @@ enum JobStatusType {
     CANCELLED = 5;
 }
 
-enum JobSourceType {
+enum TaskSourceType {
     CORE_CLI = 0;
     BACKEND = 1;
 }
@@ -72,17 +72,17 @@ message Frame {
 
 message DownstreamMessage {
     oneof payload {
-        CoreConfigJob set_config = 1;
+        CoreConfigTask set_config = 1;
         google.protobuf.Empty get_config = 2;
         google.protobuf.Empty get_hardware_info = 3;
-        GetJobStatus get_job_status = 4;
+        GetTaskStatus get_task_status = 4;
         GetFrame get_frame = 5;
         PagedExternalResponse external_api_response = 6;
     }
 }
 
-message GetJobStatus {
-    string job_id = 1;
+message GetTaskStatus {
+    string task_id = 1;
 }
 
 message GetFrame {
@@ -106,9 +106,9 @@ message FrameStreamRequest {
 // | Common |
 // +--------+
 
-message CoreConfigJob {
+message CoreConfigTask {
     string device = 1;
-    string job_id = 2;
+    string task_id = 2;
     CoreConfig config = 3;
     google.protobuf.Timestamp scheduled_at = 4;
 }
