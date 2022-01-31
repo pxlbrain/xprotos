@@ -7,6 +7,7 @@ option java_package = "ai.pixlbrain.backend";
 import "product/Product.proto";
 import "common/Filter.proto";
 import "common/Enums.proto";
+import "google/protobuf/timestamp.proto";
 
 message Device {
     string id = 1;
@@ -657,8 +658,11 @@ message LocationIds {
 
 message DeviceRequest {
     string deviceId = 1;
-    string configJson = 2;
-    string deviceInfoJson = 3;
+    string taskId = 2;
+    string configJson = 3;
+    string deviceInfoJson = 4;
+    float progress = 5;
+    string message = 6;
 }
 
 message OnlineDevices {
@@ -682,7 +686,7 @@ message DeviceVersion {
 
 message GetDeviceJobsRequest {
     string status = 1;
-    string date = 2; // last updated
+    google.protobuf.Timestamp date = 2;
 }
 
 message DeviceJobs {
