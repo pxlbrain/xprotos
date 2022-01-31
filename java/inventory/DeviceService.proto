@@ -34,7 +34,7 @@ service DeviceService {
   rpc GetActivitiesForDevice (GRPCGetDeviceRequest) returns (GRPCDeviceActivitiesResponse) {}
   rpc GetDeviceErrorsByLocationId(GRPCGetLocationRequest) returns (GRPCDeviceStatusesResponse) {};
   rpc PullLatestDeviceState(ObjectId) returns (Void) {};
-  rpc GetDeviceVersions(ObjectId) returns (DeviceVersions) {};
+  rpc GetDeviceVersions(GRPCObjectRequest) returns (DeviceVersions) {};
   rpc CreateDeviceCamera (DeviceCamera) returns (DeviceCamera) {};
   rpc UpdateDeviceCamera (DeviceCamera) returns (DeviceCamera) {};
   rpc DeleteDeviceCamera (ObjectId) returns (Void){};
