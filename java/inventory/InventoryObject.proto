@@ -499,6 +499,7 @@ message ScheduleTaskRequest {
     string role = 15;
     string client = 16;
     Mode mode = 17;
+    string ruleEngineSource = 18;
 }
 
 message EventScheduling {

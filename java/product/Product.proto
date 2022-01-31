@@ -200,6 +200,7 @@ message Product {
   string globalId = 35;
   bool locked = 36;
   string client = 37;
+  string notes = 38;
 }
 
 message MHSProduct {
