@@ -1,0 +1,698 @@
+syntax = "proto3";
+
+option go_package = "./;xprotos";
+
+package ai.pixlbrain.backend;
+
+//import "product/Product.proto";
+import "common/Filter.proto";
+import "common/Enums.proto";
+import "google/protobuf/timestamp.proto";
+
+message Device {
+    string id = 1;
+    string description = 2;
+    string productionDate = 3;
+    string locationId = 4;
+    string locationName = 5;
+    string created = 6;
+    string updated = 7;
+    SCOs scos = 8;
+    string status = 9;
+    string jsonTemplate = 10;
+    string jsonDeviceInfo = 11;
+    string name = 12;
+    string deviceType = 13;
+    string mode = 14;
+    string uptime = 15;
+    bool grpc = 16;
+    bool ssh = 17;
+    string username = 18;
+    bool yepkit = 19;
+    string ipAddress = 20;
+    string serialNumber = 21;
+    string hwType = 22;
+}
+
+message Devices {
+    repeated Device device = 1;
+}
+
+message Company {
+    string id = 1;
+    string name = 2;
+    string address = 3;
+    repeated Region regions = 4;
+    string created = 5;
+    string updated = 6;
+    string displayName = 7;
+    repeated Location locations = 8;
+    string flag = 9;
+    string organizationId = 10;
+}
+
+message Companies {
+    repeated Company companies = 1;
+}
+
+message CompanyId {
+    string id = 1;
+}
+
+message CompanyName {
+    string name = 1;
+}
+
+message WorkingHours {
+    string id = 1;
+    string openingTime = 2;
+    string closingTime = 3;
+    bool isClosed = 4;
+    string dayType = 5;
+}
+
+message Location {
+    string id = 1;
+    string name = 2;
+    string address = 3;
+    string regionId = 4;
+    string regionName = 5;
+    repeated Device devices = 6;
+    repeated SCO SCOs = 7;
+    string created = 8;
+    string updated = 9;
+    string displayName = 10;
+    string companyId = 11;
+    string companyName = 12;
+    string layout = 13;
+    string dns = 14;
+    string ipAddress = 15;
+    string subnetMask = 16;
+    string gateway = 17;
+    repeated WorkingHours workingHours = 18;
+    string longitude = 19;
+    string latitude = 20;
+}
+
+message Region {
+    string id = 1;
+    string name = 2;
+    string companyId = 3;
+    repeated Location locations = 4;
+    string created = 5;
+    string updated = 6;
+}
+
+message Regions {
+    repeated Region regions = 1;
+}
+
+message RegionId {
+    string id = 1;
+}
+
+message RegionIds {
+    repeated RegionId regionIds = 1;
+}
+
+message Locations {
+    repeated Location locations = 1;
+}
+
+message LocationId {
+    string id = 1;
+}
+
+message SCO {
+    string id = 1;
+    string created = 2;
+    string updated = 3;
+    string name = 4;
+    string ipAddress = 5;
+    string description = 6;
+    bool connected = 7;
+    string product = 8;
+    string serialNumber = 9;
+    string locationId = 10;
+    string deviceId = 11;
+}
+
+message SCOs {
+    repeated SCO scos = 1;
+}
+
+message SCOId {
+    string id = 1;
+}
+
+message GRPCGetLocationRequest {
+    string companyId = 1;
+    string locationId = 2;
+    repeated GRPCFilter filter = 3;
+    GRPCPaging paging = 4;
+    GRPCSorting sorting = 5;
+}
+
+message GRPCGetLocationResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated Location locations = 4;
+}
+
+message GRPCGetDeviceResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated Device devices = 4;
+}
+
+message DeviceConfig {
+    string id = 1;
+    string jsonConfig = 2;
+    string username = 3;
+}
+
+message LearningModeRequest {
+    string id = 1;
+    bool mode = 2;
+    bool isInitial = 3;
+}
+
+message CompaniesAndLocations {
+    repeated CompanyAndLocations companyAndLocations = 1;
+}
+
+message CompanyAndLocations {
+    string company = 1;
+    repeated string locations = 2;
+}
+
+message DeployModelRequest {
+    string modelId = 1;
+    repeated string deviceIds = 2;
+    string modelVersion = 3;
+    string type = 4;
+}
+
+message ScheduleRequest {
+    string deviceId = 1;
+    string from = 2;
+    string to = 3;
+}
+
+message CompanyIds {
+    repeated string ids = 1;
+}
+
+message LocationName {
+    string name = 1;
+}
+
+message DeviceType {
+    repeated string types = 1;
+}
+
+message DeviceStatuses {
+    repeated DeviceStatus statuses = 1;
+}
+
+message DeviceAlerts {
+    repeated DeviceAlert alerts = 1;
+}
+
+message DeviceServices {
+    repeated ServiceDevice services = 1;
+}
+
+message DeviceModels {
+    repeated DeviceModel models = 1;
+}
+
+message DeviceHardware {
+    string cpu = 1;
+    string bandwidth = 2;
+    string download = 3;
+    string upload = 4;
+    string deviceId = 5;
+    string memoryUsed = 6;
+    string memoryAvailable = 7;
+    string memoryTotal = 8;
+    string diskUsage = 9;
+    string diskTotal = 10;
+}
+
+message DeviceStatus {
+    string status = 1;
+    string description = 2;
+    string serviceName = 3;
+    string deviceId = 4;
+    string created = 5;
+}
+
+message DeviceAlert {
+    string description = 1;
+    string type = 2;
+    string time = 3;
+    string deviceId = 4;
+}
+
+message ServiceDevice {
+    string id = 1;
+    string name = 2;
+    string version = 3;
+    string size = 4;
+    string activated = 5;
+    string config = 6;
+    string deviceId = 7;
+    string username = 8;
+    string date = 9;
+}
+
+message DeviceModel {
+    string id = 1;
+    string version = 2;
+    string type = 3;
+    string source = 4;
+    bool active = 5;
+    string activated = 6;
+    string modelId = 7;
+    string size = 8;
+    string deviceId = 9;
+    string path = 10;
+    string username = 11;
+    string date = 12;
+    string status = 13;
+    string eventId = 14;
+}
+
+message GRPCGetDeviceModelsRequest {
+    string deviceId = 1;
+    string type = 2;
+    GRPCPaging paging = 3;
+    GRPCSorting sorting = 4;
+}
+
+message GRPCDeviceModelResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceModel deviceModels = 4;
+}
+
+message DeviceConfiguration {
+    string id = 1;
+    string created = 2;
+    string updated = 3;
+    string username = 4;
+    string deviceId = 5;
+    bool active = 6;
+    GRPCDeviceConfiguration configuration = 7;
+    GRPCDeviceModeConfig modeConfiguration = 8;
+    string date = 9;
+    string status = 10;
+}
+
+message GRPCDeviceConfiguration {
+    string mode = 1;
+    string bucket = 2;
+    string client = 3;
+    string location = 4;
+    string device = 5;
+    string startTime = 6;
+    string endTime = 7;
+    repeated string resolution = 8;
+    repeated GRPCDeviceSerials serials = 9;
+
+}
+
+message GRPCDeviceSerials {
+    string cameraId = 1;
+    string cameraLabel = 2;
+    string cameraPosition = 3;
+    string cameraType = 4;
+    string ykush = 5;
+}
+
+message GRPCDeviceModeConfig {
+    string classificationThreshold = 1;
+    string detectionThreshold = 2;
+    string fps = 3;
+    string motionFilter = 4;
+    string motionTimeout = 5;
+    string uploadFormat = 6;
+}
+
+message DeviceProductList {
+    string deviceId = 1;
+    string version = 2;
+    string source = 3;
+    string id = 4;
+    string created = 5;
+    string updated = 6;
+    bool active = 7;
+    string username = 8;
+    string date = 9;
+    string status = 10;
+    string eventId = 11;
+}
+
+message DeviceConfigurations {
+    repeated DeviceConfiguration configurations = 1;
+}
+
+message DeviceProductLists {
+    repeated DeviceProductList list = 1;
+}
+
+message LocationLayout {
+    string id = 1;
+    string image = 2;
+}
+
+message GrpcDeviceActivities {
+    repeated GrpcDeviceActivity activities = 1;
+}
+
+message GrpcDeviceActivity {
+    string created = 1;
+    string log = 2;
+    string user = 3;
+    string action = 4;
+}
+
+message DeviceCamera {
+    int64 id = 1;
+    string created = 2;
+    string updated = 3;
+    string name = 4;
+    CameraType type = 5;
+    string deviceId = 6;
+    string version = 7;
+    string description = 8;
+    string label = 9;
+    string firmwareVersion = 10;
+    string fps = 11;
+    string movementFilter = 12;
+    string capturingFormat = 13;
+    string focus = 14;
+    string startTime = 15;
+    string endTime = 16;
+    string resolution = 17;
+}
+
+
+message DeviceCameras {
+    repeated DeviceCamera cameras = 1;
+}
+
+message CameraId {
+    int64 cameraId = 1;
+}
+
+enum CameraType {
+    FISHEYE = 0;
+    NORMAL = 1;
+}
+
+message GRPCGetDeviceRequest {
+    string deviceId = 1;
+    string locationId = 2;
+    repeated GRPCFilter filter = 3;
+    GRPCPaging paging = 4;
+    GRPCSorting sorting = 5;
+    bool deployed = 6;
+    string type = 7;
+}
+
+message GRPCDeviceCameraResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceCamera deviceCameras = 4;
+}
+
+message GRPCDeviceActivitiesResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated GrpcDeviceActivity grpcDeviceActivities = 4;
+}
+
+message GRPCDeviceProductListsResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceProductList deviceProductLists = 4;
+}
+
+message GRPCDeviceConfigurationsResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceConfiguration deviceConfigurations = 4;
+}
+
+message GRPCDeviceServicesResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated ServiceDevice deviceServices = 4;
+}
+
+message GRPCDeviceModelsResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceModel deviceModels = 4;
+}
+
+message GRPCDeviceAlertsResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceAlert deviceAlerts = 4;
+}
+
+message GRPCDeviceStatusesResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceStatus deviceStatuses = 4;
+}
+
+message ScheduleTaskRequest {
+    repeated string deviceIds = 1;
+    string detectorModel = 2;
+    string detectorVersion = 3;
+    string detectorPath = 4;
+    string classifierModel = 5;
+    string classifierVersion = 6;
+    string classifierPath = 7;
+    string mlcModel = 8;
+    string mlcVersion = 9;
+    string mlcPath = 10;
+    string productListId = 11;
+    string source = 12;
+    string date = 13;
+    string username = 14;
+    string role = 15;
+    string client = 16;
+    Mode mode = 17;
+}
+
+message EventScheduling {
+    string status = 1;
+    string description = 2;
+    string errorMessage = 3;
+    string date = 4;
+    string deviceId = 5;
+    string eventType = 6;
+    string finishedDate = 7;
+    string id = 8;
+    string username = 9;
+}
+
+message CancelTaskRequest {
+    string id = 1;
+}
+
+message DeviceDelete {
+    string id = 1;
+    string username = 2;
+}
+
+message GRPCStatusResponse {
+    string deviceId = 1;
+    string status = 2;
+    string eventId = 3;
+    string message = 4;
+}
+
+message EventsScheduling {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated EventScheduling events = 4;
+}
+
+message DeviceIsoFile {
+    string id = 1;
+    string created = 2;
+    string updated = 3;
+    repeated IsoFileProperty isoFileProperty = 4;
+    string version = 5;
+}
+
+message IsoFileProperty {
+    string key = 1;
+    string value = 2;
+}
+
+message DeviceIsoFiles {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceIsoFile deviceIsoFiles = 4;
+}
+
+message DeviceIsoFileId {
+    string id = 1;
+}
+
+message GRPCGetAllDeviceIsoFiles {
+    GRPCPaging paging = 1;
+}
+
+message AssignDeviceIsoFile {
+    string deviceId = 1;
+    DeviceIsoFileId deviceIsoFileId = 2;
+}
+
+message QueueStatusConfiguration {
+    string location = 1;
+    repeated QueueStatusRule queueStatusRules = 2;
+}
+
+message QueueStatusRule {
+    string id = 1;
+    string status = 2;
+    string thresholdFrom = 3;
+    string thresholdTo = 4;
+    string color = 5;
+    string location = 6;
+    string property = 7;
+    string zone = 8;
+}
+
+message QueueStatusRuleId {
+    string id = 1;
+}
+
+message ZoneId {
+    string id = 1;
+}
+
+message Organization {
+    string id = 1;
+    string name = 2;
+    string address = 3;
+    string created = 5;
+    string updated = 6;
+    string displayName = 7;
+    repeated Company companies = 8;
+    OrganizationLogo logo = 9;
+    string logoURL = 10;
+    string startOfFiscalYear = 11;
+}
+
+message OrganizationId {
+    string id = 1;
+}
+
+message GRPCGetOrganizationRequest {
+    repeated GRPCFilter filter = 3;
+    GRPCPaging paging = 4;
+    GRPCSorting sorting = 5;
+}
+
+message GRPCGetOrganizationResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated Organization organizations = 4;
+}
+
+message OrganizationCompanyRequest {
+    string organizationId = 1;
+    repeated string companyIds = 2;
+}
+
+message OrganizationLogo {
+    string image = 1;
+    string imageName = 2;
+    string imageType = 3;
+}
+
+message GRPCGetOrganizationCompanyRequest {
+    string id = 1;
+    repeated GRPCFilter filter = 2;
+    GRPCPaging paging = 3;
+    GRPCSorting sorting = 4;
+}
+
+message GRPCPagedCompanyResponse {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated Company companies = 4;
+}
+
+message OrganizationIds {
+    repeated string id = 1;
+}
+
+message LocationIds {
+    repeated string id = 1;
+}
+
+message DeviceRequest {
+    string deviceId = 1;
+    string configJson = 2;
+    string deviceInfoJson = 3;
+}
+
+message OnlineDevices {
+    repeated string deviceId = 1;
+}
+
+message DeviceVersions {
+    int32 page = 1;
+    int32 size = 2;
+    int32 count = 3;
+    repeated DeviceVersion versions = 4;
+}
+
+message DeviceVersion {
+    string id = 1;
+    string created = 2;
+    string jsonConfig = 3;
+    string jsonChange = 4;
+    bool active = 5;
+}
+
+message GetDeviceJobsRequest {
+    string status = 1;
+    google.protobuf.Timestamp date = 2;
+}
+
+message DeviceJobs {
+    repeated DeviceJob deviceJobs = 1;
+}
+
+message DeviceJob {
+    string id = 1;
+    string deviceId = 2;
+    string status = 3;
+    string lastUpdated = 4;
+}
