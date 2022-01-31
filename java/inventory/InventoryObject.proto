@@ -658,12 +658,42 @@ message LocationIds {
 
 message DeviceRequest {
     string deviceId = 1;
-    string taskId = 2;
-    string configJson = 3;
-    string deviceInfoJson = 4;
-    string status = 5;
-    float progress = 6;
-    string message = 7;
+    string configJson = 2;
+    string deviceInfoJson = 3;
+}
+
+message TaskStatus {
+    CoreConfigTask task = 1;
+    TaskStatusType status = 2;
+    TaskSourceType source = 3;
+    float progress = 4;
+    string message = 5;
+}
+
+message CoreConfigTask {
+    string device = 1;
+    string task_id = 2;
+    CoreConfig config = 3;
+    google.protobuf.Timestamp scheduled_at = 4;
+}
+
+message CoreConfig {
+    string config_json = 1;
+    string device_info = 2;
+}
+
+enum TaskStatusType {
+    UNKNOWN = 0;
+    SCHEDULED = 1;
+    IN_PROGRESS = 2;
+    DONE = 3;
+    FAILED = 4;
+    CANCELLED = 5;
+}
+
+enum TaskSourceType {
+    CORE_CLI = 0;
+    BACKEND = 1;
 }
 
 message OnlineDevices {
