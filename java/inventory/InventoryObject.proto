@@ -664,7 +664,7 @@ message DeviceRequest {
 
 message TaskStatus {
     CoreConfigTask task = 1;
-    TaskStatusType status = 2;
+    StatusEnum status = 2;
     TaskSourceType source = 3;
     float progress = 4;
     string message = 5;
@@ -680,15 +680,6 @@ message CoreConfigTask {
 message CoreConfig {
     string config_json = 1;
     string device_info = 2;
-}
-
-enum TaskStatusType {
-    UNKNOWN = 0;
-    SCHEDULED = 1;
-    IN_PROGRESS = 2;
-    DONE = 3;
-    FAILED = 4;
-    CANCELLED = 5;
 }
 
 enum TaskSourceType {
