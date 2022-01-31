@@ -499,7 +499,6 @@ message ScheduleTaskRequest {
     string role = 15;
     string client = 16;
     Mode mode = 17;
-    string ruleEngineSource = 18;
 }
 
 message EventScheduling {
@@ -661,31 +660,6 @@ message DeviceRequest {
     string deviceId = 1;
     string configJson = 2;
     string deviceInfoJson = 3;
-}
-
-message TaskStatus {
-    CoreConfigTask task = 1;
-    StatusEnum status = 2;
-    TaskSourceType source = 3;
-    float progress = 4;
-    string message = 5;
-}
-
-message CoreConfigTask {
-    string device = 1;
-    string task_id = 2;
-    CoreConfig config = 3;
-    google.protobuf.Timestamp scheduled_at = 4;
-}
-
-message CoreConfig {
-    string config_json = 1;
-    string device_info = 2;
-}
-
-enum TaskSourceType {
-    CORE_CLI = 0;
-    BACKEND = 1;
 }
 
 message OnlineDevices {
