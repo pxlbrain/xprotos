@@ -1,0 +1,119 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend.middleware;
+
+import "pexternal-api/ApiObject.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+// +--------------------+
+// | CORE -> Middleware |
+// +--------------------+
+
+message UpstreamMessage {
+    oneof payload {
+        google.protobuf.Empty       heartbeat = 1;
+        CoreConfig                  config = 2;
+        HardwareInfo                hardware_info = 3;
+        TaskStatus                  task_status = 4;
+        Frames                      frames = 5;
+        PagedExternalRequestNewer   external_api_request = 6;
+    }
+}
+
+message HardwareInfo {
+    float cpu = 1;
+    float memory_total = 2;
+    float memory_used = 3;
+    float memory_available = 4;
+    float disk_total = 5;
+    float disk_used = 6;
+    float disk_available = 7;
+}
+
+message TaskStatus {
+    CoreConfigTask task = 1;
+    TaskStatusType status = 2;
+    TaskSourceType source = 3;
+    float progress = 4;
+    string message = 5;
+}
+
+enum TaskStatusType {
+    UNKNOWN = 0;
+    SCHEDULED = 1;
+    IN_PROGRESS = 2;
+    DONE = 3;
+    FAILED = 4;
+    CANCELLED = 5;
+}
+
+enum TaskSourceType {
+    CORE_CLI = 0;
+    BACKEND = 1;
+}
+
+message Frames {
+    repeated Frame frame = 1;
+}
+
+message Frame {
+    oneof source {
+        string camera_id = 1;
+        string serial = 2;
+    }
+
+    bytes jpeg = 3;
+}
+
+// +--------------------+
+// | Middleware -> CORE |
+// +--------------------+
+
+message DownstreamMessage {
+    oneof payload {
+        CoreConfigTask set_config = 1;
+        google.protobuf.Empty get_config = 2;
+        google.protobuf.Empty get_hardware_info = 3;
+        GetTaskStatus get_task_status = 4;
+        GetFrame get_frame = 5;
+        PagedExternalResponse external_api_response = 6;
+    }
+}
+
+message GetTaskStatus {
+    string task_id = 1;
+}
+
+message GetFrame {
+    repeated string camera_id = 1;
+    repeated string serial = 2;
+}
+
+// +-----------------------+
+// | Backend -> Middleware |
+// +-----------------------+
+
+message Device {
+    string id = 1;
+}
+
+message FrameStreamRequest {
+    Device device = 1;
+}
+
+// +--------+
+// | Common |
+// +--------+
+
+message CoreConfigTask {
+    string device = 1;
+    string task_id = 2;
+    CoreConfig config = 3;
+    google.protobuf.Timestamp scheduled_at = 4;
+}
+
+message CoreConfig {
+    string config_json = 1;
+    string device_info = 2;
+}

@@ -5,7 +5,7 @@ option java_package = "ai.pixlbrain.backend";
 
 import "inventory/Void.proto";
 import "inventory/InventoryObject.proto";
-import "middleware/MiddlewareObject.proto";
+import "common/CommonObjects.proto";
 
 package ai.pixlbrain.backend;
 
@@ -51,107 +51,6 @@ service CompanyService {
   };
 };
 
-service DeviceService {
-  rpc CreateDevice (Device) returns (Device) {
-  };
-  rpc UpdateDevice (Device) returns (Device) {
-  };
-  rpc DeleteDevice (DeviceDelete) returns (Void) {
-  };
-  rpc GetDevice (DeviceId) returns (Device) {
-  };
-  rpc GetAllDevices (Void) returns (Devices) {
-  };
-  rpc GetDevicesByLocationId (GRPCGetLocationRequest) returns (GRPCGetDeviceResponse) {
-  }
-  rpc GetDevicesByCompanyId (GRPCGetLocationRequest) returns (GRPCGetDeviceResponse) {
-  }
-  rpc UpdateDeviceConfig (DeviceConfig) returns (Void) {
-  }
-  rpc UpdateLearningMode (LearningModeRequest) returns (Void) {
-  }
-  rpc DeployModel (DeployModelRequest) returns (Void) {
-  }
-  rpc ScheduleCapturing (ScheduleRequest) returns (Void) {
-  }
-  rpc GetDevicesByLocation(LocationId) returns (Devices) {
-  }
-  rpc GetDeviceTypes(Void) returns (DeviceType) {
-  }
-  rpc GetDeviceStatuses(GRPCGetDeviceRequest) returns (GRPCDeviceStatusesResponse) {
-  }
-  rpc GetDeviceStatus(DeviceId) returns (DeviceStatus) {
-  }
-  rpc GetDeviceAlerts(GRPCGetDeviceRequest) returns (GRPCDeviceAlertsResponse) {
-  }
-  rpc GetDeviceHardware(DeviceId) returns (DeviceHardware) {
-  }
-  rpc GetDeviceModels(GRPCGetDeviceRequest) returns (GRPCDeviceModelsResponse) {
-  }
-  rpc GetDeviceModelsByType(GRPCGetDeviceModelsRequest) returns (GRPCDeviceModelResponse) {
-  }
-  rpc GetDeviceServices(GRPCGetDeviceRequest) returns (GRPCDeviceServicesResponse) {
-  }
-  rpc CreateDeviceStatus(DeviceStatus) returns (DeviceStatus) {
-  }
-  rpc CreateDeviceAlert(DeviceAlert) returns (DeviceAlert) {
-  }
-  rpc CreateDeviceHardware(DeviceHardware) returns (DeviceHardware) {
-  }
-  rpc GetDeviceConfiguration(DeviceId) returns (DeviceConfiguration) {
-  }
-  rpc AssignProductListToDevice(DeviceProductList) returns (Void) {
-  }
-  rpc AddServiceOnDevice(ServiceDevice) returns (Void) {
-  }
-  rpc ChangeDeviceConfiguration(DeviceConfiguration) returns (Void) {
-  }
-  rpc GetDeviceProductList(DeviceId) returns (DeviceProductList) {
-  }
-  rpc GetDeviceConfigurations(GRPCGetDeviceRequest) returns (GRPCDeviceConfigurationsResponse) {
-  }
-  rpc UpdateServiceOnDevice(ServiceDevice) returns (Void) {
-  }
-  rpc AddModelOnDevice(DeviceModel) returns (Void) {
-  }
-  rpc GetDeviceProductLists(GRPCGetDeviceRequest) returns (GRPCDeviceProductListsResponse) {
-  }
-  rpc UpdateInitialDeviceConfigurations (DeviceConfig) returns (Void) {
-  }
-  rpc UpdateGRPCStatusOnDevice (DeviceId) returns (Void) {
-  }
-  rpc ReactivateDeviceConfiguration (DeviceConfiguration) returns (Void) {
-  }
-  rpc GetActivitiesForDevice (GRPCGetDeviceRequest) returns (GRPCDeviceActivitiesResponse) {
-  }
-  rpc UpdateDeviceMode (DeviceMode) returns (DeviceResponse) {
-  };
-  rpc CreateDeviceCamera (DeviceCamera) returns (DeviceCamera) {
-  };
-  rpc UpdateDeviceCamera (DeviceCamera) returns (DeviceCamera) {
-  };
-  rpc DeleteDeviceCamera (CameraId) returns (Void){
-  };
-  rpc GetDeviceCameras (GRPCGetDeviceRequest) returns (GRPCDeviceCameraResponse){
-  };
-  rpc GetDeviceCamerasByLocationId (GRPCGetDeviceRequest) returns (GRPCDeviceCameraResponse){
-  };
-  rpc GetCamerasByLocationId (LocationId) returns (DeviceCameras){
-  };
-  rpc GetDeviceCamerasByDeviceId(DeviceId) returns (DeviceCameras){
-  };
-  rpc ScheduleTask(ScheduleTaskRequest) returns (Void){
-  };
-  rpc CancelTask(CancelTaskRequest) returns (Void){
-  };
-  rpc ActionResponse(GRPCStatusResponse) returns (Void){
-  };
-  rpc GetDeviceErrorsByLocationId(GRPCGetLocationRequest) returns (GRPCDeviceStatusesResponse) {
-  };
-  rpc GetDeviceEvents(GRPCGetLocationRequest) returns (EventsScheduling) {
-  };
-}
-
 service LocationService {
   rpc CreateLocations (Locations) returns (Locations) {
   };
@@ -189,7 +88,7 @@ service DeviceIsoFileService {
   }
   rpc GetDeviceIsoFiles (GRPCGetAllDeviceIsoFiles) returns (DeviceIsoFiles) {
   }
-  rpc GetDeviceIsoFileByDeviceId (DeviceId) returns (DeviceIsoFile) {
+  rpc GetDeviceIsoFileByDeviceId (ObjectId) returns (DeviceIsoFile) {
   }
   rpc AssignDeviceIsoFileToDevice (AssignDeviceIsoFile) returns (Void) {
   }

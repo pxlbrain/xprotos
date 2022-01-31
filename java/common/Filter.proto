@@ -18,3 +18,13 @@ message GRPCMultipleValuesFilter {
   string operator = 3;
   string field2 = 4;
 }
+
+message GRPCPaging {
+  int32 page = 1;
+  int32 size = 2;
+}
+
+message GRPCSorting {
+  string field = 1;
+  string order = 2;
+}
