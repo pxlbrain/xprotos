@@ -52,3 +52,13 @@ enum Mode {
   learning = 2;
   None = 3;
 }
+
+enum StatusEnum {
+  UNKNOWN = 0;
+  SCHEDULED = 1;
+  IN_PROGRESS = 2;
+  DONE = 3;
+  FAILED = 4;
+  CANCELLED = 5;
+  PENDING = 6;
+}

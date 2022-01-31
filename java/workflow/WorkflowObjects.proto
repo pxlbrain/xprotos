@@ -5,13 +5,6 @@ option java_multiple_files = true;
 option java_package = "ai.pixlbrain.backend";
 import "common/Enums.proto";
 
-enum WorkflowStatus {
-  PENDING = 0;
-  IN_PROGRESS = 1;
-  FAILED = 2;
-  DONE = 3;
-}
-
 enum WorkflowType {
   DETECTION = 0;
   CLASSIFICATION = 1;
@@ -42,7 +35,7 @@ message GRPCWorkflow {
   string name = 6;
   string client = 7;
   string location = 8;
-  WorkflowStatus status = 9;
+  StatusEnum status = 9;
   GRPCTemplate template = 10;
   repeated GRPCStep steps = 11;
   WorkflowType type = 12;
@@ -54,7 +47,7 @@ message GRPCWorkflowTracker {
   string name = 2;
   string client = 3;
   string location = 4;
-  WorkflowStatus status = 5;
+  StatusEnum status = 5;
   repeated GRPCStepTracker stepTrackers = 6;
   WorkflowType type = 7;
   GRPCGlobalType globalType = 8;
@@ -110,7 +103,7 @@ message GRPCEventTracker {
   string updated = 3;
   string createdBy = 4;
   string updatedBy = 5;
-  WorkflowStatus status = 6;
+  StatusEnum status = 6;
   bool validated = 7;
   bool forcedValidation = 8;
   string validatedBy = 9;
@@ -127,7 +120,7 @@ message GRPCParameterTracker {
   int64 id = 1;
   string parameterName = 6;
   string parameterValue = 7;
-  WorkflowStatus status = 8;
+  StatusEnum status = 8;
   string eventName = 9;
   int64 workflowId = 10;
   string eventType = 11;
@@ -139,7 +132,7 @@ message GRPCStepTracker {
   string updated = 3;
   string createdBy = 4;
   string updatedBy = 5;
-  WorkflowStatus status = 6;
+  StatusEnum status = 6;
   bool validated = 7;
   bool forcedValidation = 8;
   string validatedBy = 9;
