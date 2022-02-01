@@ -17,7 +17,6 @@ service DeviceService {
   rpc GetAllDevices (Void) returns (Devices) {};
   rpc GetDevicesByLocationId (GRPCGetLocationRequest) returns (GRPCGetDeviceResponse) {}
   rpc GetDevicesByCompanyId (GRPCGetLocationRequest) returns (GRPCGetDeviceResponse) {}
-  rpc UpdateLearningMode (LearningModeRequest) returns (Void) {}
   rpc GetDevicesByLocation(LocationId) returns (Devices) {}
   rpc GetDeviceTypes(Void) returns (DeviceType) {}
   rpc GetDeviceStatuses(GRPCGetDeviceRequest) returns (GRPCDeviceStatusesResponse) {}
