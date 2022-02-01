@@ -4,7 +4,6 @@ option go_package = "./;xprotos";
 
 package ai.pixlbrain.backend;
 
-//import "product/Product.proto";
 import "common/Filter.proto";
 import "common/Enums.proto";
 import "google/protobuf/timestamp.proto";
@@ -485,6 +484,7 @@ message ScheduleTaskRequest {
     repeated string deviceIds = 1;
     string configJson = 2;
     google.protobuf.Timestamp date = 3;
+    string username = 4;
 }
 
 message EventScheduling {
