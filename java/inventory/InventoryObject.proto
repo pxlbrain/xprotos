@@ -669,7 +669,7 @@ message DeviceVersion {
 }
 
 message GetDeviceJobsRequest {
-    string status = 1;
+    StatusEnum status = 1;
     google.protobuf.Timestamp date = 2;
 }
 
@@ -680,6 +680,6 @@ message DeviceJobs {
 message DeviceJob {
     string id = 1;
     string deviceId = 2;
-    string status = 3;
-    string lastUpdated = 4;
+    StatusEnum status = 3;
+    google.protobuf.Timestamp lastUpdated = 4;
 }
