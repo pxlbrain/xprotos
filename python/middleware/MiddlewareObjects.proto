@@ -1,10 +1,11 @@
 syntax = "proto3";
 
-package ai.pixlbrain.backend.middleware;
+package ai.pixlbrain.backend;
 
 import "pexternal-api/ApiObject.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
+import "common/Enums.proto";
 
 // +--------------------+
 // | CORE -> Middleware |
@@ -33,20 +34,12 @@ message HardwareInfo {
 
 message TaskStatus {
     CoreConfigTask task = 1;
-    TaskStatusType status = 2;
+    StatusEnum status = 2;
     TaskSourceType source = 3;
     float progress = 4;
     string message = 5;
 }
 
-enum TaskStatusType {
-    UNKNOWN = 0;
-    SCHEDULED = 1;
-    IN_PROGRESS = 2;
-    DONE = 3;
-    FAILED = 4;
-    CANCELLED = 5;
-}
 
 enum TaskSourceType {
     CORE_CLI = 0;
@@ -94,12 +87,12 @@ message GetFrame {
 // | Backend -> Middleware |
 // +-----------------------+
 
-message Device {
+message DeviceId {
     string id = 1;
 }
 
 message FrameStreamRequest {
-    Device device = 1;
+    DeviceId device = 1;
 }
 
 // +--------+
