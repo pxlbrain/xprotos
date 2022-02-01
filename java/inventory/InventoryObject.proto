@@ -483,22 +483,8 @@ message GRPCDeviceStatusesResponse {
 
 message ScheduleTaskRequest {
     repeated string deviceIds = 1;
-    string detectorModel = 2;
-    string detectorVersion = 3;
-    string detectorPath = 4;
-    string classifierModel = 5;
-    string classifierVersion = 6;
-    string classifierPath = 7;
-    string mlcModel = 8;
-    string mlcVersion = 9;
-    string mlcPath = 10;
-    string productListId = 11;
-    string source = 12;
-    string date = 13;
-    string username = 14;
-    string role = 15;
-    string client = 16;
-    Mode mode = 17;
+    string configJson = 2;
+    google.protobuf.Timestamp date = 3;
 }
 
 message EventScheduling {
