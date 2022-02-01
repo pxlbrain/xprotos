@@ -43,6 +43,7 @@ service DeviceService {
   rpc GetDeviceCamerasByLocationId (GRPCGetDeviceRequest) returns (GRPCDeviceCameraResponse){};
   rpc GetCamerasByLocationId (ObjectId) returns (DeviceCameras){};
   rpc GetDeviceCamerasByDeviceId(ObjectId) returns (DeviceCameras){};
+  rpc ScheduleTask(ScheduleTaskRequest) returns (Void) {}
 
   // for core
   rpc UpdateDeviceConfig(DeviceRequest) returns (Void) {};
