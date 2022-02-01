@@ -485,6 +485,7 @@ message ScheduleTaskRequest {
     repeated string deviceIds = 1;
     string configJson = 2;
     google.protobuf.Timestamp date = 3;
+    string username = 4;
 }
 
 message EventScheduling {
