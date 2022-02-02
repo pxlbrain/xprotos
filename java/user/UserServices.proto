@@ -37,6 +37,7 @@ service UserAnalyticsService {
   rpc GetUserAnalytics(GRPCUserAnalyticsRequest) returns (GRPCUserAnalyticsResponse);
   rpc GetUserAnalyticsDashboard(GRPCUserAnalyticsRequest) returns (GRPCUserAnalyticsDashboardResponses);
   rpc UpdateUserAnalytics(GRPCUserAnalytic) returns (Void);
+  rpc GetSingleUserAnalytics(StringField) returns (GRPCUserAnalytic);
 }
 
 service RoleService {
