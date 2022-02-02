@@ -95,6 +95,10 @@ message DeviceId {
 
 message FrameStreamRequest {
     DeviceId device = 1;
+    oneof identifier {
+        string serial = 2;
+        string camera_id = 3;
+    }
 }
 
 message TaskStatusRequest {
