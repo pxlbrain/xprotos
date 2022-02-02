@@ -26,7 +26,6 @@ service DeviceService {
   rpc GetDeviceServices(GRPCGetDeviceRequest) returns (GRPCDeviceServicesResponse) {}
   rpc CreateDeviceStatus(DeviceStatus) returns (DeviceStatus) {}
   rpc CreateDeviceAlert(DeviceAlert) returns (DeviceAlert) {}
-  rpc CreateDeviceHardware(DeviceHardware) returns (DeviceHardware) {}
   rpc ChangeDeviceConfiguration(DeviceConfiguration) returns (Void) {}
   rpc UpdateServiceOnDevice(ServiceDevice) returns (Void) {}
   rpc UpdateGRPCStatusOnDevice (ObjectId) returns (Void) {}
@@ -49,4 +48,5 @@ service DeviceService {
   rpc UpdateDeviceTask(TaskStatus) returns (Void) {};
   rpc UpdateDeviceState(OnlineDevices) returns (Void) {};
   rpc GetJobsByStatusAndDate(GetDeviceJobsRequest) returns (DeviceJobs) {};
+  rpc UpdateDeviceHardware(DeviceHardware) returns (Void) {}
 }
