@@ -3,7 +3,7 @@ syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 
 message CoreConfigTask {
-    string device = 1;
+    DeviceId device = 1;
     string task_id = 2;
     CoreConfig config = 3;
     google.protobuf.Timestamp scheduled_at = 4;
@@ -12,4 +12,8 @@ message CoreConfigTask {
 message CoreConfig {
     string config_json = 1;
     string device_info = 2;
+}
+
+message DeviceId {
+    string id = 1;
 }
