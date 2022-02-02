@@ -671,10 +671,14 @@ message DeviceVersion {
 message GetDeviceJobsRequest {
     StatusEnum status = 1;
     google.protobuf.Timestamp date = 2;
+    GRPCPaging paging = 3;
 }
 
 message DeviceJobs {
     repeated DeviceJob deviceJobs = 1;
+    int32 page = 2;
+    int32 size = 3;
+    int32 count = 4;
 }
 
 message DeviceJob {
