@@ -661,17 +661,21 @@ message DeviceVersion {
 }
 
 message GetDeviceJobsRequest {
-    string status = 1;
+    StatusEnum status = 1;
     google.protobuf.Timestamp date = 2;
+    GRPCPaging paging = 3;
 }
 
 message DeviceJobs {
     repeated DeviceJob deviceJobs = 1;
+    int32 page = 2;
+    int32 size = 3;
+    int32 count = 4;
 }
 
 message DeviceJob {
     string id = 1;
     string deviceId = 2;
-    string status = 3;
-    string lastUpdated = 4;
+    StatusEnum status = 3;
+    google.protobuf.Timestamp lastUpdated = 4;
 }
