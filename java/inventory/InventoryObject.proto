@@ -8,6 +8,7 @@ import "product/Product.proto";
 import "common/Filter.proto";
 import "common/Enums.proto";
 import "google/protobuf/timestamp.proto";
+import "middleware/MiddlewareObjects.proto";
 
 message Device {
     string id = 1;
@@ -230,16 +231,8 @@ message DeviceModels {
 }
 
 message DeviceHardware {
-    string cpu = 1;
-    string bandwidth = 2;
-    string download = 3;
-    string upload = 4;
-    string deviceId = 5;
-    string memoryUsed = 6;
-    string memoryAvailable = 7;
-    string memoryTotal = 8;
-    string diskUsage = 9;
-    string diskTotal = 10;
+    string device_id = 1;
+    HardwareInfo hardware_info = 2;
 }
 
 message DeviceStatus {
