@@ -13,9 +13,11 @@ service MiddlewareCore {
 service MiddlewareBackend {
     rpc PushConfig(CoreConfigTask) returns (google.protobuf.Empty);
 
+    rpc GetCoreConfig(DeviceId) returns (CoreConfig);
     rpc GetHardwareInfo(DeviceId) returns (HardwareInfo);
     rpc GetTaskStatus(TaskStatusRequest) returns (TaskStatus);
 
+    rpc RequestCoreConfig(DeviceId) returns (google.protobuf.Empty);
     rpc RequestHardwareInfo(DeviceId) returns (google.protobuf.Empty);
     rpc RequestTaskStatus(TaskStatusRequest) returns (google.protobuf.Empty);
 
