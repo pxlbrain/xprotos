@@ -67,12 +67,13 @@ message Frame {
 
 message DownstreamMessage {
     oneof payload {
-        CoreConfigTask set_config = 1;
-        google.protobuf.Empty get_config = 2;
-        google.protobuf.Empty get_hardware_info = 3;
-        GetTaskStatus get_task_status = 4;
-        GetFrame get_frame = 5;
-        PagedExternalResponse external_api_response = 6;
+        google.protobuf.Empty heartbeat = 1;
+        CoreConfigTask set_config = 2;
+        google.protobuf.Empty get_config = 3;
+        google.protobuf.Empty get_hardware_info = 4;
+        GetTaskStatus get_task_status = 5;
+        GetFrame get_frame = 6;
+        PagedExternalResponse external_api_response = 7;
     }
 }
 
