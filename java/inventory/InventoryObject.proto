@@ -479,6 +479,9 @@ message ScheduleTaskRequest {
     string configJson = 2;
     google.protobuf.Timestamp date = 3;
     string username = 4;
+    string client = 5;
+    string location = 6;
+    GRPCGlobalType globalType = 7;
 }
 
 message EventScheduling {
