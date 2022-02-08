@@ -44,6 +44,8 @@ service DeviceService {
   rpc ScheduleTask(ScheduleTaskRequest) returns (Void) {}
   rpc GetTasksByLocation(GRPCObjectRequest) returns (DeviceJobs) {}
   rpc GetSubTasksByTaskId(ObjectId) returns (DeviceJobs) {}
+  rpc GetDeviceComments(GRPCObjectRequest) returns (DeviceComments) {}
+  rpc CreateDeviceComment(CommentReq) returns (Void) {}
 
   // for core
   rpc UpdateDeviceConfig(DeviceRequest) returns (Void) {};
