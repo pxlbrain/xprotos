@@ -33,6 +33,7 @@ message Device {
     string ipAddress = 20;
     string serialNumber = 21;
     string hwType = 22;
+    bool connected = 23;
 }
 
 message Devices {
@@ -687,4 +688,22 @@ message DeviceJob {
     float progress = 7;
     string json = 8;
     google.protobuf.Timestamp scheduled = 9;
+}
+
+message DeviceComments {
+    repeated DeviceComment deviceComments = 1;
+    int32 page = 2;
+    int32 size = 3;
+    int32 count = 4;
+}
+
+message DeviceComment {
+    string username = 1;
+    string comment = 2;
+}
+
+message CommentReq {
+    string deviceId = 1;
+    string username = 2;
+    string comment = 3;
 }
