@@ -700,6 +700,7 @@ message DeviceComments {
 message DeviceComment {
     string username = 1;
     string comment = 2;
+    string created = 3;
 }
 
 message CommentReq {
