@@ -708,3 +708,12 @@ message CommentReq {
     string username = 2;
     string comment = 3;
 }
+
+message DeviceTemplates {
+    repeated DeviceTemplate templates = 1;
+}
+
+message DeviceTemplate {
+    string id = 1;
+    string template = 2;
+}

@@ -12,6 +12,10 @@ message ObjectId {
   string id = 1;
 }
 
+message ObjectIds {
+  repeated string ids = 1;
+}
+
 message GRPCObjectRequest {
   string id = 1;
   string client = 2;
