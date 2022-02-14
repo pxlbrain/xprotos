@@ -1115,6 +1115,7 @@ message GRPCDetectionPredictionResponse {
   string height = 6;
   repeated GRPCDetectionPrediction predictions =7;
   repeated GRPCDetectionPrediction inferences = 8;
+  string message = 9;
 }
 
 message GRPCDetectionPrediction {
