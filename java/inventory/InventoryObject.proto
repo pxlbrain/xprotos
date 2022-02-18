@@ -716,4 +716,5 @@ message DeviceTemplates {
 message DeviceTemplate {
     string id = 1;
     string template = 2;
+    string jsonConfig = 3;
 }
