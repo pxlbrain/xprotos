@@ -48,6 +48,7 @@ message GRPCJob {
   string blurryCounter = 30;
   string duplicatedCounter = 31;
   string diff = 32;
+  string comment = 33;
 }
 
 message GRPCGetJobsRequest {
@@ -1138,4 +1139,9 @@ message TransactionJobReq {
   google.protobuf.Timestamp dateTo = 4;
   double thresholdFrom = 5;
   double thresholdTo = 6;
+}
+
+message JobComment {
+  string jobId = 1;
+  string comment = 2;
 }
