@@ -201,6 +201,7 @@ message Product {
   bool locked = 36;
   string client = 37;
   string notes = 38;
+  string changeNote = 39;
 }
 
 message MHSProduct {
