@@ -23,6 +23,7 @@ service JobService {
   rpc OptimizeJobs(OptimizationRequest) returns (Void) {}
   rpc CreateJobsFromReport(JobReport) returns (Void) {}
   rpc CreateJobsFromTransactions(TransactionJobReq) returns (Void) {}
+  rpc AddJobComment(JobComment) returns (Void) {}
 }
 
 service CVATService {
