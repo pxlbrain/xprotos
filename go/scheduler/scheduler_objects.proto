@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend;
+
+option go_package = "./;xprotos";
+
+
+import "google/protobuf/timestamp.proto";
+
+message CoreConfigTask {
+    DeviceId device = 1;
+    string task_id = 2;
+    CoreConfig config = 3;
+    google.protobuf.Timestamp scheduled_at = 4;
+}
+
+message CoreConfig {
+    string config_json = 1;
+    string device_info = 2;
+}
+
+message DeviceId {
+    string id = 1;
+}
