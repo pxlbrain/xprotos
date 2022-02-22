@@ -688,6 +688,7 @@ message DeviceJob {
     float progress = 7;
     string json = 8;
     google.protobuf.Timestamp scheduled = 9;
+    repeated DeviceJob subTasks = 10;
 }
 
 message DeviceComments {
