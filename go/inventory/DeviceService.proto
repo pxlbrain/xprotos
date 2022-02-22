@@ -42,6 +42,11 @@ service DeviceService {
   rpc GetCamerasByLocationId (ObjectId) returns (DeviceCameras){};
   rpc GetDeviceCamerasByDeviceId(ObjectId) returns (DeviceCameras){};
   rpc ScheduleTask(ScheduleTaskRequest) returns (Void) {}
+  rpc GetTasksByLocation(GRPCObjectRequest) returns (DeviceJobs) {}
+  rpc GetSubTasksByTaskId(ObjectId) returns (DeviceJobs) {}
+  rpc GetDeviceComments(GRPCObjectRequest) returns (DeviceComments) {}
+  rpc CreateDeviceComment(CommentReq) returns (Void) {}
+  rpc GetDevicesTemplates(ObjectIds) returns (DeviceTemplates) {}
 
   // for core
   rpc UpdateDeviceConfig(DeviceRequest) returns (Void) {};

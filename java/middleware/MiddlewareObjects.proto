@@ -104,7 +104,3 @@ message TaskStatusRequest {
     DeviceId device = 1;
     string task_id = 2;
 }
-
-// +--------+
-// | Common |
-// +--------+

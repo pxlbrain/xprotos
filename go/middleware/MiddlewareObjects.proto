@@ -8,6 +8,7 @@ import "pexternal-api/ApiObject.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "common/Enums.proto";
+import "scheduler/scheduler_objects.proto";
 
 // +--------------------+
 // | CORE -> Middleware |
@@ -90,10 +91,6 @@ message GetFrame {
 // | Backend -> Middleware |
 // +-----------------------+
 
-message DeviceId {
-    string id = 1;
-}
-
 message FrameStreamRequest {
     DeviceId device = 1;
     oneof identifier {
@@ -105,20 +102,4 @@ message FrameStreamRequest {
 message TaskStatusRequest {
     DeviceId device = 1;
     string task_id = 2;
-}
-
-// +--------+
-// | Common |
-// +--------+
-
-message CoreConfigTask {
-    DeviceId device = 1;
-    string task_id = 2;
-    CoreConfig config = 3;
-    google.protobuf.Timestamp scheduled_at = 4;
-}
-
-message CoreConfig {
-    string config_json = 1;
-    string device_info = 2;
 }
