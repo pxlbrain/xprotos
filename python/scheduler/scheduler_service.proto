@@ -1,5 +1,5 @@
 syntax = "proto3";
-
+package ai.pixlbrain.backend;
 import "google/protobuf/empty.proto";
 import "scheduler/scheduler_objects.proto";
 
