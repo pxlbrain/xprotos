@@ -6,6 +6,7 @@ option java_package = "ai.pixlbrain.backend";
 
 import "middleware/MiddlewareObjects.proto";
 import "google/protobuf/empty.proto";
+import "scheduler/scheduler_objects.proto";
 
 service MiddlewareCore {
     rpc MessageExchange(stream UpstreamMessage) returns (stream DownstreamMessage);

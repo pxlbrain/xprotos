@@ -1,5 +1,5 @@
 syntax = "proto3";
-
+package ai.pixlbrain.backend;
 import "google/protobuf/timestamp.proto";
 
 message CoreConfigTask {
