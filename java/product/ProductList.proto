@@ -45,6 +45,7 @@ service ProductListService {
   }
   rpc SetDefaultProductList (DefaultProductList) returns (Void) {
   }
+  rpc GetUploadedProductLists(GetByType) returns (ProductListsLocation) {}
 }
 
 message GRPCProductListGetRequest {
