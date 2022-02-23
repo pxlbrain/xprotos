@@ -690,6 +690,7 @@ message DeviceJob {
     google.protobuf.Timestamp scheduled = 9;
     repeated DeviceJob subTasks = 10;
     google.protobuf.Timestamp finished = 11;
+    string username = 12;
 }
 
 message DeviceComments {
