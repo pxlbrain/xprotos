@@ -52,11 +52,8 @@ message Frames {
 }
 
 message Frame {
-    oneof source {
-        string camera_id = 1;
-        string serial = 2;
-    }
-
+    string camera_id = 1;
+    string serial = 2;
     bytes jpeg = 3;
 }
 
