@@ -41,7 +41,6 @@ message TaskStatus {
     string message = 5;
 }
 
-
 enum TaskSourceType {
     CORE_CLI = 0;
     BACKEND = 1;
@@ -68,12 +67,17 @@ message DownstreamMessage {
         google.protobuf.Empty get_config = 3;
         google.protobuf.Empty get_hardware_info = 4;
         GetTaskStatus get_task_status = 5;
-        GetFrame get_frame = 6;
-        PagedExternalResponse external_api_response = 7;
+        TaskCancel task_cancel = 6;
+        GetFrame get_frame = 7;
+        PagedExternalResponse external_api_response = 8;
     }
 }
 
 message GetTaskStatus {
+    string task_id = 1;
+}
+
+message TaskCancel {
     string task_id = 1;
 }
 
@@ -95,6 +99,11 @@ message FrameStreamRequest {
 }
 
 message TaskStatusRequest {
+    DeviceId device = 1;
+    string task_id = 2;
+}
+
+message TaskCancelRequest {
     DeviceId device = 1;
     string task_id = 2;
 }
