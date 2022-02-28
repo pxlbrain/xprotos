@@ -47,6 +47,7 @@ service DeviceService {
   rpc GetDeviceComments(GRPCObjectRequest) returns (DeviceComments) {}
   rpc CreateDeviceComment(CommentReq) returns (Void) {}
   rpc GetDevicesTemplates(ObjectIds) returns (DeviceTemplates) {}
+  rpc CancelTask(ObjectIds) returns (Void) {}
 
   // for core
   rpc UpdateDeviceConfig(DeviceRequest) returns (Void) {};
