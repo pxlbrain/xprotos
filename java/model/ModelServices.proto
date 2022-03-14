@@ -22,6 +22,8 @@ service JobService {
   rpc UpdateJobsStatus(UpdateJobStatus) returns (Void) {};
   rpc OptimizeJobs(OptimizationRequest) returns (Void) {}
   rpc CreateJobsFromReport(JobReport) returns (Void) {}
+  rpc CreateJobsFromTransactions(TransactionJobReq) returns (Void) {}
+  rpc AddJobComment(JobComment) returns (Void) {}
 }
 
 service CVATService {

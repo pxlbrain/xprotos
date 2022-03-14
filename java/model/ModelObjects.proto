@@ -9,6 +9,7 @@ import "dataset/DatasetObject.proto";
 import "common/Filter.proto";
 import "common/Enums.proto";
 import "health-dataset/HealthDatasetObject.proto";
+import "google/protobuf/timestamp.proto";
 
 message GRPCJobs {
   repeated GRPCJob jobs = 1;
@@ -47,6 +48,7 @@ message GRPCJob {
   string blurryCounter = 30;
   string duplicatedCounter = 31;
   string diff = 32;
+  string comment = 33;
 }
 
 message GRPCGetJobsRequest {
@@ -1128,4 +1130,18 @@ message GRPCDetectionPrediction {
   string score = 6;
   bool filteredOut = 7;
   string filterType = 8;
+}
+
+message TransactionJobReq {
+  string client = 1;
+  string location = 2;
+  google.protobuf.Timestamp dateFrom = 3;
+  google.protobuf.Timestamp dateTo = 4;
+  double thresholdFrom = 5;
+  double thresholdTo = 6;
+}
+
+message JobComment {
+  string jobId = 1;
+  string comment = 2;
 }

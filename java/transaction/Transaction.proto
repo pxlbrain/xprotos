@@ -6,6 +6,7 @@ import "product/Product.proto";
 import "common/Filter.proto";
 import "common/Enums.proto";
 import "common/CommonObjects.proto";
+import "model/ModelObjects.proto";
 
 service TransactionService {
   rpc GetTransaction (ObjectId) returns (Transaction) {}
@@ -32,6 +33,7 @@ service TransactionService {
   rpc AddServingIssue(ServingIssue) returns (ServingIssue) {}
   rpc GetTransactionByProduct(IdProducts) returns (TransactionProducts) {}
   rpc DeleteScanReport(ReportId) returns (Void) {}
+  rpc GetTransactionsForJob(TransactionJobReq) returns (TransactionIds) {}
 }
 
 message TransactionExportResp {
@@ -484,4 +486,8 @@ message TransactionProducts {
 message TransactionProduct {
   string productId = 1;
   repeated string transactionIds = 2;
+}
+
+message TransactionIds {
+  repeated string ids = 1;
 }
