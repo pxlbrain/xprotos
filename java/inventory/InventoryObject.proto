@@ -691,6 +691,7 @@ message DeviceJob {
     repeated DeviceJob subTasks = 10;
     google.protobuf.Timestamp finished = 11;
     string username = 12;
+    string uuid = 13;
 }
 
 message DeviceComments {
