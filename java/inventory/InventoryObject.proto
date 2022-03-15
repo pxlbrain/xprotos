@@ -663,6 +663,8 @@ message DeviceVersion {
     string jsonConfig = 3;
     string jsonChange = 4;
     bool active = 5;
+    string username = 6;
+    TaskSourceType taskSource = 7;
 }
 
 message GetDeviceJobsRequest {
