@@ -19,6 +19,11 @@ message CoreConfig {
     string device_info = 2;
 }
 
+message DeviceTaskCancelRequest {
+    DeviceId device = 1;
+    string task_id = 2;
+}
+
 message DeviceId {
     string id = 1;
 }
