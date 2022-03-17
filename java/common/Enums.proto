@@ -62,4 +62,5 @@ enum StatusEnum {
   CANCELLED = 5;
   PENDING = 6;
   WARNING = 7;
+  CANCELLATION = 8;
 }
