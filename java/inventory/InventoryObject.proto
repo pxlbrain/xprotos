@@ -393,6 +393,9 @@ message DeviceCamera {
     string startTime = 15;
     string endTime = 16;
     string resolution = 17;
+    string position = 18;
+    string portId = 19;
+    repeated string roi = 20;
 }
 
 
