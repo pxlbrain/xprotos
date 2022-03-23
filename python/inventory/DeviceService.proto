@@ -21,32 +21,27 @@ service DeviceService {
   rpc GetDeviceTypes(Void) returns (DeviceType) {}
   rpc GetDeviceStatuses(GRPCGetDeviceRequest) returns (GRPCDeviceStatusesResponse) {}
   rpc GetDeviceStatus(ObjectId) returns (DeviceStatus) {}
-  rpc GetDeviceAlerts(GRPCGetDeviceRequest) returns (GRPCDeviceAlertsResponse) {}
-  rpc GetDeviceHardware(ObjectId) returns (DeviceHardware) {}
-  rpc GetDeviceServices(GRPCGetDeviceRequest) returns (GRPCDeviceServicesResponse) {}
   rpc CreateDeviceStatus(DeviceStatus) returns (DeviceStatus) {}
-  rpc CreateDeviceAlert(DeviceAlert) returns (DeviceAlert) {}
-  rpc ChangeDeviceConfiguration(DeviceConfiguration) returns (Void) {}
-  rpc UpdateServiceOnDevice(ServiceDevice) returns (Void) {}
-  rpc UpdateGRPCStatusOnDevice (ObjectId) returns (Void) {}
-  rpc ReactivateDeviceConfiguration (DeviceConfiguration) returns (Void) {}
-  rpc GetActivitiesForDevice (GRPCGetDeviceRequest) returns (GRPCDeviceActivitiesResponse) {}
   rpc GetDeviceErrorsByLocationId(GRPCGetLocationRequest) returns (GRPCDeviceStatusesResponse) {};
-  rpc PullLatestDeviceState(ObjectId) returns (Void) {};
-  rpc GetDeviceVersions(GRPCObjectRequest) returns (DeviceVersions) {};
+  rpc GetDeviceHardware(ObjectId) returns (DeviceHardware) {}
+  rpc CreateDeviceAlert(DeviceAlert) returns (DeviceAlert) {}
+  rpc GetDeviceAlerts(GRPCGetDeviceRequest) returns (GRPCDeviceAlertsResponse) {}
+  rpc GetActivitiesForDevice (GRPCGetDeviceRequest) returns (GRPCDeviceActivitiesResponse) {}
   rpc CreateDeviceCamera (DeviceCamera) returns (DeviceCamera) {};
-  rpc UpdateDeviceCamera (DeviceCamera) returns (DeviceCamera) {};
   rpc DeleteDeviceCamera (ObjectId) returns (Void){};
+  rpc UpdateDeviceCamera (DeviceCamera) returns (DeviceCamera) {};
   rpc GetDeviceCameras (GRPCGetDeviceRequest) returns (GRPCDeviceCameraResponse){};
   rpc GetDeviceCamerasByLocationId (GRPCGetDeviceRequest) returns (GRPCDeviceCameraResponse){};
   rpc GetCamerasByLocationId (ObjectId) returns (DeviceCameras){};
-  rpc GetDeviceCamerasByDeviceId(ObjectId) returns (DeviceCameras){};
+  rpc PullLatestDeviceState(ObjectId) returns (Void) {};
+  rpc GetDeviceVersions(GRPCObjectRequest) returns (DeviceVersions) {};
   rpc ScheduleTask(ScheduleTaskRequest) returns (Void) {}
   rpc GetTasksByLocation(GRPCObjectRequest) returns (DeviceJobs) {}
   rpc GetSubTasksByTaskId(ObjectId) returns (DeviceJobs) {}
   rpc GetDeviceComments(GRPCObjectRequest) returns (DeviceComments) {}
   rpc CreateDeviceComment(CommentReq) returns (Void) {}
   rpc GetDevicesTemplates(ObjectIds) returns (DeviceTemplates) {}
+  rpc CancelTask(ObjectIds) returns (Void) {}
 
   // for core
   rpc UpdateDeviceConfig(DeviceRequest) returns (Void) {};
