@@ -392,6 +392,9 @@ message DeviceCamera {
     string startTime = 15;
     string endTime = 16;
     string resolution = 17;
+    string position = 18;
+    string portId = 19;
+    repeated string roi = 20;
 }
 
 
@@ -662,6 +665,8 @@ message DeviceVersion {
     string jsonConfig = 3;
     string jsonChange = 4;
     bool active = 5;
+    string username = 6;
+    TaskSourceType taskSource = 7;
 }
 
 message GetDeviceJobsRequest {
@@ -690,6 +695,7 @@ message DeviceJob {
     repeated DeviceJob subTasks = 10;
     google.protobuf.Timestamp finished = 11;
     string username = 12;
+    string uuid = 13;
 }
 
 message DeviceComments {
