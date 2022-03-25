@@ -1,206 +1,1216 @@
 syntax = "proto3";
 package ai.pixlbrain.backend;
 
-import "model/ModelObjects.proto";
-import "inventory/Void.proto";
+option java_multiple_files = true;
+option java_package = "ai.pixlbrain.backend";
 
+import "product/Product.proto";
+import "dataset/DatasetObject.proto";
+import "common/Filter.proto";
+import "common/Enums.proto";
+import "health-dataset/HealthDatasetObject.proto";
+import "google/protobuf/timestamp.proto";
 
-service JobService {
-  rpc GetJobs (GRPCGetJobsRequest) returns (GRPCGetJobsResponse) {};
-  rpc UpdateJob (GRPCJob) returns (GRPCJob) {};
-  rpc CreateProductJobs (ProductJobs) returns (ModelId) {};
-  rpc UpdateJobStep (GRPCJob) returns (GRPCJob) {};
-  rpc GetProductsForJobs (ModelId) returns (FieldString) {};
-  rpc CreateJobsWithFilter (PtagFilter) returns (Void) {};
-  rpc DeleteJobs (JobIds) returns (Void) {};
-  rpc CreateJob (GRPCJob) returns (GRPCJob) {};
-  rpc ModelTestingJobWithFilter (ModelTestingJob) returns (Void) {};
-  rpc GetJobsByModelId (ModelId) returns (GRPCJobs) {};
-  rpc GetJobsForDatasetByLocationAndType (DatasetId) returns (GRPCJobs) {};
-  rpc AddCustomJob(CreateCustomJob) returns (Void){};
-  rpc UpdateJobAfterDeletingUser(UserEmail) returns (Void) {};
-  rpc UpdateJobsStatus(UpdateJobStatus) returns (Void) {};
-  rpc OptimizeJobs(OptimizationRequest) returns (Void) {}
-  rpc CreateJobsFromReport(JobReport) returns (Void) {}
-  rpc CreateJobsFromTransactions(TransactionJobReq) returns (Void) {}
-  rpc AddJobComment(JobComment) returns (Void) {}
+message GRPCJobs {
+  repeated GRPCJob jobs = 1;
 }
 
-service CVATService {
-  rpc Register (GRPCRegisterRequest) returns (Void) {
-  }
-  rpc GetCsrf (Void) returns (FieldString) {
-  }
-  rpc GetTasks (FieldString) returns (GRPCGetTaskResponse) {
-  }
-  rpc GetJob (FieldString) returns (GRPCGetTaskResponse) {
-  }
-  rpc AssignJobToUser (GRPCAssigneeJobRequest) returns (AssigneeJobResponse) {
-  }
-  rpc PrepareCvatTask (GRPCCreateTaskRequest) returns (GRPCTaskResponse) {
-  }
-  rpc GetDownloadStatus (TaskId) returns (GRPCDownloadStatusResponse) {
-  }
-  rpc GetUserInfoById (TaskId) returns (GRPCUserInfoResponse) {
-  }
-  rpc GetUserInfoByEmail (UserEmail) returns (GRPCUserInfoResponse) {
-  }
-  rpc DeleteUser (UserEmail) returns (Void) {
-  }
+message GRPCJob {
+  string id = 1;
+  string created = 2;
+  string updated = 3;
+  string filter = 4;
+  string filterType = 5;
+  string client = 6;
+  string jobStep = 7;
+  string type = 8;
+  string assignedTo = 9;
+  string startDate = 10;
+  string endDate = 11;
+  string jobSequence = 12;
+  string cvatTaskId = 13;
+  string cvatJobId = 14;
+  string cvatCsvPath = 15;
+  string jobStatus = 16;
+  string locationId = 17;
+  string productId = 18;
+  string productName = 19;
+  string deviceId = 20;
+  string imageCounter = 21;
+  repeated GRPCJob children = 22;
+  string modelId = 23;
+  string cvatPreannotationStatus = 24;
+  string serviceType = 25;
+  GRPCGlobalType globalType = 26;
+  string subType = 27;
+  string qaUser = 28;
+  string optimizationStatus = 29;
+  string blurryCounter = 30;
+  string duplicatedCounter = 31;
+  string diff = 32;
+  string comment = 33;
 }
 
-service CallbackService {
-  rpc DumpCallback (GRPCScheduleResponse) returns (Void) {
-  }
-  rpc TaskCallback (GRPCCreateTaskResponse) returns (Void) {
-  }
-  rpc PostCallback (GRPCPostDataResponse) returns (Void) {
-  }
-  rpc ClusterCallback (GRPCClusterResponse) returns (Void) {
-  }
-  rpc TrainingDoneCallback (GRPCTrainingResponse) returns (Void) {
-  }
-  rpc PreannotationDoneCallback (GRPCAutoAnnotationResponse) returns (Void) {
-  }
+message GRPCGetJobsRequest {
+  string company = 1;
+  string locationId = 2;
+  string status = 3;
+  string type = 4;
+  GRPCPaging paging = 5;
+  GRPCSorting sorting = 6;
+  repeated GRPCFilter filter = 7;
+  GRPCGlobalType globalType = 8;
+  string datasetId = 9;
 }
 
-service DatasetService {
-  rpc CreateDataset (GRPCJobs) returns (Void) {
-  }
-  rpc CreateDatasetForClassifier (PtagClassifierRequest) returns (Void) {
-  }
-  rpc CreateDatasetForMlc (PtagClassifierRequest) returns (Void) {
-  }
-  rpc CreateDatasetVersion (DatasetVersionRequest) returns (Void) {
-  }
-  rpc PreparingDataset (ModelId) returns (Void) {
-  }
-  rpc MergeDataset (MergeDatasetRequest) returns (Void) {
-  }
-  rpc GetDatasetsByLocation (DatasetRequestWrapper) returns (DatasetsResponse) {
-  }
-  rpc GetDatasetJobs (DatasetId) returns (DatasetJobsResponse) {
-  }
-  rpc GetDatasetJobsById (DatasetJobsRequest) returns (DatasetJobsResponse) {
-  }
-  rpc GetDatasetsForMergeByType (ModelTypeRequest) returns (DatasetsMergeResponse) {
-  }
-  rpc GetDatasetById (DatasetId) returns (DatasetPayloadResponse) {
-  }
-  rpc AddJobsToDataset (AddJobDataset) returns (Void){
-  }
-  rpc CreateDatasetForClassifierOrMlc (NewDatasetRequest) returns (Void){
-  }
-  rpc CreateDatasetForDetector (NewDetectorDatasetRequest) returns (Void){
-  }
-  rpc AssignDatasetToModels (AssignDatasetToModelsRequest) returns (Void){
-  }
-  rpc AddProductsToDataset(AddProductsDataset) returns (Void){
-  }
-  rpc AddCustomJobToDataset(CustomJob) returns (Void){
-  }
-  rpc ActivateDetectorJobs(ActivateDetectorJobsRequest) returns (Void) {
-  };
-  rpc GetDatasets (DatasetRequestWrapper) returns (DatasetsResponse) {
-  }
-  rpc UpdateDatasetName (DatasetName) returns (Void) {
-  }
-  rpc AddExistingCustomJobToDataset(DatasetJobRequest) returns (Void){
-  }
-  rpc GetJobsForTraining(DatasetId) returns (GRPCJobs){
-  }
-  rpc RemoveJobFromDataset(RemoveDatasetJob) returns (Void) {
-  }
-  rpc ActivateDatasetForClsOrMlc(DatasetId) returns (Void) {
-  }
+message GRPCGetJobsResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated GRPCJob jobs = 4;
 }
 
-service JModelService {
-  rpc CreateModel (GRPCJobs) returns (Void) {
-  }
-  rpc GetModelsByLocationAndType (ModelRequestWrapper) returns (JModelResponses) {
-  }
-  rpc StartTraining (JModelRequest) returns (Void) {
-  }
-  rpc GetModelVersion (ModelId) returns (ModelVersion) {
-  }
-  rpc CreateModelVersion (ModelVersionRequest) returns (Void) {
-  }
-  rpc AssignDatasetVersion (AssignVersionRequest) returns (Void) {
-  }
-  rpc StopTraining (JModelRequest) returns (Void) {
-  }
-  rpc GetModelById (ModelId) returns (JModelResponse) {
-  }
-  rpc GetModelsByLocation (ModelRequestWrapper) returns (JModelResponses) {
-  }
-  rpc StopPrediction (TrainingId) returns (Void) {
-  }
-  rpc GetModelsByLocationAndStatus (ModelStatusRequest) returns (ModelsStatusResponse) {
-  }
-  rpc GetModelsForMergeByType (ModelTypeRequest) returns (ModelsStatusResponse) {
-  }
-  rpc GetModelDatasetHistory (ModelId) returns (DatasetsHistory) {
-  }
-  rpc AssignDatasetFromHistory(AssignDatasetRequest) returns (Void) {
-  }
-  rpc ModelTrainingMonitoring(ModelId) returns (stream TrainingMonitoringResponse) {
-  }
-  rpc GetModelTrainingStatistics(ModelId) returns (TrainingMonitoringResponse) {
-  }
-  rpc GetModelsForDatasetAssign (DatasetId) returns (ModelsStatusResponse) {
-  }
-  rpc GetModelDataset(ModelId) returns (DatasetPayloadResponse){
-  }
-  rpc SetBestEpoch(BestEpoch) returns (Void){
-  }
-  rpc UpdateModel(JModelRequest) returns (JModelResponse) {
-  }
-  rpc GetNumberOfClasses(ModelId) returns (NumberOfItems)  {
-  }
-  rpc GetModelByModelVersion(ModelId) returns (JModelResponse)  {
-  }
-  rpc GetModels (ModelRequestWrapper) returns (JModelResponses) {
-  }
-  rpc UpdateModelStatus (ModelId) returns (Void) {
-  }
-  rpc CreateModelForDataset (ModelDataset) returns (ModelId) {}
-  rpc UpdateModelStepByDataset (ModelStepReq) returns (Void) {}
-  rpc AssignDatasetToModel (AssignVersionRequest) returns (Void) {}
-  rpc GetModelsByDataset(DatasetId) returns (DatasetModels) {}
-  rpc GetModelAndAssignToDataset (GetModelAndAssignToDatasetRequest) returns (Void) {}
+message PtagClassifierRequest {
+  string jobId = 1;
+  repeated string paths = 2;
+  string imageCounter = 3;
+  string user = 4;
 }
 
-service ConfigurationService {
-  rpc SaveConfigurations (GRPCModelConfiguration) returns (GRPCModelConfiguration) {
-  }
-  rpc GetConfigurationsByType (FieldString) returns (GRPCModelConfigurations) {
-  }
-  rpc GetConfigurationsByModelId (FieldString) returns (GRPCModelConfiguration) {
-  }
-  rpc DeleteConfigurations (FieldString) returns (Void) {
-  }
-  rpc AssignConfigurations (AssignConfigInput) returns (Void) {
-  }
+message GRPCRegisterRequest {
+  string username = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string email = 4;
+  string password = 5;
+  string group = 6;
 }
 
-service ClusterService {
-  rpc startClustering (ClusterFilter) returns (Void) {
-  }
+
+message GRPCCreateTaskRequest {
+  string jobId = 1;
+  repeated string links = 2;
+  string imageCounter = 3;
 }
 
-service ModelPredictionService {
-  rpc GetPredictionResultDashboard(FieldString) returns (GRPCPredictionDashboardResponse) {};
-  rpc GetPredictionResultGrid(GRPCPagedPredictionRequest) returns (GRPCPagedPredictionResponse) {};
-  rpc GetPredictionResultClassification(GRPCPagedPredictionRequest) returns (GRPCPagedPredictionResponse) {};
-  rpc GetPredictionResultDetection(GRPCPagedPredictionRequest) returns (GRPCPagedPredictionResponse) {};
-  rpc GetPredictionResultIntegration(GRPCPagedPredictionRequest) returns (GRPCPagedPredictionResponse) {};
-  rpc StartModelPrediction(GRPCPredictionInput) returns (Void) {};
-  rpc StopModelPrediction(FieldString) returns (Void) {};
-  rpc ChangePredictionName(GRPCPredictionNameRequest) returns (Void) {};
-  rpc GetPredictions(ModelRequestWrapper) returns (GRPCPredictionsPagedPayloadResponse) {};
+message GRPCLabel {
+  string name = 1;
+  repeated string attributes = 2;
+}
+message TaskId {
+  string id = 1;
+  string userId = 2;
 }
 
-service KubeService {
-  rpc CheckPodStatus (ModelIds) returns (GRPCPodStatusResponse) {};
+message UserEmail {
+  string email = 1;
+}
+
+message DownloadDumpRequest {
+  string taskId = 1;
+  string annotationId = 2;
+}
+
+
+message GRPCGetTaskResponse {
+  string count = 1;
+  string next = 2;
+  string previous = 3;
+  repeated GRPCTaskResponse results = 4;
+
+}
+
+message GRPCTaskResponse {
+  string id = 1;
+  string url = 2;
+  string name = 3;
+  string size = 4;
+  string mode = 5;
+  string owner = 6;
+  string assignee = 7;
+  string bugTracker = 8;
+  string createdDate = 9;
+  string updatedDate = 10;
+  string overlap = 11;
+  string segmentSize = 12;
+  string zOrder = 13;
+  string status = 14;
+  repeated GRPCLabel labels = 15;
+  repeated GRPCSegment segments = 16;
+  string imageQuality = 17;
+  string startFrame = 18;
+  string stopFrame = 19;
+  string frameFilter = 20;
+  string rootId = 21;
+  string onStatusChange = 22;
+
+}
+
+message AssigneeJobResponse {
+  string id = 1;
+  string url = 2;
+  string assignee = 3;
+  string status = 4;
+  string startFrame = 5;
+  string stopFrame = 6;
+  string taskId = 7;
+}
+
+message GRPCDownloadStatusResponse {
+  string state = 1;
+  string message = 2;
+}
+
+message GRPCUserInfoResponse {
+  string id = 1;
+  string username = 2;
+  string firstName = 3;
+  string lastName = 4;
+  string email = 5;
+  bool isActive = 6;
+  bool isSuperuser = 7;
+  bool isStaff = 8;
+}
+
+message FieldString {
+  string field = 1;
+}
+
+message GRPCSegment {
+  string startFrame = 1;
+  string stopFrame = 2;
+  repeated GRPCCvatJob jobs = 3;
+}
+
+message GRPCCvatJob {
+  string id = 1;
+  string assignee = 2;
+  string status = 3;
+  string url = 4;
+}
+
+message GRPCScheduleResponse {
+  string status = 1;
+  string remotePath = 2;
+  int32 taskId = 3;
+  repeated int32 jobs = 4;
+}
+
+message GRPCCreateTaskResponse {
+  string url = 1;
+  int32 id = 2;
+  string assignee = 3;
+  string status = 4;
+  int32 startFrame = 5;
+  int32 stopFrame = 6;
+  int32 taskId = 7;
+  repeated string jobs = 8;
+}
+
+message GRPCPostDataResponse {
+  int32 taskId = 1;
+  repeated int32 jobs = 2;
+}
+
+message GRPCAssigneeJobRequest {
+  string email = 1;
+  string jobId = 2;
+  string cvatJobId = 3;
+}
+
+message ProductJob {
+  string productId = 1;
+  bool classifier = 2;
+  bool mlc = 3;
+  repeated ProductJob children = 4;
+  string productName = 5;
+  repeated string parentIds = 6;
+}
+
+message ModelId {
+  string id = 1;
+}
+
+message NumberOfItems {
+  int32 number = 1;
+}
+
+message ModelVersion {
+  string version = 1;
+  string type = 2;
+}
+
+message ProductJobs {
+  repeated ProductJob jobs = 1;
+  string client = 2;
+  string location = 3;
+  string name = 4;
+  string productListId = 5;
+  bool active = 6;
+  string workflowId = 7;
+  string user = 8;
+  string serviceType = 9;
+  GRPCGlobalType globalType = 10;
+}
+
+message GRPCClusterResponse {
+  GRPCCluster cluster = 1;
+  string client = 2;
+  string location = 3;
+  string date = 4;
+  string serviceType = 5;
+}
+
+message GRPCCluster {
+  repeated string instance = 1;
+  repeated string hand = 2;
+  repeated string tray = 3;
+  repeated string plate = 4;
+}
+
+message ModelRequestWrapper {
+  string client = 1;
+  string location = 2;
+  string type = 3;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
+  repeated GRPCFilter filter = 6;
+  GRPCGlobalType globalType = 7;
+  string organization = 8;
+  string baseModelId = 9;
+}
+
+message GetAllModelsRequest {
+  string client = 1;
+  string locationId = 2;
+}
+
+message JModelResponse {
+  string id = 1;
+  string created = 2;
+  string modified = 3;
+  string name = 4;
+  double performance = 5;
+  string step = 6;
+  string status = 7;
+  string location = 8;
+  string client = 9;
+  string request = 10;
+  string datasetVersion = 11;
+  string modelVersion = 12;
+  string type = 13;
+  bool classifier = 14;
+  bool mlc = 15;
+  bool detector = 16;
+  repeated GRPCJob jobs = 17;
+  string errorStep = 18;
+  string errorReason = 19;
+  DatasetPayloadResponse dataset = 20;
+  string bestEpoch = 21;
+  GRPCGlobalType globalType = 22;
+  int32 imageCount = 23;
+  string datasetId = 24;
+  string organization = 25;
+}
+
+message JModelRequest {
+  string id = 1;
+  string created = 2;
+  string modified = 3;
+  string name = 4;
+  double performance = 5;
+  string step = 6;
+  string status = 7;
+  string locationId = 8;
+  string client = 9;
+  string request = 10;
+  string datasetVersion = 11;
+  string modelVersion = 12;
+  string type = 13;
+  bool classifier = 14;
+  bool mlc = 15;
+  bool detector = 16;
+  string user = 17;
+  string role = 18;
+}
+
+message JModelResponses {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated JModelResponse responses = 4;
+}
+
+message GRPCTrainingResponse {
+  string id = 1;
+  string status = 2;
+  string step = 3;
+  string reason = 4;
+}
+
+message ModelVersionRequest {
+  string modelType = 1;
+  string message = 2;
+}
+
+message DatasetVersionRequest {
+  string datasetType = 1;
+  string message = 2;
+  string id = 3;
+}
+
+message AssignVersionRequest {
+  string modelVersion = 1;
+  string datasetVersion = 2;
+}
+
+message PtagFilter {
+  string client = 1;
+  string location = 2;
+  string dateFrom = 3;
+  string dateTo = 4;
+  string fileType = 5;
+  bool forceCreate = 6;
+  string device = 7;
+  repeated string cameras = 8;
+  string filterLocation = 9;
+  string uploadedDate = 10;
+  string serviceType = 11;
+  bool preannotation = 12;
+  GRPCGlobalType globalType = 13;
+  string bestEpoch = 14;
+}
+
+message ClusterFilter {
+  string company = 1;
+  string location = 2;
+  string date = 3;
+  string clusterType = 4;
+  repeated DeviceCameraGRPC deviceIds = 5;
+  repeated string labels = 6;
+  string maxNumOfClustersCrops = 7;
+  string maxNumberOfClustersFullFrames = 8;
+  string clusterMaxFiles = 9;
+  string clusterBatchSize = 10;
+  string fileType = 11;
+  string numberAroundCluster = 12;
+  string serviceType = 13;
+  GRPCGlobalType globalType = 14;
+}
+
+message DeviceCameraGRPC {
+  string deviceId = 1;
+  repeated string cameraIds = 2;
+}
+
+message JobIds {
+  repeated string ids = 1;
+}
+
+message GRPCMlcHyperParams {
+  string backBone = 1;
+  string batchSize = 2;
+  string initLr = 3;
+  string epochs = 4;
+  string warmUpEpochs = 5;
+  string postEpochs = 6;
+  GRPCEarlyStopping earlyStopping = 7;
+  GRPCReduceLrOnPlateau reduceLrOnPlateau = 8;
+  GRPCCyclicLr cyclicLr = 9;
+  string mlcLimitsCpu = 10;
+  string mlcLimitsMemory = 11;
+  string mlcLimitsGpu = 12;
+  string mlcRequestsCpu = 13;
+  string mlcRequestsMemory = 14;
+  string mlcRequestsGpu = 15;
+  string mlcImage = 16;
+  string dataArgumentation = 17;
+  string mlcDataSplitRatio = 18;
+  string mlcDeviceIds = 19;
+  string trainingEpochThreshold = 20;
+}
+
+message GRPCCyclicLr {
+  string epochsPerCycle = 1;
+  string epochsPerDecay = 2;
+  string lrDecayFactor = 3;
+}
+
+message GRPCEarlyStopping {
+  string patience = 1;
+}
+
+message GRPCReduceLrOnPlateau {
+  string factor = 1;
+  string patience = 2;
+  string epochs = 3;
+  string threshold = 4;
+}
+
+message GRPCClassifierHyperParams {
+  string stage = 1;
+  string parallel = 2;
+  string deviceIds = 3;
+  string optimizer = 4;
+  string dropoutLastLiner = 5;
+  string loss = 6;
+  string weightDecay = 7;
+  string dropFactor = 8;
+  string dropEps = 9;
+  string estopPatience = 10;
+  string estopThresh = 11;
+  string dropPatience = 12;
+  string dropThresh = 13;
+  string frozenTrainingEpochs = 14;
+  string mainTrainingEpochs = 15;
+  string postTrainingEpochs = 16;
+  string freezeLr = 17;
+  string mainLr = 18;
+  string postLr = 19;
+  string frozenWeightDecay = 20;
+  string batchSiz = 21;
+  string classifierLimitsCpu = 22;
+  string classifierLimitsMemory = 23;
+  string classifierLimitsGpu = 24;
+  string classifierRequestsCpu = 25;
+  string classifierRequestsMemory = 26;
+  string classifierRequestsGpu = 27;
+  string classifierImage = 28;
+  string pretrainedModelName = 29;
+  string classifierdataSplitRatio = 30;
+  string trainingEpochThreshold = 31;
+}
+
+message GRPCDetectorHyperParams {
+  string useValidation = 1;
+  string backBone = 2;
+  string batchSize = 3;
+  string gpuId = 4;
+  string multiGpu = 5;
+  string epoches = 6;
+  string steps = 7;
+  string learningRate = 8;
+  string snapshotsPath = 9;
+  string tensorboardDir = 10;
+  string imageMinSide = 11;
+  string imageMaxSide = 12;
+  string workers = 13;
+  string maxQueueSize = 14;
+  string randomTransform = 15;
+  string snapshot = 16;
+  string detectorImage = 17;
+  string pretrainedModelURL = 18;
+  string cudaVisibleDevices = 19;
+  string detectorLimitsCpu = 20;
+  string detectorLimitsMemory = 21;
+  string detectorLimitsGpu = 22;
+  string detectorRequestsCpu = 23;
+  string detectorRequestsMemory = 24;
+  string detectorRequestsGpu = 25;
+  string trainingEpochThreshold = 26;
+}
+
+message GRPCModelConfiguration {
+  string id = 1;
+  string name = 2;
+  string type = 3;
+  bool main = 4;
+  GRPCDetectorHyperParams detectorHyperParams = 5;
+  GRPCClassifierHyperParams classifierHyperParams = 6;
+  GRPCMlcHyperParams mlcHyperParams = 7;
+  string created = 8;
+  string updated = 9;
+}
+
+message GRPCModelConfigurations {
+  repeated GRPCModelConfiguration configurations = 1;
+}
+
+message AssignConfigInput {
+  string modelId = 1;
+  string configurationId = 2;
+}
+
+message TrainingImages {
+  string trainingId = 1;
+  repeated TrainingImage trainingImages = 2;
+}
+
+message TrainingImage {
+  string image = 1;
+}
+
+message TrainingImagesResponse {
+  repeated TrainingImage trainingImages = 1;
+}
+
+message CreatePodRequest {
+  string trainingId = 1;
+  string epochPath = 2;
+  bool overwrite = 3;
+}
+
+message TrainingModelResponse {
+  string id = 1;
+  string name = 2;
+  string username = 3;
+  string status = 4;
+  string modelId = 5;
+  string modelType = 6;
+  string modelName = 7;
+  string count = 8;
+  string accuracy = 9;
+  string trainingType = 10;
+  repeated TrainingImage trainingImages = 11;
+  string created = 12;
+  string description = 13;
+  GRPCGlobalType globalType = 14;
+  string updated = 15;
+  string imageLiveProgress = 16;
+}
+
+message TrainingId {
+  string id = 1;
+}
+
+message TrainingsModelResponse {
+  repeated TrainingModelResponse trainings = 1;
+}
+
+message PredictionResults {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated PredictionResult results = 4;
+}
+
+message PredictionResult {
+  string imagePath = 1;
+  string created = 2;
+  repeated ScoreValues values = 3;
+  repeated InferenceValues inference = 4;
+  repeated InferenceValues prediction = 5;
+  bool isCorrect = 6;
+}
+
+message ScoreValues {
+  string score = 1;
+  string label = 2;
+  string productId = 3;
+  string productName = 4;
+  string productCategory = 5;
+  float x1 = 6;
+  float x2 = 7;
+  float y1 = 8;
+  float y2 = 9;
+  string productMHSId = 10;
+  string modelType = 11;
+}
+
+message GRPCGetTrainingsRequest {
+  string companyId = 1;
+  string locationId = 2;
+  GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
+  repeated GRPCFilter filter = 5;
+}
+
+message GRPCTrainingsModelResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated TrainingModelResponse trainings = 4;
+}
+
+message IntegrationTrainings {
+  string companyId = 1;
+  string locationId = 2;
+  string username = 3;
+  repeated IntegrationTraining integration = 4;
+  GRPCGlobalType globalType = 5;
+}
+
+message IntegrationTraining {
+  string type = 1;
+  string modelId = 2;
+  double threshold = 3;
+  double nmsThreshold = 4;
+  string trainingName = 5;
+  string epochPath = 6;
+  bool overwrite = 7;
+  repeated string productIds = 8;
+}
+
+message InferenceValues {
+  string label = 1;
+  float x1 = 2;
+  float x2 = 3;
+  float y1 = 4;
+  float y2 = 5;
+  repeated string productIds = 6;
+  string productName = 7;
+  string productMHSId = 8;
+  string productId = 9;
+}
+
+message ModelStatusRequest {
+  string client = 1;
+  string location = 2;
+  repeated string status = 3;
+  GRPCGlobalType globalType = 4;
+}
+
+message ModelsStatusResponse {
+  repeated ModelStatusResponse models = 1;
+}
+
+message ModelStatusResponse {
+  string id = 1;
+  string name = 2;
+  string type = 3;
+  string path = 4;
+  GRPCGlobalType globalType = 5;
+}
+
+message ModelTestingJob {
+  string client = 1;
+  string location = 2;
+  DatasetType type = 3;
+  GRPCGlobalType globalType = 4;
+  string device = 5;
+  repeated string cameras = 6;
+  string timeTo =7;
+  string timeFrom =8;
+  string uploadedDate = 9;
+}
+
+message StartPredictionRequest {
+  string trainingId = 1;
+  double threshold = 2;
+}
+
+message IntegrationImageRequest {
+  string trainingId = 1;
+  double detectorThreshold = 2;
+  double classifierThreshold = 3;
+  double mlcThreshold = 4;
+}
+
+message TrainingName {
+  string trainingId = 1;
+  string trainingName = 2;
+}
+
+message MergeDatasetRequest {
+  string type = 1;
+  repeated string labels = 2;
+  int32 train = 3;
+  int32 test = 4;
+  repeated string versions = 5;
+  string location = 6;
+  string client = 7;
+  GRPCGlobalType globalType = 8;
+}
+
+message ModelTypeRequest {
+  string location = 1;
+  string client = 2;
+  string modelType = 3;
+  GRPCGlobalType globalType = 4;
+}
+
+message DatasetRequestWrapper {
+  string client = 1;
+  string location = 2;
+  GRPCPaging paging = 4;
+  GRPCSorting sorting = 5;
+  repeated GRPCFilter filter = 6;
+  GRPCGlobalType globalType = 7;
+}
+
+message DatasetsResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated DatasetPayloadResponse responses = 4;
+}
+
+message DatasetPayloadResponse {
+  string id = 1;
+  string created = 2;
+  string version = 3;
+  string type = 4;
+  string path = 5;
+  string status = 6;
+  string description = 7;
+  string datasetStructure = 8;
+  string customName = 9;
+  bool archived = 10;
+  repeated GRPCJob jobs = 11;
+  string workflowId = 12;
+  GRPCGlobalType globalType = 13;
+  repeated ModelId modelId = 14;
+  int32 imageCount = 15;
+  string location = 16;
+}
+
+message DatasetsHistory {
+  repeated DatasetHistoryResponse response = 1;
+}
+
+message DatasetHistoryResponse {
+  string id = 1;
+  string created = 2;
+  string datasetVersion = 3;
+  string modelVersion = 4;
+}
+
+message DatasetId {
+  string id = 1;
+}
+
+message DatasetJobsRequest {
+  string datasetId = 1;
+  GRPCPaging paging = 2;
+  GRPCSorting sorting = 3;
+  repeated GRPCFilter filter = 4;
+}
+
+message DatasetJobsResponse {
+  repeated GRPCJob jobs = 1;
+  int32 page = 2;
+  int32 size = 3;
+  int32 count = 4;
+}
+
+message DatasetsMergeResponse {
+  repeated DatasetMerge respone = 1;
+}
+
+message DatasetMerge {
+  string id = 1;
+  string version = 2;
+}
+
+message DeleteDatasetJobRequest {
+  string datasetId = 1;
+  string jobId = 2;
+}
+
+message AssignDatasetRequest {
+  string modelId = 1;
+  string datasetVersion = 2;
+  string modelVersion = 3;
+}
+
+message AddJobDataset {
+  string datasetId = 1;
+  repeated string jobIds = 2;
+}
+
+message NewDatasetRequest {
+  string client = 1;
+  string location = 2;
+  string type = 3;
+  repeated DatasetProducts products = 4;
+  GRPCGlobalType globalType = 5;
+}
+
+message NewDetectorDatasetRequest {
+  string client = 1;
+  string location = 2;
+  PtagFilter ptagFilter = 3;
+  string workflowId = 4;
+  string user = 5;
+  GRPCGlobalType globalType = 6;
+}
+
+message DatasetProducts {
+  string productId = 1;
+  string productName = 2;
+  repeated string plateItems = 3;
+}
+
+message GRPCPagedPredictionRequest {
+  string id = 1;
+  repeated GRPCFilter filter = 2;
+  GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
+}
+
+message TrainingMonitoringResponse {
+  TrainingModelRes model = 1;
+  string event = 2;
+  string name = 3;
+  string timestamp = 4;
+  TrainingNodeResponse node = 5;
+  TrainingDataResponse data = 6;
+  string modelId = 7;
+  string datasetId = 8;
+}
+
+message TrainingModelRes {
+  string modelType = 1;
+  int64 epoch = 3;
+  string modelPath = 4;
+  TrainingMatrixResponse metrics = 5;
+  string labelsPath = 6;
+}
+
+message TrainingMatrixResponse {
+  float globalAccuracy = 1;
+  map<string, float> specificAttrs = 2;
+  map<string, float> per_class_accuracy = 3;
+  float trainLoss = 4;
+  float valLoss = 5;
+  string confusionMatrix = 6;
+}
+
+message TrainingNodeResponse {
+  string podName = 1;
+  string nodeName = 2;
+  string podId = 3;
+}
+
+message TrainingDataResponse {
+  string location = 1;
+}
+
+message AssignDatasetToModelsRequest {
+  string datasetId = 1;
+  repeated string modelIds = 2;
+}
+
+message DatasetModels {
+  repeated JModelResponse models = 1;
+}
+
+message AddProductsDataset {
+  string datasetId = 1;
+  repeated DatasetProducts products = 2;
+}
+
+message CustomJob {
+  string datasetId = 1;
+  string jobType = 2;
+  repeated JobMap jobs = 3;
+}
+
+message CreateCustomJob {
+  string locationId = 1;
+  string client = 2;
+  repeated JobMap filters = 3;
+  string serviceType = 4;
+  GRPCGlobalType globalType = 5;
+  string subType = 6;
+}
+
+message JobMap {
+  string name = 1;
+  string value = 2;
+  string operator = 3;
+}
+
+message BestEpoch {
+  string epochPath = 1;
+  string modelId = 2;
+}
+
+message ActivateDetectorJobsRequest {
+  repeated GRPCJob jobs = 1;
+  DatasetId datasetId = 2;
+}
+
+message GRPCAutoAnnotationResponse {
+  string taskId = 1;
+  string status = 2;
+  repeated string jobs = 3;
+}
+
+message ModelIds {
+  repeated string modelIds = 1;
+}
+
+message GRPCPodStatusResponse {
+  string podStatus = 1;
+}
+
+message CreateModelTraining {
+  repeated string modelIds = 1;
+  string username = 2;
+  string type = 3;
+  string trainingName = 4;
+  GRPCGlobalType globalType = 5;
+}
+
+message DatasetName {
+  string datasetId = 1;
+  string datasetName = 2;
+}
+
+message DatasetJobRequest {
+  string datasetId = 1;
+  string jobId = 2;
+}
+
+message UpdateJobStatus {
+  string status = 1;
+  repeated string jobIds = 2;
+  string user = 3;
+}
+
+message ModelDataset {
+  string datasetVersion = 1;
+  string datasetId = 2;
+  string request = 3;
+  string client = 4;
+  string location = 5;
+  string modelType = 6;
+  string productListId = 7;
+  GRPCGlobalType globalType = 8;
+}
+
+message ModelStepReq {
+  string datasetVersion = 1;
+  string step = 2;
+  bool isFinal = 3;
+}
+
+message RemoveDatasetJob {
+  string datasetId = 1;
+  string jobId = 2;
+}
+
+message GetModelAndAssignToDatasetRequest {
+  string modelId = 1;
+  string datasetVersion = 2;
+  string datasetId = 3;
+}
+
+message OptimizationRequest {
+  repeated string jobIds = 1;
+  Actions actionType = 2;
+  repeated FilterTypes filterTypes = 3;
+}
+
+message JobReport {
+  string reportId = 1;
+  string type = 2;
+  GRPCGlobalType globalType = 3;
+  repeated string productIds = 4;
+  int32 numOfGood = 5;
+  string client = 6;
+  string location = 7;
+}
+
+message GRPCPredictionDashboardResponse {
+  string testType = 1;
+  int32 imageSize = 2;
+  int32 failedImageSize = 3;
+  double globalAccuracy = 4;
+  double threshold = 5;
+  string status = 6;
+  string modelType = 7;
+  repeated GRPCDashboardResponse dashboardResponses = 8;
+  repeated GRPCThreshold thresholds = 9;
+  string numOfProducts = 10;
+  string name = 11;
+  int32 failedImagePredictionSize = 12;
+}
+
+message GRPCThreshold {
+  string mlcThreshold = 1;
+  string classifierThreshold = 2;
+  string detectorThreshold = 3;
+}
+
+message GRPCDashboardResponse {
+  string key = 1;
+  string value = 2;
+  string numOfDoneImages = 3;
+  string numOfFailedImages = 4;
+}
+
+message GRPCClassificationPredictionResultResponse {
+  string productId = 1;
+  double accuracy = 2;
+  int32 totalImages = 3;
+  int32 failedImages = 4;
+  string status = 5;
+}
+
+message GRPCClassificationPredictionResponses {
+  string productId = 1;
+  string productName = 2;
+  repeated string productClasses = 3;
+  repeated string productScores = 4;
+  bool filteredOut = 5;
+  string filterType = 6;
+}
+
+message GRPCPagedPredictionResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated GRPCDetectionPredictionResponse payloadDetectionGallery = 4;
+  repeated GRPCClassificationPredictionResponse payloadClassificationGallery = 5;
+  repeated GRPCIntegrationPredictionResponse payloadIntegrationGallery = 6;
+  repeated GRPCClassificationPredictionProductResponse payloadClassificationProducts = 7;
+}
+
+message GRPCClassificationPredictionProductResponse {
+  string productId = 1;
+  double accuracy = 2;
+  int32 totalImages = 3;
+  int32 failedImages = 4;
+  string status = 5;
+  string productName = 6;
+}
+
+message GRPCIntegrationPredictionResponse {
+  string path = 1;
+  string status = 2;
+  bool isCorrect = 3;
+  string filterType = 4;
+  string width = 5;
+  string height = 6;
+  repeated GRPCIntegrationPredictionResult predictions = 7;
+}
+
+message GRPCIntegrationPredictionResult {
+  string x1 = 1;
+  string y1 = 2;
+  string x2 = 3;
+  string y2 = 4;
+  string label = 5;
+  string score = 6;
+  bool filteredOut = 7;
+  string productId = 8;
+  string productName = 9;
+  repeated string productClasses = 10;
+  repeated string productScores = 11;
+  string filterType = 12;
+}
+
+message GRPCClassificationPredictionResponse {
+  string productId = 1;
+  string productMHSId = 2;
+  string productName = 3;
+  string path = 4;
+  string status = 5;
+  string message = 6;
+  bool isCorrect = 7;
+  repeated GRPCClassificationPrediction predictions = 8;
+}
+
+message GRPCClassificationPrediction {
+  string productId = 1;
+  string productName = 2;
+  repeated string productClasses = 3;
+  repeated string productScores = 4;
+  bool filteredOut = 5;
+  string filterType = 6;
+}
+
+message GRPCDetectionPredictionResponse {
+  string path = 1;
+  string status = 2;
+  bool isCorrect = 3;
+  string filterType = 4;
+  string width = 5;
+  string height = 6;
+  repeated GRPCDetectionPrediction predictions =7;
+  repeated GRPCDetectionPrediction inferences = 8;
+  string message = 9;
+}
+
+message GRPCDetectionPrediction {
+  string x1 = 1;
+  string y1 = 2;
+  string x2 = 3;
+  string y2 = 4;
+  string label = 5;
+  string score = 6;
+  bool filteredOut = 7;
+  string filterType = 8;
+}
+
+message TransactionJobReq {
+  string client = 1;
+  string location = 2;
+  google.protobuf.Timestamp dateFrom = 3;
+  google.protobuf.Timestamp dateTo = 4;
+  double thresholdFrom = 5;
+  double thresholdTo = 6;
+}
+
+message JobComment {
+  string jobId = 1;
+  string comment = 2;
+}
+
+message GRPCPredictionsPagedPayloadResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated TrainingModelResponse trainings = 4;
+}
+
+message PredictionResponse {
+  string id = 1;
+  string name = 2;
+  string username = 3;
+  string status = 4;
+  string modelId = 5;
+  string modelType = 6;
+  string modelName = 7;
+  string count = 8;
+  string accuracy = 9;
+  string trainingType = 10;
+  repeated TrainingImage trainingImages = 11;
+  string created = 12;
+  string description = 13;
+  GRPCGlobalType globalType = 14;
+  string updated = 15;
+  string imageLiveProgress = 16;
+}
+
+message GRPCPredictionInput {
+  string clientId = 1;
+  string locationId = 2;
+  string username = 3;
+  string type = 4;
+  string trainingName = 5;
+  bool overwrite = 6;
+  repeated GRPCModelsThresholdsRequest modelsThresholds = 7;
+  GRPCGlobalType globalType = 8;
+  GRPCPtagPredictionRequest ptagPredictionRequest = 9;
+  GRPCUploaderPredictionRequest uploaderPredictionRequest = 10;
+}
+
+message GRPCModelsThresholdsRequest {
+  string modelId = 1;
+  float threshold = 2;
+  string type = 3;
+}
+
+message GRPCUploaderPredictionRequest {
+  repeated GRPCImageUploadRequest images = 1;
+}
+
+message GRPCImageUploadRequest {
+  string image = 1;
+  string name = 2;
+  string type = 3;
+}
+
+message GRPCPtagPredictionRequest {
+  float nmsThreshold = 1;
+  string epochPath = 2;
+  repeated string products = 3;
+}
+
+message GRPCPredictionNameRequest {
+  string predictionId = 1;
+  string predictionName = 2;
 }
