@@ -270,12 +270,14 @@ message GRPCCluster {
 
 message ModelRequestWrapper {
   string client = 1;
-  string locationId = 2;
+  string location = 2;
   string type = 3;
   GRPCPaging paging = 4;
   GRPCSorting sorting = 5;
   repeated GRPCFilter filter = 6;
   GRPCGlobalType globalType = 7;
+  string organization = 8;
+  string baseModelId = 9;
 }
 
 message GetAllModelsRequest {
@@ -291,7 +293,7 @@ message JModelResponse {
   double performance = 5;
   string step = 6;
   string status = 7;
-  string locationId = 8;
+  string location = 8;
   string client = 9;
   string request = 10;
   string datasetVersion = 11;
@@ -308,6 +310,7 @@ message JModelResponse {
   GRPCGlobalType globalType = 22;
   int32 imageCount = 23;
   string datasetId = 24;
+  string organization = 25;
 }
 
 message JModelRequest {
