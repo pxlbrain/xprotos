@@ -928,7 +928,7 @@ message ModelIds {
   repeated string modelIds = 1;
 }
 
-message PodStatusResponse {
+message GRPCPodStatusResponse {
   string podStatus = 1;
 }
 
@@ -1144,4 +1144,70 @@ message TransactionJobReq {
 message JobComment {
   string jobId = 1;
   string comment = 2;
+}
+
+message GRPCPredictionsPagedPayloadResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated TrainingModelResponse trainings = 4;
+}
+
+message PredictionResponse {
+  string id = 1;
+  string name = 2;
+  string username = 3;
+  string status = 4;
+  string modelId = 5;
+  string modelType = 6;
+  string modelName = 7;
+  string count = 8;
+  string accuracy = 9;
+  string trainingType = 10;
+  repeated TrainingImage trainingImages = 11;
+  string created = 12;
+  string description = 13;
+  GRPCGlobalType globalType = 14;
+  string updated = 15;
+  string imageLiveProgress = 16;
+}
+
+message GRPCPredictionInput {
+  string clientId = 1;
+  string locationId = 2;
+  string username = 3;
+  string type = 4;
+  string trainingName = 5;
+  bool overwrite = 6;
+  repeated GRPCModelsThresholdsRequest modelsThresholds = 7;
+  GRPCGlobalType globalType = 8;
+  GRPCPtagPredictionRequest ptagPredictionRequest = 9;
+  GRPCUploaderPredictionRequest uploaderPredictionRequest = 10;
+}
+
+message GRPCModelsThresholdsRequest {
+  string modelId = 1;
+  float threshold = 2;
+  string type = 3;
+}
+
+message GRPCUploaderPredictionRequest {
+  repeated GRPCImageUploadRequest images = 1;
+}
+
+message GRPCImageUploadRequest {
+  string image = 1;
+  string name = 2;
+  string type = 3;
+}
+
+message GRPCPtagPredictionRequest {
+  float nmsThreshold = 1;
+  string epochPath = 2;
+  repeated string products = 3;
+}
+
+message GRPCPredictionNameRequest {
+  string predictionId = 1;
+  string predictionName = 2;
 }

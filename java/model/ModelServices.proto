@@ -134,29 +134,9 @@ service JModelService {
   }
   rpc GetModelsByLocation (ModelRequestWrapper) returns (JModelResponses) {
   }
-  rpc DeployModel (CreatePodRequest) returns (TrainingModelResponse) {
-  }
-  rpc UploadTrainingImages (TrainingImages) returns (Void) {
-  }
-  rpc GetTrainingImages (TrainingId) returns (TrainingImagesResponse) {
-  }
-  rpc GetModelTrainings (ModelId) returns (TrainingsModelResponse) {
-  }
-  rpc StartPrediction (StartPredictionRequest) returns (Void) {
-  }
-  rpc GetPredictionResults (GRPCPagedPredictionRequest) returns (PredictionResults) {
-  }
-  rpc GetTrainingsByLocation (GRPCGetTrainingsRequest) returns (GRPCTrainingsModelResponse) {
-  }
   rpc StopPrediction (TrainingId) returns (Void) {
   }
-  rpc StartIntegrationTraining (IntegrationTrainings) returns (Void) {
-  }
   rpc GetModelsByLocationAndStatus (ModelStatusRequest) returns (ModelsStatusResponse) {
-  }
-  rpc StartIntegrationUsingImageUpload (IntegrationImageRequest) returns (Void) {
-  }
-  rpc UpdateTrainingName (TrainingName) returns (Void) {
   }
   rpc GetModelsForMergeByType (ModelTypeRequest) returns (ModelsStatusResponse) {
   }
@@ -172,27 +152,15 @@ service JModelService {
   }
   rpc GetModelDataset(ModelId) returns (DatasetPayloadResponse){
   }
-  rpc GetTrainingById(TrainingId) returns (TrainingModelResponse){
-  }
   rpc SetBestEpoch(BestEpoch) returns (Void){
   }
   rpc UpdateModel(JModelRequest) returns (JModelResponse) {
   }
   rpc GetNumberOfClasses(ModelId) returns (NumberOfItems)  {
   }
-  rpc GetNumberOfImages(ModelId) returns (NumberOfItems)  {
-  }
   rpc GetModelByModelVersion(ModelId) returns (JModelResponse)  {
   }
-  rpc DeletePod (ModelId) returns (Void) {
-  }
-  rpc CheckPodStatus (ModelIds) returns (PodStatusResponse) {
-  }
-  rpc CreateTraining (CreateModelTraining) returns (TrainingModelResponse) {
-  }
   rpc GetModels (ModelRequestWrapper) returns (JModelResponses) {
-  }
-  rpc GetModelTestReports (ModelRequestWrapper) returns (GRPCTrainingsModelResponse) {
   }
   rpc UpdateModelStatus (ModelId) returns (Void) {
   }
@@ -227,4 +195,12 @@ service ModelPredictionService {
   rpc GetPredictionResultClassification(GRPCPagedPredictionRequest) returns (GRPCPagedPredictionResponse) {};
   rpc GetPredictionResultDetection(GRPCPagedPredictionRequest) returns (GRPCPagedPredictionResponse) {};
   rpc GetPredictionResultIntegration(GRPCPagedPredictionRequest) returns (GRPCPagedPredictionResponse) {};
+  rpc StartModelPrediction(GRPCPredictionInput) returns (Void) {};
+  rpc StopModelPrediction(FieldString) returns (Void) {};
+  rpc ChangePredictionName(GRPCPredictionNameRequest) returns (Void) {};
+  rpc GetPredictions(ModelRequestWrapper) returns (GRPCPredictionsPagedPayloadResponse) {};
+}
+
+service KubeService {
+  rpc CheckPodStatus (ModelIds) returns (GRPCPodStatusResponse) {};
 }
