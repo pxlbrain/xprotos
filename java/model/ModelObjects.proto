@@ -968,6 +968,7 @@ message ModelDataset {
   string modelType = 6;
   string productListId = 7;
   GRPCGlobalType globalType = 8;
+  string organization = 9;
 }
 
 message ModelStepReq {
