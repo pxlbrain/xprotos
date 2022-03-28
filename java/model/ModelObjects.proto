@@ -728,6 +728,7 @@ message DatasetRequestWrapper {
   GRPCSorting sorting = 5;
   repeated GRPCFilter filter = 6;
   GRPCGlobalType globalType = 7;
+  string organization = 8;
 }
 
 message DatasetsResponse {
@@ -754,6 +755,7 @@ message DatasetPayloadResponse {
   repeated ModelId modelId = 14;
   int32 imageCount = 15;
   string location = 16;
+  string organization = 17;
 }
 
 message DatasetsHistory {
