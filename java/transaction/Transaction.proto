@@ -235,6 +235,7 @@ message CorrectItemResponse {
   string type = 3;
   bool servingCorrect = 4;
   bool edgeCase = 5;
+  bool correct = 6;
 }
 
 message Item {
