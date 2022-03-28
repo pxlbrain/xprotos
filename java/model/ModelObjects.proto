@@ -32,7 +32,7 @@ message GRPCJob {
   string cvatJobId = 14;
   string cvatCsvPath = 15;
   string jobStatus = 16;
-  string locationId = 17;
+  string location = 17;
   string productId = 18;
   string productName = 19;
   string deviceId = 20;
@@ -49,6 +49,7 @@ message GRPCJob {
   string duplicatedCounter = 31;
   string diff = 32;
   string comment = 33;
+  string organization = 34;
 }
 
 message GRPCGetJobsRequest {
@@ -61,6 +62,7 @@ message GRPCGetJobsRequest {
   repeated GRPCFilter filter = 7;
   GRPCGlobalType globalType = 8;
   string datasetId = 9;
+  string organization = 10;
 }
 
 message GRPCGetJobsResponse {
