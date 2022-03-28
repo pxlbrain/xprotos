@@ -395,6 +395,7 @@ message DeviceCamera {
     string position = 18;
     string portId = 19;
     repeated string roi = 20;
+    string serial = 21;
 }
 
 
