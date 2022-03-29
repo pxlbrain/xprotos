@@ -3,6 +3,11 @@ package ai.pixlbrain.backend;
 
 message Void {};
 
+enum ModelDeploymentType {
+    LOCAL = 0;
+    HOST = 1;
+};
+
 message MessageUnit {
     string message = 1;
     string requestId = 2;
@@ -16,17 +21,20 @@ message PredictorResponse {
     MessageUnit message = 1;
 };
 
+
 message PredictorRequest {
     ImagePaths imagePaths = 1;
-    string client = 2;
-    string location = 3;
-    string modelType = 4;
-    double threshold = 5;
-    double detector_threshold = 6;
-    double mlc_threshold = 7;
-    double classifier_threshold = 8;
-    string product_list_path = 9;
-    string segments_rule_path = 10;
+    SchemaRequest schema = 2;
+    string organization = 3;
+    string client = 4;
+    string location = 5;
+    string modelType = 6;
+    double threshold = 7;
+    double detector_threshold = 8;
+    double mlc_threshold = 9;
+    double classifier_threshold = 10;
+    string product_list_path = 11;
+    string segments_rule_path = 12;
 };
 
 message bbx{
@@ -36,16 +44,18 @@ message bbx{
     int32 y2 = 4;
 };
 
-message Params{
+message Params {
     string protocol = 1;
     string host = 2;
-    string model_name = 3;
-    double threshold = 4;
-    bbx roi = 5;
-    string category = 6;
-    string product_list_path = 7;
-    string model_type = 8;
-    string segments_rule_path = 9;
+    ModelDeploymentType model_deployment_type = 3;
+    string model_name = 4;
+    double threshold = 5;
+    bbx roi = 6;
+    string category = 7;
+    string product_list_path = 8;
+    string model_type = 9;
+    string segments_rule_path = 10;
+
 };
 
 message NodeUnit {
@@ -60,7 +70,7 @@ message SchemaRequest {
     repeated NodeUnit nodes = 1;
 };
 
-message FilterPredictorRequest{
+message FilterPredictorRequest {
     SchemaRequest schema = 1;
     string client = 2;
     string location = 3;
@@ -69,7 +79,6 @@ message FilterPredictorRequest{
     string product_list_path = 6;
 };
 
-message StopTestingRequest{
+message StopTestingRequest {
     string requestId = 1;
 };
-

@@ -22,31 +22,26 @@ message PredictorResponse {
 message PredictorRequest {
     ImagePaths imagePaths = 1;
     SchemaRequest schema = 2;
-    string client = 3;
-    string location = 4;
-    string modelType = 5;
-    double threshold = 6;
-    double detector_threshold = 7;
-    double mlc_threshold = 8;
-    double classifier_threshold = 9;
-    string product_list_path = 10;
-    string segments_rule_path = 11;
+    string organization = 3;
+    string client = 4;
+    string location = 5;
+    string modelType = 6;
+    double threshold = 7;
+    double detector_threshold = 8;
+    double mlc_threshold = 9;
+    double classifier_threshold = 10;
+    string product_list_path = 11;
+    string segments_rule_path = 12;
 };
 
-message ServiceParams {
-    string protocol = 1;
-    string host = 2;
-    string model_name = 3;
-};
-
-message bbx{
+message bbx {
     int32 x1 = 1;
     int32 y1 = 2;
     int32 x2 = 3;
     int32 y2 = 4;
 };
 
-message Params{
+message Params {
     string protocol = 1;
     string host = 2;
     ModelDeploymentType model_deployment_type = 3;
@@ -72,15 +67,16 @@ message SchemaRequest {
     repeated NodeUnit nodes = 1;
 };
 
-message FilterPredictorRequest{
+message FilterPredictorRequest {
     SchemaRequest schema = 1;
-    string client = 2;
-    string location = 3;
-    string filter = 4;
-    string modelType = 5;
-    string product_list_path = 6;
+    string organization = 2;
+    string client = 3;
+    string location = 4;
+    string filter = 5;
+    string modelType = 6;
+    string product_list_path = 7;
 };
 
-message StopTestingRequest{
+message StopTestingRequest {
     string requestId = 1;
 };
