@@ -1,7 +1,10 @@
 syntax = "proto3";
 package ai.pixlbrain.backend;
 
-import "ptag/VFSObject.proto";
+enum ModelDeploymentType {
+    LOCAL = 0;
+    HOST = 1;
+};
 
 message MessageUnit {
     string message = 1;
@@ -18,18 +21,19 @@ message PredictorResponse {
 
 message PredictorRequest {
     ImagePaths imagePaths = 1;
-    string client = 2;
-    string location = 3;
-    string modelType = 4;
-    double threshold = 5;
-    double detector_threshold = 6;
-    double mlc_threshold = 7;
-    double classifier_threshold = 8;
-    string product_list_path = 9;
-    string segments_rule_path = 10;
+    SchemaRequest schema = 2;
+    string client = 3;
+    string location = 4;
+    string modelType = 5;
+    double threshold = 6;
+    double detector_threshold = 7;
+    double mlc_threshold = 8;
+    double classifier_threshold = 9;
+    string product_list_path = 10;
+    string segments_rule_path = 11;
 };
 
-message ServiceParams{
+message ServiceParams {
     string protocol = 1;
     string host = 2;
     string model_name = 3;
@@ -45,13 +49,15 @@ message bbx{
 message Params{
     string protocol = 1;
     string host = 2;
-    string model_name = 3;
-    double threshold = 4;
-    bbx roi = 5;
-    string category = 6;
-    string product_list_path = 7;
-    string model_type = 8;
-    string segments_rule_path = 9;
+    ModelDeploymentType model_deployment_type = 3;
+    string model_name = 4;
+    double threshold = 5;
+    bbx roi = 6;
+    string category = 7;
+    string product_list_path = 8;
+    string model_type = 9;
+    string segments_rule_path = 10;
+
 };
 
 message NodeUnit {
