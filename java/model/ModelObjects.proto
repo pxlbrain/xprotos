@@ -1181,16 +1181,18 @@ message PredictionResponse {
 }
 
 message GRPCPredictionInput {
-  string clientId = 1;
-  string locationId = 2;
-  string username = 3;
-  string type = 4;
-  string trainingName = 5;
-  bool overwrite = 6;
-  repeated GRPCModelsThresholdsRequest modelsThresholds = 7;
-  GRPCGlobalType globalType = 8;
-  GRPCPtagPredictionRequest ptagPredictionRequest = 9;
-  GRPCUploaderPredictionRequest uploaderPredictionRequest = 10;
+  string organization = 1;
+  string client = 2;
+  string location = 3;
+  string username = 4;
+  string type = 5;
+  string trainingName = 6;
+  bool overwrite = 7;
+  float nmsThreshold = 8;
+  repeated GRPCModelsThresholdsRequest modelsThresholds = 9;
+  GRPCGlobalType globalType = 10;
+  GRPCPtagPredictionRequest ptagPredictionRequest = 11;
+  GRPCUploaderPredictionRequest uploaderPredictionRequest = 12;
 }
 
 message GRPCModelsThresholdsRequest {
@@ -1210,7 +1212,6 @@ message GRPCImageUploadRequest {
 }
 
 message GRPCPtagPredictionRequest {
-  float nmsThreshold = 1;
   string epochPath = 2;
   repeated string products = 3;
 }
