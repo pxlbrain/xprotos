@@ -660,6 +660,7 @@ message ModelStatusRequest {
   string location = 2;
   repeated string status = 3;
   GRPCGlobalType globalType = 4;
+  string organization = 5;
 }
 
 message ModelsStatusResponse {
