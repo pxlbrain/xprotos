@@ -828,6 +828,7 @@ message NewDetectorDatasetRequest {
   string workflowId = 4;
   string user = 5;
   GRPCGlobalType globalType = 6;
+  string organization = 7;
 }
 
 message DatasetProducts {
