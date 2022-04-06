@@ -367,20 +367,21 @@ message AssignVersionRequest {
 }
 
 message PtagFilter {
-  string client = 1;
-  string location = 2;
-  string dateFrom = 3;
-  string dateTo = 4;
-  string fileType = 5;
-  bool forceCreate = 6;
-  string device = 7;
-  repeated string cameras = 8;
-  string filterLocation = 9;
-  string uploadedDate = 10;
-  string serviceType = 11;
-  bool preannotation = 12;
-  GRPCGlobalType globalType = 13;
-  string bestEpoch = 14;
+  string organization = 1;
+  string client = 2;
+  string location = 3;
+  string dateFrom = 4;
+  string dateTo = 5;
+  string fileType = 6;
+  bool forceCreate = 7;
+  string device = 8;
+  repeated string cameras = 9;
+  string filterLocation = 10;
+  string uploadedDate = 11;
+  string serviceType = 12;
+  bool preannotation = 13;
+  GRPCGlobalType globalType = 14;
+  string bestEpoch = 15;
 }
 
 message ClusterFilter {
@@ -626,6 +627,7 @@ message MergeDatasetRequest {
   string location = 6;
   string client = 7;
   GRPCGlobalType globalType = 8;
+  string organization = 9;
 }
 
 message ModelTypeRequest {
@@ -633,6 +635,7 @@ message ModelTypeRequest {
   string client = 2;
   string modelType = 3;
   GRPCGlobalType globalType = 4;
+  string organization =  5;
 }
 
 message DatasetRequestWrapper {
@@ -732,6 +735,7 @@ message NewDatasetRequest {
   string type = 3;
   repeated DatasetProducts products = 4;
   GRPCGlobalType globalType = 5;
+  string organization = 6;
 }
 
 message NewDetectorDatasetRequest {
