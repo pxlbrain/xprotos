@@ -72,11 +72,12 @@ message SchemaRequest {
 
 message FilterPredictorRequest {
     SchemaRequest schema = 1;
-    string client = 2;
-    string location = 3;
-    string filter = 4;
-    string modelType = 5;
-    string product_list_path = 6;
+    string organization = 2;
+    string client = 3;
+    string location = 4;
+    string filter = 5;
+    string modelType = 6;
+    string product_list_path = 7;
 };
 
 message StopTestingRequest {
