@@ -334,6 +334,7 @@ message JModelRequest {
   bool detector = 16;
   string user = 17;
   string role = 18;
+  string configuration = 19;
 }
 
 message JModelResponses {
@@ -1139,3 +1140,26 @@ message GRPCPredictionNameRequest {
   string predictionId = 1;
   string predictionName = 2;
 }
+
+message ModelConfigurationHistory {
+  string id = 1;
+  string created = 2;
+  string modelId = 3;
+  string configuration = 4;
+  string user = 5;
+}
+
+message ModelConfigurationHistoryResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 count = 3;
+  repeated ModelConfigurationHistory history = 4;
+}
+
+message ModelConfigurationHistoryRequest {
+  string id = 1;
+  repeated GRPCFilter filter = 2;
+  GRPCPaging paging = 3;
+  GRPCSorting sorting = 4;
+}
+

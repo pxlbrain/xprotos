@@ -169,6 +169,7 @@ service JModelService {
   rpc AssignDatasetToModel (AssignVersionRequest) returns (Void) {}
   rpc GetModelsByDataset(DatasetId) returns (DatasetModels) {}
   rpc GetModelAndAssignToDataset (GetModelAndAssignToDatasetRequest) returns (Void) {}
+  rpc GetModelConfigurationHistory(ModelConfigurationHistoryRequest) returns (ModelConfigurationHistoryResponse) {}
 }
 
 service ConfigurationService {
