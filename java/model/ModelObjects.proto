@@ -591,15 +591,16 @@ message ModelStatusResponse {
 }
 
 message ModelTestingJob {
-  string client = 1;
-  string location = 2;
-  DatasetType type = 3;
-  GRPCGlobalType globalType = 4;
-  string device = 5;
-  repeated string cameras = 6;
-  string timeTo =7;
-  string timeFrom =8;
-  string uploadedDate = 9;
+  string organization = 1;
+  string client = 2;
+  string location = 3;
+  DatasetType type = 4;
+  GRPCGlobalType globalType = 5;
+  string device = 6;
+  repeated string cameras = 7;
+  string timeTo =8;
+  string timeFrom =9;
+  string uploadedDate = 10;
 }
 
 message StartPredictionRequest {
