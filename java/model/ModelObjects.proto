@@ -822,12 +822,13 @@ message CustomJob {
 }
 
 message CreateCustomJob {
-  string locationId = 1;
+  string location = 1;
   string client = 2;
   repeated JobMap filters = 3;
   string serviceType = 4;
   GRPCGlobalType globalType = 5;
   string subType = 6;
+  string organization = 7;
 }
 
 message JobMap {
