@@ -137,17 +137,6 @@ message MergeDataset{
     repeated string mergeWithVersions = 4;
 };
 
-message CreateAndMergeDataset{
-    string version = 1;
-    repeated string labels = 2;
-    DatasetSplit split = 3;
-    string requestId = 4;
-    repeated string mergeWithVersions = 5;
-    oneof data {
-        Files csvPaths = 6;
-        BlockFiles blockFiles = 7;
-    };
-};
 
 message DeleteJob{
     string request_id = 1;
@@ -162,8 +151,7 @@ message DatasetRequest {
         DatasetStatus datasetStatus = 4;
         DatasetObjectId datasetObjectId = 5;
         MergeDataset mergeDataset = 6;
-        CreateAndMergeDataset createAndMergeDataset = 7;
-        DeleteJob deleteJob = 8;
+        DeleteJob deleteJob = 7;
     };
 };
 

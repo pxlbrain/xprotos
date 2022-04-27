@@ -11,14 +11,12 @@ service VersionService {
 service DatasetDetectorService {
     rpc CreateDataset(DatasetRequest) returns (DatasetResponse) {};
     rpc MergeDataset(DatasetRequest) returns (DatasetResponse) {};
-    rpc CreateAndMerge(DatasetRequest) returns (DatasetResponse) {};
 };
 
 service DatasetClassifierService {
     rpc CreateDataset(stream DatasetRequest) returns ( DatasetResponse) {};
     rpc GenerateRequest(DatasetRequest) returns (DatasetResponse) {};
     rpc MergeDataset(DatasetRequest) returns (DatasetResponse) {};
-    rpc CreateAndMerge(stream DatasetRequest) returns ( DatasetResponse) {};
     rpc DeleteJob(DatasetRequest) returns (Void) {};
 };
 
@@ -26,6 +24,5 @@ service DatasetMLCService {
     rpc CreateDataset(stream DatasetRequest) returns (DatasetResponse) {};
     rpc GenerateRequest(DatasetRequest) returns (DatasetResponse) {};
     rpc MergeDataset(DatasetRequest) returns (DatasetResponse) {};
-    rpc CreateAndMerge(stream DatasetRequest) returns ( DatasetResponse) {};
     rpc DeleteJob(DatasetRequest) returns (Void) {};
 };
