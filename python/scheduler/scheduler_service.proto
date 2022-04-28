@@ -1,0 +1,10 @@
+syntax = "proto3";
+package ai.pixlbrain.backend;
+import "google/protobuf/empty.proto";
+import "scheduler/scheduler_objects.proto";
+
+
+service SchedulerService {
+    rpc ScheduleDeviceUpdate(CoreConfigTask) returns (google.protobuf.Empty);
+    rpc CancelDeviceTask(DeviceTaskCancelRequest) returns (google.protobuf.Empty);
+};
