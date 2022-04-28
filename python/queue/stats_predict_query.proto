@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+
+message StatsPredictionQuery {
+    repeated string zones = 1;
+    string date_time = 2;
+    string prediction = 3;
+}
