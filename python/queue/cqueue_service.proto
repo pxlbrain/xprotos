@@ -1,13 +1,10 @@
 syntax = "proto3";
 
 import "stats_query.proto";
-import "stats_predict_query.proto";
 import "queue_stats.proto";
 
 
 
 service CQueueService {
     rpc GetStats(StatsQuery) returns (QueueStats);
-    rpc GetStatsPrediction(StatsPredictionQuery) returns (QueueStats);
-
 };
