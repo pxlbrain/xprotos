@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend;
+
+option go_package = "./;xprotos";
+
+import "google/protobuf/wrappers.proto";
+
+message PagedExternalRequest {
+  int32 page = 1;
+  int32 size = 2;
+  string store_id = 3;
+  string product_id = 4;
+  int32 verifiedOrder = 5;
+  int32 brownboxOrder = 6;
+  repeated string return_fields = 7;
+}
+
+message PagedExternalRequestNewer {
+  int32 page = 1;
+  int32 size = 2;
+  string store_id = 3;
+  string timestamp = 4;
+  repeated string return_fields = 5;
+}
+
+message PagedExternalResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int64 count = 3;
+  ExternalPayloadResponse payload = 4;
+}
+
+message ExternalPayloadResponse {
+  string store_id = 1;
+  repeated ExternalProductResponse products = 2;
+}
+
+message ExternalProductChange {
+  string property = 1;
+  string old_value = 3;
+  string new_value = 4;
+}
+
+message ExternalProductChanges {
+  repeated ExternalProductChange changes = 1;
+  string timestamp = 2;
+}
+
+message ExternalProductResponse {
+  string product_id = 1;
+  string product_name = 2;
+  repeated ExternalExtractedInfo extracted = 3;
+  ExternalProductDimension dimensions = 4;
+  google.protobuf.BoolValue is_brownbox = 5;
+  google.protobuf.BoolValue verified = 6;
+  string updated_at = 7;
+  repeated string media_imgs = 8;
+  int32 quantity = 9;
+  google.protobuf.BoolValue ignored = 10;
+  repeated string linked_products = 11;
+  string fetched_at = 12;
+  int32 quantity_default = 13;
+  repeated ExternalProductChanges change_history = 14;
+}
+
+message ExternalExtractedInfo {
+  string image_path = 1;
+  string video_path = 2;
+  float video_timestamp = 3;
+}
+
+message ExternalProductDimension {
+  google.protobuf.DoubleValue length = 1;
+  google.protobuf.DoubleValue width = 2;
+  google.protobuf.DoubleValue height = 3;
+  google.protobuf.DoubleValue depth = 4;
+}
+
+message ExternalProductsImport {
+  string url = 1;
+}
+
+message ExternalProductVerification {
+  string store_id = 1;
+  string product_id = 2;
+  google.protobuf.BoolValue is_brownbox = 3;
+}
+
+message ExternalProductSetIgnored {
+  string store_id = 1;
+  string product_id = 2;
+  google.protobuf.BoolValue ignored = 3;
+}
+
+message ExternalProductSetQuantity {
+  string store_id = 1;
+  string product_id = 2;
+  int32 quantity = 3;
+}
+
+message ExternalProductPaths {
+  string product_id = 1;
+  repeated ExternalExtractedInfo extracted = 2;
+}
+
+message ExternalProductLinks {
+  string store_id = 1;
+  repeated ExternalProductPaths products = 2;
+}
+
+message ExternalProductLinkAddition {
+  string store_id = 1;
+  string product_id = 2;
+  repeated string linked_products = 3;
+}

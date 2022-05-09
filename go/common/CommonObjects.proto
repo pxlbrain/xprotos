@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package ai.pixlbrain.backend;
+
+option go_package = "./;xprotos";
+
+import "common/Filter.proto";
+import "common/Enums.proto";
+
+message ObjectId {
+  string id = 1;
+}
+
+message ObjectIds {
+  repeated string ids = 1;
+}
+
+message GRPCObjectRequest {
+  string id = 1;
+  string client = 2;
+  string location = 3;
+  GRPCGlobalType globalType = 4;
+  repeated GRPCFilter filter = 5;
+  GRPCPaging paging = 6;
+  GRPCSorting sorting = 7;
+}
