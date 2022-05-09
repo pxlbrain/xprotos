@@ -4,6 +4,9 @@ import "stats_query.proto";
 import "queue_stats.proto";
 
 
+
 service CQueueService {
     rpc GetStats(StatsQuery) returns (QueueStats);
+    rpc GetStatsPrediction(StatsQuery) returns (QueueStats);
+
 };

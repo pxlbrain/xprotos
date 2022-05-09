@@ -8,5 +8,5 @@ import "report/time_range.proto";
 
 message StatsQuery {
     repeated string zones = 1;
-    repeated TimeRange time_ranges = 2  ;
+    repeated TimeRange time_ranges = 2;
 }

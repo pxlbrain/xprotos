@@ -10,6 +10,7 @@ import "report/queue_stats.proto";
 service CQueueService {
     rpc GetStats(StatsQuery) returns (QueueStats);
     rpc GetLiveStats(LiveQueueQuery) returns (LiveQueueStats);
+    rpc GetStatsPrediction(StatsQuery) returns (QueueStats);
 };
 
 message LiveQueueQuery {
