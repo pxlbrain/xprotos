@@ -47,7 +47,7 @@ service DeviceService {
   rpc UpdateDeviceConfig(DeviceRequest) returns (Void) {};
   rpc UpdateDeviceTask(TaskStatus) returns (Void) {};
   rpc UpdateDevicesState(OnlineDevices) returns (Void) {};
-  rpc UpdateDeviceState(ObjectId) returns (Void) {};
+  rpc UpdateDeviceState(OnlineDevice) returns (Void) {};
   rpc GetJobsByStatusAndDate(GetDeviceJobsRequest) returns (DeviceJobs) {};
   rpc UpdateDeviceHardware(DeviceHardware) returns (Void) {}
 }
