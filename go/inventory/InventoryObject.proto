@@ -653,6 +653,11 @@ message OnlineDevices {
     repeated string deviceId = 1;
 }
 
+message OnlineDevice {
+    string deviceId = 1;
+    bool online = 2;
+}
+
 message DeviceVersions {
     int32 page = 1;
     int32 size = 2;
