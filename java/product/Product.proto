@@ -279,16 +279,6 @@ message GRPCGetRequest {
   string organization = 9;
 }
 
-message GRPCPaging {
-  int32 page = 1;
-  int32 size = 2;
-}
-
-message GRPCSorting {
-  string field = 1;
-  string order = 2;
-}
-
 message SideDishIds {
   string productId = 1;
   repeated NameId nameIds = 2;

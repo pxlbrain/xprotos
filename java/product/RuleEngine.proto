@@ -19,6 +19,7 @@ service RuleEngineService {
     }
     rpc DeleteRuleEngine (RuleEngineId) returns (Void) {
     }
+    rpc GetUploadedRuleEngines (GetRuleEnginesRequest) returns (RuleEnginesResponse) {}
 }
 
 message RuleEngine {

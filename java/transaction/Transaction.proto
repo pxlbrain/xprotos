@@ -5,17 +5,18 @@ import "inventory/Void.proto";
 import "product/Product.proto";
 import "common/Filter.proto";
 import "common/Enums.proto";
+import "common/CommonObjects.proto";
 import "model/ModelObjects.proto";
 
 service TransactionService {
-  rpc GetTransaction (TransactionId) returns (Transaction) {}
+  rpc GetTransaction (ObjectId) returns (Transaction) {}
   rpc GetAllTransactions (TransactionRequest) returns (GRPCGetTransactionResponse) {}
   rpc GetTransactionByTrayId (TransactionIdsRequest) returns (Transactions) {}
   rpc CreateTransactionReport (TransactionReport) returns (Void) {}
   rpc GetTransactionReports (TransactionReport) returns (TransactionReports) {}
   rpc AddTransactionReport (AddReports) returns (Void) {}
   rpc GetReportById (ReportId) returns (ReportItemRes) {}
-  rpc GetCheckScanTransactionById (TransactionId) returns (ScanTransactions) {}
+  rpc GetCheckScanTransactionById (ObjectId) returns (ScanTransactions) {}
   rpc CreateCheckScanTransactionReport (CheckScanReport) returns (Void) {}
   rpc CheckDateRange (CheckScanReport) returns (ValidateDateRange) {}
   rpc GetAutomaticCheckScanReports (CheckscanReports) returns (AutoCheckscanReports) {}
@@ -194,7 +195,7 @@ message Transaction {
   string time = 4;
   string trayId = 5;
   string transactionStatus = 6;
-  repeated Frame frames = 7;
+  repeated TransactionFrame frames = 7;
   string filter = 8;
   string deviceId = 9;
   string status = 10;
@@ -221,7 +222,7 @@ message Transaction {
   int32 posTo = 31;
 }
 
-message Frame {
+message TransactionFrame {
   string path = 1;
   repeated Item items = 2;
   repeated Item POSItems = 3;
@@ -303,10 +304,6 @@ message TransactionRequest {
   GRPCPaging paging = 3;
   GRPCSorting sorting = 4;
   string type = 5;
-}
-
-message TransactionId {
-  string id = 1;
 }
 
 message ScanTransactions {

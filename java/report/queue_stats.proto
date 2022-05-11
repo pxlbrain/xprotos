@@ -15,20 +15,23 @@ message WaitingTimes {
 
 message ZoneStats {
     string zone = 1;
-
     float total_max_waiting_time = 2;
     float total_avg_waiting_time = 3;
     float total_median_waiting_time = 4;
     float total_avg_group_size = 5;
-
     int32 people_count = 6;
-
     repeated WaitingTimes waiting_times = 7;
     float total_avg_group_waiting_time = 8;
-
     int32 num_groups = 9;
+}
+
+message ZonePredictionStats {
+    string zone = 1;
+    float avg_waiting_time = 2;
+    float avg_group_waiting_time = 3;
 }
 
 message QueueStats {
     repeated ZoneStats zones = 1;
+    repeated ZonePredictionStats prediction_zones = 2;
 }
