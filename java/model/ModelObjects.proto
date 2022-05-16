@@ -222,11 +222,11 @@ message GRPCAssigneeJobRequest {
 
 message ProductJob {
   string productId = 1;
-  bool classifier = 2;
-  bool mlc = 3;
-  repeated ProductJob children = 4;
-  string productName = 5;
-  repeated string parentIds = 6;
+  //  bool classifier = 2;
+  //  bool mlc = 3;
+  //  repeated ProductJob children = 4;
+  string productName = 2;
+  repeated string parentIds = 3;
 }
 
 message ModelId {
