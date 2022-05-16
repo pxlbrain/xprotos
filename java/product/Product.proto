@@ -43,8 +43,8 @@ service ProductService {
   }
   rpc AddSideDishes (SideDishIds) returns (Void) {
   }
-  rpc AddPlateItems (PlateItemIds) returns (Void) {
-  }
+  //  rpc AddPlateItems (PlateItemIds) returns (Void) {
+  //  }
   rpc AddMistakenProducts (MistakenProductIds) returns (Void) {
   }
   rpc UploadProducts (BytesWrapper) returns (Void) {
@@ -61,8 +61,8 @@ service ProductService {
   }
   rpc GetProductsByClientAndLocation (ProductClientLocationRequest) returns (Products) {
   }
-  rpc DeleteProductPlateItem (DeleteProductItemRequest) returns (Void) {
-  }
+  //  rpc DeleteProductPlateItem (DeleteProductItemRequest) returns (Void) {
+  //  }
   rpc DeleteProductSideDish (DeleteProductItemRequest) returns (Void) {
   }
   rpc DeactivateProducts (ProductsRequest) returns (Void) {
@@ -172,8 +172,8 @@ message Product {
   string subCategory = 7;
   string status = 8;
   string ean = 9;
-  bool mlc = 10;
-  bool classifier = 11;
+  //  bool mlc = 10;
+  //  bool classifier = 11;
   int32 width = 12;
   int32 height = 13;
   string scheduleFrom = 14;
@@ -182,7 +182,7 @@ message Product {
   string terminalId = 17;
   string displayName = 18;
   repeated NameId sideDishes = 19;
-  repeated NameId plateItems = 20;
+  //  repeated NameId plateItems = 20;
   repeated NameId mistakenProducts = 21;
   repeated ProductImageResponse productImages = 22;
   string obid = 23;
@@ -289,10 +289,10 @@ message MistakenProductIds {
   repeated NameId nameIds = 2;
 }
 
-message PlateItemIds {
-  string productId = 1;
-  repeated NameId nameIds = 2;
-}
+//message PlateItemIds {
+//  string productId = 1;
+//  repeated NameId nameIds = 2;
+//}
 
 message ProductsRequest {
   repeated string productIds = 1;
