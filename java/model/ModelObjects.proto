@@ -37,7 +37,7 @@ message GRPCJob {
   string productName = 19;
   string deviceId = 20;
   string imageCounter = 21;
-  repeated GRPCJob children = 22;
+//  repeated GRPCJob children = 22;
   string modelId = 23;
   string cvatPreannotationStatus = 24;
   string serviceType = 25;
