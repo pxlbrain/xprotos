@@ -253,6 +253,7 @@ message ProductJobs {
   string user = 8;
   string serviceType = 9;
   GRPCGlobalType globalType = 10;
+  string organization = 11;
 }
 
 message GRPCClusterResponse {
