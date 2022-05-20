@@ -52,6 +52,7 @@ message GRPCProductCategoryRequest {
   string parent = 8;
   string location = 9;
   GRPCGlobalType globalType = 10;
+  string organization = 11;
 }
 
 message ProductCategory {
@@ -67,10 +68,12 @@ message ProductCategory {
   string location = 10;
   GRPCGlobalType globalType = 11;
   string globalParent = 12;
+  string organization = 13;
 }
 
 message GRPCCreateProductCategoriesRequest {
   string client = 1;
   string loction = 2;
   GRPCGlobalType globalType = 3;
+  string organization = 4;
 }
