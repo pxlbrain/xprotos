@@ -1139,6 +1139,7 @@ message TransactionJobReq {
   google.protobuf.Timestamp dateTo = 4;
   double thresholdFrom = 5;
   double thresholdTo = 6;
+  GRPCGlobalType globalType = 7;
 }
 
 message JobComment {
