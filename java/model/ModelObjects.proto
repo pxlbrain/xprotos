@@ -401,6 +401,7 @@ message ClusterFilter {
   string numberAroundCluster = 12;
   string serviceType = 13;
   GRPCGlobalType globalType = 14;
+  string organization = 15;
 }
 
 message DeviceCameraGRPC {
