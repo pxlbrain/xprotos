@@ -262,6 +262,7 @@ message GRPCClusterResponse {
   string location = 3;
   string date = 4;
   string serviceType = 5;
+  string organization = 6;
 }
 
 message GRPCCluster {
