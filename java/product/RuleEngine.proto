@@ -39,6 +39,8 @@ message RuleEngine {
     float classificationThreshold = 14;
     GRPCGlobalType globalType = 15;
     repeated IdMhs mhsMappping = 16;
+    map<string, string> clsFiltering = 17;
+    float overlapTresholdCls = 18;
 }
 
 message RuleEnginesResponse {
