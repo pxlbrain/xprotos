@@ -20,6 +20,10 @@ message UpstreamMessage {
         TaskStatus                  task_status = 4;
         Frames                      frames = 5;
         PagedExternalRequestNewer   external_api_request = 6;
+        // Real-time transaction supervision (additive — tags >= 7). Devices
+        // that never send these are wire-identical to the legacy contract.
+        TxLive                      tx_live = 7;   // live, pre-finalization tray/scan state
+        TxAck                       tx_ack = 8;    // ack of a hold/release command
     }
 }
 
@@ -70,6 +74,9 @@ message DownstreamMessage {
         TaskCancel task_cancel = 6;
         GetFrame get_frame = 7;
         PagedExternalResponse external_api_response = 8;
+        // Real-time transaction supervision (additive — tags >= 9).
+        TxHold tx_hold = 9;         // pause a transaction (auto low-conf OR operator)
+        TxRelease tx_release = 10;  // resume, applying operator edits
     }
 }
 
@@ -106,4 +113,73 @@ message TaskStatusRequest {
 message TaskCancelRequest {
     DeviceId device = 1;
     string task_id = 2;
+}
+
+// +-------------------------------------------------+
+// | Real-time transaction supervision (additive)    |
+// | Field tags MUST match the backend contract so    |
+// | the wire format is identical on both ends.       |
+// +-------------------------------------------------+
+
+// One recognized item in the live (not-yet-finalized) tray state.
+message TxLiveItem {
+    int32 tray = 1;
+    int32 frame = 2;
+    int32 item = 3;
+    string class_id = 4;
+    string label = 5;
+    float confidence = 6;
+    string pos_id = 7;
+    string crop_ref = 8;   // S3 key / URL of the item crop, for the operator UI
+}
+
+// Live snapshot of an in-progress transaction, streamed BEFORE finalization.
+message TxLive {
+    string tx_id = 1;
+    string device_id = 2;
+    string company_id = 3;
+    string location_id = 4;
+    StatusEnum state = 5;            // IN_PROGRESS while scanning
+    repeated TxLiveItem items = 6;
+}
+
+// A single operator edit applied to a held transaction before release.
+message ScanEdit {
+    enum Op {
+        SET = 0;     // change the product on an existing item
+        ADD = 1;     // add a missed product
+        REMOVE = 2;  // remove a wrongly-detected item
+    }
+    Op op = 1;
+    int32 tray = 2;
+    int32 frame = 3;
+    int32 item = 4;        // ignored for ADD
+    string class_id = 5;
+    string label = 6;
+    string pos_id = 7;
+}
+
+// Downstream: pause a transaction so the device does NOT finalize it.
+message TxHold {
+    enum Reason {
+        LOW_CONFIDENCE = 0;  // automatic — model uncertain
+        OPERATOR = 1;        // proactive operator pause
+    }
+    string tx_id = 1;
+    Reason reason = 2;
+    int32 timeout_ms = 3;  // device-side fail-open: finalize if no release by then
+}
+
+// Downstream: resume a held transaction, applying the operator's edits.
+message TxRelease {
+    string tx_id = 1;
+    repeated ScanEdit edits = 2;   // empty = resume unchanged
+}
+
+// Upstream: device acknowledges a hold/release.
+message TxAck {
+    string tx_id = 1;
+    string kind = 2;   // "hold" | "release"
+    bool ok = 3;
+    string message = 4;
 }
